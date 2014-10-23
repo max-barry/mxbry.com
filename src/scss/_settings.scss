@@ -1,4 +1,8 @@
+// Fonts
 $em-base: 14px;
+$body-font-family: notoregular;
+$heavy-font-family: notobold, $body-font-family;
+$block-font-family: mohavebolditalic, $heavy-font-family;
 
 // $column: golden-ratio(1em, 3); // Column width
 $gutter: 1rem; // Gutter between each two columns

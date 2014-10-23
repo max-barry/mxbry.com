@@ -1,0 +1,101 @@
+.activity, .filter {
+    @include clearfix;
+}
+
+.activity li{
+    // height: $activity-source-height;
+    position: relative;
+    margin-top: $gutter;
+    @include clearfix;
+}
+
+.activity li:first-child {
+    margin-top: 0;
+}
+
+.activity .copy-wrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // max-height: 65%;
+    display: inline-block;
+    @include scut-center-transform(y);
+    span {
+        display: block;
+        &:not(.heavy) {
+            color: $copy-secondary;
+        }
+    }
+}
+
+.filter {
+    margin-bottom: 2 * $gutter;
+    @include transform-style(preserve-3d);
+}
+
+.filter .round-icon.control {
+    background-color: $neutral;
+    box-shadow: $shadow-depth-1;
+    @include transition(background-image, box-shadow 250ms $ease-out-quint, background-color 250ms $ease-out-quint);
+}
+
+.filter .round-icon:not(.control) {
+    background-color: $neutral-darker;
+    opacity: 0;
+    // TODO : Pointer event polyfill
+    pointer-events: none;
+    position: relative;
+    box-shadow: $shadow-depth-1;
+    @include transition(transform 250ms $ease-out-quint, opacity 150ms $ease-out-quint, background-color 250ms $ease-out-quint);
+    span {
+        color: $black;
+        font-family: $heavy-font-family;
+        @include transition(opacity 250ms);
+        @include scut-center-transform;
+    }
+}
+
+// $filter-reveal-delay: 250ms;
+
+.filter .round-icon:nth-child(2) {
+    @include transform(translate3d(-120%, 0, -1px));
+}
+.filter .round-icon:nth-child(3) {
+    @include transform(translate3d(-230%, 0, -2px));
+}
+.filter .round-icon:nth-child(4) {
+    @include transform(translate3d(-340%, 0, -3px));
+}
+
+// .reveal-filter-options {
+//     .round-icon:not(.control):nth-child(2) {
+//         @include transition-delay($filter-reveal-delay * 1);
+//     }
+//     .round-icon:not(.control):nth-child(3) {
+//         @include transition-delay($filter-reveal-delay * 2);
+//     }
+//     .round-icon:not(.control):nth-child(4) {
+//         @include transition-delay($filter-reveal-delay * 3);
+//     }
+// }
+
+.reveal-filter-options .round-icon:not(.control) {
+    opacity: 1;
+    pointer-events: all;
+    @include transform(none);
+    @include transition(transform 500ms $ease-out-quint, opacity 150ms $ease-out-quint, background-color 250ms $ease-out-quint, box-shadow 250ms $ease-out-quint); 
+    &:hover {
+        background-color: darken($neutral-darker, 5);
+    }
+    &.active {
+        box-shadow: none;
+        background-color: darken($neutral-darker, 10);
+    }
+}
+
+.reveal-filter-options .round-icon.control {
+    background-image:url("#{$image-url}icons/clear-wh.svg");
+    background-color: $black;
+    box-shadow: none;
+    @include transition(background-image, background-color 250ms $ease-out-quint);
+    @include swap-bg-image;
+}

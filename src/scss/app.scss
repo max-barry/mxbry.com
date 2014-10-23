@@ -6,10 +6,13 @@
 
 // Custom SCSS - General
 @import "colors";
+@import "mixins";
 @import "general";
+@import "icons";
+@import "type";
 
-@import "components/component_general";
 @import "components/sources";
 
 // Site sections
-@import "activity";
+@import "sections/activity";
+@import "sections/home";

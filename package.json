@@ -37,7 +37,7 @@
     "dest_paths": {
         "assets": "build/",
         "js": "build/js/",
-        "fonts": "build/font/",
+        "fonts": "build/fonts/",
         "images": "build/images/",
         "css": "build/stylesheets/"
     },

@@ -1,0 +1,27 @@
+.round-icon {
+    float: left;
+    margin-right: $gutter;
+    cursor: pointer;
+    @include round-image("", $activity-source-height);
+    background-size: 50%;
+    @include transition(background-image);
+    &.medium {
+        background-color: black;
+        background-image:url("/images/logos/medium-wh.svg");
+    }
+    &.twitter {
+        background-color: #4099FF;
+        background-image:url("#{$image-url}logos/twitter.svg");
+    }
+    &.github {
+        background-size: 100%;
+        background-color: #FFF;
+        background-image:url("#{$image-url}logos/github.svg");
+    }
+    &.more-dots-gr {
+        background-image: url("#{$image-url}icons/more-dots-gr.svg");
+    }
+    &.control {
+        background-image: url("#{$image-url}icons/filter-wh.svg");
+    }
+}
