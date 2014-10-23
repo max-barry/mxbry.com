@@ -1,0 +1,15 @@
+html {
+    font-size: 14px;
+}
+
+.page-wrap {
+    @include outer-container;
+    &.slim {
+        max-width: rem(840);
+    }
+}
+
+@mixin animation-base {
+    @include animation-fill-mode(forwards);
+    @include animation-timing-function($ease-out-quint);
+}

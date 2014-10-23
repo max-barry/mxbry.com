@@ -1,0 +1,50 @@
+@mixin swap-bg-image {
+    $animation-length: 350ms;
+    @include animation-name(bg-image-scale);
+    @include animation-duration($animation-length);
+    @include transition-delay($animation-length/2);
+    @include animation-base;
+}
+
+.source-icon {
+    float: left;
+    margin-right: $gutter;
+    @include round-image("", $activity-source-height);
+    background-size: 50%;
+    cursor: pointer;
+    @include transition(background-image);
+    &.medium {
+        background-color: black;
+        background-image:url("/images/logos/medium-wh.svg");
+    }
+    &.twitter {
+        background-color: #4099FF;
+        background-image:url("#{$image-url}logos/twitter.svg");
+    }
+    &.github {
+        background-size: 100%;
+        background-image:url("#{$image-url}logos/github.svg");
+    }
+}
+
+li:not(.filter) .source-icon:hover {
+    background-image:url("#{$image-url}icons/exit-page-wh.svg");
+    background-color: $accent-color;
+    background-size: 50%;
+    @include swap-bg-image;
+}
+
+@include keyframes(bg-image-scale) {
+    0% {
+        background-size: 50%;
+        @include transform(rotate(0deg));
+    }
+    50% {
+        background-size: 0%;
+        @include transform(rotate(180deg));
+    }
+    100% {
+        background-size: 50%;
+        @include transform(rotate(360deg));
+    }
+}

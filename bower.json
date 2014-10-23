@@ -1,0 +1,13 @@
+{
+  "name": "Project name",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "jquery":"~2.1.1",
+    "modernizr":"~2.8.3",
+    "neat": "~1.7.0",
+    "bourbon": "~4.0.1",
+    "scut": "~0.10.3",
+    "normalize-scss": "~3.0.0"
+  }
+}
