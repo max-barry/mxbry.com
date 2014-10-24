@@ -1,0 +1,70 @@
+// Served from Gridlover.net
+
+body {
+  font-size: rem(14);
+  font-family: $body-font-family;
+  line-height: rem(20);
+  margin: 0 auto;
+  color: $copy;
+}
+h1 {
+  font-size: rem(59px);
+  line-height: rem(60px);
+  margin-top: rem(40px);
+  margin-bottom: rem(20px);
+}
+h2 {
+  font-size: rem(37px);
+  line-height: rem(40px);
+  margin-top: rem(40px);
+  margin-bottom: rem(20px);
+}
+h3 {
+  font-size: rem(23px);
+  line-height: rem(40px);
+  margin-top: rem(20px);
+  margin-bottom: rem(20px);
+}
+h4 {
+  font-size: rem(14px);
+  line-height: rem(20px);
+  margin-top: rem(20px);
+  margin-bottom: rem(20px);
+}
+p {
+    max-width: rem(760);
+}
+p, ul, ol, pre, table, blockquote {
+  margin-top: rem(20px);
+  margin-bottom: rem(20px);
+}
+
+/* Sanitation */
+hr {
+  border: 1px solid;
+  margin: -1px 0;
+}
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+b, strong, em, small, code {
+  line-height: 1;
+}
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+sub {
+  top: 0.4em;
+}
+
+
+h1, h2, h3 {
+    font-family: $block-font-family;
+}
+
+.heavy {
+    font-family: $heavy-font-family;
+}

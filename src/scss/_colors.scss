@@ -4,4 +4,17 @@ $neutral: #e5e5e5;
 $neutral-darker: darken($neutral, 5);
 $neutral-lighter: #e5e5e5;
 
-$black: #545454;
+$black: #2e2e2e;
+
+$copy: hsla(0,0%,0%,.87);
+$copy-secondary: hsla(0,0%,0%,.54);
+
+// Shadows
+/**
+@link https://material.angularjs.org/#/material.components.whiteframe/readme/overview
+*/
+$shadow-depth-1: 0 2px 5px 0 rgba(0,0,0,.26);
+$shadow-depth-2: 0 8px 17px rgba(0,0,0,.2);
+$shadow-depth-3: 0 17px 50px rgba(0,0,0,.19);
+$shadow-depth-4: 0 16px 28px 0 rgba(0,0,0,.22);
+$shadow-depth-5: 0 27px 24px 0 rgba(0,0,0,.2);
