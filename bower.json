@@ -8,6 +8,6 @@
     "neat": "~1.7.0",
     "bourbon": "~4.0.1",
     "scut": "~0.10.3",
-    "normalize-scss": "~3.0.0"
+    "reset-scss": "latest"
   }
 }
