@@ -29,6 +29,8 @@ if (!$.tweets_from_widget) {
     $.tweets_from_widget = {};
 }
 
+// https://cdn.syndication.twimg.com/widgets/timelines/420890443182649345
+
 $.tweets_from_widget = (function(widget_id) {
     'use strict';
 
