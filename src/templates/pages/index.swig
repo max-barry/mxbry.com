@@ -2,7 +2,7 @@
 layout: base
 ---
 
-<h1 class="page-wrap tiny">Max Barry.</h1>
+{# <h1 class="page-wrap tiny">Max Barry.</h1> #}
 <h4 class="page-wrap xtiny">
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt ab, possimus asperiores,
 explicabo nemo sit iste. Aliquid, voluptatem atque magni. Reiciendis deleniti numquam illo
