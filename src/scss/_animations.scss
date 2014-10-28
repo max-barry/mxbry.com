@@ -1,0 +1,23 @@
+@include keyframes(fadein) {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@include keyframes(bg-image-scale) {
+    0% {
+        background-size: 50%;
+        @include transform(rotate(0deg));
+    }
+    50% {
+        background-size: 0%;
+        @include transform(rotate(180deg));
+    }
+    100% {
+        background-size: 50%;
+        @include transform(rotate(360deg));
+    }
+}

@@ -17,8 +17,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     // max-height: 65%;
-    display: inline-block;
-    @include scut-center-transform(y);
+    // display: inline-block;
+    // @include scut-center-transform(y);
+    display: block;
     span {
         display: block;
         &:not(.heavy) {

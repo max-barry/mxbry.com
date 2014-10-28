@@ -1,22 +1,35 @@
+@mixin icon-medium {
+    background-color: black;
+    background-image:url("/images/logos/medium-wh.svg");
+}
+
+@mixin icon-github {
+    background-size: 100%;
+    background-color: #FFF;
+    background-image:url("#{$image-url}logos/github.svg");
+}
+
+@mixin icon-twitter {
+    background-color: #4099FF;
+    background-image:url("#{$image-url}logos/twitter.svg");
+}
+
 .round-icon {
     float: left;
     margin-right: $gutter;
     cursor: pointer;
     @include round-image("", $activity-source-height);
     background-size: 50%;
+    position: relative;
     @include transition(background-image);
     &.medium {
-        background-color: black;
-        background-image:url("/images/logos/medium-wh.svg");
+        @include icon-medium;
     }
     &.twitter {
-        background-color: #4099FF;
-        background-image:url("#{$image-url}logos/twitter.svg");
+        @include icon-twitter;
     }
     &.github {
-        background-size: 100%;
-        background-color: #FFF;
-        background-image:url("#{$image-url}logos/github.svg");
+        @include icon-github;
     }
     &.more-dots-gr {
         background-image: url("#{$image-url}icons/more-dots-gr.svg");
@@ -25,3 +38,4 @@
         background-image: url("#{$image-url}icons/filter-wh.svg");
     }
 }
+

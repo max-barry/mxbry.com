@@ -10,6 +10,7 @@ module.exports = function(grunt) {
             dist: {
                 src: [
                     '<%= pkg.project_paths.bower_folder %>jquery/dist/jquery.js',
+                    '<%= pkg.project_paths.bower_folder %>jquery.wait/jquery.wait.js',
                     '<%= pkg.src_paths.js %>**/*.js'
                 ],
                 dest: '<%= pkg.dest_paths.js %>app.js'
