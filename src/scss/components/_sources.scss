@@ -13,17 +13,24 @@ li:not(.filter) .round-icon:hover {
     @include swap-bg-image;
 }
 
-@include keyframes(bg-image-scale) {
-    0% {
-        background-size: 50%;
-        @include transform(rotate(0deg));
-    }
-    50% {
-        background-size: 0%;
-        @include transform(rotate(180deg));
-    }
-    100% {
-        background-size: 50%;
-        @include transform(rotate(360deg));
-    }
+.transition-to-medium:after, .transition-to-twitter:after, .transition-to-github:after {
+    content: "";
+    @include position(absolute, 0 0 0 0);
+    border-radius: 100%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    @include animation-name(fadein);
+    @include animation-duration(350ms);
+    @include animation-base;
+}
+
+.transition-to-medium:after {
+    @include icon-medium;
+}
+.transition-to-twitter:after {
+    @include icon-twitter;
+}
+.transition-to-github:after {
+    @include icon-github;
 }
