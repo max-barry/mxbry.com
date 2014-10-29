@@ -3,7 +3,8 @@
     var defaults = {
         widget: null,
         author: true,
-        slim: false
+        slim: false,
+        callback: null
     };
 
     if (!$.tweets_from_widget) {
@@ -40,7 +41,8 @@
 
                 if (!settings.slim) {
                     extra_details = {
-                        id: tmp_element.data("tweet-id")
+                        id: toString(tmp_element.data("tweet-id")),
+                        url: "https://twitter.com/markposh/status/" + tmp_element.data("tweet-id")
                     };
 
                     if (tmp_element.find(".retweet-credit").length) {
@@ -66,15 +68,15 @@
 
         }
 
-        function _fetch_tweets() {
-            $.ajax({
-                url: "https://cdn.syndication.twimg.com/widgets/timelines/" + settings.widget,
-                dataType: "JSONP",
-                success: _build_tweet_objects
-            });
-        }
-
-        _fetch_tweets();
+        $.ajax({
+            url: "https://cdn.syndication.twimg.com/widgets/timelines/" + settings.widget,
+            dataType: "JSONP",
+            success: _build_tweet_objects
+        }).always(function(){
+            if (settings.callback) {
+                settings.callback(tweets.reverse());
+            }
+        });
 
         return tweets.reverse();
     };

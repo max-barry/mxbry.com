@@ -11,6 +11,8 @@ module.exports = function(grunt) {
                 src: [
                     '<%= pkg.project_paths.bower_folder %>jquery/dist/jquery.js',
                     '<%= pkg.project_paths.bower_folder %>jquery.wait/jquery.wait.js',
+                    '<%= pkg.project_paths.bower_folder %>lodash/dist/lodash.js',
+                    '<%= pkg.project_paths.bower_folder %>moment/moment.js',
                     '<%= pkg.src_paths.js %>**/*.js'
                 ],
                 dest: '<%= pkg.dest_paths.js %>app.js'
