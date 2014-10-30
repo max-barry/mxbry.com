@@ -1,17 +1,22 @@
+// Vendor
 @import "reset";
 @import "bourbon";
 @import "settings";
 @import "neat";
 @import "scut";
 
-// Custom SCSS - General
-@import "colors";
-@import "mixins";
+// Project SCSS internals
+@import "internals/colors";
+@import "internals/mixins";
+@import "internals/media-queries";
+@import "internals/animations";
+@import "internals/icons";
+
+// Project shared styles
 @import "general";
-@import "animations";
-@import "icons";
 @import "type";
 
+// Site-wide components
 @import "components/sources";
 
 // Site sections

@@ -2,8 +2,11 @@
     @include clearfix;
 }
 
+/**
+Activity componenet
+*/
+
 .activity li{
-    // height: $activity-source-height;
     position: relative;
     margin-top: $gutter;
     @include clearfix;
@@ -16,9 +19,6 @@
 .activity .copy-wrap {
     overflow: hidden;
     text-overflow: ellipsis;
-    // max-height: 65%;
-    // display: inline-block;
-    // @include scut-center-transform(y);
     display: block;
     span {
         display: block;
@@ -28,6 +28,9 @@
     }
 }
 
+/**
+Filter
+*/
 .filter {
     margin-bottom: 2 * $gutter;
     @include transform-style(preserve-3d);
@@ -66,18 +69,6 @@
 .filter .round-icon:nth-child(4) {
     @include transform(translate3d(-340%, 0, -3px));
 }
-
-// .reveal-filter-options {
-//     .round-icon:not(.control):nth-child(2) {
-//         @include transition-delay($filter-reveal-delay * 1);
-//     }
-//     .round-icon:not(.control):nth-child(3) {
-//         @include transition-delay($filter-reveal-delay * 2);
-//     }
-//     .round-icon:not(.control):nth-child(4) {
-//         @include transition-delay($filter-reveal-delay * 3);
-//     }
-// }
 
 .reveal-filter-options .round-icon:not(.control) {
     opacity: 1;

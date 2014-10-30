@@ -1,5 +1,8 @@
 html {
     font-size: 14px;
+    @media #{$small-all} {
+        font-size: 15px;
+    }
 }
 
 .filter div, .activity li {
