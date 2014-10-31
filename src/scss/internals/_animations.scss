@@ -7,6 +7,12 @@
     }
 }
 
+@include keyframes(transform-reset) {
+    to {
+        @include transform(none);
+    }
+}
+
 @include keyframes(bg-image-scale) {
     0% {
         background-size: 50%;

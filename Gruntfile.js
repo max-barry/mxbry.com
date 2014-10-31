@@ -10,8 +10,10 @@ module.exports = function(grunt) {
             dist: {
                 src: [
                     '<%= pkg.project_paths.bower_folder %>jquery/dist/jquery.js',
-                    '<%= pkg.project_paths.bower_folder %>jquery.wait/jquery.wait.js',
+                    // '<%= pkg.project_paths.bower_folder %>jquery.wait/jquery.wait.js',
                     '<%= pkg.project_paths.bower_folder %>lodash/dist/lodash.js',
+                    '<%= pkg.project_paths.bower_folder %>multiline/browser.js',
+                    '<%= pkg.project_paths.bower_folder %>doT/doT.js',
                     '<%= pkg.project_paths.bower_folder %>moment/moment.js',
                     '<%= pkg.src_paths.js %>**/*.js'
                 ],

@@ -6,31 +6,3 @@
     @include animation-base;
 }
 
-li:not(.filter) .round-icon:hover {
-    background-image:url("#{$image-url}icons/exit-page-wh.svg");
-    background-color: $accent-color;
-    background-size: 50%;
-    @include swap-bg-image;
-}
-
-.transition-to-medium:after, .transition-to-twitter:after, .transition-to-github:after {
-    content: "";
-    @include position(absolute, 0 0 0 0);
-    border-radius: 100%;
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    @include animation-name(fadein);
-    @include animation-duration(350ms);
-    @include animation-base;
-}
-
-.transition-to-medium:after {
-    @include icon-medium;
-}
-.transition-to-twitter:after {
-    @include icon-twitter;
-}
-.transition-to-github:after {
-    @include icon-github;
-}

@@ -1,4 +1,4 @@
-var mbry = {
+var mb = {
     accounts: {
         medium: "@ev",
         twitter: "",

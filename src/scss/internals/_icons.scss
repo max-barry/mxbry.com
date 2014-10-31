@@ -15,13 +15,10 @@
 }
 
 .round-icon {
-    float: left;
-    margin-right: $gutter;
-    cursor: pointer;
     @include round-image("", $activity-source-height);
     background-size: 50%;
     position: relative;
-    @include transition(background-image);
+    z-index: 1;
     &.medium {
         @include icon-medium;
     }

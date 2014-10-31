@@ -1,3 +1,13 @@
+/*
+Fetches and creates objects representing Tweets within a Twitter widget.
+
+@example    $.tweets_from_widget({
+                widget_id:"420890443182649345",
+                slim:true
+            });
+
+@returns Array of Tweet objects. Each object contains (at a minimum) body and pub_date of the Tweet
+*/
 ;(function($) {
 
     var defaults = {
@@ -42,7 +52,7 @@
                 if (!settings.slim) {
                     extra_details = {
                         id: toString(tmp_element.data("tweet-id")),
-                        url: "https://twitter.com/markposh/status/" + tmp_element.data("tweet-id")
+                        url: "https://twitter.com/" + tmp_element.find(".p-author .p-nickname").text() + "/status/" + tmp_element.data("tweet-id")
                     };
 
                     if (tmp_element.find(".retweet-credit").length) {

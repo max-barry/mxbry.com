@@ -2,18 +2,25 @@
     @include clearfix;
 }
 
+.activity .round-icon, .filter .round-icon {
+    float: left;
+    margin-right: $gutter;
+    cursor: pointer;
+    @include transition(background-image);
+}
+
 /**
 Activity componenet
 */
 
-.activity li{
+.activity li {
     position: relative;
-    margin-top: $gutter;
+    overflow: hidden;
     @include clearfix;
 }
 
-.activity li:first-child {
-    margin-top: 0;
+.activity li + li {
+    margin-top: $gutter;
 }
 
 .activity .copy-wrap {
@@ -27,6 +34,75 @@ Activity componenet
         }
     }
 }
+
+
+.activity li .round-icon:hover {
+    background-image:url("#{$image-url}icons/exit-page-wh.svg");
+    background-color: $accent-color;
+    background-size: 50%;
+    @include swap-bg-image;
+}
+
+/**
+Activity transitions
+*/
+$source-entrance-duration: 500ms;
+.source-initial {
+    .round-icon, .copy-wrap {
+        @include animation-base;
+    }
+    .round-icon {
+        @include transform(scale(0, 0));
+        @include animation-delay($source-entrance-duration * 0.65);
+    }
+    .copy-wrap {
+        @include transform(translateX(-250%));
+    }
+}
+
+.source-enter {
+    .round-icon {
+        @include animation(transform-reset $source-entrance-duration $ease-out-quint, fadein $source-entrance-duration $ease-out-quint);
+    }
+    .copy-wrap {
+        @include animation(transform-reset $source-entrance-duration $ease-out-quint, fadein $source-entrance-duration $ease-out-quint);
+    }
+}
+
+@include keyframes(source-copy-enter){
+    to {
+        opacity: 1;
+        @include transform(none);
+    }
+};
+@include keyframes(source-icon-enter){
+    to {
+        @include transform(none);
+    }
+};
+
+.transition-to-medium:after, .transition-to-twitter:after, .transition-to-github:after {
+    content: "";
+    @include position(absolute, 0 0 0 0);
+    border-radius: 100%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    @include animation-name(fadein);
+    @include animation-duration(350ms);
+    @include animation-base;
+}
+
+.transition-to-medium:after {
+    @include icon-medium;
+}
+.transition-to-twitter:after {
+    @include icon-twitter;
+}
+.transition-to-github:after {
+    @include icon-github;
+}
+
 
 /**
 Filter

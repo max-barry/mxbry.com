@@ -16,21 +16,21 @@ explicabo nemo sit iste. Aliquid, voluptatem atque magni. Reiciendis deleniti nu
         <div class="round-icon more-dots-gr"></div>
     </div>
     <ul class="activity">
-        <li>
+        <li class="source-initial">
             <div class="round-icon medium"></div>
             <div class="copy-wrap">
                 <span class="heavy">This is medium headline</span>
                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
             </div>
         </li>
-        <li>
+        <li class="source-initial">
             <div class="round-icon twitter"></div>
             <div class="copy-wrap">
                 <span class="heavy">This is twitter headline</span>
                 <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.</span>
             </div>
         </li>
-        <li>
+        <li class="source-initial">
             <div class="round-icon github"></div>
             <div class="copy-wrap">
                 <span class="heavy">This is Github headline</span>
