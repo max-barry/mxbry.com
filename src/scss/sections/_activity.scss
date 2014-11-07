@@ -48,12 +48,11 @@ Activity transitions
 */
 $source-entrance-duration: 500ms;
 .source-initial {
-    .round-icon, .copy-wrap {
-        @include animation-base;
-    }
+    // .round-icon, .copy-wrap {
+    //     @include animation-base;
+    // }
     .round-icon {
         @include transform(scale(0, 0));
-        @include animation-delay($source-entrance-duration * 0.65);
     }
     .copy-wrap {
         @include transform(translateX(-250%));
@@ -63,9 +62,13 @@ $source-entrance-duration: 500ms;
 .source-enter {
     .round-icon {
         @include animation(transform-reset $source-entrance-duration $ease-out-quint, fadein $source-entrance-duration $ease-out-quint);
+        @include animation-delay($source-entrance-duration * 0.65);
     }
     .copy-wrap {
         @include animation(transform-reset $source-entrance-duration $ease-out-quint, fadein $source-entrance-duration $ease-out-quint);
+    }
+    .round-icon, .copy-wrap {
+        @include animation-base;
     }
 }
 

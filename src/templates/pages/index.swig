@@ -16,7 +16,7 @@ explicabo nemo sit iste. Aliquid, voluptatem atque magni. Reiciendis deleniti nu
         <div class="round-icon more-dots-gr"></div>
     </div>
     <ul class="activity">
-        <li class="source-initial">
+{#         <li class="source-initial">
             <div class="round-icon medium"></div>
             <div class="copy-wrap">
                 <span class="heavy">This is medium headline</span>
@@ -35,6 +35,6 @@ explicabo nemo sit iste. Aliquid, voluptatem atque magni. Reiciendis deleniti nu
             <div class="copy-wrap">
                 <span class="heavy">This is Github headline</span>
             </div>
-        </li>
+        </li> #}
     </ul>
 </section>
