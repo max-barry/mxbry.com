@@ -7,6 +7,59 @@ $(function(jQuery) {
 
         var tpl_vars;
 
+        // ### APPEND COLLECTED ITEMS TO DOM
+
+        // #### _initial_append
+        // Appends the initial set of items to the DOM
+        function _initial_append() {
+            console.log("Appending feeds initially");
+            var $activity_container = $(".activity");
+            pub.initial_activities = _calculate_initial_activities();
+            _.forEach(pub.initial_activities, function(item) {
+                pub.append_activity($activity_container, item);
+            });
+        }
+
+        // ### ANIMATE ITEMS IN VIEW
+        // #### _post_entrance
+        // Post animation housekeeping
+        function _post_entrance($activities) {
+            $(".activity .source-initial").attr("class", "");
+            $(".hp-activities .loader").remove();
+            $(".filter").addClass("reveal-filter");
+        }
+
+        // #### _reveal_items
+        // After appending the items to the DOM, animate the items in view
+        function _reveal_items() {
+            var i = 0,
+                $initial_activities = $(".activity .source-initial");
+
+            $(".hp-activities .loader").removeClass("show");
+
+            var revealInt = setInterval(function(){
+                console.log("Iteration: " + i);
+                $($initial_activities.get(i)).addClass("source-enter");
+                if (i == $initial_activities.length - 1) {
+                    clearInterval(revealInt);
+                    setTimeout(_post_entrance, activity_animate_time);
+                } else {
+                    i++;
+                }
+            }, 220);
+        }
+
+        // ### MANIPULATE COLLECTED SERVICES
+        // #### _mash_feeds
+        // Mashes the content of each service in to a single array
+        function _mash_feeds() {
+            console.log("Mashing feeds");
+            var all_items = [].concat.apply([], _.pluck(mb.services, "content"));
+            pub.all_activities = _.sortBy(all_items, "pubDate").reverse();
+        }
+
+        // #### _calculate_initial_activities
+        // Find the items to surface initially
         function _calculate_initial_activities() {
             var initials = [],
                 min_display;
@@ -22,6 +75,8 @@ $(function(jQuery) {
             return _.shuffle(_.flatten(initials));
         }
 
+        // #### _collate_fetch_promises
+        // Return the promises of each 3rd party service call as an array
         function _collate_fetch_promises() {
             var tmp = [];
             _.forEach(mb.services, function(service){
@@ -30,59 +85,26 @@ $(function(jQuery) {
             return tmp;
         }
 
-        function _append_activity(item) {
-            tpl_vars = {
-                state: "initial",
-                service: item.source,
-                headline: item.title,
-            };
-            if (item.deck) {
-                tpl_vars.deck = item.deck;
-            }
-            $(".activity").append(activity_source(tpl_vars));
-        }
-
-        function _post_entrance($activities) {
-            $(".activity .source-initial").removeClass("source-initial source-enter");
-            $(".hp-activities .loader").remove();
-            $(".filter").addClass("reveal-filter");
-        }
-
         // ## Public functions
-
         var pub = {
             all_activities: [],
-            // update_for_category: function() {
-            //     console.log("Updating for category");
-            // },
-            reveal_items: function() {
-                var i = 0,
-                    $initial_activities = $(".activity .source-initial");
-
-                $(".hp-activities .loader").removeClass("show");
-
-                var revealInt = setInterval(function(){
-                    console.log("Iteration: " + i);
-                    $($initial_activities.get(i)).addClass("source-enter");
-                    if (i == $initial_activities.length - 1) {
-                        clearInterval(revealInt);
-                        setTimeout(_post_entrance, 550);
-                    } else {
-                        i++;
-                    }
-                }, 220);
-            },
-            initial_append: function() {
-                console.log("Appending feeds initially");
-                var initial_activities = _calculate_initial_activities();
-                _.forEach(initial_activities, _append_activity);
-            },
-            mash_feeds: function() {
-                console.log("Mashing feeds");
-                var all_items = [].concat.apply([], _.pluck(mb.services, "content"));
-                pub.all_activities = _.sortBy(all_items, "pubDate").reverse();
+            initial_activities: [],
+            // #### _append_activity
+            // Access Dot.js template and append it to the activity container
+            append_activity: function($container, item) {
+                tpl_vars = {
+                    state: "initial",
+                    service: item.source,
+                    headline: item.title,
+                    url: item.url,
+                };
+                if (item.deck) {
+                    tpl_vars.deck = item.deck;
+                }
+                $container.append(activity_source(tpl_vars));
             },
             // #### fetch_all_feeds
+            // Uses deferred promises to asynchronously fetch each 3rd party service
             fetch_all_feeds: function(callback) {
                 console.log("Fetching services");
                 $(".hp-activities .loader").addClass("show");
@@ -96,16 +118,15 @@ $(function(jQuery) {
             }
         };
 
-        // var active_feeds = [pub.medium, pub.github, pub.twitter];
+        pub.fetch_all_feeds(function() {
+            _mash_feeds();
+            _initial_append();
+            _reveal_items();
+        });
 
         return pub;
 
     })(jQuery);
 
-    mb.activities.fetch_all_feeds(function() {
-        mb.activities.mash_feeds();
-        mb.activities.initial_append();
-        mb.activities.reveal_items();
-    });
 
 });

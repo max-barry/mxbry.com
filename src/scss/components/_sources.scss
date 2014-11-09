@@ -1,8 +1,0 @@
-@mixin swap-bg-image {
-    $animation-length: 350ms;
-    @include animation-name(bg-image-scale);
-    @include animation-duration($animation-length);
-    @include transition-delay($animation-length/2);
-    @include animation-base;
-}
-

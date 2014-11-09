@@ -1,40 +1,47 @@
 .activity, .filter {
     @include clearfix;
 }
-
 .activity .round-icon, .filter .round-icon {
     float: left;
     cursor: pointer;
 }
-
 /**
 Activity componenet
 */
 
+.activity {
+    margin: 0 auto;
+    &.reset {
+        opacity: 0;
+        @include animation(fadein 550ms);
+        @include animation-delay(100ms);
+    }
+}
 .activity li {
     overflow: hidden;
     & + li {
         margin-top: $gutter * 1.5;
     }
 }
-
 .activity .round-icon {
     margin-right: $gutter;
 }
-
 .activity .copy-wrap {
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
     span {
         display: block;
+        @include a-tag-reset;
+        a:hover {
+            text-decoration: underline;
+            color: $accent-color;
+        }
         &:not(.heavy) {
             color: $copy-secondary;
         }
     }
 }
-
-
 .activity li:not(.source-initial) .round-icon:hover {
     background-image: none;
     background-color: $accent-color;
@@ -45,13 +52,12 @@ Activity componenet
         background-size: 50%;
         @include position(absolute, 0 0 0 0);
         @include animation(screw-scale-in $revealduration, fadein $revealduration);
-       // @include animation-base;
     }
 }
-
 /**
 Activity transitions
 */
+
 $source-entrance-duration: 500ms;
 .source-initial {
     .round-icon {
@@ -61,46 +67,105 @@ $source-entrance-duration: 500ms;
         @include transform(translateX(-250%));
     }
 }
-
 .source-enter {
     .round-icon, .copy-wrap {
         @include animation(transform-reset $source-entrance-duration $ease-out-quint, fadein $source-entrance-duration $ease-out-quint);
-        // @include animation-base;
     }
     .round-icon {
         @include animation-delay($source-entrance-duration * 0.65);
     }
 }
+/**
+Activity split-view
+*/
 
-
-
+.cat-view .activity {
+    @media #{$small-all} {
+        &:first-of-type {
+            margin-bottom: $gutter * 2;
+        }
+    }
+    @media #{$medium-up} {
+        position: absolute;
+        // &:first-of-type {
+        //     @include transform(translate3d(-5%, 0, 0));
+        // }
+        // &:last-of-type {
+        //     @include transform(translate3d(105%, 0, 0));
+        // }
+    }
+    @media #{$large-up} {
+        width: 50%;
+        &:first-of-type {
+            @include transform(translate3d(-5%, 0, 0));
+        }
+        &:last-of-type {
+            @include transform(translate3d(105%, 0, 0));
+        }
+    }
+    @media #{$medium-only} {
+        width: 45%;
+        &:first-of-type {
+            margin-left: $gutter;
+            // @include transform(translate3d(-5%, 0, 0));
+        }
+        &:last-of-type {
+            margin-left: $gutter * 2;
+            @include transform(translate3d(100%, 0, 0));
+        }
+    }
+}
+.cat-view .activity .category-change .round-icon {
+    @include animation-delay(0);
+}
+.cat-view .filter {
+    max-width: $tiny;
+    margin-left: auto;
+    margin-right: auto;
+}
 /**
 Filter
 */
+
 .filter {
     margin-bottom: 2 * $gutter;
     @include transform-style(preserve-3d);
 }
-
 .filter:not(.reveal-filter) {
     pointer-events: none;
 }
-
 .filter .round-icon {
     box-shadow: $shadow-depth-1;
     @include transition(box-shadow 250ms $ease-out-quint);
 }
 
-.filter.reveal-filter .round-icon.control {
-    @include animation(screw-scale-in 550ms, fadein 200ms);
-    // @include animation-base;
+@media #{$small-all} {
+    .filter .round-icon:not(.control):after {
+        content: "";
+        background-size: 50%;
+        @include position(absolute, 0 0 0 0);
+    }
+    .filter .round-icon:not(.control) span {
+        display: none;
+    }
+    .filter [data-category="articles"]:after{
+        background: transparent url("#{$image-url}icons/link.svg") no-repeat center center;
+    }
+    .filter [data-category="code"]:after{
+        background: transparent url("#{$image-url}icons/work.svg") no-repeat center center;
+    }
+    .filter [data-category="tweets"]:after{
+        background: transparent url("#{$image-url}logos/twitter-bl.svg") no-repeat center center;
+    }
 }
 
+.filter.reveal-filter .round-icon.control {
+    @include animation(screw-scale-in 550ms, fadein 200ms);
+}
 .filter .round-icon.control {
     background-color: $neutral;
     opacity: 0;
 }
-
 .filter .round-icon:not(.control) {
     background-color: $neutral-darker;
     opacity: 0;
@@ -113,8 +178,6 @@ Filter
         @include scut-center-transform;
     }
 }
-
-
 .filter .round-icon:nth-child(2) {
     @include transform(translate3d(-100%, 0, -1px));
 }
@@ -124,18 +187,12 @@ Filter
 .filter .round-icon:nth-child(4) {
     @include transform(translate3d(-300%, 0, -3px));
 }
-
 .reveal-filter-options .round-icon {
     margin-right: $gutter;
 }
-
 .reveal-filter-options .round-icon:not(.control) {
-    // opacity: 1;
     pointer-events: all;
-    // @include transform(none);
-    // @include transition(transform 500ms $ease-out-quint, opacity 350ms $ease-out-quint, box-shadow 150ms);
     @include animation(transform-reset 500ms, fadein 350ms);
-    // @include animation-base;
     &:hover {
         background-color: darken($neutral-darker, 5);
     }
@@ -144,7 +201,6 @@ Filter
         background-color: darken($neutral-darker, 10);
     }
 }
-
 .reveal-filter-options .round-icon.control {
     background-image: none;
     background-color: $black;
@@ -156,32 +212,8 @@ Filter
         background-size: 50%;
         @include position(absolute, 0 0 0 0);
         @include animation(screw-scale-in 250ms, fadein 250ms);
-        // @include animation-base;
     }
 }
-
-.activity li:not(.source-initial) .round-icon:hover:after, .source-enter .round-icon,  .source-enter .copy-wrap, .filter.reveal-filter .round-icon, .reveal-filter-options .round-icon.control:after, .filter.reveal-filter .round-icon.control {
+.activity li:not(.source-initial) .round-icon:hover:after, .activity.reset, .source-enter .round-icon, .source-enter .copy-wrap, .filter.reveal-filter .round-icon, .reveal-filter-options .round-icon.control:after, .filter.reveal-filter .round-icon.control {
     @include animation-base;
 }
-
-// .transition-to-medium:after, .transition-to-twitter:after, .transition-to-github:after {
-//     content: "";
-//     @include position(absolute, 0 0 0 0);
-//     border-radius: 100%;
-//     background-size: 50%;
-//     background-repeat: no-repeat;
-//     background-position: center center;
-//     @include animation-name(fadein);
-//     @include animation-duration(350ms);
-//     @include animation-base;
-// }
-
-// .transition-to-medium:after {
-//     @include icon-medium;
-// }
-// .transition-to-twitter:after {
-//     @include icon-twitter;
-// }
-// .transition-to-github:after {
-//     @include icon-github;
-// }

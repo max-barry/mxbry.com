@@ -5,15 +5,20 @@ $heavy-font-family: notobold, $body-font-family;
 $block-font-family: mohavebolditalic, $heavy-font-family;
 
 // $column: golden-ratio(1em, 3); // Column width
-$gutter: 1rem; // Gutter between each two columns
 // $grid-columns: 12; // Total number of columns in the grid
-$max-width: rem(1400); // Max-width of the outer container
 // $border-box-sizing: true; // Makes all elements have a border-box layout
 // $default-feature: min-width; // Default @media feature for the breakpoint() mixin
 // $default-layout-direction: LTR;
 
 // Dimensions
+$gutter: 1rem;
 $activity-source-height: rem(64);
+
+// Container widths
+$max-width: rem(1400);
+$slim: rem(840);
+$tiny: rem(480);
+$xtiny: rem(320);
 
 // URLs
 $image-url: "/images/";

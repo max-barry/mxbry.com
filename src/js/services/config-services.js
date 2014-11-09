@@ -2,16 +2,15 @@ $(function() {
 
     mb.services = {};
 
+
     /*
     --------------------------
     TWITTER
     --------------------------
     */
-
     mb.services.twitter = {
         account: "420890443182649345",
         initial: 1,
-        // css_class: "twitter",
         content: []
     };
 
@@ -28,7 +27,7 @@ $(function() {
                 source: source,
                 category: category,
                 url: tmp.url,
-                title: "twitter title TBD",
+                title: "Posted " + moment(new Date(tmp.pub_date)).fromNow() + " by " + tmp.author.username,
                 pubDate: moment(new Date(tmp.pub_date)).unix(),
                 deck: tmp.body,
                 id: id_service_object()
@@ -51,16 +50,15 @@ $(function() {
         return def;
     };
 
+
     /*
     --------------------------
     GITHUB
     --------------------------
     */
-
     mb.services.github = {
         account: "max-barry",
         initial: 2,
-        // css_class: "github",
         content: []
     };
     
@@ -68,19 +66,21 @@ $(function() {
         console.log("Handling Medium");
 
         var items = response.query.results.entry.reverse(),
-            tmp, actions = [],
+            tmp, content_selector, actions = [],
             source = "github", category = "code";
 
         for (var i = items.length - 1; i >= 0; i--) {
             tmp = items[i];
+            content_selector = $(tmp.content.content);
             actions.push({
                 source: source,
                 category: category,
                 pubDate: moment(new Date(tmp.published)).unix(),
-                repo: $(tmp.content.content).find(".css-truncate-target").attr("href").replace("https://github.com", ""),
+                repo: content_selector.find(".css-truncate-target").attr("href").replace("https://github.com", ""),
                 title: tmp.title.content,
-                deck: $(tmp.content.content).find(".message blockquote").text().trim(),
-                id: id_service_object()
+                deck: content_selector.find(".message blockquote").text().trim(),
+                id: id_service_object(),
+                url: content_selector.find(".css-truncate-target").attr("href")
             });
         }
 
@@ -103,16 +103,15 @@ $(function() {
         return def;
     };
 
+
     /*
     --------------------------
     MEDIUM
     --------------------------
     */
-
     mb.services.medium = {
         account: "@ev",
         initial: 2,
-        // css_class: "medium",
         content: []
     };
 

@@ -5,16 +5,16 @@ module.exports = function(grunt) {
         // Concatanation of JS
         concat: {
             options: {
-                separator: ';'
+                separator: ';\n'
             },
             dist: {
                 src: [
-                    '<%= pkg.project_paths.bower_folder %>jquery/dist/jquery.js',
+                    '<%= pkg.project_paths.bower_folder %>jquery/dist/jquery.min.js',
                     // '<%= pkg.project_paths.bower_folder %>jquery.wait/jquery.wait.js',
-                    '<%= pkg.project_paths.bower_folder %>lodash/dist/lodash.js',
-                    '<%= pkg.project_paths.bower_folder %>multiline/browser.js',
-                    '<%= pkg.project_paths.bower_folder %>doT/doT.js',
-                    '<%= pkg.project_paths.bower_folder %>moment/moment.js',
+                    '<%= pkg.project_paths.bower_folder %>lodash/dist/lodash.min.js',
+                    // '<%= pkg.project_paths.bower_folder %>multiline/browser.js',
+                    '<%= pkg.project_paths.bower_folder %>doT/doT.min.js',
+                    '<%= pkg.project_paths.bower_folder %>moment/min/moment.min.js',
                     '<%= pkg.src_paths.js %>**/*.js'
                 ],
                 dest: '<%= pkg.dest_paths.js %>app.js'

@@ -16,20 +16,24 @@ body {
     @include user-select(none);
 }
 
-.page-wrap {
-    @include outer-container;
-    &.slim {
-        max-width: rem(840);
-    }
-    &.tiny {
-        max-width: rem(480);
-    }
-    &.xtiny {
-        max-width: rem(320);
+* {
+    @media #{$small-all} {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
     }
 }
 
-
+.page-wrap {
+    @include outer-container;
+    &.slim {
+        max-width: $slim;
+    }
+    &.tiny {
+        max-width: $tiny;
+    }
+    &.xtiny {
+        max-width: $xtiny;
+    }
+}
 .loader {
     $loader-height: rem(40);
     display: block;
@@ -47,5 +51,11 @@ body {
     &.show {
         opacity: 1;
         @include transition(opacity 150ms);
+    }
+}
+a {
+    @include transition(color 150ms);
+    &:hover {
+        color: $accent-color;
     }
 }

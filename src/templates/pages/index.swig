@@ -12,17 +12,75 @@ explicabo nemo sit iste. Aliquid, voluptatem atque magni. Reiciendis deleniti nu
     <div class="loader"></div>
     <div class="filter">
         <div class="round-icon control"></div>
-        <div class="round-icon"><span>Words</span></div>
-        <div class="round-icon"><span>Code</span></div>
-        <div class="round-icon more-dots-gr"></div>
+        <div class="round-icon" data-category="articles"><span>Words</span></div>
+        <div class="round-icon" data-category="code"><span>Code</span></div>
+        <div class="round-icon" data-category="tweets"><span>Tweets</span></div>
     </div>
-    <ul class="activity">
-{#         <li class="source-initial">
+    <ul class="activity"><!----></ul>
+{#     <ul class="activity">
+        <li class="">
             <div class="round-icon medium"></div>
             <div class="copy-wrap">
                 <span class="heavy">This is medium headline</span>
                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
             </div>
-        </li> #}
-    </ul>
+        </li>        <li class="">
+            <div class="round-icon medium"></div>
+            <div class="copy-wrap">
+                <span class="heavy">This is medium headline</span>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
+            </div>
+        </li>        <li class="">
+            <div class="round-icon medium"></div>
+            <div class="copy-wrap">
+                <span class="heavy">This is medium headline</span>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
+            </div>
+        </li>        <li class="">
+            <div class="round-icon medium"></div>
+            <div class="copy-wrap">
+                <span class="heavy">This is medium headline</span>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
+            </div>
+        </li>        <li class="">
+            <div class="round-icon medium"></div>
+            <div class="copy-wrap">
+                <span class="heavy">This is medium headline</span>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
+            </div>
+        </li>
+    </ul> #}
+{#     <ul class="activity">
+        <li class="">
+            <div class="round-icon medium"></div>
+            <div class="copy-wrap">
+                <span class="heavy">This is medium headline</span>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
+            </div>
+        </li>        <li class="">
+            <div class="round-icon medium"></div>
+            <div class="copy-wrap">
+                <span class="heavy">This is medium headline</span>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
+            </div>
+        </li>        <li class="">
+            <div class="round-icon medium"></div>
+            <div class="copy-wrap">
+                <span class="heavy">This is medium headline</span>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
+            </div>
+        </li>        <li class="">
+            <div class="round-icon medium"></div>
+            <div class="copy-wrap">
+                <span class="heavy">This is medium headline</span>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
+            </div>
+        </li>        <li class="">
+            <div class="round-icon medium"></div>
+            <div class="copy-wrap">
+                <span class="heavy">This is medium headline</span>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
+            </div>
+        </li>
+    </ul> #}
 </section>

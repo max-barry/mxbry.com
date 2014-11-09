@@ -19,6 +19,10 @@
     background-size: 50%;
     position: relative;
     z-index: 1;
+    @media #{$small-all} {
+        height: $activity-source-height * 0.7;
+        width: $activity-source-height * 0.7;
+    }
     &.medium {
         @include icon-medium;
     }

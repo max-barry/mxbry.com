@@ -4,12 +4,20 @@ h1.page-wrap.tiny {
 
 h4.page-wrap.xtiny {
     margin-bottom: 4 * $gutter;
+    @media #{$small-all} {
+        margin-bottom: 2 * $gutter;
+    }
 }
 
 .hp-activities {
+    position: relative;
     .loader {
         position: absolute;
         left: 0;
         right: 0;
     }
+}
+
+.hp-activities.cat-view {
+    max-width: $slim;
 }
