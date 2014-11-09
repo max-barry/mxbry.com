@@ -1,3 +1,8 @@
+@mixin animation-base {
+    @include animation-fill-mode(forwards);
+    @include animation-timing-function($ease-out-quint);
+}
+
 @include keyframes(fadein) {
     from {
         opacity: 0;
@@ -13,17 +18,49 @@
     }
 }
 
-@include keyframes(bg-image-scale) {
+// @include keyframes(bg-image-scale) {
+//     0% {
+//         background-size: 50%;
+//         @include transform(rotate(0deg));
+//     }
+//     50% {
+//         background-size: 0%;
+//         @include transform(rotate(180deg));
+//     }
+//     100% {
+//         background-size: 50%;
+//         @include transform(rotate(360deg));
+//     }
+// }
+
+@include keyframes(screw-scale-in) {
+    from {
+        @include transform(rotate(-60deg) scale(2));
+    }
+    to {
+        @include transform(none);
+    }
+}
+
+@include keyframes(loader){
     0% {
-        background-size: 50%;
-        @include transform(rotate(0deg));
+        background: $accent-color;
+        border-radius: 50%;
+        @include transform(rotate(0deg) scale(1));
     }
     50% {
-        background-size: 0%;
-        @include transform(rotate(180deg));
+        background: $primary-color;
+        border-radius: 0%;
+        // border-radius: 0%;
+        // @include transform(rotate(180deg) scale(1, 0.33));
+        @include transform(rotate(180deg) scale(0.33, 0.33));
+    }
+    75% {
+        border-radius: 50%;
     }
     100% {
-        background-size: 50%;
-        @include transform(rotate(360deg));
+        border-radius: 50%;
+        background: $accent-color;
+        @include transform(rotate(360deg) scale(1));
     }
 }

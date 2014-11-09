@@ -5,15 +5,14 @@ $(function(jQuery) {
     mb.activities = (function() {
         'use strict';
 
+        var tpl_vars;
+
         function _calculate_initial_activities() {
             var initials = [],
                 min_display;
 
             _.forEach(mb.services, function(service){
                 min_display = _.first(service.content, service.initial);
-                console.log(service);
-                console.log(service.content);
-                console.log(min_display);
                 _.forEach(min_display, function(item){
                     _.remove(pub.all_activities, {id: item.id});
                 });
@@ -32,33 +31,50 @@ $(function(jQuery) {
         }
 
         function _append_activity(item) {
-            var tpl = activity_source({
+            tpl_vars = {
                 state: "initial",
                 service: item.source,
                 headline: item.title,
-            });
-            console.log(tpl);
-            $(".activity").append(tpl);
+            };
+            if (item.deck) {
+                tpl_vars.deck = item.deck;
+            }
+            $(".activity").append(activity_source(tpl_vars));
+        }
+
+        function _post_entrance($activities) {
+            $(".activity .source-initial").removeClass("source-initial source-enter");
+            $(".hp-activities .loader").remove();
+            $(".filter").addClass("reveal-filter");
         }
 
         // ## Public functions
 
         var pub = {
-            // medium: [],
-            // github: [],
-            // twitter: [],
             all_activities: [],
-            // initial_activities: [],
             // update_for_category: function() {
             //     console.log("Updating for category");
             // },
             reveal_items: function() {
-                $(".activity .source-initial").addClass("source-enter");
+                var i = 0,
+                    $initial_activities = $(".activity .source-initial");
+
+                $(".hp-activities .loader").removeClass("show");
+
+                var revealInt = setInterval(function(){
+                    console.log("Iteration: " + i);
+                    $($initial_activities.get(i)).addClass("source-enter");
+                    if (i == $initial_activities.length - 1) {
+                        clearInterval(revealInt);
+                        setTimeout(_post_entrance, 550);
+                    } else {
+                        i++;
+                    }
+                }, 220);
             },
             initial_append: function() {
                 console.log("Appending feeds initially");
                 var initial_activities = _calculate_initial_activities();
-                console.log(initial_activities);
                 _.forEach(initial_activities, _append_activity);
             },
             mash_feeds: function() {
@@ -69,6 +85,7 @@ $(function(jQuery) {
             // #### fetch_all_feeds
             fetch_all_feeds: function(callback) {
                 console.log("Fetching services");
+                $(".hp-activities .loader").addClass("show");
                 var fetch_promises = _collate_fetch_promises();
                 $.when.apply($, fetch_promises).done(function() {
                     console.log("Fetched all services");

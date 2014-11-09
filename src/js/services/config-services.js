@@ -2,9 +2,15 @@ $(function() {
 
     mb.services = {};
 
+    /*
+    --------------------------
+    TWITTER
+    --------------------------
+    */
+
     mb.services.twitter = {
         account: "420890443182649345",
-        initial: 2,
+        initial: 1,
         // css_class: "twitter",
         content: []
     };
@@ -45,6 +51,12 @@ $(function() {
         return def;
     };
 
+    /*
+    --------------------------
+    GITHUB
+    --------------------------
+    */
+
     mb.services.github = {
         account: "max-barry",
         initial: 2,
@@ -81,7 +93,7 @@ $(function() {
             feed = encodeURIComponent("https://github.com/" + mb.services.github.account + ".atom");
 
         $.ajax({
-            url: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20atom%20where%20url%3D'" + feed + "'&format=json",
+            url: "//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20atom%20where%20url%3D'" + feed + "'&format=json",
             dataType: "JSON",
             success: mb.services.github.handle
         }).always(function() {
@@ -90,6 +102,12 @@ $(function() {
 
         return def;
     };
+
+    /*
+    --------------------------
+    MEDIUM
+    --------------------------
+    */
 
     mb.services.medium = {
         account: "@ev",
@@ -125,7 +143,7 @@ $(function() {
             feed = encodeURIComponent("https://medium.com/feed/" + mb.services.medium.account);
 
         $.ajax({
-            url: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'" + feed + "'&format=json",
+            url: "//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'" + feed + "'&format=json",
             dataType: "JSON",
             success: mb.services.medium.handle
         }).always(function() {

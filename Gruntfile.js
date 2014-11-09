@@ -23,7 +23,8 @@ module.exports = function(grunt) {
         // Minification of JS
         uglify: {
             options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
+                preserveComments: 'some'
             },
             dist: {
                 files: {

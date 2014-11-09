@@ -2,13 +2,14 @@
 layout: base
 ---
 
-{# <h1 class="page-wrap tiny">Max Barry.</h1> #}
+<h1 class="page-wrap tiny">Max Barry.</h1>
 <h4 class="page-wrap xtiny">
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt ab, possimus asperiores,
 explicabo nemo sit iste. Aliquid, voluptatem atque magni. Reiciendis deleniti numquam illo
 </h4>
 
-<section class="page-wrap tiny">
+<section class="page-wrap tiny hp-activities">
+    <div class="loader"></div>
     <div class="filter">
         <div class="round-icon control"></div>
         <div class="round-icon"><span>Words</span></div>
@@ -21,19 +22,6 @@ explicabo nemo sit iste. Aliquid, voluptatem atque magni. Reiciendis deleniti nu
             <div class="copy-wrap">
                 <span class="heavy">This is medium headline</span>
                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
-            </div>
-        </li>
-        <li class="source-initial">
-            <div class="round-icon twitter"></div>
-            <div class="copy-wrap">
-                <span class="heavy">This is twitter headline</span>
-                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.</span>
-            </div>
-        </li>
-        <li class="source-initial">
-            <div class="round-icon github"></div>
-            <div class="copy-wrap">
-                <span class="heavy">This is Github headline</span>
             </div>
         </li> #}
     </ul>

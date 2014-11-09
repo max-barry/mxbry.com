@@ -5,3 +5,11 @@ h1.page-wrap.tiny {
 h4.page-wrap.xtiny {
     margin-bottom: 4 * $gutter;
 }
+
+.hp-activities {
+    .loader {
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+}

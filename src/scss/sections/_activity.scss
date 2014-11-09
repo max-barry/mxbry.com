@@ -4,9 +4,7 @@
 
 .activity .round-icon, .filter .round-icon {
     float: left;
-    margin-right: $gutter;
     cursor: pointer;
-    @include transition(background-image);
 }
 
 /**
@@ -14,13 +12,14 @@ Activity componenet
 */
 
 .activity li {
-    position: relative;
     overflow: hidden;
-    @include clearfix;
+    & + li {
+        margin-top: $gutter * 1.5;
+    }
 }
 
-.activity li + li {
-    margin-top: $gutter;
+.activity .round-icon {
+    margin-right: $gutter;
 }
 
 .activity .copy-wrap {
@@ -36,11 +35,18 @@ Activity componenet
 }
 
 
-.activity li .round-icon:hover {
-    background-image:url("#{$image-url}icons/exit-page-wh.svg");
+.activity li:not(.source-initial) .round-icon:hover {
+    background-image: none;
     background-color: $accent-color;
-    background-size: 50%;
-    @include swap-bg-image;
+    &:after {
+        $revealduration: 500ms;
+        content: "";
+        background: transparent url("#{$image-url}icons/exit-page-wh.svg") no-repeat center center;
+        background-size: 50%;
+        @include position(absolute, 0 0 0 0);
+        @include animation(screw-scale-in $revealduration, fadein $revealduration);
+       // @include animation-base;
+    }
 }
 
 /**
@@ -48,11 +54,8 @@ Activity transitions
 */
 $source-entrance-duration: 500ms;
 .source-initial {
-    // .round-icon, .copy-wrap {
-    //     @include animation-base;
-    // }
     .round-icon {
-        @include transform(scale(0, 0));
+        @include transform(scale(0));
     }
     .copy-wrap {
         @include transform(translateX(-250%));
@@ -60,51 +63,15 @@ $source-entrance-duration: 500ms;
 }
 
 .source-enter {
-    .round-icon {
+    .round-icon, .copy-wrap {
         @include animation(transform-reset $source-entrance-duration $ease-out-quint, fadein $source-entrance-duration $ease-out-quint);
+        // @include animation-base;
+    }
+    .round-icon {
         @include animation-delay($source-entrance-duration * 0.65);
     }
-    .copy-wrap {
-        @include animation(transform-reset $source-entrance-duration $ease-out-quint, fadein $source-entrance-duration $ease-out-quint);
-    }
-    .round-icon, .copy-wrap {
-        @include animation-base;
-    }
 }
 
-@include keyframes(source-copy-enter){
-    to {
-        opacity: 1;
-        @include transform(none);
-    }
-};
-@include keyframes(source-icon-enter){
-    to {
-        @include transform(none);
-    }
-};
-
-.transition-to-medium:after, .transition-to-twitter:after, .transition-to-github:after {
-    content: "";
-    @include position(absolute, 0 0 0 0);
-    border-radius: 100%;
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    @include animation-name(fadein);
-    @include animation-duration(350ms);
-    @include animation-base;
-}
-
-.transition-to-medium:after {
-    @include icon-medium;
-}
-.transition-to-twitter:after {
-    @include icon-twitter;
-}
-.transition-to-github:after {
-    @include icon-github;
-}
 
 
 /**
@@ -115,45 +82,60 @@ Filter
     @include transform-style(preserve-3d);
 }
 
+.filter:not(.reveal-filter) {
+    pointer-events: none;
+}
+
+.filter .round-icon {
+    box-shadow: $shadow-depth-1;
+    @include transition(box-shadow 250ms $ease-out-quint);
+}
+
+.filter.reveal-filter .round-icon.control {
+    @include animation(screw-scale-in 550ms, fadein 200ms);
+    // @include animation-base;
+}
+
 .filter .round-icon.control {
     background-color: $neutral;
-    box-shadow: $shadow-depth-1;
-    @include transition(background-image, box-shadow 250ms $ease-out-quint, background-color 250ms $ease-out-quint);
+    opacity: 0;
 }
 
 .filter .round-icon:not(.control) {
     background-color: $neutral-darker;
     opacity: 0;
+    position: relative;
     // TODO : Pointer event polyfill
     pointer-events: none;
-    position: relative;
-    box-shadow: $shadow-depth-1;
-    @include transition(transform 250ms $ease-out-quint, opacity 150ms $ease-out-quint, background-color 250ms $ease-out-quint);
     span {
         color: $black;
         font-family: $heavy-font-family;
-        @include transition(opacity 250ms);
         @include scut-center-transform;
     }
 }
 
-// $filter-reveal-delay: 250ms;
 
 .filter .round-icon:nth-child(2) {
-    @include transform(translate3d(-120%, 0, -1px));
+    @include transform(translate3d(-100%, 0, -1px));
 }
 .filter .round-icon:nth-child(3) {
-    @include transform(translate3d(-230%, 0, -2px));
+    @include transform(translate3d(-200%, 0, -2px));
 }
 .filter .round-icon:nth-child(4) {
-    @include transform(translate3d(-340%, 0, -3px));
+    @include transform(translate3d(-300%, 0, -3px));
+}
+
+.reveal-filter-options .round-icon {
+    margin-right: $gutter;
 }
 
 .reveal-filter-options .round-icon:not(.control) {
-    opacity: 1;
+    // opacity: 1;
     pointer-events: all;
-    @include transform(none);
-    @include transition(transform 500ms $ease-out-quint, opacity 150ms $ease-out-quint, background-color 250ms $ease-out-quint, box-shadow 250ms $ease-out-quint); 
+    // @include transform(none);
+    // @include transition(transform 500ms $ease-out-quint, opacity 350ms $ease-out-quint, box-shadow 150ms);
+    @include animation(transform-reset 500ms, fadein 350ms);
+    // @include animation-base;
     &:hover {
         background-color: darken($neutral-darker, 5);
     }
@@ -164,9 +146,42 @@ Filter
 }
 
 .reveal-filter-options .round-icon.control {
-    background-image:url("#{$image-url}icons/clear-wh.svg");
+    background-image: none;
     background-color: $black;
     box-shadow: none;
-    @include transition(background-image, background-color 250ms $ease-out-quint);
-    @include swap-bg-image;
+    @include transition(background-color 250ms $ease-out-quint);
+    &:after {
+        content: "";
+        background: transparent url("#{$image-url}icons/clear-wh.svg") no-repeat center center;
+        background-size: 50%;
+        @include position(absolute, 0 0 0 0);
+        @include animation(screw-scale-in 250ms, fadein 250ms);
+        // @include animation-base;
+    }
 }
+
+.activity li:not(.source-initial) .round-icon:hover:after, .source-enter .round-icon,  .source-enter .copy-wrap, .filter.reveal-filter .round-icon, .reveal-filter-options .round-icon.control:after, .filter.reveal-filter .round-icon.control {
+    @include animation-base;
+}
+
+// .transition-to-medium:after, .transition-to-twitter:after, .transition-to-github:after {
+//     content: "";
+//     @include position(absolute, 0 0 0 0);
+//     border-radius: 100%;
+//     background-size: 50%;
+//     background-repeat: no-repeat;
+//     background-position: center center;
+//     @include animation-name(fadein);
+//     @include animation-duration(350ms);
+//     @include animation-base;
+// }
+
+// .transition-to-medium:after {
+//     @include icon-medium;
+// }
+// .transition-to-twitter:after {
+//     @include icon-twitter;
+// }
+// .transition-to-github:after {
+//     @include icon-github;
+// }
