@@ -13,12 +13,14 @@ $block-font-family: mohavebolditalic, $heavy-font-family;
 // Dimensions
 $gutter: 1rem;
 $activity-source-height: rem(64);
+$button-height: rem(35);
+$section-break: 4 * $gutter;
 
 // Container widths
 $max-width: rem(1400);
 $slim: rem(840);
 $tiny: rem(480);
-$xtiny: rem(320);
+$xtiny: rem(350);
 
 // URLs
 $image-url: "/images/";

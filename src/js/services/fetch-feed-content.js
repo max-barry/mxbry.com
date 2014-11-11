@@ -27,6 +27,7 @@ $(function(jQuery) {
             $(".activity .source-initial").attr("class", "");
             $(".hp-activities .loader").remove();
             $(".filter").addClass("reveal-filter");
+            $(".hp-ctas button").addClass("grow-in");
         }
 
         // #### _reveal_items

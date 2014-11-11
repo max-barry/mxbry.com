@@ -2,17 +2,21 @@
 layout: base
 ---
 
-<h1 class="page-wrap tiny">Max Barry.</h1>
-<h4 class="page-wrap xtiny">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt ab, possimus asperiores,
-explicabo nemo sit iste. Aliquid, voluptatem atque magni. Reiciendis deleniti numquam illo
-</h4>
+<h1 class="page-wrap tiny header-1">
+{# Max Barry. #}
+Lor Dolor.
+</h1>
+<h2 class="page-wrap xtiny header-4">
+{# I <a href="">build stuff</a> on the internet. I try and use smart numbers, behavioural theory, and all the little details to craft cool things. Check out <a href="">some of my work</a>. Maybe it's okay? Tell me how much you don't like it on <a href="" target="_blank">LinkedIn</a>. #}
+Lorem <a href="">ipsum dolor</a> sit amet, consectetur adipisicing elit. Vitae rem eveniet temporibus cum architecto ullam ex quas aliquam iste, <a href=""> fuga dolores, corrupti</a> perferendis assumenda sit. Totam repellendus, architecto, ea qui <a href="" target="_blank">tempori</a>.
+</h2>
 
-<section class="page-wrap tiny hp-activities">
+
+<article class="page-wrap tiny hp-activities">
     <div class="loader"></div>
     <div class="filter">
         <div class="round-icon control"></div>
-        <div class="round-icon" data-category="articles"><span>Words</span></div>
+        <div class="round-icon" data-category="articles"><span>Work</span></div>
         <div class="round-icon" data-category="code"><span>Code</span></div>
         <div class="round-icon" data-category="tweets"><span>Tweets</span></div>
     </div>
@@ -83,4 +87,10 @@ explicabo nemo sit iste. Aliquid, voluptatem atque magni. Reiciendis deleniti nu
             </div>
         </li>
     </ul> #}
-</section>
+</article>
+
+<article class="page-wrap tiny hp-ctas">
+    <hr>
+    {# <p>A <a href="">random</a> thing I've done.</p> #}
+    <p>A <a href="">lorem</a> ipsor amet vitae.</p>
+</article>

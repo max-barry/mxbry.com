@@ -1,0 +1,3 @@
+@function returnlightershade($color) {
+    @return lighten($color, 100 - ceil(lightness($color)/1%) - 5);
+}

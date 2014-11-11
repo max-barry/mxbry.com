@@ -1,9 +1,10 @@
-h1.page-wrap.tiny {
+.header-1.page-wrap.tiny {
+    margin-top: $section-break;
     text-align: center;
 }
 
-h4.page-wrap.xtiny {
-    margin-bottom: 4 * $gutter;
+.header-4.page-wrap.xtiny {
+    margin-bottom: $section-break;
     @media #{$small-all} {
         margin-bottom: 2 * $gutter;
     }
@@ -11,6 +12,10 @@ h4.page-wrap.xtiny {
 
 .hp-activities {
     position: relative;
+    margin-top: $section-break;
+    @media #{$medium-up} {
+        min-height: rem(465);
+    }
     .loader {
         position: absolute;
         left: 0;
@@ -21,3 +26,23 @@ h4.page-wrap.xtiny {
 .hp-activities.cat-view {
     max-width: $slim;
 }
+
+.hp-ctas {
+    margin-top: $section-break;
+    hr, p {
+        margin-bottom: $section-break;
+    }
+    p {
+        text-align: center;
+        font-size: rem(18);
+    }
+}
+
+// .hp-ctas button{
+//     opacity: 0;
+//     cursor: default;
+//     will-change: background-color, box-shadow, opacity, transform;
+//     &.grow-in {
+//         cursor: pointer;
+//     }
+// }

@@ -59,3 +59,12 @@ a {
         color: $accent-color;
     }
 }
+hr {
+    border: 0 !important;
+    height: 2px;
+    background: #DDD;
+    border-top: 1px solid #EDEDED;
+    max-width: 70%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}

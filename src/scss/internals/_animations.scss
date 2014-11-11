@@ -12,26 +12,26 @@
     }
 }
 
-@include keyframes(transform-reset) {
+@include keyframes(grow-in) {
+    from {
+        @include transform(scale(0));
+    }
     to {
         @include transform(none);
     }
 }
 
-// @include keyframes(bg-image-scale) {
-//     0% {
-//         background-size: 50%;
-//         @include transform(rotate(0deg));
-//     }
-//     50% {
-//         background-size: 0%;
-//         @include transform(rotate(180deg));
-//     }
-//     100% {
-//         background-size: 50%;
-//         @include transform(rotate(360deg));
-//     }
-// }
+.grow-in {
+    will-change: transform, opacity;
+    @include animation(grow-in 350ms, fadein 150ms);
+    @include animation-base;
+}
+
+@include keyframes(transform-reset) {
+    to {
+        @include transform(none);
+    }
+}
 
 @include keyframes(screw-scale-in) {
     from {

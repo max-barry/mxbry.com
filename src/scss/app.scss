@@ -6,6 +6,7 @@
 @import "scut";
 
 // Project SCSS internals
+@import "internals/functions";
 @import "internals/colors";
 @import "internals/mixins";
 @import "internals/media-queries";
@@ -15,6 +16,10 @@
 // Project shared styles
 @import "general";
 @import "type";
+
+// Components
+@import "components/buttons";
+@import "components/loader";
 
 // Site sections
 @import "sections/activity";

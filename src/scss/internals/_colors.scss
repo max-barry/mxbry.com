@@ -7,11 +7,15 @@ $neutral-lighter: #e5e5e5;
 
 $black: #2e2e2e;
 
+$error-color: #F44336 !default;
+$valid-color: #53BC89 !default;
+
 $copy: hsla(0,0%,0%,.87);
 $copy-secondary: hsla(0,0%,0%,.54);
 
-// Shadows
+
 /**
+Shadows
 @link https://material.angularjs.org/#/material.components.whiteframe/readme/overview
 */
 $shadow-depth-1: 0 2px 5px 0 rgba(0,0,0,.26);

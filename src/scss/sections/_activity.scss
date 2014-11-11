@@ -13,6 +13,7 @@ Activity componenet
     margin: 0 auto;
     &.reset {
         opacity: 0;
+        will-change: opacity;
         @include animation(fadein 550ms);
         @include animation-delay(100ms);
     }
@@ -20,7 +21,7 @@ Activity componenet
 .activity li {
     overflow: hidden;
     & + li {
-        margin-top: $gutter * 1.5;
+        margin-top: $gutter * 2;
     }
 }
 .activity .round-icon {
@@ -50,6 +51,7 @@ Activity componenet
         content: "";
         background: transparent url("#{$image-url}icons/exit-page-wh.svg") no-repeat center center;
         background-size: 50%;
+        will-change: transform, opacity;
         @include position(absolute, 0 0 0 0);
         @include animation(screw-scale-in $revealduration, fadein $revealduration);
     }
@@ -69,6 +71,7 @@ $source-entrance-duration: 500ms;
 }
 .source-enter {
     .round-icon, .copy-wrap {
+        will-change: transform;
         @include animation(transform-reset $source-entrance-duration $ease-out-quint, fadein $source-entrance-duration $ease-out-quint);
     }
     .round-icon {
@@ -136,6 +139,7 @@ Filter
 }
 .filter .round-icon {
     box-shadow: $shadow-depth-1;
+    will-change: box-shadow;
     @include transition(box-shadow 250ms $ease-out-quint);
 }
 
@@ -160,6 +164,7 @@ Filter
 }
 
 .filter.reveal-filter .round-icon.control {
+    will-change: transform, opacity;
     @include animation(screw-scale-in 550ms, fadein 200ms);
 }
 .filter .round-icon.control {
@@ -192,6 +197,7 @@ Filter
 }
 .reveal-filter-options .round-icon:not(.control) {
     pointer-events: all;
+    will-change: transform, opacity;
     @include animation(transform-reset 500ms, fadein 350ms);
     &:hover {
         background-color: darken($neutral-darker, 5);
@@ -205,11 +211,13 @@ Filter
     background-image: none;
     background-color: $black;
     box-shadow: none;
+    will-change: background-color;
     @include transition(background-color 250ms $ease-out-quint);
     &:after {
         content: "";
         background: transparent url("#{$image-url}icons/clear-wh.svg") no-repeat center center;
         background-size: 50%;
+        will-change: transform, opacity;
         @include position(absolute, 0 0 0 0);
         @include animation(screw-scale-in 250ms, fadein 250ms);
     }

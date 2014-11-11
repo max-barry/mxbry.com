@@ -111,7 +111,7 @@ $(function() {
     */
     mb.services.medium = {
         account: "@ev",
-        initial: 2,
+        initial: 1,
         content: []
     };
 
