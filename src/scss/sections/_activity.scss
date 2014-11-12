@@ -177,11 +177,6 @@ Filter
     position: relative;
     // TODO : Pointer event polyfill
     pointer-events: none;
-    span {
-        color: $black;
-        font-family: $heavy-font-family;
-        @include scut-center-transform;
-    }
 }
 .filter .round-icon:nth-child(2) {
     @include transform(translate3d(-100%, 0, -1px));

@@ -11,6 +11,11 @@
         opacity: 1;
     }
 }
+.fade-in {
+    will-change: opacity;
+    @include animation(fadein 550ms);
+    @include animation-fill-mode(forwards);
+}
 
 @include keyframes(grow-in) {
     from {
@@ -24,6 +29,21 @@
 .grow-in {
     will-change: transform, opacity;
     @include animation(grow-in 350ms, fadein 150ms);
+    @include animation-base;
+}
+
+@include keyframes(shrink-in) {
+    from {
+        @include transform(scale(2.5));
+    }
+    to {
+        @include transform(none);
+    }
+}
+
+.shrink-in {
+    will-change: transform, opacity;
+    @include animation(shrink-in 450ms, fadein 300ms);
     @include animation-base;
 }
 

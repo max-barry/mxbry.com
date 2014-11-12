@@ -119,15 +119,15 @@ $(function(jQuery) {
             }
         };
 
-        pub.fetch_all_feeds(function() {
-            _mash_feeds();
-            _initial_append();
-            _reveal_items();
-        });
+        if ($(".hp-activities").length) {
+            pub.fetch_all_feeds(function() {
+                _mash_feeds();
+                _initial_append();
+                _reveal_items();
+            });
+        }
 
         return pub;
 
     })(jQuery);
-
-
 });

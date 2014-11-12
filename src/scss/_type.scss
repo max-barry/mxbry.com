@@ -33,10 +33,17 @@ body {
 p {
     max-width: rem(760);
 }
-.header-1, .header-2, .header-3, .header-4, p {
+a {
+    text-decoration: none;
+    color: inherit;
+    &:visited {
+        color: inherit;
+    }
+}
+.header-4, p {
     a {
         padding: 0 3px 1px 3px;
-        background-color: #ECECEC;
+        background-color: #E2E2E2;
         text-decoration: none;
         font-family: $heavy-font-family;
         color: $copy;

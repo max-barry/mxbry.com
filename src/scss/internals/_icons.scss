@@ -19,9 +19,15 @@
     background-size: 50%;
     position: relative;
     z-index: 1;
+    @include user-select(none);
     @media #{$small-all} {
         height: $activity-source-height * 0.7;
         width: $activity-source-height * 0.7;
+    }
+    span {
+        color: $black;
+        font-family: $heavy-font-family;
+        @include scut-center-transform;
     }
     &.medium {
         @include icon-medium;
@@ -32,11 +38,51 @@
     &.github {
         @include icon-github;
     }
-    &.more-dots-gr {
-        background-image: url("#{$image-url}icons/more-dots-gr.svg");
+    &.more-dots {
+        background-image: url("#{$image-url}icons/more-dots.svg");
+    }
+    &.more-dots-wh {
+        background-color: $black;
+        background-image: url("#{$image-url}icons/more-dots-wh.svg");
     }
     &.control {
         background-image: url("#{$image-url}icons/filter.svg");
+    }
+    &.python, &.javascript {
+        cursor: default;
+        span {
+            color: white;
+            font-size: rem(26);
+        }
+    }
+    &.scss, &.html, &.grunt {
+        cursor: default;
+        span {
+            color: white;
+            font-size: rem(20);
+        }
+    }
+    &.grunt {
+        background-color: #e48632;
+        span {
+            color: white;
+            font-size: rem(16);
+        }
+    }
+    &.python {
+        background-color: #82b043;
+    }
+    &.javascript {
+        background-color: #FFAE19;
+    }
+    &.html {
+        background-color: #FF1919;
+        span {
+            font-size: rem(17);
+        }
+    }
+    &.scss {
+        background-color: #1973FF;
     }
 }
 

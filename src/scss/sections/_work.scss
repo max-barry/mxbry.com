@@ -1,0 +1,35 @@
+.work-article, .work-hero {
+    box-shadow: $shadow-depth-1;
+    background: white;
+    padding: $gutter * 2;
+    margin-bottom: $section-break;
+    &:first-of-type {
+        margin-top: $section-break;
+    }
+
+}
+
+.work-hero {
+    .header-2 {
+        margin: 0;
+        float: left;
+        a {
+            color: $primary-color;
+        }
+    }
+    .switches {
+        float: right;
+    }
+}
+
+.work-article {
+    .icon-wrap {
+        @include user-select(none);
+    }
+    .round-icon {
+        display: inline-block;
+        &:not(:last-child) {
+            margin-right: $gutter; 
+        }
+    }
+}

@@ -1,7 +1,6 @@
 ---
 layout: base
 ---
-
 <h1 class="page-wrap tiny header-1">
 {# Max Barry. #}
 Lor Dolor.

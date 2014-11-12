@@ -1,5 +1,6 @@
 html {
     font-size: 14px;
+    background-color: #f9f9f9;
     @media #{$small-all} {
         font-size: 15px;
     }
@@ -67,4 +68,7 @@ hr {
     max-width: 70%;
     margin-left: auto !important;
     margin-right: auto !important;
+}
+img {
+    max-width: 100%;
 }

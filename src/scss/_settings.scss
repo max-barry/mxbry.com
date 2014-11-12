@@ -12,6 +12,8 @@ $block-font-family: mohavebolditalic, $heavy-font-family;
 
 // Dimensions
 $gutter: 1rem;
+$column: golden-ratio(1rem, 3);
+
 $activity-source-height: rem(64);
 $button-height: rem(35);
 $section-break: 4 * $gutter;

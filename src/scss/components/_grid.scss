@@ -1,0 +1,7 @@
+$colwdths-lrg: 5, 7;
+
+@each $width in $colwdths-lrg {
+    .lrg-#{$width} {
+        @include span-columns($width);
+    }
+}
