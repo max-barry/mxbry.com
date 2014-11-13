@@ -1,0 +1,13 @@
+header {
+    width: 100%;
+    height: rem(64);
+    background-color: $black;
+    position: relative;
+    text-align: center;
+    .header-2 {
+        margin-top: 0;
+        color: white;
+        line-height: rem(64);
+        // @include scut-center-transform(y);
+    }
+}

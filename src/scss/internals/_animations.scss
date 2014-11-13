@@ -28,7 +28,8 @@
 
 .grow-in {
     will-change: transform, opacity;
-    @include animation(grow-in 350ms, fadein 150ms);
+    opacity: 0;
+    @include animation(grow-in 1000ms, fadein 800ms);
     @include animation-base;
 }
 
@@ -60,6 +61,12 @@
     to {
         @include transform(none);
     }
+}
+
+.screw-in {
+    will-change: transform;
+    @include animation(screw-scale-in 550ms, fadein 300ms);
+    @include animation-base;
 }
 
 @include keyframes(loader){
