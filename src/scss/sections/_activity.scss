@@ -90,12 +90,6 @@ Activity split-view
     }
     @media #{$medium-up} {
         position: absolute;
-        // &:first-of-type {
-        //     @include transform(translate3d(-5%, 0, 0));
-        // }
-        // &:last-of-type {
-        //     @include transform(translate3d(105%, 0, 0));
-        // }
     }
     @media #{$large-up} {
         width: 50%;

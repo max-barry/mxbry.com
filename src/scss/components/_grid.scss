@@ -1,7 +1,35 @@
+// Columns
 $colwdths-lrg: 5, 7;
 
 @each $width in $colwdths-lrg {
     .lrg-#{$width} {
         @include span-columns($width);
     }
+}
+
+// Item Grid
+$single-item-width: rem(340);
+
+.grid {
+    @include clearfix;
+    @include display(flex);
+    @include flex-wrap(wrap);
+    @include justify-content(center);
+}
+
+.grid-item {
+    padding: $gutter;
+    margin: rem(5);
+}
+
+.single-flex {
+    @include flex-grow(1);
+    @include flex-shrink(1);
+    @include flex-basis($single-item-width);
+}
+
+.double-flex {
+    @include flex-grow(2);
+    @include flex-shrink(2);
+    @include flex-basis($single-item-width * 2);
 }

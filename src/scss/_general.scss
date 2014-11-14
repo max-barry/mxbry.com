@@ -1,6 +1,6 @@
 html {
     font-size: 14px;
-    background-color: #f9f9f9;
+    background-color: $light-grey;
     @media #{$small-all} {
         font-size: 15px;
     }
@@ -25,6 +25,13 @@ body {
 
 .page-wrap {
     @include outer-container;
+    @media only screen and (max-width: $max-width) {
+        padding-right: $gutter;
+        padding-left: $gutter;
+    }
+    @media #{$small-all} {
+        padding: 0;
+    }
     &.slim {
         max-width: $slim;
     }
@@ -72,3 +79,30 @@ hr {
 img {
     max-width: 100%;
 }
+
+.mreset {
+    margin: 0 !important;
+}
+
+.sct-break {
+    margin-bottom: $section-break;
+    &:first-of-type {
+        margin-top: $section-break;
+    }
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.card {
+    box-shadow: $shadow-depth-1;
+    background: white;
+    padding: $gutter * 2;
+}
+
+.single-flex {}

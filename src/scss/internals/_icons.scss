@@ -4,7 +4,7 @@
 }
 
 @mixin icon-github {
-    background-size: 100%;
+    background-size: 104%;
     background-color: #FFF;
     background-image:url("#{$image-url}logos/github.svg");
 }
@@ -55,7 +55,7 @@
             font-size: rem(26);
         }
     }
-    &.scss, &.html, &.grunt {
+    &.scss, &.html {
         cursor: default;
         span {
             color: white;
@@ -64,9 +64,13 @@
     }
     &.grunt {
         background-color: #e48632;
+        cursor: default;
         span {
             color: white;
             font-size: rem(16);
+        }
+        &.gr-shrt {
+            span {font-size: rem(26);}
         }
     }
     &.python {

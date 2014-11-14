@@ -36,11 +36,19 @@ p {
 a {
     text-decoration: none;
     color: inherit;
+    @include transition(color 150ms);
     &:visited {
         color: inherit;
     }
 }
-.header-4, p {
+.header-1 a, .header-2 a {
+    color: $accent-color;
+    &:hover {
+        text-decoration: underline;
+        color: darken($accent-color, 10);
+    }
+}
+@mixin a-tag-highlight {
     a {
         padding: 0 3px 1px 3px;
         background-color: #E2E2E2;
@@ -53,6 +61,9 @@ a {
             background-color: transparentize($primary-color, 0.72);
         }
     }
+}
+.header-4, p {
+    @include a-tag-highlight;
 }
 .btn, button, input[type="submit"] {
     font-size: rem(15);

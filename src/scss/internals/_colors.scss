@@ -1,6 +1,10 @@
 $primary-color: #FAA630;
 $accent-color: #f50057;
 
+$light-grey: #f9f9f9;
+$mild-grey: darken($light-grey, 15);
+$dark-grey: darken($light-grey, 25);
+
 $neutral: #e5e5e5;
 $neutral-darker: darken($neutral, 5);
 $neutral-lighter: #e5e5e5;
