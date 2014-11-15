@@ -1,5 +1,5 @@
 // Columns
-$colwdths-lrg: 5, 7;
+$colwdths-lrg: 4, 5, 7, 8;
 
 @each $width in $colwdths-lrg {
     .lrg-#{$width} {
@@ -8,7 +8,7 @@ $colwdths-lrg: 5, 7;
 }
 
 // Item Grid
-$single-item-width: rem(340);
+$single-item-width: rem(460);
 
 .grid {
     @include clearfix;
@@ -17,19 +17,19 @@ $single-item-width: rem(340);
     @include justify-content(center);
 }
 
-.grid-item {
-    padding: $gutter;
-    margin: rem(5);
-}
+// .grid-item {
+//     padding: $gutter;
+//     margin: rem(5);
+// }
 
-.single-flex {
-    @include flex-grow(1);
-    @include flex-shrink(1);
-    @include flex-basis($single-item-width);
-}
+// .single-flex {
+//     @include flex-grow(1);
+//     @include flex-shrink(1);
+//     @include flex-basis($single-item-width);
+// }
 
-.double-flex {
-    @include flex-grow(2);
-    @include flex-shrink(2);
-    @include flex-basis($single-item-width * 2);
-}
+// .double-flex {
+//     @include flex-grow(2);
+//     @include flex-shrink(2);
+//     @include flex-basis($single-item-width * 2);
+// }

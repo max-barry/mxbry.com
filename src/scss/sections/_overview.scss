@@ -1,23 +1,52 @@
-$overview-hover-effect: 350ms;
+// $overview-hover-effect: 350ms;
 
-.overview-lister {
-    z-index: -3;
-}
-.overview-lister .grid-item .tint {
-    @include position(absolute, 0 0 0 0);
-    background: blue;
-    @include radial-gradient(transparent, $black);
-    opacity: 0.3;
-    z-index: 0;
+$overview-img-dimension: rem(180);
+
+.overview-lister .img-wrap {
+    width: $overview-img-dimension;
+    height: $overview-img-dimension;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center center;
 }
 
-.overview-lister .grid-item .header-3, .overview-lister .grid-item .header-4 {
-    display: inline-block;
-    background: white;
-    color: $black;
-    padding: rem(6);
-    cursor: default;
+.overview-lister .copy-wrap {
+    width: calc(100% - #{$overview-img-dimension});
+    padding-left: $gutter * 3;
 }
+
+
+// .overview-lister {
+//     z-index: -3;
+// }
+
+// .overview-lister .grid-item:hover {
+//     .tint {
+//         opacity: 1;
+//         background-color: $accent-color;
+//         background-image: none;
+//     }
+// }
+
+// .overview-lister .grid-item .tint {
+//     opacity: 0.3;
+//     z-index: 0;
+//     @include position(absolute, 0 0 0 0);
+//     @include radial-gradient(transparent, $black);
+// }
+
+// .overview-lister .grid-item .header-3 {
+//     border-bottom: 2px solid white;
+// }
+
+// .overview-lister .grid-item .header-3, .overview-lister .grid-item .header-4 {
+//     max-width: 80%;
+//     // display: inline-block;
+//     // background-color: white;
+//     color: white;
+//     // padding: rem(6);
+//     // cursor: default;
+// }
 
 // .overview-lister .grid-item {
 //     .header-4 {
@@ -37,78 +66,92 @@ $overview-hover-effect: 350ms;
 //     }
 // }
 
-.overview-lister .grid-item .copy-wrap {
-    width: 80%;
-    @include scut-center-transform;
-}
-.overview-lister .grid-item {
-    .icon-wrap {
-        background: $black;
-        // @include position(absolute, n rem(10) rem(10) rem(10));
-        padding-top: rem(10);
-        padding-bottom: rem(10);
-        will-change: transform;
-        @include transform(translateY(100%));
-        @include transition(transform $overview-hover-effect $ease-out-quint);
-        @include position(absolute, n 0 0 0); 
-        &.five-wide .round-icon {
-            height: rem(52);
-            width: rem(52);
-        }
-        .round-icon {
-            display: inline-block;
-            border: 3px solid white;
-            will-change: transform;
-            @include transition(transform $overview-hover-effect $ease-out-quint);
-            @include transform(scale(0.65));
-            &:not(:last-child) {
-                margin-right: rem(10);
-            }
-            @include transition-delay(0);
-        }
-    }
-    // &:hover .icon-wrap {
+// .overview-lister .grid-item .copy-wrap {
+//     // width: 80%;
+//     // @include scut-center-transform;
+// }
+
+// .overview-lister .grid-item .icon-wrap {
+//     .round-icon {
+//         display: inline-block;
+//         height: rem(48);
+//         width: rem(48);
+//         &:not(:last-child) {
+//             margin-right: $gutter;
+//         }
+//     }
+// }
+
+// .overview-lister .grid-item {
+    // padding: 2 * $gutter;
+    // padding: $gutter;
+    // .icon-wrap {
+    //     background: $black;
+    //     // @include position(absolute, n rem(10) rem(10) rem(10));
     //     padding-top: rem(10);
     //     padding-bottom: rem(10);
+    //     will-change: transform;
+    //     @include transform(translateY(100%));
+    //     @include transition(transform $overview-hover-effect $ease-out-quint);
+    //     @include position(absolute, n 0 0 0); 
+    //     &.five-wide .round-icon {
+    //         height: rem(52);
+    //         width: rem(52);
+    //     }
+    //     .round-icon {
+    //         display: inline-block;
+    //         border: 3px solid white;
+    //         will-change: transform;
+    //         @include transition(transform $overview-hover-effect $ease-out-quint);
+    //         @include transform(scale(0.65));
+    //         &:not(:last-child) {
+    //             margin-right: rem(10);
+    //         }
+    //         @include transition-delay(0);
+    //     }
     // }
-    &:hover .icon-wrap {
-    @include transform(none);
-    }
-    &:hover .round-icon {
-        @include transform(none);
-        @for $i from 1 through 5 {
-            &:nth-child(#{$i}) {
-                $transdelay: if($i == 1, 0, $i * 50ms);
-                @include transition-delay($transdelay);
-            }
-        }
-    }
-}
+    // // &:hover .icon-wrap {
+    // //     padding-top: rem(10);
+    // //     padding-bottom: rem(10);
+    // // }
+    // &:hover .icon-wrap {
+    // @include transform(none);
+    // }
+    // &:hover .round-icon {
+    //     @include transform(none);
+    //     @for $i from 1 through 5 {
+    //         &:nth-child(#{$i}) {
+    //             $transdelay: if($i == 1, 0, $i * 50ms);
+    //             @include transition-delay($transdelay);
+    //         }
+    //     }
+    // }
+// }
 
-.overview-lister .grid-item {
-    background-color: $dark-grey;
-    min-height: $single-item-width;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    text-align: center;
-    position: relative;
-    z-index: 0;
-    overflow: hidden;
-    &:before {
-        content: "";
-        height: rem(14);
-        // background-color: $primary-color;
-        background-color: $black;
-        // background: white;
-        display: block;
-        z-index: 1;
-        will-change: transform;
-        @include transition(transform $overview-hover-effect);
-        @include transform(translateY(-100%));
-        @include position(absolute, 0 0 n 0);
-    }
-    &:hover:before {
-        @include transform(none);
-    }
-}
+// .overview-lister .grid-item {
+//     background-color: $dark-grey;
+//     min-height: $single-item-width / 3;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center center;
+    // text-align: center;
+    // position: relative;
+    // z-index: 0;
+    // overflow: hidden;
+    // &:before {
+    //     content: "";
+    //     height: rem(14);
+    //     // background-color: $primary-color;
+    //     background-color: $black;
+    //     // background: white;
+    //     display: block;
+    //     z-index: 1;
+    //     will-change: transform;
+    //     @include transition(transform $overview-hover-effect);
+    //     @include transform(translateY(-100%));
+    //     @include position(absolute, 0 0 n 0);
+    // }
+    // &:hover:before {
+    //     @include transform(none);
+    // }
+// }
