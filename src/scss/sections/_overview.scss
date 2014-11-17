@@ -1,20 +1,201 @@
-// $overview-hover-effect: 350ms;
-
-$overview-img-dimension: rem(180);
-
-.overview-lister .img-wrap {
-    width: $overview-img-dimension;
-    height: $overview-img-dimension;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center center;
+.overview-wrap {
+    @include align-items(flex-start);
 }
+
+@media #{$small-all} {
+    .overview-lister {
+        @include order(2);
+    }
+    .overview-navigation {
+        margin-bottom: 0;
+        @include order(1);
+    }
+}
+
+// $overview-language-dimension: rem(7);
+$overview-language-dimension: rem(80);
+
+.overview-lister article {
+    position: relative;
+    overflow: hidden;
+    @include row;
+    &:first-child {
+        margin-top: 0;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+// .overview-lister .img-wrap {
+//     width: $overview-img-dimension;
+//     height: $overview-img-dimension;
+//     border-radius: 50%;
+//     background-size: cover;
+//     background-position: center center;
+// }
 
 .overview-lister .copy-wrap {
-    width: calc(100% - #{$overview-img-dimension});
-    padding-left: $gutter * 3;
+    // width: calc(100% - #{$overview-language-dimension});
+    // padding-left: $gutter * 3;
+    @media #{$medium-up} {
+        max-width: 75%;
+    }
+    h2 {
+        border-bottom: 7px double rgb(226, 226, 226);
+        // &:hover {
+        // border-color: $accent-color;
+        // }
+   
+    }
+    .round-icon {
+        display: inline-block;
+        box-shadow: $shadow-depth-1;
+        cursor: pointer;
+        @include transition(box-shadow 150ms, background-color 150ms);
+        &:hover {
+            box-shadow: $shadow-depth-2;
+            &.more-dots-wh {
+                background-color: lighten($black, 5);
+            }
+            &.preview {
+                background-color: lighten($primary-color, 5);
+            }
+        }
+        &:active {
+            box-shadow: none;
+            &.more-dots-wh {
+                background-color: darken($black, 5);
+            }
+            &.preview {
+                background-color: darken($primary-color, 5);
+            }
+        }
+        &.preview {
+            margin-left: $gutter;
+        }
+    }
 }
 
+.overview-lister .language-wrap {
+    @media #{$small-all} {
+        margin-top: $gutter;
+    }
+    @media #{$medium-up} {
+        width: $overview-language-dimension;
+        @include display(flex);
+        @include flex-direction(column);
+        @include position(absolute, 0 0 0 n);
+    }
+}
+
+.overview-lister .language-wrap > span {
+    // border-bottom: 1px solid black;
+    @media #{$small-all} {
+        margin-right: $gutter;
+    }
+    @media #{$medium-up} {
+        position: relative;
+        margin-right: $gutter;
+        @include flex(1);
+        &:after {
+            $dub-gutter: $gutter * 2;
+            content: "";
+            width: calc(100% + #{$dub-gutter});
+            // display: block;
+            z-index: 0;
+            will-change: transform;
+            @include position(absolute, 0 0 0 n);
+            @include transition(transform 100ms $ease-out-quint);
+            @include transform(translateX(calc(98% + #{$gutter})));
+        }
+        @each $lang in $languages {
+            $c: map-get($lang, color);
+            $n: map-get($lang, name);
+            &.cat-#{$n}:after {
+                background-color: $c;
+            }
+        }
+    }
+    @media #{$small-all} {
+        padding: rem(5) rem(7);
+        background-color: $neutral;
+        display: inline-block;
+        margin-top: 10px;
+        @each $lang in $languages {
+            $c: map-get($lang, color);
+            $n: map-get($lang, name);
+            &.cat-#{$n} > span {
+                color: $c;
+            }
+        }
+    }
+}
+
+.overview-lister .language-wrap > span > span {
+    z-index: 1;
+    font-family: $heavy-font-family;
+    @media #{$medium-up} {
+        @include transition(color 150ms);
+        @include scut-center-transform;
+    }
+}
+
+// .overview-lister .language-wrap span {
+// display: block;
+// width: rem(75);
+// @include transition(transform 100ms $ease-out-quint);
+// height: 60px;
+// }
+
+@media #{$medium-up} {
+    .overview-lister article:hover {
+        .language-wrap > span:after {
+            @include transition(transform 250ms $ease-out-quint);
+            @include transform(translateX($gutter));
+        }
+        @each $lang in $languages {
+            $c: map-get($lang, color);
+            $n: map-get($lang, name);
+            .language-wrap > span.cat-#{$n} > span {
+                color: lighten($c, 35);
+            }
+        }
+    }
+}
+
+
+.overview-navigation .language-grid .btn {
+    margin-bottom: $gutter;
+    margin-right: $gutter;
+    @include omega(3n);
+    @each $lang in $languages {
+        $c: map-get($lang, color);
+        $n: map-get($lang, name);
+        &.#{$n}-light {
+            color: $c;
+        }
+    }
+    span {
+        @include transition(color 150ms);
+    }
+    &:hover span {
+        color: $black;
+        background-color: lighten($flat-button, 5);
+    }
+    &:active span {
+        color: $black;
+        background-color: $flat-button;
+    }
+}
+
+// .overview-lister article:hover {
+//     .language-wrap span {
+//         @include transition(transform 250ms $ease-out-quint);
+//         @include transform(translate3d(-80%, 0, 0));
+//     }
+// }
 
 // .overview-lister {
 //     z-index: -3;
@@ -83,75 +264,75 @@ $overview-img-dimension: rem(180);
 // }
 
 // .overview-lister .grid-item {
-    // padding: 2 * $gutter;
-    // padding: $gutter;
-    // .icon-wrap {
-    //     background: $black;
-    //     // @include position(absolute, n rem(10) rem(10) rem(10));
-    //     padding-top: rem(10);
-    //     padding-bottom: rem(10);
-    //     will-change: transform;
-    //     @include transform(translateY(100%));
-    //     @include transition(transform $overview-hover-effect $ease-out-quint);
-    //     @include position(absolute, n 0 0 0); 
-    //     &.five-wide .round-icon {
-    //         height: rem(52);
-    //         width: rem(52);
-    //     }
-    //     .round-icon {
-    //         display: inline-block;
-    //         border: 3px solid white;
-    //         will-change: transform;
-    //         @include transition(transform $overview-hover-effect $ease-out-quint);
-    //         @include transform(scale(0.65));
-    //         &:not(:last-child) {
-    //             margin-right: rem(10);
-    //         }
-    //         @include transition-delay(0);
-    //     }
-    // }
-    // // &:hover .icon-wrap {
-    // //     padding-top: rem(10);
-    // //     padding-bottom: rem(10);
-    // // }
-    // &:hover .icon-wrap {
-    // @include transform(none);
-    // }
-    // &:hover .round-icon {
-    //     @include transform(none);
-    //     @for $i from 1 through 5 {
-    //         &:nth-child(#{$i}) {
-    //             $transdelay: if($i == 1, 0, $i * 50ms);
-    //             @include transition-delay($transdelay);
-    //         }
-    //     }
-    // }
+// padding: 2 * $gutter;
+// padding: $gutter;
+// .icon-wrap {
+//     background: $black;
+//     // @include position(absolute, n rem(10) rem(10) rem(10));
+//     padding-top: rem(10);
+//     padding-bottom: rem(10);
+//     will-change: transform;
+//     @include transform(translateY(100%));
+//     @include transition(transform $overview-hover-effect $ease-out-quint);
+//     @include position(absolute, n 0 0 0); 
+//     &.five-wide .round-icon {
+//         height: rem(52);
+//         width: rem(52);
+//     }
+//     .round-icon {
+//         display: inline-block;
+//         border: 3px solid white;
+//         will-change: transform;
+//         @include transition(transform $overview-hover-effect $ease-out-quint);
+//         @include transform(scale(0.65));
+//         &:not(:last-child) {
+//             margin-right: rem(10);
+//         }
+//         @include transition-delay(0);
+//     }
+// }
+// // &:hover .icon-wrap {
+// //     padding-top: rem(10);
+// //     padding-bottom: rem(10);
+// // }
+// &:hover .icon-wrap {
+// @include transform(none);
+// }
+// &:hover .round-icon {
+//     @include transform(none);
+//     @for $i from 1 through 5 {
+//         &:nth-child(#{$i}) {
+//             $transdelay: if($i == 1, 0, $i * 50ms);
+//             @include transition-delay($transdelay);
+//         }
+//     }
+// }
 // }
 
 // .overview-lister .grid-item {
 //     background-color: $dark-grey;
 //     min-height: $single-item-width / 3;
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // background-position: center center;
-    // text-align: center;
-    // position: relative;
-    // z-index: 0;
-    // overflow: hidden;
-    // &:before {
-    //     content: "";
-    //     height: rem(14);
-    //     // background-color: $primary-color;
-    //     background-color: $black;
-    //     // background: white;
-    //     display: block;
-    //     z-index: 1;
-    //     will-change: transform;
-    //     @include transition(transform $overview-hover-effect);
-    //     @include transform(translateY(-100%));
-    //     @include position(absolute, 0 0 n 0);
-    // }
-    // &:hover:before {
-    //     @include transform(none);
-    // }
+// background-repeat: no-repeat;
+// background-size: cover;
+// background-position: center center;
+// text-align: center;
+// position: relative;
+// z-index: 0;
+// overflow: hidden;
+// &:before {
+//     content: "";
+//     height: rem(14);
+//     // background-color: $primary-color;
+//     background-color: $black;
+//     // background: white;
+//     display: block;
+//     z-index: 1;
+//     will-change: transform;
+//     @include transition(transform $overview-hover-effect);
+//     @include transform(translateY(-100%));
+//     @include position(absolute, 0 0 n 0);
+// }
+// &:hover:before {
+//     @include transform(none);
+// }
 // }

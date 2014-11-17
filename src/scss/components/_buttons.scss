@@ -6,6 +6,8 @@ button, input[type=submit], .btn {
     cursor: pointer;
     padding: 0 $gutter;
     color: white;
+    font-family: $heavy-font-family;
+    text-align: center;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-touch-callout: none;
     @include user-select(none);
@@ -24,7 +26,7 @@ button.flat, .btn.flat {
     will-change: background-color;
     @include transition(background-color 350ms $ease-out-quint);
     &:hover {
-        background-color: lighten(#d6d6d6, 5);
+        background-color: lighten($flat-button, 5);
         &.accent {
             background-color: lighten(returnlightershade($accent-color), 5);
         }
@@ -33,7 +35,7 @@ button.flat, .btn.flat {
         }
     }
     &:active {
-        background-color: #d6d6d6;
+        background-color: $flat-button;
         &.accent {
             background-color: returnlightershade($accent-color);
         }

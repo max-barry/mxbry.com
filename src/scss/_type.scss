@@ -48,6 +48,14 @@ a {
         color: darken($accent-color, 10);
     }
 }
+.header-3 a {
+    color: $black;
+    &:hover {
+        // text-decoration: underline;
+        color: $accent-color;
+    }
+
+}
 @mixin a-tag-highlight {
     a {
         padding: 0 3px 1px 3px;

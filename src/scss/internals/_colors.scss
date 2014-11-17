@@ -9,6 +9,8 @@ $neutral: #e5e5e5;
 $neutral-darker: darken($neutral, 5);
 $neutral-lighter: #e5e5e5;
 
+$flat-button: #d6d6d6;
+
 $black: #2e2e2e;
 
 $error-color: #F44336 !default;
@@ -16,6 +18,32 @@ $valid-color: #53BC89 !default;
 
 $copy: hsla(0,0%,0%,.87);
 $copy-secondary: hsla(0,0%,0%,.54);
+
+/**
+Languages
+*/
+$python: (
+    color: #82b043,
+    name: "python",
+);
+$javascript: (
+    color: #FFAE19,
+    name: "javascript",
+);
+$grunt: (
+    color: #e48632,
+    name: "grunt",
+);
+$scss: (
+    color: #1973FF,
+    name: "scss",
+);
+$html: (
+    color: #FF1919,
+    name: "html",
+);
+
+$languages: $python $javascript $grunt $scss $html;
 
 
 /**

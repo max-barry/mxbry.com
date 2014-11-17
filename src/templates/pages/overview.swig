@@ -1,24 +1,71 @@
 ---
 layout: base
 ---
-<div class="page-wrap grid">
-    <article class="overview-lister card lrg-8 sct-break">
-        <ul>
-            <li>
-                <div class="img-wrap left" style="background-image:url('http://i.giphy.com/QIPEV0HWAiXVm.gif')"></div>
-                <div class="copy-wrap right">
-                    <h2 class="header-3">Lorem ipsum dolor sit.</h2>
-                    <h3 class="header-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum perferendis odio explicabo molestiae sed harum!</h3>
-                </div>
-            </li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </article>
-    <articles class="overview-navigation card lrg-4 sct-break">
+<div class="page-wrap grid overview-wrap">
+    <div class="overview-lister lrg-8 sml-12 sct-break">
+        <article class="sct-break card">
+            <section class="copy-wrap">
+                <h2 class="header-3 mreset"><a href="">Lorem ipsum dolor sit.</a></h2>
+                <h3 class="header-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum perferendis odio explicabo molestiae sed harum!</h3>
+                <a href=""><div class="round-icon more-dots-wh"></div></a>
+                <a href=""><div class="round-icon preview"></div></a>
+            </section>
+            <section class="language-wrap">
+                <span class="cat-python"><span>Python</span></span>
+                <span class="cat-javascript"><span>Javascript</span></span>
+                <span class="cat-grunt"><span>Grunt</span></span>
+            </section>
+        </article>
+        <article class="sct-break card">
+            <section class="copy-wrap">
+                <h2 class="header-3 mreset"><a href="">Lorem ipsum dolor sit.</a></h2>
+                <h3 class="header-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum perferendis odio explicabo molestiae sed harum!</h3>
+                <a href=""><div class="round-icon more-dots-wh"></div></a>
+                <a href=""><div class="round-icon preview"></div></a>
+            </section>
+            <section class="language-wrap">
+                <span class="cat-python"><span>Python</span></span>
+                <span class="cat-javascript"><span>Javascript</span></span>
+                <span class="cat-grunt"><span>Grunt</span></span>
+            </section>
+        </article>
+                <article class="sct-break card">
+            <section class="copy-wrap">
+                <h2 class="header-3 mreset"><a href="">Lorem ipsum dolor sit.</a></h2>
+                <h3 class="header-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum perferendis odio explicabo molestiae sed harum!</h3>
+                <a href=""><div class="round-icon more-dots-wh"></div></a>
+                <a href=""><div class="round-icon preview"></div></a>
+            </section>
+            <section class="language-wrap">
+                <span class="cat-python"><span>Python</span></span>
+                <span class="cat-javascript"><span>Javascript</span></span>
+                <span class="cat-grunt"><span>Grunt</span></span>
+            </section>
+        </article>
+                <article class="sct-break card">
+            <section class="copy-wrap">
+                <h2 class="header-3 mreset"><a href="">Lorem ipsum dolor sit.</a></h2>
+                <h3 class="header-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum perferendis odio explicabo molestiae sed harum!</h3>
+                <a href=""><div class="round-icon more-dots-wh"></div></a>
+                <a href=""><div class="round-icon preview"></div></a>
+            </section>
+            <section class="language-wrap">
+                <span class="cat-python"><span>Python</span></span>
+                <span class="cat-javascript"><span>Javascript</span></span>
+                <span class="cat-grunt"><span>Grunt</span></span>
+            </section>
+        </article>
+
+    </div>
+    <article class="overview-navigation card lrg-4 sml-12 sct-break">
         <h1 class="header-2 mreset">Work by <a href="">Me</a></h1>
-    </articles>
+        <h3 class="header-3 heading">Languages</h3>
+        <div class="language-grid">
+            {% for language in languages %}
+                <div class="{{language|lower}}-light btn flat"><span>{{language}}</span></div>
+            {% endfor %}
+        </div>
+    </article>
 </div>
 
 <!--

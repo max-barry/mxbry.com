@@ -1,10 +1,19 @@
 // Columns
 $colwdths-lrg: 4, 5, 7, 8;
+$colwdths-sml: 12;
 
-@each $width in $colwdths-lrg {
-    .lrg-#{$width} {
+    @each $width in $colwdths-lrg {
+        .lrg-#{$width} {
+            @include span-columns($width);
+        }
+    }
+
+@media #{$small-all} {
+@each $width in $colwdths-sml {
+    .sml-#{$width} {
         @include span-columns($width);
     }
+}
 }
 
 // Item Grid
@@ -17,10 +26,10 @@ $single-item-width: rem(460);
     @include justify-content(center);
 }
 
-// .grid-item {
-//     padding: $gutter;
-//     margin: rem(5);
-// }
+.grid-item {
+    // padding: $gutter;
+    @include flex(1);
+}
 
 // .single-flex {
 //     @include flex-grow(1);

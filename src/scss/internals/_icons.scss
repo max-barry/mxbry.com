@@ -38,6 +38,10 @@
     &.github {
         @include icon-github;
     }
+    &.preview {
+        background-color: $primary-color;
+        background-image: url("#{$image-url}icons/preview.svg");
+    }
     &.more-dots {
         background-image: url("#{$image-url}icons/more-dots.svg");
     }
@@ -63,7 +67,6 @@
         }
     }
     &.grunt {
-        background-color: #e48632;
         cursor: default;
         span {
             color: white;
@@ -73,20 +76,41 @@
             span {font-size: rem(26);}
         }
     }
-    &.python {
-        background-color: #82b043;
-    }
-    &.javascript {
-        background-color: #FFAE19;
-    }
     &.html {
-        background-color: #FF1919;
         span {
             font-size: rem(17);
         }
     }
-    &.scss {
-        background-color: #1973FF;
+}
+
+@each $lang in $languages {
+    $c: map-get($lang, color);
+    $n: map-get($lang, name);
+    .#{$n} {
+        background-color: $c;
+    }
+    .#{$n}-light {
+        color: $c;
+        background-color: returnlightershade($c);
     }
 }
 
+// .scss {
+//     background-color: $col-scss;
+// }
+
+// .grunt {
+//     background-color: $col-grunt;
+// }
+
+// .html {
+//     background-color: $col-html;
+// }
+
+// .python {
+//     background-color: $col-python;
+// }
+
+// .javascript {
+//     background-color: $col-javascript;
+// }
