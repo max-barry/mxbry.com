@@ -38,6 +38,14 @@
     &.github {
         @include icon-github;
     }
+    &.right-arrow {
+        background-color: $black;
+        background-image: url("#{$image-url}icons/arrow-forward.svg");
+    }
+    &.left-arrow {
+        background-color: $black;
+        background-image: url("#{$image-url}icons/arrow-back.svg");
+    }
     &.preview {
         background-color: $primary-color;
         background-image: url("#{$image-url}icons/preview.svg");

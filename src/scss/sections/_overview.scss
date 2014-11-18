@@ -12,13 +12,22 @@
     }
 }
 
-// $overview-language-dimension: rem(7);
 $overview-language-dimension: rem(80);
+
+.overview-lister:before {
+    content: "";
+    opacity: 0;
+}
 
 .overview-lister article {
     position: relative;
     overflow: hidden;
+    width: 100%;
     @include row;
+    &:before {
+        content: "";
+        opacity: 0;
+    }
     &:first-child {
         margin-top: 0;
     }
@@ -28,26 +37,12 @@ $overview-language-dimension: rem(80);
 }
 
 
-// .overview-lister .img-wrap {
-//     width: $overview-img-dimension;
-//     height: $overview-img-dimension;
-//     border-radius: 50%;
-//     background-size: cover;
-//     background-position: center center;
-// }
-
 .overview-lister .copy-wrap {
-    // width: calc(100% - #{$overview-language-dimension});
-    // padding-left: $gutter * 3;
     @media #{$medium-up} {
         max-width: 75%;
     }
     h2 {
         border-bottom: 7px double rgb(226, 226, 226);
-        // &:hover {
-        // border-color: $accent-color;
-        // }
-   
     }
     .round-icon {
         display: inline-block;
@@ -91,7 +86,6 @@ $overview-language-dimension: rem(80);
 }
 
 .overview-lister .language-wrap > span {
-    // border-bottom: 1px solid black;
     @media #{$small-all} {
         margin-right: $gutter;
     }
@@ -103,7 +97,6 @@ $overview-language-dimension: rem(80);
             $dub-gutter: $gutter * 2;
             content: "";
             width: calc(100% + #{$dub-gutter});
-            // display: block;
             z-index: 0;
             will-change: transform;
             @include position(absolute, 0 0 0 n);
@@ -142,13 +135,6 @@ $overview-language-dimension: rem(80);
     }
 }
 
-// .overview-lister .language-wrap span {
-// display: block;
-// width: rem(75);
-// @include transition(transform 100ms $ease-out-quint);
-// height: 60px;
-// }
-
 @media #{$medium-up} {
     .overview-lister article:hover {
         .language-wrap > span:after {
@@ -182,157 +168,116 @@ $overview-language-dimension: rem(80);
     }
     &:hover span {
         color: $black;
-        background-color: lighten($flat-button, 5);
+        // background-color: lighten($flat-button, 5);
     }
     &:active span {
         color: $black;
-        background-color: $flat-button;
+        // background-color: $flat-button;
     }
 }
 
-// .overview-lister article:hover {
-//     .language-wrap span {
-//         @include transition(transform 250ms $ease-out-quint);
-//         @include transform(translate3d(-80%, 0, 0));
-//     }
-// }
 
-// .overview-lister {
-//     z-index: -3;
-// }
+/**
+Timeline view
+*/
+$overview-timeline-dimensions: rem(360);
+$ot-trans-time: 500ms;
+$phase-two-delay: $ot-trans-time * 0.7;
 
-// .overview-lister .grid-item:hover {
-//     .tint {
-//         opacity: 1;
-//         background-color: $accent-color;
-//         background-image: none;
-//     }
-// }
+.overview-lister.timeline-transition {
+    &:before {
+        @include transition(opacity $ot-trans-time);
+    }
+    article {
+        will-change: width, border-radius, height, margin;
+        @include transition(width $ot-trans-time, border-radius $ot-trans-time, height $ot-trans-time, margin $ot-trans-time * 2);
+        &:before {
+            will-change: opacity;
+            @include transition(opacity $ot-trans-time);
+        }
+    }
+    article, article:before, &:before {
+        @include transition-timing-function($ease-out-quint);
+    }
+}
 
-// .overview-lister .grid-item .tint {
-//     opacity: 0.3;
-//     z-index: 0;
-//     @include position(absolute, 0 0 0 0);
-//     @include radial-gradient(transparent, $black);
-// }
+.overview-lister.timeline-transition.timeline-view {
+    &:before {
+        @include transition-delay($phase-two-delay);
+    }
+    article {
+        @for $i from 1 through 4 {
+            &:nth-child(#{$i}):before {
+                $sf: ($i / 5) + 1;
+                @include transition-delay($phase-two-delay * $sf);
+            }
+        }
+    }
+}
 
-// .overview-lister .grid-item .header-3 {
-//     border-bottom: 2px solid white;
-// }
+.overview-lister.timeline-view article {
+    border-radius: 50%;
+    overflow: visible;
+    margin-bottom: $gutter;
+    width: $overview-timeline-dimensions;
+    height: $overview-timeline-dimensions;
+}
 
-// .overview-lister .grid-item .header-3, .overview-lister .grid-item .header-4 {
-//     max-width: 80%;
-//     // display: inline-block;
-//     // background-color: white;
-//     color: white;
-//     // padding: rem(6);
-//     // cursor: default;
-// }
+.overview-lister.timeline-view article:nth-child(even) {
+    margin-left: auto;
+}
 
-// .overview-lister .grid-item {
-//     .header-4 {
-//         cursor: default;
-//         will-change: transform;
-//         @include transition(transform $overview-hover-effect $ease-out-quint);
-//     }
-//     .copy-wrap .round-icon {
-//         position: absolute;
-//         @include transform(translate(-125%, -100%));
-//     }
-//     &:hover .copy-wrap .round-icon {
-//         @include transform(translate(0, -100%));
-//     }
-//     &:hover .header-4 {
-//         @include transform(translate(125%, 0));
-//     }
-// }
+.overview-lister.timeline-view article:before {
+    content: "";
+    width: $activity-source-height;
+    height: $activity-source-height;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: $shadow-depth-1;
+    opacity: 1;
+    background-color: $accent-color;
+    background-size: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
 
-// .overview-lister .grid-item .copy-wrap {
-//     // width: 80%;
-//     // @include scut-center-transform;
-// }
+.overview-lister.timeline-view article:nth-child(even):before {
+    left: 0;
+    background-image: url("#{$image-url}icons/arrow-back-wh.svg");
+}
+.overview-lister.timeline-view article:nth-child(odd):before {
+    right: 0;
+    background-image: url("#{$image-url}icons/arrow-forward-wh.svg");
+}
 
-// .overview-lister .grid-item .icon-wrap {
-//     .round-icon {
-//         display: inline-block;
-//         height: rem(48);
-//         width: rem(48);
-//         &:not(:last-child) {
-//             margin-right: $gutter;
-//         }
-//     }
-// }
+.overview-lister.timeline-view {
+    position: relative;
+}
 
-// .overview-lister .grid-item {
-// padding: 2 * $gutter;
-// padding: $gutter;
-// .icon-wrap {
-//     background: $black;
-//     // @include position(absolute, n rem(10) rem(10) rem(10));
-//     padding-top: rem(10);
-//     padding-bottom: rem(10);
-//     will-change: transform;
-//     @include transform(translateY(100%));
-//     @include transition(transform $overview-hover-effect $ease-out-quint);
-//     @include position(absolute, n 0 0 0); 
-//     &.five-wide .round-icon {
-//         height: rem(52);
-//         width: rem(52);
-//     }
-//     .round-icon {
-//         display: inline-block;
-//         border: 3px solid white;
-//         will-change: transform;
-//         @include transition(transform $overview-hover-effect $ease-out-quint);
-//         @include transform(scale(0.65));
-//         &:not(:last-child) {
-//             margin-right: rem(10);
-//         }
-//         @include transition-delay(0);
-//     }
-// }
-// // &:hover .icon-wrap {
-// //     padding-top: rem(10);
-// //     padding-bottom: rem(10);
-// // }
-// &:hover .icon-wrap {
-// @include transform(none);
-// }
-// &:hover .round-icon {
-//     @include transform(none);
-//     @for $i from 1 through 5 {
-//         &:nth-child(#{$i}) {
-//             $transdelay: if($i == 1, 0, $i * 50ms);
-//             @include transition-delay($transdelay);
-//         }
-//     }
-// }
-// }
+.overview-lister.timeline-view:before {
+    content: "";
+    // width: 10px;
+    // background-color: red;
+    opacity: 1;
+    border-right: rem(10) groove $mild-grey;
+    @include position(absolute, 0 n 0 0);
+    @include scut-center-transform(x);
+}
 
-// .overview-lister .grid-item {
-//     background-color: $dark-grey;
-//     min-height: $single-item-width / 3;
-// background-repeat: no-repeat;
-// background-size: cover;
-// background-position: center center;
-// text-align: center;
-// position: relative;
-// z-index: 0;
-// overflow: hidden;
-// &:before {
-//     content: "";
-//     height: rem(14);
-//     // background-color: $primary-color;
-//     background-color: $black;
-//     // background: white;
-//     display: block;
-//     z-index: 1;
-//     will-change: transform;
-//     @include transition(transform $overview-hover-effect);
-//     @include transform(translateY(-100%));
-//     @include position(absolute, 0 0 n 0);
-// }
-// &:hover:before {
-//     @include transform(none);
-// }
-// }
+.overview-lister.timeline-view .language-wrap {
+    opacity: 0;
+}
+
+.overview-lister.timeline-view .copy-wrap {
+    max-width: rem(305);
+    margin-top: $gutter;
+    @include display(flex);
+    @include flex-wrap(wrap);
+    @include justify-content(center);
+}
+
+.overview-lister.timeline-view .copy-wrap h2 {
+    max-width: 50%;
+    margin: 0 auto !important;
+    text-align: center;
+}
