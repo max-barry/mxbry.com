@@ -3,7 +3,7 @@ layout: base
 ---
 <div class="page-wrap grid overview-wrap">
     {# <div class="overview-lister lrg-8 sml-12 sct-break"> #}
-    <div class="overview-lister lrg-8 sml-12 sct-break">
+    <div class="overview-lister lrg-8 sml-12 sct-break overview-standard">
         <!--
         {% for x in "xxxx" %}
             <article class="sct-break card">
@@ -33,18 +33,27 @@ layout: base
                     <span class="cat-python"><span>Python</span></span>
                     <span class="cat-javascript"><span>Javascript</span></span>
                     <span class="cat-grunt"><span>Grunt</span></span>
+                    <span class="timeline-date header-2">Early 2014</span>
                 </section>
             </article>
         {% endfor %}
     </div>
     <article class="overview-navigation card lrg-4 sml-12 sct-break">
         <h1 class="header-2 mreset">Work by <a href="">Me</a></h1>
-        <h3 class="header-3 heading">Views</h3>
-        <button class="timeline">Timeline</button>
+        <h3 class="header-3 heading">Sort</h3>
+        <div class="view-wrap active" data-view = "standard">
+            <i class="icon view-list"></i>
+        </div>
+        <div class="view-wrap" data-view = "timeline">
+            <i class="icon view-dates"></i>
+            <h4 class = "header-3 mreset">By Date</h4>
+        </div>
+        <div class="clearfix"></div>
+        {# <button class="timeline">Timeline</button> #}
         <h3 class="header-3 heading">Languages</h3>
         <div class="language-grid">
             {% for language in languages %}
-                <div class="{{language|lower}}-light btn flat"><span>{{language}}</span></div>
+                <div class="{# {{language|lower}}-light #} btn flat"><span>{{language}}</span></div>
             {% endfor %}
         </div>
     </article>

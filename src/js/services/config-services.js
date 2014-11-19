@@ -66,17 +66,18 @@ $(function() {
         console.log("Handling Medium");
 
         var items = response.query.results.entry.reverse(),
-            tmp, content_selector, actions = [],
+            tmp, content_selector, repo, actions = [],
             source = "github", category = "code";
 
         for (var i = items.length - 1; i >= 0; i--) {
             tmp = items[i];
             content_selector = $(tmp.content.content);
+            repo = content_selector.find(".css-truncate-target").length ? content_selector.find(".css-truncate-target").attr("href").replace("https://github.com", "") : null;
             actions.push({
                 source: source,
                 category: category,
                 pubDate: moment(new Date(tmp.published)).unix(),
-                repo: content_selector.find(".css-truncate-target").attr("href").replace("https://github.com", ""),
+                repo: repo,
                 title: tmp.title.content,
                 deck: content_selector.find(".message blockquote").text().trim(),
                 id: id_service_object(),

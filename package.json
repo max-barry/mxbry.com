@@ -18,7 +18,8 @@
         "assemble": "~0.4.38",
         "assemble-swig": "~0.1.0",
         "grunt-contrib-clean": "~0.6.0",
-        "grunt-prettify": "~0.3.5"
+        "grunt-prettify": "~0.3.5",
+        "moment": "~2.8.4"
     },
     "author": {
         "name": ""
@@ -53,6 +54,7 @@
         "partials": "src/templates/partials/",
         "includes": "src/templates/includes/",
         "data": "src/templates/data/",
+        "helpers": "src/templates/helpers/",
         "layouts": "src/templates/layouts/"
     }
 }

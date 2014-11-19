@@ -14,21 +14,41 @@
     background-image:url("#{$image-url}logos/twitter.svg");
 }
 
+.icon {
+    height: $icon-height;
+    width: $icon-height;
+    display: inline-block;
+    @media #{$small-all} {
+        height: $icon-height * 0.7;
+        width: $icon-height * 0.7;
+    }
+}
+
 .round-icon {
-    @include round-image("", $activity-source-height);
+    @include round-image("", $round-icon-height);
     background-size: 50%;
     position: relative;
-    z-index: 1;
-    @include user-select(none);
     @media #{$small-all} {
-        height: $activity-source-height * 0.7;
-        width: $activity-source-height * 0.7;
+        height: $round-icon-height * 0.7;
+        width: $round-icon-height * 0.7;
     }
     span {
         color: $black;
         font-family: $heavy-font-family;
         @include scut-center-transform;
     }
+}
+
+.icon, .round-icon {
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    @include user-select(none);
+}
+
+
+
+.icon, .round-icon {
     &.medium {
         @include icon-medium;
     }
@@ -60,6 +80,12 @@
     &.control {
         background-image: url("#{$image-url}icons/filter.svg");
     }
+    &.view-dates {
+        background-image: url("#{$image-url}icons/view-dates.svg");
+    }
+    &.view-list {
+        background-image: url("#{$image-url}icons/view-list.svg");
+    }
     &.python, &.javascript {
         cursor: default;
         span {
@@ -90,6 +116,7 @@
         }
     }
 }
+
 
 @each $lang in $languages {
     $c: map-get($lang, color);

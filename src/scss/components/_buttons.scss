@@ -24,23 +24,24 @@ button.flat, .btn.flat {
     height: $button-height;
     line-height: $button-height;
     will-change: background-color;
+    background-color: $flat-button;
     @include transition(background-color 350ms $ease-out-quint);
     &:hover {
-        background-color: lighten($flat-button, 5);
+        background-color: lighten($flat-button, 3);
         &.accent {
-            background-color: lighten(returnlightershade($accent-color), 5);
+            background-color: lighten($accent-color, 3);
         }
         &.primary {
-            background-color: lighten(returnlightershade($primary-color), 5);
+            background-color: lighten($primary-color, 3);
         }
     }
     &:active {
-        background-color: $flat-button;
+        background-color: darken($flat-button, 10);
         &.accent {
-            background-color: returnlightershade($accent-color);
+            background-color: darken($accent-color, 10);
         }
         &.primary {
-            background-color: returnlightershade($primary-color);
+            background-color: darken($primary-color, 10);
         }
     }
 }

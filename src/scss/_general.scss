@@ -42,25 +42,7 @@ body {
         max-width: $xtiny;
     }
 }
-.loader {
-    $loader-height: rem(40);
-    display: block;
-    margin: 0 auto;
-    width: $loader-height;
-    height: $loader-height;
-    background: $accent-color;
-    border-radius: 50%;
-    opacity: 0;
-    @include transform(rotate(0deg) scale(1));
-    @include transition(opacity 350ms);
-    @include transform-origin(center center);
-    @include animation(loader 1200ms);
-    @include animation-iteration-count(infinite);
-    &.show {
-        opacity: 1;
-        @include transition(opacity 150ms);
-    }
-}
+
 a {
     @include transition(color 150ms);
     &:hover {
@@ -89,6 +71,12 @@ img {
     &:first-of-type {
         margin-top: $section-break;
     }
+    @media #{$small-all} {
+        margin-bottom: rem(30);
+        &:first-of-type {
+            margin-top: rem(30);
+        }
+    }
 }
 
 .right {
@@ -107,4 +95,8 @@ img {
 
 .heading {
     border-bottom: 1px solid $mild-grey;
+}
+
+.clearfix {
+    @include row;
 }

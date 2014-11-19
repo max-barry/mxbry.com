@@ -1,0 +1,19 @@
+.loader {
+    $loader-height: rem(40);
+    display: block;
+    margin: 0 auto;
+    width: $loader-height;
+    height: $loader-height;
+    background: $accent-color;
+    border-radius: 50%;
+    opacity: 0;
+    @include transform(rotate(0deg) scale(1));
+    @include transition(opacity 350ms);
+    @include transform-origin(center center);
+    @include animation(loader 1200ms);
+    @include animation-iteration-count(infinite);
+    &.show {
+        opacity: 1;
+        @include transition(opacity 150ms);
+    }
+}

@@ -158,6 +158,7 @@ module.exports = function(grunt) {
                 layoutdir: '<%= pkg.template_paths.layouts %>',
                 layoutext: '.swig',
                 layout: 'base',
+                helpers: ['<%= pkg.template_paths.helpers %>*'],
                 flatten: true
             },
             pages: {
