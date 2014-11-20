@@ -1,12 +1,33 @@
 ---
 layout: base
 ---
+
+<div class="work-hero">
+    <div class="work-hero-text-wrap">
+        <h1 class="header-1">Lorem ipsum dolor sit amet.</h1>
+        <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, similique aspernatur. Similique blanditiis expedita quae.</h2>
+    </div>
+</div>
+<div class="work-languages page-wrap tiny grid sct-break">
+    <h3 class="grid-item python-color">Python</h3>
+    <h3 class="grid-item grunt-color">Grunt</h3>
+    <h3 class="grid-item scss-color">Scss</h3>
+</div>
+<hr class="page-wrap tiny sct-break">
+<div class="work-content page-wrap sct-break">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque reiciendis, suscipit autem! Tempora ipsum eius repellat vel odit incidunt sunt libero ad sequi beatae in fuga vitae rem sit consequuntur dolor placeat, saepe amet eum ipsam aliquid? Facere, ipsum! Corporis.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque reiciendis, suscipit autem! Tempora ipsum eius repellat vel odit incidunt sunt libero ad sequi beatae in fuga vitae rem sit consequuntur dolor placeat, saepe amet eum ipsam aliquid? Facere, ipsum! Corporis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa officiis, obcaecati qui harum inventore accusantium porro eveniet magni facilis amet magnam, accusamus possimus repellendus, nihil vel natus corporis aperiam enim!</p>
+    <img src="https://farm9.staticflickr.com/8592/15606484029_37c5136fc2_k_d.jpg">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque reiciendis, suscipit autem! Tempora ipsum eius repellat vel odit incidunt sunt libero ad sequi beatae in fuga vitae rem sit consequuntur dolor placeat, saepe amet eum ipsam aliquid? Facere, ipsum! Corporis.</p>
+</div>
+
 {# TODO: Do a draw on to show that the dot dot dot means more. Handwritten pen that draws on with an arrow pointing at the more dot dot dot #}
 {# <div class = "work-hero page-wrap slim">
     <h1 class="header-2">Work by <a href="">Me</a></h1>
     <div class="switches">Switches</div>
 </div> #}
 
+<!--
 <div class="row-wrap">
 <div class="header-1">Lorem ipsum dolor sit amet.</div>
 <div class="header-2">An exploration of <a href="">Falcon</a> &amp; MongoDB:<br>hyper fast python web servers as backend to<br> Javascript MVCs or static sites</div>
@@ -23,6 +44,8 @@ layout: base
         <h2 class="header-1">Lorem ipsum dolor.</h2>
     </article> #}
 </div>
+-->
+
 
 {# <article class="work-shape "><h2 class="header-1">Lorem ipsum.</h2></article>
 <article class="work-shape"><h2 class="header-1">Lorem ipsum dolor sit amet, consectetur.</h2></article> #}

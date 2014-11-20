@@ -100,3 +100,14 @@ img {
 .clearfix {
     @include row;
 }
+
+.banding-block {
+    height: 30%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    &.primary {
+        background-color: $primary-color;
+    }
+}

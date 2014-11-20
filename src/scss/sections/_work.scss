@@ -33,25 +33,91 @@
 //     }
 // }
 
-.row-wrap {
-    position: relative;
-    overflow: hidden;
-    // background-color: $black;
+.work-hero {
+    // height: 40%;
     height: 470px;
-    background-image: linear-gradient(27deg, #f50057 20%, #EDEDED 20%, #EDEDED 60%, #FAA630 60%);
+    position: relative;
+    @include linear-gradient(27deg, $accent-color 20%, $mild-grey 20%, $mild-grey 60%, $primary-color 60%);
 }
 
-.row-wrap {
-    .header-1 {
-        color: $black;
-        margin-left: 5%;
+.work-hero-text-wrap, .work-languages {
+    text-align: center;
+}
+
+.work-hero-text-wrap {
+    width: 100%;
+    @include scut-center-transform;
+    h1, h2 {
+        margin: 0 auto;
     }
-    .header-2 {
-        margin-left: 14%;
-        line-height: 1.35;
-        @include a-tag-highlight;
+    h1 {
+        font-size: rem(105);
+        max-width: 90%;
+        color: white;
+        text-shadow: 1px 1px 1px $black;
+    }
+    h2 {
+        font-size: rem(30);
+        max-width: 60%;
+        margin-top: 4 * $gutter;
+        line-height: rem(42);
     }
 }
+
+.work-languages {
+    max-width: 80%;
+    margin: $section-break auto;
+    h3 {
+        max-width: rem(140);
+        font-family: $heavy-font-family;
+        // background-color: red;
+        margin-left: 2 * $gutter;
+        margin-right: 2 * $gutter;
+        border-radius: 3px;
+        padding: 0.6 * $gutter $gutter;
+    }
+}
+
+.work-content {
+    * {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    img, video {
+        max-width: 100%;
+        margin-top: 4 * $gutter;
+        margin-bottom: 4 * $gutter;
+    }
+    p, ul, ol {
+        max-width: $tiny;
+    }
+}
+
+// .work-hero h1 {
+    // @include scut-center-transform;
+// }
+
+// .row-wrap {
+//     position: relative;
+//     overflow: hidden;
+//     // background-color: $black;
+//     height: 470px;
+//     @include linear-gradient(#1e5799, #2989d8);
+//     // background-image: linear-gradient(27deg, #f50057 20%, #EDEDED 20%, #EDEDED 60%, #FAA630 60%);
+// }
+
+// .row-wrap {
+//     .header-1 {
+//         color: $black;
+//         margin-left: 5%;
+//     }
+//     .header-2 {
+//         margin-left: 14%;
+//         line-height: 1.35;
+//         @include a-tag-highlight;
+//     }
+// }
 // .block-a {
 //     position: absolute;
 //     height: 100%;

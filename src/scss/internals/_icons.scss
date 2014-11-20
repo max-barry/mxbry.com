@@ -125,8 +125,13 @@
         background-color: $c;
     }
     .#{$n}-light {
-        color: $c;
         background-color: returnlightershade($c);
+    }
+    .#{$n}-color {
+        color: $c;
+    }
+    .#{$n}-border {
+        border: 1px solid $c;
     }
 }
 

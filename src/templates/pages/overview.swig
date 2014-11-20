@@ -59,6 +59,8 @@ layout: base
     </article>
 </div>
 
+<div class="banding-block primary"></div>
+
 <!--
 {# <article class="overview-hero page-wrap slim sct-break card">
     <h1 class="header-2 mreset left">Work by <a href="">Me</a></h1>
