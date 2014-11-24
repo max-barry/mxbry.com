@@ -7,9 +7,17 @@ html {
 }
 
 body {
-    @media #{$small-all}{
+    overflow-x: hidden;
+}
+
+@media #{$small-all}{
+    body {
         padding-left: $gutter;
         padding-right: $gutter;
+    }
+    .mobile-wide {
+        width: 100vw;
+        margin-left: -#{$gutter};
     }
 }
 

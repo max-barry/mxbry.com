@@ -56,20 +56,7 @@ a {
     }
 
 }
-@mixin a-tag-highlight {
-    a {
-        padding: 0 3px 1px 3px;
-        background-color: #E2E2E2;
-        text-decoration: none;
-        font-family: $heavy-font-family;
-        color: $copy;
-        @include transition(background-color 150ms);
-        &:hover {
-            color: $copy;
-            background-color: transparentize($primary-color, 0.72);
-        }
-    }
-}
+
 .header-4, p {
     @include a-tag-highlight;
 }

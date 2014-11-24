@@ -35,48 +35,104 @@
 
 .work-hero {
     // height: 40%;
-    height: 470px;
+    height: 720px;
+    height: 100vh;
+    height: calc(100vh - #{$header-height});
     position: relative;
     @include linear-gradient(27deg, $accent-color 20%, $mild-grey 20%, $mild-grey 60%, $primary-color 60%);
 }
 
-.work-hero-text-wrap, .work-languages {
+// .work-hero-text-wrap, .work-languages {
+//     text-align: center;
+// }
+
+.work-hero-text-wrap {
     text-align: center;
 }
 
 .work-hero-text-wrap {
     width: 100%;
     @include scut-center-transform;
-    h1, h2 {
-        margin: 0 auto;
-    }
     h1 {
         font-size: rem(105);
-        max-width: 90%;
         color: white;
         text-shadow: 1px 1px 1px $black;
+        line-height: 1;
+        @media #{$medium-up} {
+            max-width: 90%;
+        }
+        @media #{$small-all} {
+            font-size: rem(40);
+        }
     }
     h2 {
         font-size: rem(30);
-        max-width: 60%;
-        margin-top: 4 * $gutter;
-        line-height: rem(42);
+        margin-top: 2 * $gutter;
+        // line-height: rem(42);
+        line-height: 1.3;
+        @media #{$large-up} {
+            max-width: 60%;
+        }
+        @media #{$medium-only} {
+            max-width: 80%;
+        }
+        @media #{$small-all} {
+            font-size: rem(16);
+        }
+    }
+    h1, h2 {
+        margin-left: auto;
+        margin-right: auto;
+        @media #{$small-all} {
+            padding-left: $gutter;
+            padding-right: $gutter;
+        }
     }
 }
 
-.work-languages {
-    max-width: 80%;
-    margin: $section-break auto;
-    h3 {
-        max-width: rem(140);
-        font-family: $heavy-font-family;
-        // background-color: red;
-        margin-left: 2 * $gutter;
-        margin-right: 2 * $gutter;
-        border-radius: 3px;
-        padding: 0.6 * $gutter $gutter;
+.work-intro {
+    margin-top: $section-break;
+    @media #{$small-all} {
+        .btn {
+            min-width: rem(285);
+            height: auto;
+            padding: $gutter;
+            &:not(:last-child) {
+               margin-bottom: 15px;
+            }
+        }
     }
 }
+
+.work-info h3 {
+    margin-bottom: $gutter;
+    font-size: rem(16);
+    line-height: 1.7;
+    span {
+        margin-right: $gutter;
+        @include a-tag-highlight;
+    }
+    &:first-of-type span {
+        font-family: $heavy-font-family;
+    }
+    span:first-of-type {
+        font-family: $heavy-font-family;
+    }
+}
+
+// .work-languages {
+//     max-width: 80%;
+//     margin: $section-break auto;
+//     h3 {
+//         max-width: rem(140);
+//         font-family: $heavy-font-family;
+//         // background-color: red;
+//         margin-left: 2 * $gutter;
+//         margin-right: 2 * $gutter;
+//         border-radius: 3px;
+//         padding: 0.6 * $gutter $gutter;
+//     }
+// }
 
 .work-content {
     * {

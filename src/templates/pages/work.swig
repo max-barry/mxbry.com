@@ -2,24 +2,43 @@
 layout: base
 ---
 
-<div class="work-hero">
-    <div class="work-hero-text-wrap">
+<article class="work-hero mobile-wide">
+    <section class="work-hero-text-wrap">
         <h1 class="header-1">Lorem ipsum dolor sit amet.</h1>
         <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, similique aspernatur. Similique blanditiis expedita quae.</h2>
-    </div>
+    </section>
+</article>
+<div class="work-intro page-wrap tiny grid sct-break">
+    <div class="btn raised black">Demo</div>
+    <div class="btn raised black">Article</div>
 </div>
-<div class="work-languages page-wrap tiny grid sct-break">
+<div class="work-info page-wrap tiny sct-break">
+    <h3>
+        <span>Languages:</span>
+        <span class="python-color">Python</span>
+        <span class="grunt-color">Grunt</span>
+        <span class="scss-color">Scss</span>
+    </h3>
+    <h3>
+        <span>Packages:</span>
+        <span>Foundation</span>
+        <span>jQuery</span>
+        <span><a href="" target="blank">Moment.js</a></span>
+    </h3>
+</div>
+
+{# <div class="work-languages page-wrap tiny grid sct-break">
     <h3 class="grid-item python-color">Python</h3>
     <h3 class="grid-item grunt-color">Grunt</h3>
     <h3 class="grid-item scss-color">Scss</h3>
-</div>
+</div> #}
 <hr class="page-wrap tiny sct-break">
-<div class="work-content page-wrap sct-break">
+<article class="work-content page-wrap sct-break">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque reiciendis, suscipit autem! Tempora ipsum eius repellat vel odit incidunt sunt libero ad sequi beatae in fuga vitae rem sit consequuntur dolor placeat, saepe amet eum ipsam aliquid? Facere, ipsum! Corporis.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque reiciendis, suscipit autem! Tempora ipsum eius repellat vel odit incidunt sunt libero ad sequi beatae in fuga vitae rem sit consequuntur dolor placeat, saepe amet eum ipsam aliquid? Facere, ipsum! Corporis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa officiis, obcaecati qui harum inventore accusantium porro eveniet magni facilis amet magnam, accusamus possimus repellendus, nihil vel natus corporis aperiam enim!</p>
     <img src="https://farm9.staticflickr.com/8592/15606484029_37c5136fc2_k_d.jpg">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque reiciendis, suscipit autem! Tempora ipsum eius repellat vel odit incidunt sunt libero ad sequi beatae in fuga vitae rem sit consequuntur dolor placeat, saepe amet eum ipsam aliquid? Facere, ipsum! Corporis.</p>
-</div>
+</article>
 
 {# TODO: Do a draw on to show that the dot dot dot means more. Handwritten pen that draws on with an arrow pointing at the more dot dot dot #}
 {# <div class = "work-hero page-wrap slim">

@@ -28,3 +28,73 @@
 @import "sections/home";
 @import "sections/work";
 @import "sections/overview";
+
+
+
+$radial-menu-width: 150px;
+$radial-item-dimension: $radial-menu-width / 3;
+
+html, body {
+    height: 100%;
+}
+
+.radial-test {
+    margin-top: 200px;
+    margin-left: 200px;
+}
+
+.radial-mobile-menu {
+    position: relative;
+    display: block;
+    width: $radial-menu-width;
+}
+
+.radial-core {
+    background: red;
+    height: $radial-item-dimension;
+    width: $radial-item-dimension;
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform(translate(-150%, -50%) scale(0));
+    &:hover {
+        background-color: lightsteelblue;
+    }
+}
+
+.radial-items, .radial-core {
+    display: inline-block;
+}
+
+.radial-items {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    @include display(flex);
+    @include flex-wrap(wrap);
+    @include justify-content(center);
+    @include transform(translate(-#{percentage(1/3)}, -50%) scale(0));
+    // &:hover {
+    //     @include transform(translate(-#{percentage(1/3)}, -50%) scale(1));
+    // }
+}
+
+.radial-items li {
+    height: $radial-item-dimension;
+    background: lightblue;
+    @include flex(1);
+    @include flex-basis($radial-item-dimension);
+    &:hover {
+        background: lightcoral;
+    }
+}
+
+.radial-menu-active .radial-core {
+    @include transform(translate(-150%, -50%) scale(1));
+}
+
+// .radial-core:hover + .radial-items {
+//     @include transform(translate(-#{percentage(1/3)}, -50%) scale(1));
+// }

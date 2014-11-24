@@ -1,3 +1,5 @@
+$overview-highlight-bar: $primary-color;
+
 .overview-wrap {
     @include align-items(flex-start);
 }
@@ -274,6 +276,15 @@ $phase-two-delay: $ot-trans-time * 0.7;
 
     .overview-lister.ow-timeline article:nth-child(even) {
         margin-left: auto;
+    }
+    
+    .overview-lister.ow-timeline article:first-of-type  {
+        .language-wrap {
+            top: 15%;
+        }
+        .timeline-date {
+            color: darken($overview-highlight-bar, 15);
+        }
     }
 
     .overview-lister.ow-timeline article:before {
