@@ -1,5 +1,6 @@
 ---
 layout: base
+hideheader: true
 ---
 <h1 class="page-wrap tiny header-1">
 {# Max Barry. #}
@@ -20,72 +21,6 @@ Lorem <a href="">ipsum dolor</a> sit amet, consectetur adipisicing elit. Vitae r
         <div class="round-icon" data-category="tweets"><span>Tweets</span></div>
     </div>
     <ul class="activity"><!----></ul>
-{#     <ul class="activity">
-        <li class="">
-            <div class="round-icon medium"></div>
-            <div class="copy-wrap">
-                <span class="heavy">This is medium headline</span>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
-            </div>
-        </li>        <li class="">
-            <div class="round-icon medium"></div>
-            <div class="copy-wrap">
-                <span class="heavy">This is medium headline</span>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
-            </div>
-        </li>        <li class="">
-            <div class="round-icon medium"></div>
-            <div class="copy-wrap">
-                <span class="heavy">This is medium headline</span>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
-            </div>
-        </li>        <li class="">
-            <div class="round-icon medium"></div>
-            <div class="copy-wrap">
-                <span class="heavy">This is medium headline</span>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
-            </div>
-        </li>        <li class="">
-            <div class="round-icon medium"></div>
-            <div class="copy-wrap">
-                <span class="heavy">This is medium headline</span>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
-            </div>
-        </li>
-    </ul> #}
-{#     <ul class="activity">
-        <li class="">
-            <div class="round-icon medium"></div>
-            <div class="copy-wrap">
-                <span class="heavy">This is medium headline</span>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
-            </div>
-        </li>        <li class="">
-            <div class="round-icon medium"></div>
-            <div class="copy-wrap">
-                <span class="heavy">This is medium headline</span>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
-            </div>
-        </li>        <li class="">
-            <div class="round-icon medium"></div>
-            <div class="copy-wrap">
-                <span class="heavy">This is medium headline</span>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
-            </div>
-        </li>        <li class="">
-            <div class="round-icon medium"></div>
-            <div class="copy-wrap">
-                <span class="heavy">This is medium headline</span>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
-            </div>
-        </li>        <li class="">
-            <div class="round-icon medium"></div>
-            <div class="copy-wrap">
-                <span class="heavy">This is medium headline</span>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, vitae.</span>
-            </div>
-        </li>
-    </ul> #}
 </article>
 
 <article class="page-wrap tiny hp-ctas">
@@ -93,3 +28,16 @@ Lorem <a href="">ipsum dolor</a> sit amet, consectetur adipisicing elit. Vitae r
     {# <p>A <a href="">random</a> thing I've done.</p> #}
     <p>A <a href="">lorem</a> ipsor amet vitae.</p>
 </article>
+
+<aside class="hp-aside full-bleed scale-takeover">
+    <div class="page-wrap">
+        <h3 class="header-3 heavy sct-break"><a href="/overview.html">My portfolio</a></h3>
+        <p>A bundle of projects ranging from the not-polished to the production ready; single components to musings on design and search.</p>
+        <h3 class="header-3 heavy sct-break"><a target="_blank" href="https://twitter.com/mxbrry">@mxbrry on Twitter.</a></h3>
+        <h3 class="header-3 heavy sct-break"><a target="_blank" href="">Stuff I'm writing on Medium.</a></h3>
+        <h3 class="header-3 heavy sct-break"><a target="_blank" href="https://www.linkedin.com/in/maxbarry">Business me.</a></h3>
+    </div>
+</aside>
+<nav class="hp-takeover-trigger">
+    <i class="round-icon link-wh"></i>
+</nav>

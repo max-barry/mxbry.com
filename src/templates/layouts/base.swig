@@ -16,7 +16,9 @@
 </head>
 
 <body>
+{% if not hideheader %}
 {% include "src/templates/includes/header.swig" %}
+{% endif %}
 {{>body}}
 {% include "src/templates/includes/footer.swig" %}
 <script src="/js/app.js"></script>

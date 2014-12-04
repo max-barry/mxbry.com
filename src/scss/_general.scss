@@ -119,3 +119,15 @@ img {
         background-color: $primary-color;
     }
 }
+
+::selection {
+  background: $accent-color;
+}
+::-moz-selection {
+  background: $accent-color;
+}
+
+.full-bleed {
+    height: 100vh;
+    width: 100vw;
+}

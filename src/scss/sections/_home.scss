@@ -38,6 +38,49 @@
     }
 }
 
+.hp-takeover-trigger i {
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    top: 2 * $gutter;
+    left: 2 * $gutter;
+    box-shadow: $shadow-depth-1;
+    z-index: 1000;
+    @include transition(background-color 150ms, transform 250ms, background-position 150ms);
+    &:hover {
+        @include transform(scale(1.1));
+        background-color: lighten($black, 10);
+    }
+    &:active {
+        @include transform(scale(1.3));
+        background-color: darken($black, 10);
+    }
+}
+
+.scale-takeover.active + .hp-takeover-trigger i {
+    box-shadow: none;
+    // background-color: $error-color;
+    background-position: 20px 22px;
+    background-image: url("#{$image-url}icons/clear-wh.svg");
+    position: fixed;
+    @include transform(scale(2));
+    @include transform-origin(right bottom);
+}
+
+.hp-aside a, .hp-aside p {
+    color: $black;
+}
+
+.hp-aside p {
+    opacity: 0.7;
+}
+.hp-aside .page-wrap {
+    @include scut-center-transform;
+    h3:first-of-type {
+        margin-top: 0;
+    }
+}
+
 // .hp-ctas button{
 //     opacity: 0;
 //     cursor: default;

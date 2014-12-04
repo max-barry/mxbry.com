@@ -9,7 +9,7 @@ $(function() {
     --------------------------
     */
     mb.services.twitter = {
-        account: "420890443182649345",
+        account: "540294786687991808",
         initial: 1,
         content: []
     };

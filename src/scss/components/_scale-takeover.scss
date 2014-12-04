@@ -1,0 +1,16 @@
+.scale-takeover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: $primary-color;
+    opacity: 0;
+    position: fixed;
+    @include transition(transform 550ms $ease-out-quint, opacity 150ms);
+    @include transform(scale(0));
+    @include transform-origin(left top);
+}
+.scale-takeover.active {
+    opacity: 1;
+    @include transform(scale(1));
+}

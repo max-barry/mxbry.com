@@ -86,6 +86,13 @@
     &.view-list {
         background-image: url("#{$image-url}icons/view-list.svg");
     }
+    &.link {
+        background-image: url("#{$image-url}icons/link.svg");
+    }
+    &.link-wh {
+        background-color: $black;
+        background-image: url("#{$image-url}icons/link-wh.svg");
+    }
     &.python, &.javascript {
         cursor: default;
         span {
