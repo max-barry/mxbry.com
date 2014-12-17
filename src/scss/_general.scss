@@ -118,6 +118,9 @@ img {
     &.primary {
         background-color: $primary-color;
     }
+    &.drk-gry {
+        background-color: $dark-grey;
+    }
 }
 
 ::selection {

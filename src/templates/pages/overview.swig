@@ -4,7 +4,6 @@ layout: base
 <div class="page-wrap grid overview-wrap">
     {# <div class="overview-lister lrg-8 sml-12 sct-break"> #}
     <div class="overview-lister lrg-8 sml-12 sct-break overview-standard">
-        <!--
         {% for x in "xxxx" %}
             <article class="sct-break card">
                 <section class="copy-wrap">
@@ -14,25 +13,9 @@ layout: base
                     <a href=""><div class="round-icon preview"></div></a>
                 </section>
                 <section class="language-wrap">
-                    <span class="cat-python"><span>Python</span></span>
+{#                     <span class="cat-python"><span>Python</span></span>
                     <span class="cat-javascript"><span>Javascript</span></span>
-                    <span class="cat-grunt"><span>Grunt</span></span>
-                </section>
-            </article>
-        {% endfor %}
-        -->
-        {% for x in "xxxx" %}
-            <article class="sct-break card">
-                <section class="copy-wrap">
-                    <h2 class="header-3 mreset"><a href="">Lorem ipsum dolor sit.</a></h2>
-                    <h3 class="header-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum perferendis odio explicabo molestiae sed harum!</h3>
-                    <a href=""><div class="round-icon more-dots-wh"></div></a>
-                    <a href=""><div class="round-icon preview"></div></a>
-                </section>
-                <section class="language-wrap">
-                    <span class="cat-python"><span>Python</span></span>
-                    <span class="cat-javascript"><span>Javascript</span></span>
-                    <span class="cat-grunt"><span>Grunt</span></span>
+                    <span class="cat-grunt"><span>Grunt</span></span> #}
                     <span class="timeline-date header-2">Early 2014</span>
                 </section>
             </article>
@@ -59,7 +42,7 @@ layout: base
     </article>
 </div>
 
-<div class="banding-block primary"></div>
+<div class="banding-block drk-gry"></div>
 
 <!--
 {# <article class="overview-hero page-wrap slim sct-break card">

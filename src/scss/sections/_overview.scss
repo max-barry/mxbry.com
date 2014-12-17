@@ -1,4 +1,4 @@
-$overview-highlight-bar: $primary-color;
+$overview-highlight-bar: $dark-grey;
 
 .overview-wrap {
     @include align-items(flex-start);
@@ -25,6 +25,7 @@ $overview-language-dimension: rem(80);
     position: relative;
     overflow: hidden;
     width: 100%;
+    border-right: 2px solid $accent-color;
     @include row;
     &:before {
         content: "";
@@ -87,69 +88,69 @@ $overview-language-dimension: rem(80);
     }
 }
 
-.overview-lister .language-wrap > span {
-    @media #{$medium-up} {
-        position: relative;
-        margin-right: $gutter;
-        @include flex(1);
-        &:after {
-            $dub-gutter: $gutter * 2;
-            content: "";
-            width: calc(100% + #{$dub-gutter});
-            z-index: 0;
-            will-change: transform;
-            @include position(absolute, 0 0 0 n);
-            @include transition(transform 100ms $ease-out-quint);
-            @include transform(translateX(calc(98% + #{$gutter})));
-        }
-        @each $lang in $languages {
-            $c: map-get($lang, color);
-            $n: map-get($lang, name);
-            &.cat-#{$n}:after {
-                background-color: $c;
-            }
-        }
-    }
-    @media #{$small-all} {
-        padding: rem(5) rem(7);
-        background-color: $neutral;
-        display: inline-block;
-        margin-right: $gutter;
-        margin-top: 10px;
-        @each $lang in $languages {
-            $c: map-get($lang, color);
-            $n: map-get($lang, name);
-            &.cat-#{$n} > span {
-                color: $c;
-            }
-        }
-    }
-}
+// .overview-lister .language-wrap > span {
+//     @media #{$medium-up} {
+//         position: relative;
+//         margin-right: $gutter;
+//         @include flex(1);
+//         &:after {
+//             $dub-gutter: $gutter * 2;
+//             content: "";
+//             width: calc(100% + #{$dub-gutter});
+//             z-index: 0;
+//             will-change: transform;
+//             @include position(absolute, 0 0 0 n);
+//             @include transition(transform 100ms $ease-out-quint);
+//             @include transform(translateX(calc(98% + #{$gutter})));
+//         }
+//         @each $lang in $languages {
+//             $c: map-get($lang, color);
+//             $n: map-get($lang, name);
+//             &.cat-#{$n}:after {
+//                 background-color: $c;
+//             }
+//         }
+//     }
+//     @media #{$small-all} {
+//         padding: rem(5) rem(7);
+//         background-color: $neutral;
+//         display: inline-block;
+//         margin-right: $gutter;
+//         margin-top: 10px;
+//         @each $lang in $languages {
+//             $c: map-get($lang, color);
+//             $n: map-get($lang, name);
+//             &.cat-#{$n} > span {
+//                 color: $c;
+//             }
+//         }
+//     }
+// }
 
-.overview-lister .language-wrap > span > span {
-    z-index: 1;
-    font-family: $heavy-font-family;
-    @media #{$medium-up} {
-        @include transition(color 150ms);
-        @include scut-center-transform;
-    }
-}
+// .overview-lister .language-wrap > span > span {
+//     z-index: 1;
+//     font-family: $heavy-font-family;
+//     @media #{$medium-up} {
+//         @include transition(color 150ms);
+//         @include scut-center-transform;
+//     }
+// }
 
-@media #{$medium-up} {
-    .overview-lister article:hover {
-        .language-wrap > span:after {
-            @include transition(transform 250ms $ease-out-quint);
-            @include transform(translateX($gutter));
-        }
-        @each $lang in $languages {
-            $c: map-get($lang, color);
-            $n: map-get($lang, name);
-            .language-wrap > span.cat-#{$n} > span {
-                color: lighten($c, 35);
-            }
-        }
-    }
-}
+// @media #{$medium-up} {
+//     .overview-lister article:hover {
+//         .language-wrap > span:after {
+//             @include transition(transform 250ms $ease-out-quint);
+//             @include transform(translateX($gutter));
+//         }
+//         @each $lang in $languages {
+//             $c: map-get($lang, color);
+//             $n: map-get($lang, name);
+//             .language-wrap > span.cat-#{$n} > span {
+//                 color: lighten($c, 35);
+//             }
+//         }
+//     }
+// }
 
 .overview-navigation .language-grid .btn {
     margin-bottom: $gutter;
@@ -283,7 +284,7 @@ $phase-two-delay: $ot-trans-time * 0.7;
             top: 15%;
         }
         .timeline-date {
-            color: darken($overview-highlight-bar, 15);
+            color: darken($overview-highlight-bar, 20);
         }
     }
 
