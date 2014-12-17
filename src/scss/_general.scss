@@ -97,7 +97,7 @@ img {
 
 .card {
     box-shadow: $shadow-depth-1;
-    background: white;
+    background-color: white;
     padding: $gutter * 2;
 }
 
@@ -133,4 +133,39 @@ img {
 .full-bleed {
     height: 100vh;
     width: 100vw;
+}
+
+label {
+    cursor: pointer;
+}
+
+$checkbox-color: $primary-color;
+input[type="checkbox"] {
+    display: none;
+}
+input[type="checkbox"] + label.checkbox {
+    height: rem(32);
+    width: rem(32);
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    border: 1px solid $light-grey;
+    &:hover {
+        background-color: returnlightershade($checkbox-color);
+    }
+}
+input[type="checkbox"] + label.checkbox:before {
+    content: "";
+    background-color: $checkbox-color;
+    will-change: transform;
+    @include transform(scale(0));
+    @include transition(transform 150ms $ease-out-quint, border-radius 150ms $ease-out-quint);
+    @include position(absolute, 0 0 0 0);
+}
+input[type="checkbox"] + label.checkbox:before, input[type="checkbox"] + label.checkbox {
+    border-radius: 2px;
+}
+input[type="checkbox"]:checked + label:before {
+    // border-radius: 3px;
+    @include transform(none);
 }
