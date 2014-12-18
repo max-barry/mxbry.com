@@ -169,3 +169,23 @@ input[type="checkbox"]:checked + label:before {
     // border-radius: 3px;
     @include transform(none);
 }
+
+.round {
+    border-radius: 50%;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.header-1.page-wrap.tiny {
+    margin-top: $section-break;
+    text-align: center;
+}
+
+.header-4.page-wrap.xtiny {
+    margin-bottom: $section-break;
+    @media #{$small-all} {
+        margin-bottom: 2 * $gutter;
+    }
+}

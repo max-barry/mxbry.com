@@ -49,6 +49,12 @@
 
 
 .icon, .round-icon {
+    &.raise {
+        box-shadow: $shadow-depth-1;
+        cursor: pointer;
+        will-change: box-shadow;
+        @include transition(box-shadow 250ms $ease-out-quint);
+    }
     &.medium {
         @include icon-medium;
     }
@@ -78,6 +84,7 @@
         background-image: url("#{$image-url}icons/more-dots-wh.svg");
     }
     &.control {
+        background-color: $neutral;
         background-image: url("#{$image-url}icons/filter.svg");
     }
     &.view-dates {

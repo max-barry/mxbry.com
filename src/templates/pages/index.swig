@@ -15,10 +15,10 @@ Lorem <a href="">ipsum dolor</a> sit amet, consectetur adipisicing elit. Vitae r
 <article class="page-wrap tiny hp-activities">
     <div class="loader"></div>
     <div class="filter">
-        <div class="round-icon control"></div>
-        <div class="round-icon" data-category="articles"><span>Work</span></div>
-        <div class="round-icon" data-category="code"><span>Code</span></div>
-        <div class="round-icon" data-category="tweets"><span>Tweets</span></div>
+        <div class="round-icon control raise"></div>
+        <div class="round-icon raise" data-category="articles"><span>Work</span></div>
+        <div class="round-icon raise" data-category="code"><span>Code</span></div>
+        <div class="round-icon raise" data-category="tweets"><span>Tweets</span></div>
     </div>
     <ul class="activity"><!----></ul>
 </article>

@@ -132,11 +132,11 @@ Filter
 .filter:not(.reveal-filter) {
     pointer-events: none;
 }
-.filter .round-icon {
-    box-shadow: $shadow-depth-1;
-    will-change: box-shadow;
-    @include transition(box-shadow 250ms $ease-out-quint);
-}
+// .filter .round-icon {
+//     box-shadow: $shadow-depth-1;
+//     will-change: box-shadow;
+//     @include transition(box-shadow 250ms $ease-out-quint);
+// }
 
 @media #{$small-all} {
     .filter .round-icon:not(.control):after {
@@ -163,7 +163,7 @@ Filter
     @include animation(screw-scale-in 550ms, fadein 200ms);
 }
 .filter .round-icon.control {
-    background-color: $neutral;
+    // background-color: $neutral;
     opacity: 0;
 }
 .filter .round-icon:not(.control) {

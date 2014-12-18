@@ -30,12 +30,3 @@
         }
     }
 }
-
-@mixin bottom-sheet() {
-    height: 33vh;
-    background-color: white;
-    padding: $gutter * 2;
-    box-shadow: 0 -3px 5px 0 rgba(0, 0, 0, 0.26);
-    z-index: 4;
-    @include position(fixed, n  0 0 0);
-}

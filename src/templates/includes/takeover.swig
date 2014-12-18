@@ -1,12 +1,10 @@
-<aside class="hp-aside full-bleed scale-takeover">
+<nav class="full-bleed scale-takeover">
     <div class="page-wrap">
-        <h3 class="header-3 heavy sct-break"><a href="/overview.html">My portfolio</a></h3>
+        <a class="header-3 heavy sct-break" href="/overview.html">My portfolio</a>
         <p>A bundle of projects ranging from the not-polished to the production ready; single components to musings on design and search.</p>
-        <h3 class="header-3 heavy sct-break"><a target="_blank" href="https://twitter.com/mxbrry">@mxbrry on Twitter.</a></h3>
-        <h3 class="header-3 heavy sct-break"><a target="_blank" href="">Stuff I'm writing on Medium.</a></h3>
-        <h3 class="header-3 heavy sct-break"><a target="_blank" href="https://www.linkedin.com/in/maxbarry">Business me.</a></h3>
+        <a class="header-3 heavy sct-break" target="_blank" href="https://twitter.com/mxbrry">@mxbrry on Twitter.</a>
+        <a class="header-3 heavy sct-break" target="_blank" href="">Stuff I'm writing on Medium.</a>
+        <a class="header-3 heavy sct-break" target="_blank" href="https://www.linkedin.com/in/maxbarry">Business me.</a>
     </div>
-</aside>
-<nav class="hp-takeover-trigger">
-    <i class="round-icon link-wh"></i>
 </nav>
+<i class="round-icon link-wh scale-takeover-trigger raise"></i>
