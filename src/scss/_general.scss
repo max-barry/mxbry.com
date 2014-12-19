@@ -16,8 +16,8 @@ body {
         padding-right: $gutter;
     }
     .mobile-wide {
-        width: 100vw;
-        margin-left: -#{$gutter};
+        width: calc(100% + #{2*$gutter});
+        margin-left: -#{$gutter} !important;
     }
 }
 
@@ -66,6 +66,7 @@ hr {
     margin-left: auto !important;
     margin-right: auto !important;
 }
+
 img {
     max-width: 100%;
 }
@@ -135,47 +136,13 @@ img {
     width: 100vw;
 }
 
-label {
-    cursor: pointer;
-}
-
-$checkbox-color: $primary-color;
-input[type="checkbox"] {
-    display: none;
-}
-input[type="checkbox"] + label.checkbox {
-    height: rem(32);
-    width: rem(32);
-    display: inline-block;
-    position: relative;
-    background-color: white;
-    border: 1px solid $light-grey;
-    &:hover {
-        background-color: returnlightershade($checkbox-color);
-    }
-}
-input[type="checkbox"] + label.checkbox:before {
-    content: "";
-    background-color: $checkbox-color;
-    will-change: transform;
-    @include transform(scale(0));
-    @include transition(transform 150ms $ease-out-quint, border-radius 150ms $ease-out-quint);
-    @include position(absolute, 0 0 0 0);
-}
-input[type="checkbox"] + label.checkbox:before, input[type="checkbox"] + label.checkbox {
-    border-radius: 2px;
-}
-input[type="checkbox"]:checked + label:before {
-    // border-radius: 3px;
-    @include transform(none);
-}
-
 .round {
     border-radius: 50%;
 }
 
 .center {
     margin: 0 auto;
+    display: block;
 }
 
 .header-1.page-wrap.tiny {

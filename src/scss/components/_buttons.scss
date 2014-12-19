@@ -25,6 +25,7 @@ button.flat, .btn.flat {
     line-height: $button-height;
     will-change: background-color;
     background-color: $flat-button;
+    color: $black;
     @include transition(background-color 350ms $ease-out-quint);
     &:hover {
         background-color: lighten($flat-button, 3);

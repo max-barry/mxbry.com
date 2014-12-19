@@ -17,7 +17,7 @@
 
 
 i.scale-takeover-trigger.round-icon {
-    display: inline-block;
+    display: none;
     position: absolute;
     top: 2 * $gutter;
     left: 2 * $gutter;
@@ -32,6 +32,9 @@ i.scale-takeover-trigger.round-icon {
     &:active {
         @include transform(scale(1.3));
         background-color: darken($black, 10);
+    }
+    @media #{$large-up} {
+        display: inline-block;
     }
 }
 

@@ -4,11 +4,19 @@ hideheader: true
 ---
 
 <aside class="overview-filter bottom-sheet">
-    <ul class="page-wrap slim">
+    <label for="discipline-filter" class="select-icon page-wrap tiny sct-break">
+        <select name="discipline-filter" id="discipline-filter">
+            {% for l in languages %}
+            <option value="{{l|lower}}">{{l}}</option>
+            {% endfor %}
+        </select>
+    </label>
+    <button class="flat center bottom-sheet-close-trigger">Looks good</button>
+{#     <ul class="page-wrap slim">
         {% for l in languages %}
         <li class="{{l|lower}}-color heavy">{{l}}</li>
         {% endfor %}
-    </ul>
+    </ul> #}
 </aside>
 
 <h1 class="page-wrap tiny header-1">
@@ -20,8 +28,8 @@ hideheader: true
     Lorem <a href="">ipsum dolor</a> sit amet, consectetur adipisicing elit. Vitae rem eveniet temporibus cum architecto ullam ex quas aliquam iste, <a href=""> fuga dolores, corrupti</a> perferendis assumenda sit. Totam repellendus, architecto, ea qui <a href="" target="_blank">tempori</a>.
 </h2>
 
+
 <div class="page-wrap xtiny sct-break overview-controls">
-    <div class="round-icon control center raise bottom-sheet-trigger"></div>
     <ul>
         {% for l in languages %}
         <li class="{{l|lower}}-color heavy">
@@ -31,7 +39,7 @@ hideheader: true
     </ul>
 </div>
 
-<div class="page-wrap overview-lister">
+<div class="page-wrap overview-lister mobile-wide">
     <article>
         <section class="overview-article-content card center">
             <h2 class="header-3 center">Lorem ipsum dolor sit amet, consectetur adipisicing.</h2>
@@ -59,5 +67,7 @@ hideheader: true
     </article>
     {% endfor %}
 </div>
+
+<div class="round-icon control raise bottom-sheet-trigger overview-sheet-trigger"></div>
 
 {% include "src/templates/includes/takeover.swig" %}
