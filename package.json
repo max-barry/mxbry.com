@@ -40,13 +40,15 @@
         "js": "build/js/",
         "fonts": "build/fonts/",
         "images": "build/images/",
-        "css": "build/stylesheets/"
+        "css": "build/stylesheets/",
+        "data": "build/data/"
     },
     "src_paths": {
         "js": "src/js/",
         "scss": "src/scss/",
         "fonts": "src/fonts/",
-        "images": "src/images/"
+        "images": "src/images/",
+        "data": "src/data/"
     },
     "template_paths": {
         "templates": "src/templates/",

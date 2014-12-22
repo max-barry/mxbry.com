@@ -13,7 +13,7 @@ Lorem <a href="">ipsum dolor</a> sit amet, consectetur adipisicing elit. Vitae r
 
 
 <article class="page-wrap tiny hp-activities">
-    <div class="loader"></div>
+    <i class="loader show"></i>
     <div class="filter">
         <div class="round-icon control raise"></div>
         <div class="round-icon raise" data-category="articles"><span>Work</span></div>

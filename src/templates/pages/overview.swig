@@ -21,7 +21,7 @@ hideheader: true
 
 <h1 class="page-wrap tiny header-1">
     {# Max Barry. #}
-    <a href="/">My</a> Portfolio.
+    <a href="/">My</a> Work.
 </h1>
 <h2 class="page-wrap xtiny header-4">
     {# I <a href="">build stuff</a> on the internet. I try and use smart numbers, behavioural theory, and all the little details to craft cool things. Check out <a href="">some of my work</a>. Maybe it's okay? Tell me how much you don't like it on <a href="" target="_blank">LinkedIn</a>. #}
@@ -32,7 +32,7 @@ hideheader: true
 <div class="page-wrap xtiny sct-break overview-controls">
     <ul>
         {% for l in languages %}
-        <li class="{{l|lower}}-color heavy">
+        <li data-category="{{l|lower}}" class="{{l|lower}}-color heavy">
             {{l}}
         </li>
         {% endfor %}
@@ -40,7 +40,8 @@ hideheader: true
 </div>
 
 <div class="page-wrap overview-lister mobile-wide">
-    <article>
+    <i class="loader show"></i>
+{#     <article>
         <section class="overview-article-content card center">
             <h2 class="header-3 center">Lorem ipsum dolor sit amet, consectetur adipisicing.</h2>
             <p class="center">Yeoman generator for smart static sites.</p>
@@ -65,7 +66,7 @@ hideheader: true
             <button class="flat">Demo</button>
         </section>
     </article>
-    {% endfor %}
+    {% endfor %} #}
 </div>
 
 <div class="round-icon control raise bottom-sheet-trigger overview-sheet-trigger"></div>

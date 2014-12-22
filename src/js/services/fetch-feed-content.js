@@ -24,8 +24,8 @@ $(function(jQuery) {
         // #### _post_entrance
         // Post animation housekeeping
         function _post_entrance($activities) {
+            mb.utils.remove_loader();
             $(".activity .source-initial").attr("class", "");
-            $(".hp-activities .loader").remove();
             $(".filter").addClass("reveal-filter");
             $(".hp-ctas button").addClass("grow-in");
         }
@@ -35,8 +35,6 @@ $(function(jQuery) {
         function _reveal_items() {
             var i = 0,
                 $initial_activities = $(".activity .source-initial");
-
-            $(".hp-activities .loader").removeClass("show");
 
             var revealInt = setInterval(function(){
                 console.log("Iteration: " + i);
@@ -108,7 +106,7 @@ $(function(jQuery) {
             // Uses deferred promises to asynchronously fetch each 3rd party service
             fetch_all_feeds: function(callback) {
                 console.log("Fetching services");
-                $(".hp-activities .loader").addClass("show");
+                // mb.utils.add_loader($(".hp-activities"));
                 var fetch_promises = _collate_fetch_promises();
                 $.when.apply($, fetch_promises).done(function() {
                     console.log("Fetched all services");

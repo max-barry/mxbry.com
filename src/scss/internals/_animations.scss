@@ -33,6 +33,22 @@
     @include animation-base;
 }
 
+@include keyframes(grow-screw-in) {
+    from {
+        @include transform(scale(0) rotate(-60deg));
+    }
+    to {
+        @include transform(none);
+    }
+}
+
+.grow-screw-in {
+    will-change: transform, opacity;
+    opacity: 0;
+    @include animation(grow-screw-in 1000ms, fadein 800ms);
+    @include animation-base;
+}
+
 @include keyframes(shrink-in) {
     from {
         @include transform(scale(2.5));

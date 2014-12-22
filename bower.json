@@ -9,10 +9,8 @@
     "bourbon": "~4.0.1",
     "scut": "~0.10.3",
     "reset-scss": "latest",
-    "jquery.wait": "~1.1.0",
     "lodash": "~2.4.1",
     "moment": "~2.8.3",
-    "doT": "~1.0.1",
-    "multiline": "~1.0.1"
+    "doT": "~1.0.1"
   }
 }

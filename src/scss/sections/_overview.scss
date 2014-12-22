@@ -22,7 +22,7 @@ Overview lister
     .overview-article-content{
         box-shadow: none;
         background-image: none !important;
-        button {
+        .btn {
             display: none;
         }
     }
@@ -33,7 +33,7 @@ Overview lister
     }
     .overview-lister article:nth-child(odd) .overview-article-content {
         background-color: $neutral;
-        button {
+        .btn {
             border: 1px solid $black;
         }
     }
@@ -54,7 +54,7 @@ Overview lister
         //     display: block;
         //     border-right: 2px solid $primary-color;
         // }
-        button {
+        .btn {
             margin-top: 2*$gutter;
             margin-right: $gutter;
         }
@@ -89,7 +89,7 @@ Overview lister
             padding-left: rem(5);
             padding-right: rem(5);
         }
-        button {
+        .btn {
             margin-top: 4 * $gutter;
             display: inline-block;
             // color: $black;

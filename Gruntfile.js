@@ -91,7 +91,23 @@ module.exports = function(grunt) {
                         dest: '<%= pkg.dest_paths.images %>'
                     }
                 ]
-            }
+            },
+            devdata: {
+                src: '<%= pkg.src_paths.data %>projects.example.json',
+                dest: '<%= pkg.dest_paths.data %>projects.json'
+                // files: [
+                //     {
+                //         expand: true,
+                //         cwd: '<%= pkg.src_paths.data %>',
+                //         src: 'projects.example.json',
+                //         dest: '<%= pkg.dest_paths.data %>projects.json'
+                //     }
+                // ]
+            },
+            livedata: {
+                src: '<%= pkg.src_paths.data %>projects.example.json',
+                dest: '<%= pkg.dest_paths.data %>projects.json'
+            },
         },
         // Watch task to compile files live
         watch: {
@@ -196,8 +212,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-docco');
     grunt.loadNpmTasks('grunt-contrib-connect');
 
-    grunt.registerTask('build', ['assemble', 'jshint', 'concat', 'uglify:dev', 'compass', 'copy']);
-    grunt.registerTask('dist', ['clean', 'assemble', 'prettify', 'jshint', 'concat', 'uglify', 'compass', 'cssmin', 'copy']);
+    grunt.registerTask('build', ['assemble', 'jshint', 'concat', 'uglify:dev', 'compass', 'copy:dist', 'copy:devdata']);
+    grunt.registerTask('dist', ['clean', 'assemble', 'prettify', 'jshint', 'concat', 'uglify', 'compass', 'cssmin', 'copy', 'copy:livedata']);
     grunt.registerTask('serve', 'connect');
 
 };
