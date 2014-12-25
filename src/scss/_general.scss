@@ -8,6 +8,9 @@ html {
 
 body {
     overflow-x: hidden;
+    @media #{$medium-down} {
+        padding-top: $header-height;
+    }
 }
 
 @media #{$small-all}{
@@ -22,6 +25,10 @@ body {
 }
 
 .filter div, .activity li {
+    @include user-select(none);
+}
+
+.usn {
     @include user-select(none);
 }
 

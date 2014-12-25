@@ -58,15 +58,29 @@ $(function() {
     //     }
     // }
     
+    function get_items_for_category(category) {
+        return category == "all" ? mb.overview.projects : _.filter(mb.overview.projects, {"category":category});
+    }
+
+    function preset_category_button(category) {
+        // Desktop
+        $(".overview-controls ul")
+        .find("li.active").removeClass("active")
+        .end()
+        .find("[data-category='" + category + "']").addClass("active");
+
+        // Mobile
+        $(".overview-filter select").val(category);
+    }
+
     function append_item(item) {
         $item = portfolio_item_source(item);
         $overview_lister.append($item);
     }
 
-    function load_remainder() {
-        var remainder = mb.overview.projects.slice(initial_load_no);
-        for (var i = 0; i < remainder.length; i++) {
-            append_item(remainder[i]);
+    function load_items(items) {
+        for (var i = 0; i < items.length; i++) {
+            append_item(items[i]);
         }
     }
 
@@ -77,7 +91,8 @@ $(function() {
                 append_item(items_to_show[i]);
                 if (i == items_to_show.length - 1) {
                     clearInterval(revealInt);
-                    load_remainder();
+                    var remainder = mb.overview.projects.slice(initial_load_no);
+                    load_items(remainder);
                     // mb.overview.animating = false;
                     // append_if_floor();
                 } else {
@@ -88,8 +103,16 @@ $(function() {
 
     $.getJSON("/data/projects.json", function(response){
         mb.overview.projects = response.projects.reverse();
-        // fetch_items(items_per_page);
-        load_inital();
+
+        var hash = window.location.hash.split("#")[1],
+            items = hash ? get_items_for_category(hash) : undefined;
+
+        if (hash && items) {
+            preset_category_button(hash);
+            load_items(items);
+        } else {
+            load_inital();
+        }
         mb.utils.remove_loader();
     });
 
@@ -113,8 +136,35 @@ $(function() {
     //     });
     // }
 
-    // $(".overview-controls li:not(.active)").on("click", change_category);
+    /**
+    Changes the category of work items on display
+    */
+    function change_category() {
+        var category;
 
+        if ($(this).get(0).tagName === "SELECT") {
+            category = $(".overview-filter select").val();
+            console.log(category);
+        } else {
+            $(".overview-controls li.active").removeClass("active");
+            category = $(this).addClass("active").data("category");
+        }
+
+        // Clear existing items
+        $(".overview-lister article").remove();
+
+        /**
+        Ternary checks if category is "all"
+
+        If not all, filter all items by the category given
+        */
+        var items_for_cat = get_items_for_category(category);
+        load_items(items_for_cat);
+    }
+
+    $("body").on("click", ".overview-controls li:not(.active)", change_category);
+    $("body").on("change", ".overview-filter select", change_category);
+    
     // /**
     // Paginates the work items if and when the user reaches bottom of the page.
     // */

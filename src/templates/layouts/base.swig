@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/stylesheets/app.css">
     <link rel="stylesheet" href="/stylesheets/fonts.css">
 
-    <script src="/js/modernizr.min.js"></script>
+    <script src="/js/modernizr.min.js" async></script>
 
 </head>
 
@@ -21,7 +21,7 @@
 {% endif %}
 {{>body}}
 {% include "src/templates/includes/footer.swig" %}
-<script src="/js/app.js"></script>
+<script src="/js/app.js" async></script>
 </body>
 
 </html>

@@ -6,6 +6,7 @@ hideheader: true
 <aside class="overview-filter bottom-sheet">
     <label for="discipline-filter" class="select-icon page-wrap tiny sct-break">
         <select name="discipline-filter" id="discipline-filter">
+            <option value="all">All</option>
             {% for l in languages %}
             <option value="{{l|lower}}">{{l}}</option>
             {% endfor %}
@@ -29,12 +30,11 @@ hideheader: true
 </h2>
 
 
-<div class="page-wrap xtiny sct-break overview-controls">
+<div class="page-wrap xtiny sct-break overview-controls usn">
     <ul>
+        <li data-category="all" class="heavy active">All</li>
         {% for l in languages %}
-        <li data-category="{{l|lower}}" class="{{l|lower}}-color heavy">
-            {{l}}
-        </li>
+        <li data-category="{{l|lower}}" class="{{l|lower}}-color heavy">{{l}}</li>
         {% endfor %}
     </ul>
 </div>

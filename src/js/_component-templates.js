@@ -13,7 +13,7 @@ var activity_source_string = "<li class=\"source-{{=it.state}}\">" +
         "</li>",
     activity_source = doT.template(activity_source_string);
 
-var porfolio_item_string = "<article>" +
+var porfolio_item_string = "<article class = \"usn\">" +
                                 "<section class=\"overview-article-content card center grow-screw-in\" {{? it.img }}style=\"background-image: url('{{=it.img}}')\"{{?}}>" +
                                     "<h2 class=\"header-3 center\">{{=it.title}}</h2>" +
                                     "<p class=\"center\">{{=it.deck}}</p>" +

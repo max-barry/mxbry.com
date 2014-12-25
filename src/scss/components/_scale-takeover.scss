@@ -1,64 +1,93 @@
-.scale-takeover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    background-color: $primary-color;
-    opacity: 0;
-    position: fixed;
-    @include transition(transform 550ms $ease-out-quint, opacity 150ms);
-    @include transform(scale(0));
-    @include transform-origin(left top);
-}
-.scale-takeover.active {
-    opacity: 1;
-    @include transform(scale(1));
+@media #{$medium-down} {
+    i.scale-takeover-trigger.round-icon {
+        display: none;
+    }
+
+    .scale-takeover {
+        height: $header-height;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: $black;
+        @include transform(translateZ(0));
+    }
+    .scale-takeover p {
+        display: none;
+    }
+    .scale-takeover a {
+        line-height: $header-height;
+        color: white;
+        font-size: rem(17);
+        &:not(:last-child) {
+            margin-right: 2 * $gutter;
+        }
+    }
 }
 
+@media #{$large-up} {
+    .scale-takeover {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background-color: $primary-color;
+        opacity: 0;
+        @include transform(scale(0) translateZ(0));
+        @include transform-origin(left top);
+    }
+    .scale-takeover.active {
+        opacity: 1;
+        @include transition(transform 550ms $ease-out-quint, opacity 150ms);
+        @include transform(scale(1) translateZ(0));
+    }
 
-i.scale-takeover-trigger.round-icon {
-    display: none;
-    position: absolute;
-    top: 2 * $gutter;
-    left: 2 * $gutter;
-    // box-shadow: $shadow-depth-1;
-    // cursor: pointer;
-    z-index: 1000;
-    @include transition(background-color 150ms, transform 250ms, background-position 150ms);
-    &:hover {
-        @include transform(scale(1.1));
-        background-color: lighten($black, 10);
-    }
-    &:active {
-        @include transform(scale(1.3));
-        background-color: darken($black, 10);
-    }
-    @media #{$large-up} {
+
+    i.scale-takeover-trigger.round-icon {
+        // display: none;
         display: inline-block;
+        position: fixed;
+        top: 2 * $gutter;
+        left: 2 * $gutter;
+        // box-shadow: $shadow-depth-1;
+        // cursor: pointer;
+        z-index: 1000;
+        @include transition(background-color 150ms, transform 250ms, background-position 150ms);
+        @include transform(translateZ(0));
+        &:hover {
+            @include transform(scale(1.1) translateZ(0));
+            background-color: lighten($black, 10);
+        }
+        &:active {
+            @include transform(scale(1.3) translateZ(0));
+            background-color: darken($black, 10);
+        }
+        // @media #{$large-up} {
+            // display: inline-block;
+        // }
     }
-}
 
-.scale-takeover.active + i.scale-takeover-trigger.round-icon {
-    box-shadow: none;
-    // background-color: $error-color;
-    background-position: 20px 22px;
-    background-image: url("#{$image-url}icons/clear-wh.svg");
-    position: fixed;
-    @include transform(scale(2));
-    @include transform-origin(right bottom);
-}
+    .scale-takeover.active + i.scale-takeover-trigger.round-icon {
+        box-shadow: none;
+        // background-color: $error-color;
+        background-position: 20px 22px;
+        background-image: url("#{$image-url}icons/clear-wh.svg");
+        position: fixed;
+        @include transform(scale(2) translateZ(0));
+        @include transform-origin(right bottom);
+    }
 
-.scale-takeover a, .scale-takeover p {
-    // color: $black;
-    display: block;
-}
+    .scale-takeover a, .scale-takeover p {
+        // color: $black;
+        display: block;
+    }
 
-.scale-takeover p {
-    opacity: 0.7;
-}
-.scale-takeover .page-wrap {
-    @include scut-center-transform;
-    a:first-of-type {
-        margin-top: 0;
+    .scale-takeover p {
+        opacity: 0.7;
+    }
+    .scale-takeover .page-wrap {
+        @include scut-center-transform;
+        a:first-of-type {
+            margin-top: 0;
+        }
     }
 }
