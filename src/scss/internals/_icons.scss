@@ -6,12 +6,24 @@
 @mixin icon-github {
     background-size: 104%;
     background-color: #FFF;
-    background-image:url("#{$image-url}logos/github.svg");
+    background-image: url("#{$image-url}logos/github.svg");
 }
 
 @mixin icon-twitter {
     background-color: #4099FF;
-    background-image:url("#{$image-url}logos/twitter.svg");
+    background-image: url("#{$image-url}logos/twitter.svg");
+}
+
+@mixin icon-work {
+    background-image: url("#{$image-url}icons/work.svg");
+}
+
+@mixin icon-work-wh {
+    background-image: url("#{$image-url}icons/work-wh.svg");
+}
+
+@mixin icon-linkedin-wh {
+    background-image: url("#{$image-url}logos/linkedin-wh.svg");
 }
 
 .icon {

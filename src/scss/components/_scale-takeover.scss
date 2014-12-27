@@ -9,6 +9,7 @@
         top: 0;
         left: 0;
         background-color: $black;
+        z-index: 1;
         @include transform(translateZ(0));
     }
     .scale-takeover p {
@@ -20,6 +21,35 @@
         font-size: rem(17);
         &:not(:last-child) {
             margin-right: 2 * $gutter;
+        }
+        span:first-of-type {
+            display: none;
+        }
+    }
+    .scale-takeover .page-wrap {
+        @media #{$small-all} {
+            @include display(flex);
+            a {
+                margin: 0;
+                text-indent: -99999px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: 32px;
+                background-color: $black !important;
+                @include flex(1);
+                &.work {
+                    @include icon-work-wh;
+                }
+                &.medium {
+                    @include icon-medium;
+                }
+                &.twitter {
+                    @include icon-twitter;
+                }
+                &.linkedin {
+                    @include icon-linkedin-wh;
+                }
+            }
         }
     }
 }
@@ -80,9 +110,16 @@
         // color: $black;
         display: block;
     }
-
     .scale-takeover p {
         opacity: 0.7;
+    }
+    .scale-takeover a {
+        &:hover {
+            text-decoration: underline;
+        }
+        span + span {
+            display: none;
+        }
     }
     .scale-takeover .page-wrap {
         @include scut-center-transform;
