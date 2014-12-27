@@ -30,3 +30,33 @@
         }
     }
 }
+
+@mixin black-icon-states {
+    background-color: $black;
+    &:hover {
+        background-color: $black-lighter;
+    }
+    &:active {
+        background-color: $black-darker;
+    }
+}
+
+@mixin neutral-icon-states {
+    background-color: $neutral;
+    &:hover {
+        background-color: $neutral-lighter;
+    }
+    &:active {
+        background-color: $neutral-darker;
+    }
+}
+
+@mixin dynamic-icon-states($color) {
+    background-color: $color;
+    &:hover {
+        background-color: lighten($color, 10);
+    }
+    &:active {
+        background-color: darken($color, 10);
+    }
+}

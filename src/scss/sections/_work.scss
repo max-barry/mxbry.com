@@ -1,50 +1,12 @@
-// .work-article, .work-hero {
-//     box-shadow: $shadow-depth-1;
-//     background: white;
-//     padding: $gutter * 2;
-//     margin-bottom: $section-break;
-//     &:first-of-type {
-//         margin-top: $section-break;
-//     }
-// }
-
-// .work-hero {
-//     .header-2 {
-//         margin: 0;
-//         float: left;
-//         a {
-//             color: $primary-color;
-//         }
-//     }
-//     .switches {
-//         float: right;
-//     }
-// }
-
-// .work-article {
-//     .icon-wrap {
-//         @include user-select(none);
-//     }
-//     .round-icon {
-//         display: inline-block;
-//         &:not(:last-child) {
-//             margin-right: $gutter; 
-//         }
-//     }
-// }
-
 .work-hero {
-    // height: 40%;
     height: 720px;
     height: 100vh;
-    height: calc(100vh - #{$header-height});
     position: relative;
-    @include linear-gradient(27deg, $accent-color 20%, $mild-grey 20%, $mild-grey 60%, $primary-color 60%);
+    @include linear-gradient(27deg, $accent-color 20%, $grey 20%, $grey 60%, $primary-color 60%);
+    @media #{$medium-down} {
+        height: calc(100vh - #{$header-height});
+    }
 }
-
-// .work-hero-text-wrap, .work-languages {
-//     text-align: center;
-// }
 
 .work-hero-text-wrap {
     text-align: center;
@@ -68,7 +30,6 @@
     h2 {
         font-size: rem(30);
         margin-top: 2 * $gutter;
-        // line-height: rem(42);
         line-height: 1.3;
         @media #{$large-up} {
             max-width: 60%;
@@ -90,28 +51,15 @@
     }
 }
 
-.work-intro {
-    margin-top: $section-break;
-    @media #{$medium-up} {
-        .btn {
-            margin: 0;
-            &:first-child {
-                margin-right: $gutter;
-            }
-            &:last-child {
-                margin-left: $gutter;
-            }
-        }
+.work-intro .round-icon {
+    display: inline-block;
+    margin-right: $gutter;
+    @include dynamic-icon-states($grey-darker);
+    &:last-child {
+        margin-right: 0;
     }
-    @media #{$small-all} {
-        .btn {
-            min-width: rem(285);
-            height: auto;
-            padding: $gutter;
-            &:not(:last-child) {
-               margin-bottom: 15px;
-            }
-        }
+    span {
+        color: white;
     }
 }
 
@@ -131,20 +79,9 @@
     }
 }
 
-// .work-languages {
-//     max-width: 80%;
-//     margin: $section-break auto;
-//     h3 {
-//         max-width: rem(140);
-//         font-family: $heavy-font-family;
-//         // background-color: red;
-//         margin-left: 2 * $gutter;
-//         margin-right: 2 * $gutter;
-//         border-radius: 3px;
-//         padding: 0.6 * $gutter $gutter;
-//     }
-// }
-
+/**
+Body content stylings
+*/
 .work-content {
     * {
         margin-left: auto;
@@ -160,82 +97,3 @@
         max-width: $tiny;
     }
 }
-
-// .work-hero h1 {
-    // @include scut-center-transform;
-// }
-
-// .row-wrap {
-//     position: relative;
-//     overflow: hidden;
-//     // background-color: $black;
-//     height: 470px;
-//     @include linear-gradient(#1e5799, #2989d8);
-//     // background-image: linear-gradient(27deg, #f50057 20%, #EDEDED 20%, #EDEDED 60%, #FAA630 60%);
-// }
-
-// .row-wrap {
-//     .header-1 {
-//         color: $black;
-//         margin-left: 5%;
-//     }
-//     .header-2 {
-//         margin-left: 14%;
-//         line-height: 1.35;
-//         @include a-tag-highlight;
-//     }
-// }
-// .block-a {
-//     position: absolute;
-//     height: 100%;
-//     width: 50%;
-//     background-color: $primary-color;
-// left: 35%;
-// height: 129%;
-// transform: rotate(-20deg);
-// width: 76%;
-// top: 45%;
-// }
-
-// .work-shape {
-//     overflow: auto;
-//     min-height: rem(450);
-// }
-
-// .block-awrap {
-//     overflow: hidden;
-//     float: left;
-// }
-// .block-awrap {
-//     width: 40%;
-// }
-
-// .block-bwrap {
-//     position: absolute;
-//     width: 60%;
-// }
-
-// .block-a1, .block-a2, .block-b1, .block-b2 {
-//     position: absolute;
-//     height: 100%;
-// }
-
-// .block-a1, .block-a2 {
-//     background-color: $black;
-// }
-
-// .block-a1 {
-//     width: 56%;
-// }
-
-// .block-a2 {
-//     left: 35%;
-//     width: 43%;
-//     transform: rotate(-31deg);
-//     height: 146%;
-//     top: -3%;
-// }
-
-// .block-b2, .block-b1 {
-//     background-color: $primary-color;
-// }

@@ -44,7 +44,7 @@ input[type="checkbox"] + label.checkbox {
     display: inline-block;
     position: relative;
     background-color: white;
-    border: 1px solid $light-grey;
+    border: 1px solid $grey-lighter;
     &:hover {
         background-color: returnlightershade($checkbox-color);
     }

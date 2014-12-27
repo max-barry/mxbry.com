@@ -1,6 +1,6 @@
 html {
     font-size: 14px;
-    background-color: $light-grey;
+    background-color: $grey-lighter;
     @media #{$small-all} {
         font-size: 15px;
     }
@@ -110,7 +110,7 @@ img {
 }
 
 .heading {
-    border-bottom: 1px solid $mild-grey;
+    border-bottom: 1px solid $grey;
 }
 
 .clearfix {
@@ -127,7 +127,7 @@ img {
         background-color: $primary-color;
     }
     &.drk-gry {
-        background-color: $dark-grey;
+        background-color: $grey-darker;
     }
 }
 

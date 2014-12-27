@@ -83,17 +83,13 @@
         z-index: 1000;
         @include transition(background-color 150ms, transform 250ms, background-position 150ms);
         @include transform(translateZ(0));
+        @include black-icon-states;
         &:hover {
             @include transform(scale(1.1) translateZ(0));
-            background-color: lighten($black, 10);
         }
         &:active {
             @include transform(scale(1.3) translateZ(0));
-            background-color: darken($black, 10);
         }
-        // @media #{$large-up} {
-            // display: inline-block;
-        // }
     }
 
     .scale-takeover.active + i.scale-takeover-trigger.round-icon {

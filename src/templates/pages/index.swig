@@ -1,6 +1,5 @@
 ---
 layout: base
-hideheader: true
 ---
 <h1 class="page-wrap tiny header-1">
 {# Max Barry. #}
@@ -28,5 +27,3 @@ Lorem <a href="">ipsum dolor</a> sit amet, consectetur adipisicing elit. Vitae r
     {# <p>A <a href="">random</a> thing I've done.</p> #}
     <p>A <a href="">lorem</a> ipsor amet vitae.</p>
 </article>
-
-{% include "src/templates/includes/takeover.swig" %}

@@ -8,22 +8,30 @@ layout: base
         <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, similique aspernatur. Similique blanditiis expedita quae.</h2>
     </section>
 </article>
-<div class="work-intro page-wrap tiny grid sct-break">
-    <div class="btn raised black">Demo</div>
-    <div class="btn raised black">Article</div>
+<div class="work-intro page-wrap tiny sct-break usn">
+    <a href="#" class="round-icon raise"><span>Demo</span></a>
+    <a href="#" class="round-icon raise"><span>Code</span></a>
 </div>
 <div class="work-info page-wrap tiny sct-break">
     <h3>
-        <span>Languages:</span>
+        <span>We're talking</span>
         <span class="python-color">Python</span>
         <span class="grunt-color">Grunt</span>
         <span class="scss-color">Scss</span>
     </h3>
     <h3>
-        <span>Packages:</span>
+        <span>Uses</span>
         <span>Foundation</span>
         <span>jQuery</span>
         <span><a href="" target="blank">Moment.js</a></span>
+    </h3>
+    <h3>
+        <span>Made in</span>
+        <span>Late 2014</span>
+    </h3>
+    <h3>
+        <span>Worth reading</span>
+        <span><a href="" target="blank">Medium article</a></span>
     </h3>
 </div>
 

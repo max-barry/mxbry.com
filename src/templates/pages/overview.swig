@@ -1,6 +1,5 @@
 ---
 layout: base
-hideheader: true
 ---
 
 <aside class="overview-filter bottom-sheet">
@@ -70,5 +69,3 @@ hideheader: true
 </div>
 
 <div class="round-icon control raise bottom-sheet-trigger overview-sheet-trigger"></div>
-
-{% include "src/templates/includes/takeover.swig" %}
