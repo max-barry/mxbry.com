@@ -30,15 +30,19 @@ body {
     margin-top: rem(20px);
     margin-bottom: rem(20px);
 }
+.header-1, .header-2, .header-3 {
+    font-family: $block-font-family;
+}
 p {
     max-width: rem(760);
 }
 a {
     text-decoration: none;
     color: inherit;
+    outline: 0;
     @include transition(color 150ms);
     &:visited {
-        color: inherit;
+        color: currentcolor;
     }
 }
 .header-1 a, .header-2 a {
@@ -63,12 +67,6 @@ a {
 .btn, button, input[type="submit"] {
     font-size: rem(15);
 }
-.header-1, .header-2, .header-3 {
-    font-family: $block-font-family;
-}
-// .heavy, .btn, button, input[type="submit"] {
-//     font-family: $heavy-font-family;
-// }
 .heavy {
     font-family: $heavy-font-family;
 }

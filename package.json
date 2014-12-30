@@ -1,62 +1,68 @@
 {
-    "name": "",
-    "title": "",
-    "description": "",
-    "version": "",
-    "keywords": [],
-    "dependencies": {
-        "grunt": "~0.4.2",
-        "grunt-contrib-jshint": "~0.10.0",
-        "grunt-contrib-uglify": "~0.2.2",
-        "grunt-contrib-concat": "~0.3.0",
-        "grunt-contrib-compass": "~0.7.0",
-        "grunt-contrib-watch": "~0.5.3",
-        "grunt-contrib-copy": "~0.5.0",
-        "grunt-contrib-cssmin": "~0.9.0",
-        "grunt-contrib-connect": "~0.7.1",
-        "grunt-docco": "~0.3.3",
-        "assemble": "~0.4.38",
-        "assemble-swig": "~0.1.0",
-        "grunt-contrib-clean": "~0.6.0",
-        "grunt-prettify": "~0.3.5",
-        "moment": "~2.8.4"
-    },
-    "author": {
-        "name": ""
-    },
-    "main": "Gruntfile.js",
-    "repository": {
-        "type": "git",
-        "url": ""
-    },
-    "licence": "MIT",
-    "readmeFilename": "Readme.md",
-    "project_paths": {
-        "project_folder": "src/",
-        "bower_folder": "bower_components/"
-    },
-    "dest_paths": {
-        "assets": "build/",
-        "js": "build/js/",
-        "fonts": "build/fonts/",
-        "images": "build/images/",
-        "css": "build/stylesheets/",
-        "data": "build/data/"
-    },
-    "src_paths": {
-        "js": "src/js/",
-        "scss": "src/scss/",
-        "fonts": "src/fonts/",
-        "images": "src/images/",
-        "data": "src/data/"
-    },
-    "template_paths": {
-        "templates": "src/templates/",
-        "pages": "src/templates/pages/",
-        "partials": "src/templates/partials/",
-        "includes": "src/templates/includes/",
-        "data": "src/templates/data/",
-        "helpers": "src/templates/helpers/",
-        "layouts": "src/templates/layouts/"
-    }
+  "name": "",
+  "title": "",
+  "description": "",
+  "version": "",
+  "keywords": [],
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-compass": "~0.7.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-cssmin": "~0.9.0",
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-docco": "~0.3.3",
+    "assemble": "~0.4.38",
+    "assemble-swig": "~0.1.0",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-prettify": "~0.3.5",
+    "moment": "~2.8.4",
+    "grunt-contrib-imagemin": "~0.9.2",
+    "webp-bin": "~0.1.4",
+    "grunt-webp": "0.0.4",
+    "grunt-uncss": "~0.3.8",
+    "grunt-combine-media-queries": "~1.0.19"
+  },
+  "author": {
+    "name": ""
+  },
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "licence": "MIT",
+  "readmeFilename": "Readme.md",
+  "paths": {
+    "project": "src/",
+    "bower": "bower_components/",
+    "docs": "docs/"
+  },
+  "dest": {
+    "assets": "build/",
+    "js": "build/js/",
+    "fonts": "build/fonts/",
+    "images": "build/images/",
+    "css": "build/stylesheets/",
+    "data": "build/data/"
+  },
+  "src": {
+    "js": "src/js/",
+    "scss": "src/scss/",
+    "fonts": "src/fonts/",
+    "images": "src/images/",
+    "data": "src/data/"
+  },
+  "templates": {
+    "templates": "src/templates/",
+    "pages": "src/templates/pages/",
+    "partials": "src/templates/partials/",
+    "includes": "src/templates/includes/",
+    "data": "src/templates/data/",
+    "helpers": "src/templates/helpers/",
+    "layouts": "src/templates/layouts/"
+  }
 }
