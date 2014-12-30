@@ -2,55 +2,18 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
-        // Concatanation of JS
-        concat: {
-            options: {
-                separator: ";\n"
-            },
-            dist: {
-                src: [
-                    "<%= pkg.paths.bower %>jquery/dist/jquery.min.js",
-                    // "<%= pkg.paths.bower %>jquery.wait/jquery.wait.js",
-                    "<%= pkg.paths.bower %>lodash/dist/lodash.min.js",
-                    // "<%= pkg.paths.bower %>multiline/browser.js",
-                    "<%= pkg.paths.bower %>doT/doT.min.js",
-                    "<%= pkg.paths.bower %>moment/min/moment.min.js",
-                    "<%= pkg.src.js %>**/*.js"
-                ],
-                dest: "<%= pkg.dest.js %>app.js"
-            }
-        },
-        // Minification of JS
-        uglify: {
-            options: {
-                banner: "/*! <%= pkg.name %> <%= grunt.template.today('dd-mm-yyyy') %> */\n",
-                preserveComments: "some"
-            },
-            dist: {
-                files: {
-                    "<%= pkg.dest.js %>app.js": ["<%= concat.dist.dest %>"],
-                }
-            },
+        nodemon: {
             dev: {
-                files: {
-                    "<%= pkg.dest.js %>modernizr.min.js": ["<%= pkg.paths.bower %>modernizr/modernizr.js"]
-                }
-            }
-        },
-        // JSHint to review JS code before build
-        jshint: {
-            files: [
-                "<%= pkg.src.js %>**/*.js"
-            ],
-            options: {
-                // options here to override JSHint defaults
-                globals: {
-                    jQuery: true,
-                    console: true,
-                    module: true,
-                    alert: true,
-                    document: true,
-                    window: true
+                script: 'server.js',
+                options: {
+                    nodeArgs: ["--debug"],
+                    ignore: [
+                        "<%= pkg.paths.project %>**",
+                        "<%= pkg.paths.bower %>**",
+                        "<%= pkg.paths.node %>**",
+                        "Gruntfile.js"
+                    ],
+                    ext: "js,html"
                 }
             }
         },
@@ -120,32 +83,32 @@ module.exports = function(grunt) {
             }
         },
         // Run local server
-        connect: {
-            server: {
-                options: {
-                    keepalive: true,
-                    base: "<%= pkg.dest.assets %>"
-                }
-            }
-        },
+        // connect: {
+        //     server: {
+        //         options: {
+        //             keepalive: true,
+        //             base: "<%= pkg.dest.assets %>"
+        //         }
+        //     }
+        // },
         // Assemble Swig templates
-        assemble: {
-            options: {
-                engine: "swig",
-                data: ["<%= pkg.templates.data %>*.{json,yml}"],
-                assets: "<%= pkg.dest.assets %>",
-                partials: "<%= pkg.templates.partials %>*.swig",
-                layoutdir: "<%= pkg.templates.layouts %>",
-                layoutext: ".swig",
-                layout: "base",
-                helpers: ["<%= pkg.templates.helpers %>*"],
-                flatten: true
-            },
-            pages: {
-                src: ["<%= pkg.templates.pages %>*.swig"],
-                dest: "<%= pkg.dest.assets %>"
-            }
-        },
+        // assemble: {
+        //     options: {
+        //         engine: "swig",
+        //         data: ["<%= pkg.templates.data %>*.{json,yml}"],
+        //         assets: "<%= pkg.dest.assets %>",
+        //         partials: "<%= pkg.templates.partials %>*.swig",
+        //         layoutdir: "<%= pkg.templates.layouts %>",
+        //         layoutext: ".swig",
+        //         layout: "base",
+        //         helpers: ["<%= pkg.templates.helpers %>*"],
+        //         flatten: true
+        //     },
+        //     pages: {
+        //         src: ["<%= pkg.templates.pages %>*.swig"],
+        //         dest: "<%= pkg.dest.assets %>"
+        //     }
+        // },
         /**
         General
           -  Clean build folder
@@ -162,13 +125,74 @@ module.exports = function(grunt) {
                 }
             }
         },
+        bump: {
+            options: {
+                push: false,
+                pushTo: "origin",
+                files: [
+                    "package.json"
+                ]
+            }
+        }
         /**
         Performance:
+          -  JS concatenation
+          -  JS uglification
+          -  JS linting
           -  CSS Minification
           -  HTML Prettification
           -  Image optimisation
           -  WebP creation
         */
+        concat: {
+            options: {
+                separator: ";\n"
+            },
+            dist: {
+                src: [
+                    "<%= pkg.paths.bower %>jquery/dist/jquery.min.js",
+                    // "<%= pkg.paths.bower %>jquery.wait/jquery.wait.js",
+                    "<%= pkg.paths.bower %>lodash/dist/lodash.min.js",
+                    // "<%= pkg.paths.bower %>multiline/browser.js",
+                    "<%= pkg.paths.bower %>doT/doT.min.js",
+                    "<%= pkg.paths.bower %>moment/min/moment.min.js",
+                    "<%= pkg.src.js %>**/*.js"
+                ],
+                dest: "<%= pkg.dest.js %>app.js"
+            }
+        },
+        uglify: {
+            options: {
+                banner: "/*! <%= pkg.name %> <%= grunt.template.today('dd-mm-yyyy') %> */\n",
+                preserveComments: "some"
+            },
+            dist: {
+                files: {
+                    "<%= pkg.dest.js %>app.js": ["<%= concat.dist.dest %>"],
+                }
+            },
+            dev: {
+                files: {
+                    "<%= pkg.dest.js %>modernizr.min.js": ["<%= pkg.paths.bower %>modernizr/modernizr.js"]
+                }
+            }
+        },
+        jshint: {
+            files: [
+                "<%= pkg.src.js %>**/*.js"
+            ],
+            options: {
+                // options here to override JSHint defaults
+                globals: {
+                    jQuery: true,
+                    console: true,
+                    module: true,
+                    alert: true,
+                    document: true,
+                    window: true
+                }
+            }
+        },
         cssmin: {
             minify: {
                 expand: true,
@@ -178,15 +202,15 @@ module.exports = function(grunt) {
                 ext: ".css"
             }
         },
-        prettify: {
-            files: {
-                expand: true,
-                cwd: "<%= pkg.dest.assets %>",
-                ext: ".html",
-                src: ["*.html"],
-                dest: "<%= pkg.dest.assets %>"
-            }
-        },
+        // prettify: {
+        //     files: {
+        //         expand: true,
+        //         cwd: "<%= pkg.dest.assets %>",
+        //         ext: ".html",
+        //         src: ["*.html"],
+        //         dest: "<%= pkg.dest.assets %>"
+        //     }
+        // },
         imagemin: {
             dist: {
                 files: [{
@@ -254,8 +278,8 @@ module.exports = function(grunt) {
         // }
     });
 
-    grunt.loadNpmTasks("assemble");
-    grunt.loadNpmTasks("grunt-prettify");
+    // grunt.loadNpmTasks("assemble");
+    // grunt.loadNpmTasks("grunt-prettify");
     grunt.loadNpmTasks("grunt-contrib-clean");
 
     grunt.loadNpmTasks("grunt-contrib-jshint");
@@ -275,10 +299,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-copy");
 
     grunt.loadNpmTasks("grunt-docco");
-    grunt.loadNpmTasks("grunt-contrib-connect");
+    // grunt.loadNpmTasks("grunt-contrib-connect");
 
-    grunt.registerTask("build", ["assemble", "jshint", "concat", "uglify:dev", "compass", "copy:fonts", "copy:images", "copy:devdata"]);
-    grunt.registerTask("dist", ["clean", "assemble", "prettify", "jshint", "concat", "uglify", "compass", "cmq", "cssmin", "copy:fonts", "copy:livedata", "imagemin", "webp"]);
-    grunt.registerTask("serve", "connect");
+    // grunt.registerTask("build", ["assemble", "jshint", "concat", "uglify:dev", "compass", "copy:fonts", "copy:images", "copy:devdata"]);
+    // grunt.registerTask("dist", ["clean", "assemble", "prettify", "jshint", "concat", "uglify", "compass", "cmq", "cssmin", "copy:fonts", "copy:livedata", "imagemin", "webp"]);
+    // grunt.registerTask("serve", "connect");
+    grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "copy:fonts", "copy:images", "copy:devdata"]);
+    grunt.registerTask("serve", "nodemon");
 
 };
