@@ -1,0 +1,11 @@
+{
+    "development": {
+        "port": 3000
+    },
+    "staging": {
+        "port": 3030
+    },
+    "live": {
+        "port": 3031
+    }
+}

@@ -1,6 +1,7 @@
-var marked = require("marked");
+var swig = require("swig"),
+    marked = require("marked");
 
-module.exports = function(app, swig) {
+module.exports = function(app) {
     /**
     Swig template engine initialisation
     */

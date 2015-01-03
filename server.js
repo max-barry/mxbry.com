@@ -1,20 +1,24 @@
 var express = require("express"),
     app = express(),
-    swig = require("swig");
+    env = process.env.NODE_ENV || "development",
+    config = require("./config/config.json")[env];
 
+/**
+Statics
+*/
 app.use('/static', express.static("./public"));
  
 /**
 Template settings
 */
-require("./config/swig-conf.js")(app, swig);
+require("./config/swig-conf.js")(app);
 
 /**
 Global template variables
 */
 app.locals.global = {
     languages: require("./data/languages.js").languages,
-    urls: require("./config/urls.js").urls
+    urls: require("./data/urls.js").urls
 };
 
 /**
@@ -33,4 +37,4 @@ app.get(urls.work + ":slug", routes.work.slug);
 /**
 Server
 */
-app.listen(3000);
+app.listen(config.port);
