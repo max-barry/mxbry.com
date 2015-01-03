@@ -316,7 +316,8 @@ module.exports = function(grunt) {
     // grunt.registerTask("build", ["assemble", "jshint", "concat", "uglify:dev", "compass", "copy:fonts", "copy:images", "copy:devdata"]);
     // grunt.registerTask("dist", ["clean", "assemble", "prettify", "jshint", "concat", "uglify", "compass", "cmq", "cssmin", "copy:fonts", "copy:livedata", "imagemin", "webp"]);
     // grunt.registerTask("serve", "connect");
-    grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "copy:fonts", "copy:images", "copy:devdata"]);
+    grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "cmq", "copy:fonts", "copy:images", "copy:devdata"]);
+    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "cssmin", "copy:fonts", "copy:livedata", "imagemin",]);
     grunt.registerTask("serve", "nodemon");
 
 };
