@@ -2,10 +2,11 @@
   "name": "mxbry.com",
   "title": "mxbry.com",
   "description": "Portfolio for Max Barry",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [],
   "devDependencies": {
-    "grunt-docco": "~0.3.3"
+    "grunt-docco": "~0.3.3",
+    "grunt-bump": "0.0.16"
   },
   "dependencies": {
     "grunt": "~0.4.2",
