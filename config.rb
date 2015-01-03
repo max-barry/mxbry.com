@@ -6,7 +6,7 @@ add_import_path "bower_components/scut/dist"
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "build/stylesheets"
+css_dir = "public/stylesheets"
 sass_dir = "src/scss"
 images_dir = "src/images"
 javascripts_dir = "src/js"

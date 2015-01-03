@@ -2,26 +2,33 @@ var express = require("express"),
     app = express(),
     swig = require("swig");
 
-
-app.use('/static', express.static(__dirname + '/public'));
+app.use('/static', express.static(__dirname + "/public"));
  
 /**
 Template settings
 */
-swig.setDefaults({
-    loader: swig.loaders.fs(__dirname + '/views')
-});
-app.engine("html", swig.renderFile);
-app.set("view engine", "html");
+require("./config/swig-conf.js")(app, swig);
 
- 
+/**
+Global template variables
+*/
+app.locals.global = {
+    languages: require(__dirname + "/data/languages.js").languages,
+    urls: require(__dirname + "/config/urls.js").urls
+};
+
 /**
 Routes
 */
-app.get("/", function (req, res) {
-    res.render("pages/index.html");
-});
+var routes = require(__dirname + "/routes"),
+    urls = app.locals.global.urls;
 
+// Index
+app.get(urls.index, routes.index);
+
+// Work index and slugs
+app.get(urls.work, routes.work.index);
+app.get(urls.work + ":slug", routes.work.slug);
 
 /**
 Server

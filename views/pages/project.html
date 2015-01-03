@@ -1,19 +1,29 @@
----
-layout: base
----
+{% extends "base.html" %}
 
+{% block base_content %}
 <article class="work-hero mobile-wide">
     <section class="work-hero-text-wrap">
-        <h1 class="header-1">Lorem ipsum dolor sit amet.</h1>
-        <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, similique aspernatur. Similique blanditiis expedita quae.</h2>
+        <h1 class="header-1">{{project.title}}</h1>
+        {% if project.deck %}
+        <h2>{{project.deck}}</h2>
+        {% endif %}
     </section>
 </article>
 <div class="work-intro page-wrap tiny sct-break usn">
-    <a href="#" class="round-icon raise"><span>Demo</span></a>
-    <a href="#" class="round-icon raise"><span>Code</span></a>
+    {% for action in project.actions %}
+    <a target="_blank" href="{{action.value}}" class="round-icon raise"><span>{{action.key}}</span></a>
+    {% endfor %}
 </div>
 <div class="work-info page-wrap tiny sct-break">
+    {% for item in project.info %}
     <h3>
+        <span>{{item.key}}</span>
+        {% for value in item.values %}
+        <span {% if item.style %}class="{{value|slugify}}-color"{% endif %}>{{value}}</span>
+        {% endfor %}
+    </h3>
+    {% endfor %}
+{#     <h3>
         <span>We're talking</span>
         <span class="python-color">Python</span>
         <span class="grunt-color">Grunt</span>
@@ -38,14 +48,15 @@ layout: base
 {# <div class="work-languages page-wrap tiny grid sct-break">
     <h3 class="grid-item python-color">Python</h3>
     <h3 class="grid-item grunt-color">Grunt</h3>
-    <h3 class="grid-item scss-color">Scss</h3>
-</div> #}
+    <h3 class="grid-item scss-color">Scss</h3> #}
+</div>
 <hr class="page-wrap tiny sct-break">
 <article class="work-content page-wrap sct-break">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque reiciendis, suscipit autem! Tempora ipsum eius repellat vel odit incidunt sunt libero ad sequi beatae in fuga vitae rem sit consequuntur dolor placeat, saepe amet eum ipsam aliquid? Facere, ipsum! Corporis.</p>
+    {{project.body|markdown}}
+{#     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque reiciendis, suscipit autem! Tempora ipsum eius repellat vel odit incidunt sunt libero ad sequi beatae in fuga vitae rem sit consequuntur dolor placeat, saepe amet eum ipsam aliquid? Facere, ipsum! Corporis.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque reiciendis, suscipit autem! Tempora ipsum eius repellat vel odit incidunt sunt libero ad sequi beatae in fuga vitae rem sit consequuntur dolor placeat, saepe amet eum ipsam aliquid? Facere, ipsum! Corporis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa officiis, obcaecati qui harum inventore accusantium porro eveniet magni facilis amet magnam, accusamus possimus repellendus, nihil vel natus corporis aperiam enim!</p>
     <img src="https://farm9.staticflickr.com/8592/15606484029_37c5136fc2_k_d.jpg">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque reiciendis, suscipit autem! Tempora ipsum eius repellat vel odit incidunt sunt libero ad sequi beatae in fuga vitae rem sit consequuntur dolor placeat, saepe amet eum ipsam aliquid? Facere, ipsum! Corporis.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque reiciendis, suscipit autem! Tempora ipsum eius repellat vel odit incidunt sunt libero ad sequi beatae in fuga vitae rem sit consequuntur dolor placeat, saepe amet eum ipsam aliquid? Facere, ipsum! Corporis.</p> #}
 </article>
 
 {# TODO: Do a draw on to show that the dot dot dot means more. Handwritten pen that draws on with an arrow pointing at the more dot dot dot #}
@@ -100,3 +111,5 @@ layout: base
 </article>
 {% endfor %}
 -->
+
+{% endblock base_content %}

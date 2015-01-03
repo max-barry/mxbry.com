@@ -101,7 +101,7 @@ $(function() {
             }, 250);
     }
 
-    $.getJSON("/data/projects.json", function(response){
+    $.getJSON("/static/data/projects.json", function(response){
         mb.overview.projects = response.projects.reverse();
 
         var hash = window.location.hash.split("#")[1],
@@ -162,8 +162,9 @@ $(function() {
         load_items(items_for_cat);
     }
 
-    $("body").on("click", ".overview-controls li:not(.active)", change_category);
-    $("body").on("change", ".overview-filter select", change_category);
+    $("body")
+    .on("click", ".overview-controls li:not(.active)", change_category)
+    .on("change", ".overview-filter select", change_category);
     
     // /**
     // Paginates the work items if and when the user reaches bottom of the page.

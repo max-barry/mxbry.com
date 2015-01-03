@@ -5,6 +5,7 @@ node_modules/*
 .webpbuild/*
 
 build/*
+public/*
 
 *.DS_Store
 *.sublime-project

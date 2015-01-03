@@ -74,13 +74,19 @@ module.exports = function(grunt) {
                 ],
                 tasks: ["copy:fonts"]
             },
-            templates: {
+            data: {
                 files: [
-                    "<%= pkg.templates.templates %>**/*.swig",
-                    "<%= pkg.templates.data %>**/*.{json,yml}"
+                    "<%= pkg.src.data %>**/*.json"
                 ],
-                tasks: ["assemble"]
+                tasks: ["copy:devdata"]
             }
+            // templates: {
+            //     files: [
+            //         "<%= pkg.templates.templates %>**/*.swig",
+            //         "<%= pkg.templates.data %>**/*.{json,yml}"
+            //     ],
+            //     tasks: ["assemble"]
+            // }
         },
         // Run local server
         // connect: {
@@ -133,7 +139,7 @@ module.exports = function(grunt) {
                     "package.json"
                 ]
             }
-        }
+        },
         /**
         Performance:
           -  JS concatenation
@@ -299,6 +305,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-copy");
 
     grunt.loadNpmTasks("grunt-docco");
+
+    grunt.loadNpmTasks("grunt-nodemon");
     // grunt.loadNpmTasks("grunt-contrib-connect");
 
     // grunt.registerTask("build", ["assemble", "jshint", "concat", "uglify:dev", "compass", "copy:fonts", "copy:images", "copy:devdata"]);

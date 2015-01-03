@@ -1,12 +1,11 @@
----
-layout: base
----
+{% extends "base.html" %}
 
+{% block base_content %}
 <aside class="overview-filter bottom-sheet">
     <label for="discipline-filter" class="select-icon page-wrap tiny sct-break">
         <select name="discipline-filter" id="discipline-filter">
             <option value="all">All</option>
-            {% for l in languages %}
+            {% for l in global.languages %}
             <option value="{{l|lower}}">{{l}}</option>
             {% endfor %}
         </select>
@@ -21,7 +20,7 @@ layout: base
 
 <h1 class="page-wrap tiny header-1">
     {# Max Barry. #}
-    <a href="/">My</a> Work.
+    <a href="{{global.urls.index}}">My</a> Work.
 </h1>
 <h2 class="page-wrap xtiny header-4">
     {# I <a href="">build stuff</a> on the internet. I try and use smart numbers, behavioural theory, and all the little details to craft cool things. Check out <a href="">some of my work</a>. Maybe it's okay? Tell me how much you don't like it on <a href="" target="_blank">LinkedIn</a>. #}
@@ -29,16 +28,16 @@ layout: base
 </h2>
 
 
-<div class="page-wrap xtiny sct-break overview-controls usn">
+<article class="page-wrap xtiny sct-break overview-controls usn">
     <ul>
         <li data-category="all" class="heavy active">All</li>
-        {% for l in languages %}
+        {% for l in global.languages %}
         <li data-category="{{l|lower}}" class="{{l|lower}}-color heavy">{{l}}</li>
         {% endfor %}
     </ul>
-</div>
+</article>
 
-<div class="page-wrap overview-lister mobile-wide">
+<article class="page-wrap overview-lister mobile-wide">
     <i class="loader show"></i>
 {#     <article>
         <section class="overview-article-content card center">
@@ -66,6 +65,8 @@ layout: base
         </section>
     </article>
     {% endfor %} #}
-</div>
+</article>
 
 <div class="round-icon control raise bottom-sheet-trigger overview-sheet-trigger"></div>
+
+{% endblock base_content %}

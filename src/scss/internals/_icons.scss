@@ -1,6 +1,6 @@
 @mixin icon-medium {
     background-color: black;
-    background-image:url("/images/logos/medium-wh.svg");
+    background-image:url("#{$image-url}logos/medium-wh.svg");
 }
 
 @mixin icon-github {
