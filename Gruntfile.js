@@ -303,11 +303,14 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks("grunt-contrib-copy");
 
-
-    grunt.loadNpmTasks("grunt-contrib-watch");
-    grunt.loadNpmTasks('grunt-bump');
-    grunt.loadNpmTasks("grunt-docco");
-    grunt.loadNpmTasks("grunt-nodemon");
+    try {
+        grunt.loadNpmTasks("grunt-contrib-watch");
+        grunt.loadNpmTasks('grunt-bump');
+        grunt.loadNpmTasks("grunt-docco");
+        grunt.loadNpmTasks("grunt-nodemon");
+    } catch (err) {
+        // Probably on the production environment
+    };
     // grunt.loadNpmTasks("grunt-contrib-connect");
 
     // grunt.registerTask("build", ["assemble", "jshint", "concat", "uglify:dev", "compass", "copy:fonts", "copy:images", "copy:devdata"]);
