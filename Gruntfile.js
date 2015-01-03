@@ -300,12 +300,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-combine-media-queries");
     // grunt.loadNpmTasks('grunt-uncss');
 
-    grunt.loadNpmTasks("grunt-contrib-watch");
-
     grunt.loadNpmTasks("grunt-contrib-copy");
 
-    grunt.loadNpmTasks("grunt-docco");
 
+    grunt.loadNpmTasks("grunt-contrib-watch");
+    grunt.loadNpmTasks('grunt-bump');
+    grunt.loadNpmTasks("grunt-docco");
     grunt.loadNpmTasks("grunt-nodemon");
     // grunt.loadNpmTasks("grunt-contrib-connect");
 
