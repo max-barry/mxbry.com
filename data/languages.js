@@ -1,10 +1,13 @@
 var languages = [
-    "Python",
-    "Javascript",
-    "HTML",
+    "Site builds",
+    "Yeoman",
     "Grunt",
-    "Scss",
-    "Yeoman"
+    "Performance",
+    "Design",
+    "UX",
+    "CSS3",
+    "Django",
+    "DevOps",
 ];
 
 module.exports = {

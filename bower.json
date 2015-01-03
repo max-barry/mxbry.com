@@ -1,6 +1,6 @@
 {
-  "name": "Project name",
-  "version": "0.0.1",
+  "name": "mxbry.com",
+  "version": "2.0.0",
   "private": "true",
   "dependencies": {
     "jquery": "~2.1.1",

@@ -29,6 +29,10 @@ $python: (
     color: #82b043,
     name: "python",
 );
+$django: (
+    color: #82b043,
+    name: "django",
+);
 $javascript: (
     color: #FFAE19,
     name: "javascript",
@@ -41,12 +45,40 @@ $scss: (
     color: #1973FF,
     name: "scss",
 );
+$css3: (
+    color: #49005C,
+    name: "css3",
+);
 $html: (
     color: #FF1919,
     name: "html",
 );
+$sitebuilds: (
+    color: #0047B2,
+    name: "site-builds",
+);
+$performance: (
+    color: #00CCCC,
+    name: "performance",
+);
+$ux: (
+    color: #9999FF,
+    name: "ux",
+);
+$design: (
+    color: #CC0066,
+    name: "design",
+);
+$yeoman: (
+    color: #422100,
+    name: "yeoman",
+);
+$devops: (
+    color: #669999,
+    name: "devops",
+);
 
-$languages: $python $javascript $grunt $scss $html;
+$languages: $python $javascript $grunt $scss $html $sitebuilds $css3 $performance $design $ux $yeoman $django $devops;
 
 
 /**

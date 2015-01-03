@@ -59,7 +59,9 @@ $(function() {
     // }
     
     function get_items_for_category(category) {
-        return category == "all" ? mb.overview.projects : _.filter(mb.overview.projects, {"category":category});
+        return category == "all" ? mb.overview.projects : _.filter(mb.overview.projects, function(project){
+            return project.categories.indexOf(category) != -1;
+        });
     }
 
     function preset_category_button(category) {

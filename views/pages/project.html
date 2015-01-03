@@ -9,47 +9,33 @@
         {% endif %}
     </section>
 </article>
+
 <div class="work-intro page-wrap tiny sct-break usn">
+    {% if project.demo %}
+    <a target="_blank" href="{{project.demo}}" class="round-icon raise"><span>Demo</span></a>
+    {% endif %}
     {% for action in project.actions %}
     <a target="_blank" href="{{action.value}}" class="round-icon raise"><span>{{action.key}}</span></a>
     {% endfor %}
 </div>
-<div class="work-info page-wrap tiny sct-break">
+
+<article class="work-info page-wrap tiny sct-break">
     {% for item in project.info %}
     <h3>
         <span>{{item.key}}</span>
         {% for value in item.values %}
-        <span {% if item.style %}class="{{value|slugify}}-color"{% endif %}>{{value}}</span>
+        <span {% if item.style %}class="{{value|slugify}}-color"{% endif %}>
+            {% if value.url %}
+            <a href="{{value.url}}" target="_blank">{{value.value}}</a>
+            {% else %}
+            {{value}}
+            {% endif %}
+        </span>
         {% endfor %}
     </h3>
     {% endfor %}
-{#     <h3>
-        <span>We're talking</span>
-        <span class="python-color">Python</span>
-        <span class="grunt-color">Grunt</span>
-        <span class="scss-color">Scss</span>
-    </h3>
-    <h3>
-        <span>Uses</span>
-        <span>Foundation</span>
-        <span>jQuery</span>
-        <span><a href="" target="blank">Moment.js</a></span>
-    </h3>
-    <h3>
-        <span>Made in</span>
-        <span>Late 2014</span>
-    </h3>
-    <h3>
-        <span>Worth reading</span>
-        <span><a href="" target="blank">Medium article</a></span>
-    </h3>
-</div>
+</article>
 
-{# <div class="work-languages page-wrap tiny grid sct-break">
-    <h3 class="grid-item python-color">Python</h3>
-    <h3 class="grid-item grunt-color">Grunt</h3>
-    <h3 class="grid-item scss-color">Scss</h3> #}
-</div>
 <hr class="page-wrap tiny sct-break">
 <article class="work-content page-wrap sct-break">
     {{project.body|markdown}}

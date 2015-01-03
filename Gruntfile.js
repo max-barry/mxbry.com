@@ -136,7 +136,8 @@ module.exports = function(grunt) {
                 push: false,
                 pushTo: "origin",
                 files: [
-                    "package.json"
+                    "package.json",
+                    "bower.json"
                 ]
             }
         },

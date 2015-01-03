@@ -6,7 +6,7 @@
         <select name="discipline-filter" id="discipline-filter">
             <option value="all">All</option>
             {% for l in global.languages %}
-            <option value="{{l|lower}}">{{l}}</option>
+            <option value="{{l|slugify}}">{{l}}</option>
             {% endfor %}
         </select>
     </label>
@@ -32,7 +32,7 @@
     <ul>
         <li data-category="all" class="heavy active">All</li>
         {% for l in global.languages %}
-        <li data-category="{{l|lower}}" class="{{l|lower}}-color heavy">{{l}}</li>
+        <li data-category="{{l|slugify}}" class="{{l|slugify}}-color heavy">{{l}}</li>
         {% endfor %}
     </ul>
 </article>

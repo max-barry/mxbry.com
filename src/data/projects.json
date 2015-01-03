@@ -1,1 +1,173 @@
-{}
+{
+    "projects": [
+        {
+            "title": "Jumpstart ~ Static",
+            "deck": "My Yeoman generator for kicking off Assemble based, static sites fast.",
+            "actions": [
+                {
+                    "key": "Code",
+                    "value": "https://github.com/max-barry/generator-jumpstart-static"
+                },
+                {
+                    "key": "npm",
+                    "value": "https://www.npmjs.com/package/generator-jumpstart-static"
+                }
+            ],
+            "info": [
+                {
+                    "key": "We're talking",
+                    "style": true,
+                    "values": [
+                        "Site builds",
+                        "Yeoman",
+                        "Grunt"
+                    ]
+                },
+                {
+                    "key": "Made in",
+                    "values": [
+                        "mid 2014"
+                    ]
+                },
+                {
+                    "key": "It uses",
+                    "values": [
+                        "Yeoman",
+                        "npm",
+                        "Grunt.js"
+                    ]
+                }
+            ],
+            "body": "Platforms, tools, and foundational pieces of work, are high cost investments that provide unsatisfying delayed gratification and burden one with maintainence. I can't escape this reality, but boy is it vindicating when you can cut corners and maximise efficiency because of historical effort you've put in.\n\nJumpstart Static is the first in a series of foundational works. A Yeoman generator that has made projects a cinch to begin. You start with an empty directory, and end with a fully functioning static site build framework, with the gritty bits are taken care of: SCSS compilation; Grunt tasks for development and performance; a templating engine (Assemble) as a robust backbone for rapid static sites.\n\n##Straight to Work\nA series of prompts on initialisation lets one refine the experience, including the declaration of frontend packages required (admittedly, this available options are influenced by what I like to use). The generator is designed to deliver a 'Straight to work' experience, no matter the permutations. The first line of code you write should be the first of your project; interesting stuff, not nefarious configuration or a banal doctype declaration.\n\n##Assemble\nJumpstart static was born of a Grunt Init template I had for launching Assemble projects. My first exposure to Assemble came from following the really smart work the folks at Webhook are doing. I've come to terms with the idea that Django is probably overkill for most of what I'm trying to do on the web. Prototypes, corporate sites, nameplates, and alike don't need (or warrent) the brain investment and headaches of all the weight that comes with a Django installation. But there are parts of Django I really like, I cried! The Jinja templates are delightful, but with a little nouse a similar setup can be gerrymandered with Assemble and the Swig engine. All that thinking landed me where I am today: why the effort when business logic-less static sites will do for most? I wonder sometimes if - given the team behind the Webhook project's history with Django - they didn't come to something of a similar conclusion. \nI've made dalliances with a smarter dumb site model whereby dynamic content can be built from a JSON source. Assemble is great if you have a bunch of pages that stand alone from one another, but less competent at dynamic content. For example, a list of news articles and then a slug page for each news article. My working solutions to this problem have so far involved duplicatimg a source template X number of times for each (in this example) news article, and then having Assemble compile those pseudo pages. It works, but it just doesn't feel like the right answer. A lot of huffing and puffing that leaves platforms like Express.js or Django my go to for mid-sized projects with dynamic pages (e.g. blogs or news magazines).",
+            "listerimg": "http://i.giphy.com/k0CJuMw9h7m3S.gif",
+            "slug": "jumpstart-static",
+            "categories": [
+                "yeoman",
+                "site-builds",
+                "grunt"
+            ]
+        },
+        {
+            "title": "mxbry.com",
+            "deck": "This website you're reading right now! An exercise in little animations, and super lean web builds.",
+            "actions": [
+                {
+                    "key": "Code",
+                    "value": ""
+                }
+            ],
+            "info": [
+                {
+                    "key": "We're talking",
+                    "style": true,
+                    "values": [
+                        "Site builds",
+                        "CSS3",
+                        "UX",
+                        "Design",
+                        "Performance"
+                    ]
+                },
+                {
+                    "key": "Made in",
+                    "values": [
+                        "late 2014"
+                    ]
+                },
+                {
+                    "key": "It uses",
+                    "values": [
+                        "Express.js",
+                        {
+                            "value": "Marked",
+                            "url": "https://www.npmjs.com/package/marked"
+                        },
+                        {
+                            "value": "Swig",
+                            "url": "http://paularmstrong.github.io/swig/"
+                        },
+                        "Bourbon",
+                        {
+                            "value": "doT.js",
+                            "url": "http://olado.github.io/doT/index.html"
+                        },
+                        "Lo-Dash",
+                        "jQuery",
+                        {
+                            "value": "Moment.js",
+                            "url": "http://momentjs.com/"
+                        }
+                    ]
+                }
+            ],
+            "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum itaque fugit quod mollitia nisi nam quos rerum cum obcaecati placeat velit, hic ullam sunt dignissimos dolore pariatur inventore odio, culpa accusamus illum. Saepe repudiandae, sunt! Maxime enim eius, tempora totam accusamus voluptatem, quaerat magni fugit autem voluptate aperiam perferendis distinctio. Laboriosam iure sequi, dignissimos aliquam, asperiores sunt reprehenderit consequuntur eos deleniti ex ab consequatur itaque fugiat alias eum, nemo consectetur. Porro maxime, tenetur praesentium amet repellat, voluptatibus. Perspiciatis at nisi ducimus molestias ut dolorem, harum sint animi dicta excepturi incidunt a rerum aliquam repellendus quidem impedit deleniti iure illum quod aperiam repellat nobis est, vero assumenda tempora. Officia mollitia in recusandae libero dicta, dolorem, vitae tenetur hic accusamus eaque fuga illo fugiat accusantium vel inventore fugit similique magni ut quis placeat dolor ducimus quibusdam harum quas. Beatae id, culpa enim unde dolor molestiae architecto iusto eaque, esse non quaerat voluptatum magnam porro aperiam laboriosam consequatur ipsa doloribus, corporis rem, ducimus numquam! Incidunt esse voluptatibus odit libero consectetur temporibus ab ipsum beatae blanditiis qui perspiciatis tenetur eum excepturi sed molestias omnis autem similique, amet sint sapiente sunt. Labore eius officiis deserunt voluptatem, adipisci blanditiis ut sed sequi possimus impedit, doloremque. Natus.",
+            "listerimg": "",
+            "slug": "mxbry",
+            "categories": [
+                "css3",
+                "site-builds",
+                "design",
+                "ux",
+                "performance"
+            ]
+        },
+        {
+            "title": "Deploy",
+            "deck": "A Yeoman generator for a variety of configuration files involved in Django deployments; including uWSGI, NGINX, & Supervisor.",
+            "actions": [
+                {
+                    "key": "Code",
+                    "value": "https://github.com/max-barry/generator-deploy"
+                },
+                {
+                    "key": "npm",
+                    "value": "https://www.npmjs.com/package/generator-deploy"
+                }
+            ],
+            "info": [
+                {
+                    "key": "We're talking",
+                    "style": true,
+                    "values": [
+                        "Django",
+                        "DevOps",
+                        "Yeoman"
+                    ]
+                },
+                {
+                    "key": "Made in",
+                    "values": [
+                        "late 2014"
+                    ]
+                },
+                {
+                    "key": "It uses",
+                    "values": [
+                        {
+                            "value": "Yeoman",
+                            "url": "http://yeoman.io/"
+                        },
+                        "npm"
+                    ]
+                }
+            ],
+            "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum itaque fugit quod mollitia nisi nam quos rerum cum obcaecati placeat velit, hic ullam sunt dignissimos dolore pariatur inventore odio, culpa accusamus illum. Saepe repudiandae, sunt! Maxime enim eius, tempora totam accusamus voluptatem, quaerat magni fugit autem voluptate aperiam perferendis distinctio. Laboriosam iure sequi, dignissimos aliquam, asperiores sunt reprehenderit consequuntur eos deleniti ex ab consequatur itaque fugiat alias eum, nemo consectetur. Porro maxime, tenetur praesentium amet repellat, voluptatibus. Perspiciatis at nisi ducimus molestias ut dolorem, harum sint animi dicta excepturi incidunt a rerum aliquam repellendus quidem impedit deleniti iure illum quod aperiam repellat nobis est, vero assumenda tempora. Officia mollitia in recusandae libero dicta, dolorem, vitae tenetur hic accusamus eaque fuga illo fugiat accusantium vel inventore fugit similique magni ut quis placeat dolor ducimus quibusdam harum quas. Beatae id, culpa enim unde dolor molestiae architecto iusto eaque, esse non quaerat voluptatum magnam porro aperiam laboriosam consequatur ipsa doloribus, corporis rem, ducimus numquam! Incidunt esse voluptatibus odit libero consectetur temporibus ab ipsum beatae blanditiis qui perspiciatis tenetur eum excepturi sed molestias omnis autem similique, amet sint sapiente sunt. Labore eius officiis deserunt voluptatem, adipisci blanditiis ut sed sequi possimus impedit, doloremque. Natus.",
+            "listerimg": "",
+            "slug": "yeoman-deploy",
+            "categories": [
+                "django",
+                "devops",
+                "yeoman"
+            ]
+        },
+        {
+            "title": "Django Boilerplate",
+            "deck": "Django Boilerplate developed in cooperation with colleagues at Havas Worldwide.",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum itaque fugit quod mollitia nisi nam quos rerum cum obcaecati placeat velit, hic ullam sunt dignissimos dolore pariatur inventore odio, culpa accusamus illum. Saepe repudiandae, sunt! Maxime enim eius, tempora totam accusamus voluptatem, quaerat magni fugit autem voluptate aperiam perferendis distinctio. Laboriosam iure sequi, dignissimos aliquam, asperiores sunt reprehenderit consequuntur eos deleniti ex ab consequatur itaque fugiat alias eum, nemo consectetur. Porro maxime, tenetur praesentium amet repellat, voluptatibus. Perspiciatis at nisi ducimus molestias ut dolorem, harum sint animi dicta excepturi incidunt a rerum aliquam repellendus quidem impedit deleniti iure illum quod aperiam repellat nobis est, vero assumenda tempora. Officia mollitia in recusandae libero dicta, dolorem, vitae tenetur hic accusamus eaque fuga illo fugiat accusantium vel inventore fugit similique magni ut quis placeat dolor ducimus quibusdam harum quas. Beatae id, culpa enim unde dolor molestiae architecto iusto eaque, esse non quaerat voluptatum magnam porro aperiam laboriosam consequatur ipsa doloribus, corporis rem, ducimus numquam! Incidunt esse voluptatibus odit libero consectetur temporibus ab ipsum beatae blanditiis qui perspiciatis tenetur eum excepturi sed molestias omnis autem similique, amet sint sapiente sunt. Labore eius officiis deserunt voluptatem, adipisci blanditiis ut sed sequi possimus impedit, doloremque. Natus.",
+            "slug": "django-boilerplate",
+            "categories": [
+                "django"
+            ]
+        }
+    ]
+}

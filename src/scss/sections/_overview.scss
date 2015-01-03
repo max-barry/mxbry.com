@@ -7,7 +7,6 @@ Overview lister
 @media #{$large-up} {
     .overview-lister article {
         margin-bottom: 3 * $gutter;
-        // margin: 0 3 * $gutter 3 * $gutter 3 * $gutter;
         @include span-columns(4);
         @include omega(3n);
     }
@@ -45,15 +44,6 @@ Overview lister
         background-image: none !important;
         text-align: left;
         margin-bottom: $gutter;
-        // &:after {
-        //     content: "";
-        //     position: absolute;
-        //     top: 0;
-        //     bottom: 0;
-        //     right: 0;
-        //     display: block;
-        //     border-right: 2px solid $primary-color;
-        // }
         .btn {
             margin-top: 2*$gutter;
             margin-right: $gutter;
@@ -66,13 +56,18 @@ Overview lister
     position: relative;
     background-color: $black;
     p, h2 {
-        // margin: 0 auto;
         margin-top: 0;
         margin-bottom: 0;
         position: relative;
     }
     p {
         margin-top: $gutter;
+    }
+    h2 a {
+        color: white;
+        &:hover {
+            color: white;
+        }
     }
     @media #{$large-up} {
         $item-width: rem(360);
@@ -92,10 +87,6 @@ Overview lister
         .btn {
             margin-top: 4 * $gutter;
             display: inline-block;
-            // color: $black;
-            // &:not(:active) {
-            //     color: $black;
-            // }
             &:first-of-type {
                 margin-right: 0.5 * $gutter;
             }
@@ -104,11 +95,9 @@ Overview lister
             }
         }
         &[style] {
-            // color: white;
             background-size: cover;
             background-position: center center;
             h2 {
-                // text-shadow: 2px 2px 2px black;
                 display: inline-block;
                 background-color: $primary-color;
             }
@@ -145,37 +134,6 @@ Overview filter
         @include position(fixed, n 2*$gutter 2*$gutter n);
     }
 }
-// @media #{$medium-only} {
-//     .overview-filter {
-//         // @include bottom-sheet;
-//         padding-top: 4 * $gutter;
-//         * {
-//             @include user-select(none);
-//         }
-//     }
-//     .overview-filter-interior {
-//         margin: 0 auto;
-//         max-width: $slim;
-//     }
-//     .overview-filter-interior li {
-//         // &:first-child {
-//         //     margin-bottom: 2 * $gutter;
-//         // }
-//         // &:not(:first-child) {
-//         margin-right: 2 * $gutter;
-//         margin-bottom: $gutter;
-//         display: inline-block;
-//         // }
-//         label.checkbox {
-//             border: 1px solid $black;
-//             margin-right: $gutter;
-//         }
-//         label.checkbox + label {
-//             top: -5px;
-//             position: relative;
-//         }
-//     }
-// }
 
 @media #{$large-up} {
     .overview-filter, .bottom-sheet-trigger.round-icon {
@@ -200,46 +158,3 @@ Overview filter
         }
     }
 }
-// @media #{$large-up} {
-//     .overview-filter-interior, .overview-filter {
-//         width: 25vw;
-//         z-index: 9999;
-//         @include position(fixed, 0 0 0 auto);
-//     }
-
-//     .overview-filter-interior {
-//         background-color: $black;
-//         box-shadow: 4px 0px 3px rgb(16, 16, 16) inset;
-//         margin: 0;
-//         padding: 12 * $gutter 4 * $gutter;
-//         will-change: transform;
-//         @include transform(translateX(100%));
-//         @include transition(transform 350ms $ease-out-quint);
-//         li {
-//             margin-bottom: 2 * $gutter;
-//         }
-//     }
-
-//     .overview-filter.overview-filter-open .overview-filter-interior {
-//         @include transform(none);
-//     }
-
-//     .overview-filter.overview-filter-open ~ .overview-lister {
-//         opacity: 0.3;
-//     }
-
-//     .overview-filter.overview-filter-open .overview-filter-interior li {
-//         // &:first-of-type {
-//         //     margin-bottom: 4 * $gutter;
-//         // }
-//     }
-
-//     .overview-filter-interior label.checkbox {
-//         float: left;
-//         margin-right: 2 * $gutter;
-//     }
-//     .overview-filter-interior label.checkbox + label {
-//         line-height: rem(32);
-//         color: white;
-//     }
-// }
