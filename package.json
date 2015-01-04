@@ -10,7 +10,8 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-bump": "0.0.16",
     "grunt-nodemon": "^0.3.0",
-    "nodemon": ">=1.2.1"
+    "nodemon": ">=1.2.1",
+    "grunt-perfbudget": "~0.1.6"
   },
   "dependencies": {
     "grunt": "~0.4.2",

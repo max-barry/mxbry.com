@@ -67,25 +67,35 @@ $(function() {
     };
     
     mb.services.github.handle = function(response){
-        console.log("Handling Medium");
+        console.log("Handling Github");
 
-        var items = response.query.results.entry.reverse(),
-            tmp, content_selector, repo, actions = [],
+        function _get_event_verb(gitevent, payload) {
+            if (gitevent == "PushEvent") {
+                return "pushed to";
+            } else if (gitevent == "CreateEvent") {
+                return "created a " + payload.ref_type + " for";
+            } else {
+                return "was active on";
+            }
+        }
+
+        var tmp, title, deck,
+            actions = [],
             source = "github", category = "code";
 
-        for (var i = items.length - 1; i >= 0; i--) {
-            tmp = items[i];
-            content_selector = $(tmp.content.content);
-            repo = content_selector.find(".css-truncate-target").length ? content_selector.find(".css-truncate-target").attr("href").replace("https://github.com", "") : null;
+        for (var i = response.length - 1; i >= 0; i--) {
+            tmp = response[i];
+            title = mb.services.github.account + " " + _get_event_verb(tmp.type, tmp.payload) + " " + tmp.repo.name;
+            deck = tmp.type == "CreateEvent" ? tmp.payload.description : tmp.payload.commits[0].message;
             actions.push({
                 source: source,
                 category: category,
-                pubDate: moment(new Date(tmp.published)).unix(),
-                repo: repo,
-                title: tmp.title.content,
-                deck: content_selector.find(".message blockquote").text().trim(),
+                repo: tmp.repo.name,
+                title: title,
                 id: id_service_object(),
-                url: content_selector.find(".css-truncate-target").attr("href")
+                url: tmp.repo.url,
+                deck: deck,
+                pubDate: moment(new Date(tmp.created_at)).unix(),
             });
         }
 
@@ -94,14 +104,9 @@ $(function() {
 
     mb.services.github.fetch = function(){
         console.log("Fetching Github");
-        var def = $.Deferred(),
-            feed = encodeURIComponent("https://github.com/" + mb.services.github.account + ".atom");
+        var def = $.Deferred();
 
-        $.ajax({
-            url: "//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20atom%20where%20url%3D'" + feed + "'&format=json",
-            dataType: "JSON",
-            success: mb.services.github.handle
-        }).always(function() {
+        $.get("https://api.github.com/users/" + mb.services.github.account + "/events", mb.services.github.handle).always(function() {
             def.resolve();
         });
 

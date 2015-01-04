@@ -150,6 +150,7 @@ module.exports = function(grunt) {
           -  HTML Prettification
           -  Image optimisation
           -  WebP creation
+          -  Perfbudget
         */
         concat: {
             options: {
@@ -189,7 +190,6 @@ module.exports = function(grunt) {
                 "<%= pkg.src.js %>**/*.js"
             ],
             options: {
-                // options here to override JSHint defaults
                 globals: {
                     jQuery: true,
                     console: true,
@@ -268,7 +268,7 @@ module.exports = function(grunt) {
                     "<%= pkg.dest.css %>": ["<%= pkg.dest.css %>**/*.css"]
                 }
             }
-        }
+        },
         // uncss: {
         //     dist: {
         //         options: {
@@ -283,10 +283,24 @@ module.exports = function(grunt) {
         //         }
         //     }
         // }
+        perfbudget: {
+            options: {
+                key: "A.0b29f60d31dfd7bcdfe8158ec29c9cde",
+                location: "ec2-eu-central-1:Chrome"
+            },
+            live: {
+                options: {
+                    url: "http://mxbry.com/",
+                }
+            },
+            staging: {
+                options: {
+                    url: "http://staging.mxbry.com/",
+                }
+            },
+        }
     });
 
-    // grunt.loadNpmTasks("assemble");
-    // grunt.loadNpmTasks("grunt-prettify");
     grunt.loadNpmTasks("grunt-contrib-clean");
 
     grunt.loadNpmTasks("grunt-contrib-jshint");
@@ -303,21 +317,15 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks("grunt-contrib-copy");
 
-    if (!!!process.env.NODE_ENV) {
-        grunt.loadNpmTasks("grunt-contrib-watch");
-        grunt.loadNpmTasks('grunt-bump');
-        grunt.loadNpmTasks("grunt-docco");
-        grunt.loadNpmTasks("grunt-nodemon");
-    };
-        // Probably on the production environment
+    grunt.loadNpmTasks("grunt-contrib-watch");
+    grunt.loadNpmTasks('grunt-bump');
+    grunt.loadNpmTasks("grunt-docco");
+    grunt.loadNpmTasks("grunt-nodemon");
+    grunt.loadNpmTasks('grunt-perfbudget');
 
-    // grunt.loadNpmTasks("grunt-contrib-connect");
-
-    // grunt.registerTask("build", ["assemble", "jshint", "concat", "uglify:dev", "compass", "copy:fonts", "copy:images", "copy:devdata"]);
-    // grunt.registerTask("dist", ["clean", "assemble", "prettify", "jshint", "concat", "uglify", "compass", "cmq", "cssmin", "copy:fonts", "copy:livedata", "imagemin", "webp"]);
-    // grunt.registerTask("serve", "connect");
     grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "cmq", "copy:fonts", "copy:images", "copy:devdata"]);
     grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "cssmin", "copy:fonts", "copy:livedata", "imagemin",]);
+    grunt.registerTask("perf", "perfbudget:staging");
     grunt.registerTask("serve", "nodemon");
 
 };
