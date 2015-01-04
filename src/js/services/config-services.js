@@ -19,7 +19,6 @@ $(function() {
     };
 
     mb.services.twitter.handle = function(response) {
-        console.log("Handling Twitter");
         var tmp,
             source = "twitter", category = "tweets";
 
@@ -40,7 +39,6 @@ $(function() {
     };
 
     mb.services.twitter.fetch = function() {
-        console.log("Fetching Twitter");
         var def = $.Deferred();
 
         $.tweetsFromWidget({
@@ -67,7 +65,6 @@ $(function() {
     };
     
     mb.services.github.handle = function(response){
-        console.log("Handling Github");
 
         function _get_event_verb(gitevent, payload) {
             if (gitevent == "PushEvent") {
@@ -93,7 +90,7 @@ $(function() {
                 repo: tmp.repo.name,
                 title: title,
                 id: id_service_object(),
-                url: tmp.repo.url,
+                url: "https://github.com/" + tmp.repo.name,
                 deck: deck,
                 pubDate: moment(new Date(tmp.created_at)).unix(),
             });
@@ -103,7 +100,6 @@ $(function() {
     };
 
     mb.services.github.fetch = function(){
-        console.log("Fetching Github");
         var def = $.Deferred();
 
         $.get("https://api.github.com/users/" + mb.services.github.account + "/events", mb.services.github.handle).always(function() {
@@ -126,7 +122,6 @@ $(function() {
     };
 
     mb.services.medium.handle = function(response){
-        console.log("Handling Medium");
         var results = response.query.results.item.reverse(),
             source = "medium",
             category = "articles",
@@ -147,7 +142,6 @@ $(function() {
     };
 
     mb.services.medium.fetch = function(){
-        console.log("Fetching Medium");
         var def = $.Deferred(),
             feed = encodeURIComponent("https://medium.com/feed/" + mb.services.medium.account);
 

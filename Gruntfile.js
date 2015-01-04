@@ -119,6 +119,7 @@ module.exports = function(grunt) {
         General
           -  Clean build folder
           -  Javascript documentation
+          -  Project version bump
         */
         clean: [
             "<%= pkg.dest.assets %>",
