@@ -30,7 +30,8 @@
     "express": "^4.10.4",
     "swig": "^1.4.2",
     "lodash": "~2.4.1",
-    "marked": "~0.3.2"
+    "marked": "~0.3.2",
+    "grunt-penthouse": "~0.1.2"
   },
   "main": "Gruntfile.js",
   "repository": {

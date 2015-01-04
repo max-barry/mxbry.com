@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{{global.urls.statics}}stylesheets/app.css">
-    <link rel="stylesheet" href="{{global.urls.statics}}stylesheets/fonts.css">
 
     <script src="{{global.urls.statics}}js/modernizr.min.js" async></script>
 
@@ -19,6 +18,18 @@
 {% block base_content %}
 {% endblock base_content %}
 {% include "includes/takeover.html" %}
+
+{#     <script>
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = 'small.css';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script> #}
 <script src="{{global.urls.statics}}js/app.js" async></script>
 </body>
 

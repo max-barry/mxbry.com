@@ -210,6 +210,13 @@ module.exports = function(grunt) {
                 ext: ".css"
             }
         },
+        penthouse: {
+            extract: {
+                outfile: "<%= pkg.dest.css %>crit.pent.css",
+                css: "<%= pkg.dest.css %>app.css",
+                url: "http://staging.mxbry.com/"
+            },
+        },
         // prettify: {
         //     files: {
         //         expand: true,
@@ -311,6 +318,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-compass");
 
     grunt.loadNpmTasks("grunt-contrib-cssmin");
+    grunt.loadNpmTasks('grunt-penthouse');
     grunt.loadNpmTasks("grunt-contrib-imagemin");
     grunt.loadNpmTasks("grunt-webp");
     grunt.loadNpmTasks("grunt-combine-media-queries");

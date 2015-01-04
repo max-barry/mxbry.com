@@ -48,6 +48,9 @@
         color: $black;
         font-family: $heavy-font-family;
         @include scut-center-transform;
+        @media #{$small-all} {
+            font-size: rem(14);
+        }
     }
 }
 

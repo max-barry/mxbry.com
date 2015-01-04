@@ -147,7 +147,7 @@ Overview filter
         font-size: rem(16);
         margin-right: $gutter;
         margin-bottom: $gutter;
-        padding: rem(5);
+        padding: rem(5) rem(5) 1px rem(5);
         &:hover:not(.active) {
             text-decoration: underline;
             cursor: pointer;
