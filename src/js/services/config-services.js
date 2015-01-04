@@ -19,19 +19,20 @@ $(function() {
     };
 
     mb.services.twitter.handle = function(response) {
-        var tmp,
+        var tmp, date,
             source = "twitter", category = "tweets";
 
         response.reverse();
 
         for (var i = response.length - 1; i >= 0; i--) {
             tmp = response[i];
+            date = moment(new Date(tmp.pub_date));
             mb.services.twitter.content.push({
                 source: source,
                 category: category,
                 url: tmp.url,
-                title: "Posted " + moment(new Date(tmp.pub_date)).fromNow() + " by " + tmp.author.username,
-                pubDate: moment(new Date(tmp.pub_date)).unix(),
+                title: "Posted " + date.fromNow() + " by " + tmp.author.username,
+                pubDate: date.unix(),
                 deck: tmp.body,
                 id: id_service_object()
             });
@@ -65,6 +66,8 @@ $(function() {
     };
     
     mb.services.github.handle = function(response){
+
+        response.reverse();
 
         function _get_event_verb(gitevent, payload) {
             if (gitevent == "PushEvent") {
@@ -125,17 +128,22 @@ $(function() {
         var results = response.query.results.item.reverse(),
             source = "medium",
             category = "articles",
-            tmp;
+            tmp, imgless_desc;
 
         for (var i = results.length - 1; i >= 0; i--) {
             tmp = results[i];
+            /**
+            As soon as the description was become a jQuery object, all the images were loading.
+            The following line nixes the description string and prevents the images from being loaded.
+            */
+            imgless_desc = tmp.description.replace("img src", "img null");
             mb.services.medium.content.push({
                 source: source,
                 category: category,
                 url: tmp.link,
                 title: tmp.title,
                 pubDate: moment(new Date(tmp.pubDate)).unix(),
-                deck: $(tmp.description).find(".medium-feed-snippet").text(),
+                deck: $(imgless_desc).find(".medium-feed-snippet").text(),
                 id: id_service_object()
             });
         }
