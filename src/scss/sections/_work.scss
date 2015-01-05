@@ -76,6 +76,8 @@
     }
     span:first-of-type {
         font-family: $heavy-font-family;
+        border-bottom: 1px solid currentcolor;
+        padding-bottom: 1px;
     }
 }
 
