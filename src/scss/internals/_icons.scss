@@ -22,6 +22,10 @@
     background-image: url("#{$image-url}icons/work-wh.svg");
 }
 
+@mixin icon-home-wh {
+    background-image: url("#{$image-url}icons/home-wh.svg");
+}
+
 @mixin icon-linkedin-wh {
     background-image: url("#{$image-url}logos/linkedin-wh.svg");
 }

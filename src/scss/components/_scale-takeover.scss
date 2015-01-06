@@ -37,6 +37,9 @@
                 background-size: 32px;
                 background-color: $black !important;
                 @include flex(1);
+                &.home {
+                    @include icon-home-wh;
+                }
                 &.work {
                     @include icon-work-wh;
                 }
