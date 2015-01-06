@@ -28,8 +28,9 @@ $tiny: rem(480);
 $xtiny: rem(350);
 
 // URLs
-$image-url: "/static/images/";
-$fonts-url: "../fonts/";
+$static-url: "/static/";
+$image-url: "#{$static-url}images/";
+$fonts-url: "#{$static-url}fonts/";
 
 // Break points
 // $xsmall-break: 380;
