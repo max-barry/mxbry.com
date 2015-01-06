@@ -225,6 +225,15 @@ module.exports = function(grunt) {
                 url: "http://staging.mxbry.com/"
             },
         },
+        // criticalcss: {
+        //     custom_options: {
+        //         options: {
+        //             url: "http://staging.mxbry.com/",
+        //             outputfile: "<%= pkg.templates.includes %>criticalcss/hp.html",
+        //             filename: "<%= pkg.dest.css %>app.css"
+        //         }
+        //     }
+        // },
         imagemin: {
             dist: {
                 files: [{
@@ -323,6 +332,7 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks("grunt-contrib-cssmin");
     grunt.loadNpmTasks('grunt-penthouse');
+    // grunt.loadNpmTasks('grunt-criticalcss');
     grunt.loadNpmTasks("grunt-contrib-imagemin");
     grunt.loadNpmTasks("grunt-webp");
     grunt.loadNpmTasks("grunt-combine-media-queries");
@@ -337,7 +347,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-nodemon");
     grunt.loadNpmTasks('grunt-perfbudget');
 
-    grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "cmq", "copy:fonts", "copy:images", "copy:devdata"]);
+    grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "cmq", "penthouse", "copy:fonts", "copy:images", "copy:devdata"]);
     grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:livedata", "json-minify", "imagemin",]);
     grunt.registerTask("perf", "perfbudget:staging");
     grunt.registerTask("serve", "nodemon");

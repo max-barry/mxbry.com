@@ -9,15 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% if homepage %}
+    <!-- Critical CSS for performance (see: https://developers.google.com/speed/pagespeed/service/PrioritizeCriticalCss) -->
     <style>
     {% include "includes/criticalcss/hp.html" %}
     </style>
-    {% else %}
-    <link rel="stylesheet" href="{{global.urls.statics}}stylesheets/app.css">
-    {% endif %}
+    {% else %}<link rel="stylesheet" href="{{global.urls.statics}}stylesheets/app.css">{% endif %}
 
     <script src="{{global.urls.statics}}js/modernizr.min.js" async></script>
-
 </head>
 
 <body>
@@ -25,6 +23,7 @@
 {% endblock base_content %}
 {% include "includes/takeover.html" %}
 {% if homepage %}
+    <!-- CSS file lazy loaded for performance -->
     <script>
       var cb = function() {
         var l = document.createElement('link'); l.rel = 'stylesheet';
@@ -36,6 +35,7 @@
       else window.addEventListener('load', cb);
     </script>
 {% endif %}
+<!-- Asynchronous js load for performance -->
 <script src="{{global.urls.statics}}js/app.js" async></script>
 </body>
 

@@ -132,11 +132,6 @@ Filter
 .filter:not(.reveal-filter) {
     pointer-events: none;
 }
-// .filter .round-icon {
-//     box-shadow: $shadow-depth-1;
-//     will-change: box-shadow;
-//     @include transition(box-shadow 250ms $ease-out-quint);
-// }
 
 @media #{$small-all} {
     .filter .round-icon:not(.control):after {
@@ -148,10 +143,10 @@ Filter
         display: none;
     }
     .filter [data-category="articles"]:after{
-        background: transparent url("#{$image-url}icons/link.svg") no-repeat center center;
+        background: transparent url("#{$image-url}icons/work.svg") no-repeat center center;
     }
     .filter [data-category="code"]:after{
-        background: transparent url("#{$image-url}icons/work.svg") no-repeat center center;
+        background: transparent url("#{$image-url}icons/link.svg") no-repeat center center;
     }
     .filter [data-category="tweets"]:after{
         background: transparent url("#{$image-url}logos/twitter-bl.svg") no-repeat center center;
@@ -186,7 +181,7 @@ Filter
     margin-right: $gutter;
 }
 .reveal-filter-options .round-icon:not(.control) {
-    pointer-events: all;
+    pointer-events: all !important;
     will-change: transform, opacity;
     @include animation(transform-reset 500ms, fadein 350ms);
     &:hover {

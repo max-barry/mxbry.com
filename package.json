@@ -6,7 +6,6 @@
   "keywords": [],
   "devDependencies": {
     "grunt-docco": "~0.3.3",
-    "grunt-uncss": "~0.3.8",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-bump": "0.0.16",
     "grunt-nodemon": "^0.3.0",
@@ -45,7 +44,8 @@
     "project": "src/",
     "bower": "bower_components/",
     "node": "node_modules/",
-    "docs": "docs/"
+    "docs": "docs/",
+    "templates": "views/"
   },
   "dest": {
     "assets": "public/",
@@ -63,7 +63,6 @@
     "data": "src/data/"
   },
   "templates": {
-    "templates": "views/",
     "includes": "views/includes/"
   }
 }
