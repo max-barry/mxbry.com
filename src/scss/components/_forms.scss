@@ -8,7 +8,7 @@ select {
     display: block;
     cursor: pointer;
     font-size: rem(26);
-    font-family: $body-font-family;
+    font-family: $block-font-family;
     background-color: white;
 }
 
@@ -26,6 +26,7 @@ label.select-icon {
         text-align: center;
         padding-top: rem(16);
         pointer-events:none;
+        font-family: $block-font-family;
         @include position(absolute, 0 0 0 n);
     }
 }
