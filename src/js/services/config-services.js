@@ -203,7 +203,6 @@ $(function() {
     // };
 
     mb.services.mywork.handle = function(response){
-        console.log(response);
         var source = "mywork",
             category = "articles",
             sample = _.sample(response.projects, mb.services.mywork.maxnumber),

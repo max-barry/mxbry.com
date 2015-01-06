@@ -63,12 +63,7 @@
     "data": "src/data/"
   },
   "templates": {
-    "templates": "src/templates/",
-    "pages": "src/templates/pages/",
-    "partials": "src/templates/partials/",
-    "includes": "src/templates/includes/",
-    "data": "src/templates/data/",
-    "helpers": "src/templates/helpers/",
-    "layouts": "src/templates/layouts/"
+    "templates": "views/",
+    "includes": "views/includes/"
   }
 }

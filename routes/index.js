@@ -1,5 +1,5 @@
 exports.work = require("./work.js");
 
 exports.index = function(req, res) {
-    res.render("pages/index.html");
+    res.render("pages/index.html", {homepage: true});
 };

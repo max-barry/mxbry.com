@@ -123,6 +123,7 @@ module.exports = function(grunt) {
         */
         clean: [
             "<%= pkg.dest.assets %>",
+            "<%= pkg.templates.includes %>criticalcss/*.html",
         ],
         docco: {
             debug: {
@@ -208,16 +209,22 @@ module.exports = function(grunt) {
                 cwd: "<%= pkg.dest.css %>",
                 src: ["*.css", ],
                 dest: "<%= pkg.dest.css %>",
-                ext: ".css"
+            },
+            criticalcss: {
+                expand: true,
+                cwd: "<%= pkg.templates.includes %>criticalcss/",
+                src: ["*.html", ],
+                dest: "<%= pkg.templates.includes %>criticalcss/",
+                ext: ".html"
             }
         },
-        // penthouse: {
-        //     extract: {
-        //         outfile: "<%= pkg.dest.css %>crit.pent.css",
-        //         css: "<%= pkg.dest.css %>app.css",
-        //         url: "http://staging.mxbry.com/"
-        //     },
-        // },
+        penthouse: {
+            extract: {
+                outfile: "<%= pkg.templates.includes %>criticalcss/hp.html",
+                css: "<%= pkg.dest.css %>app.css",
+                url: "http://staging.mxbry.com/"
+            },
+        },
         imagemin: {
             dist: {
                 files: [{
@@ -331,7 +338,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-perfbudget');
 
     grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "cmq", "copy:fonts", "copy:images", "copy:devdata"]);
-    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "cssmin", "copy:fonts", "copy:livedata", "json-minify", "imagemin",]);
+    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:livedata", "json-minify", "imagemin",]);
     grunt.registerTask("perf", "perfbudget:staging");
     grunt.registerTask("serve", "nodemon");
 
