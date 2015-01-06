@@ -22,14 +22,12 @@ $(function() {
 
     // ### APPLYING FILTER
     function return_to_initial() {
-        console.log("Returning activities to initial state");
         $(".hp-activities .activity").remove();
         $hpsection.append(mb.activities.initial_element.addClass("reset"));
         $hpsection.removeClass("cat-view");
     }
     
     function filter_for_category(category) {
-        console.log("Filtering for category");
         var category_change = $hpsection.hasClass("cat-view");
 
         /*
@@ -78,7 +76,6 @@ $(function() {
 
         $hpsection.find(".activity li").addClass("source-enter");
         setTimeout(function(){
-            console.log("We all good?");
             $(".source-initial").attr("class", "");
         }, activity_animate_time);
 

@@ -63,9 +63,9 @@ $(function(jQuery) {
 
             _.forEach(mb.services, function(service){
                 min_display = _.first(service.content, service.initial);
-                _.forEach(min_display, function(item){
-                    _.remove(pub.all_activities, {id: item.id});
-                });
+                // _.forEach(min_display, function(item){
+                //     _.remove(pub.all_activities, {id: item.id});
+                // });
                 initials.push(min_display);
             });
 
