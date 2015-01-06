@@ -118,46 +118,115 @@ $(function() {
     MEDIUM
     --------------------------
     */
-    mb.services.medium = {
-        account: "@ev",
+    // mb.services.medium = {
+    //     account: "@ev",
+    //     initial: 1,
+    //     content: []
+    // };
+
+    // mb.services.medium.handle = function(response){
+    //     var results = response.query.results.item.reverse(),
+    //         source = "medium",
+    //         category = "articles",
+    //         tmp, imgless_desc;
+
+    //     for (var i = results.length - 1; i >= 0; i--) {
+    //         tmp = results[i];
+    //         /**
+    //         As soon as the description was become a jQuery object, all the images were loading.
+    //         The following line nixes the description string and prevents the images from being loaded.
+    //         */
+    //         imgless_desc = tmp.description.replace("img src", "img null");
+    //         mb.services.medium.content.push({
+    //             source: source,
+    //             category: category,
+    //             url: tmp.link,
+    //             title: tmp.title,
+    //             pubDate: moment(new Date(tmp.pubDate)).unix(),
+    //             deck: $(imgless_desc).find(".medium-feed-snippet").text(),
+    //             id: id_service_object()
+    //         });
+    //     }
+    // };
+
+    // mb.services.medium.fetch = function(){
+    //     var def = $.Deferred(),
+    //         feed = encodeURIComponent("https://medium.com/feed/" + mb.services.medium.account);
+
+    //     $.ajax({
+    //         url: "//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'" + feed + "'&format=json",
+    //         dataType: "JSON",
+    //         success: mb.services.medium.handle
+    //     }).always(function() {
+    //         def.resolve();
+    //     });
+
+    //     return def;
+    // };
+
+
+    /*
+    --------------------------
+    MY WORK
+    --------------------------
+    */
+    mb.services.mywork = {
+        endpoint: "/static/data/projects.json",
         initial: 1,
+        maxnumber: 8,
         content: []
     };
 
-    mb.services.medium.handle = function(response){
-        var results = response.query.results.item.reverse(),
-            source = "medium",
-            category = "articles",
-            tmp, imgless_desc;
+    // mb.services.medium.handle = function(response){
+    //     var results = response.query.results.item.reverse(),
+    //         source = "medium",
+    //         category = "articles",
+    //         tmp, imgless_desc;
 
-        for (var i = results.length - 1; i >= 0; i--) {
-            tmp = results[i];
-            /**
-            As soon as the description was become a jQuery object, all the images were loading.
-            The following line nixes the description string and prevents the images from being loaded.
-            */
-            imgless_desc = tmp.description.replace("img src", "img null");
-            mb.services.medium.content.push({
-                source: source,
-                category: category,
-                url: tmp.link,
+    //     for (var i = results.length - 1; i >= 0; i--) {
+    //         tmp = results[i];
+    //         /**
+    //         As soon as the description was become a jQuery object, all the images were loading.
+    //         The following line nixes the description string and prevents the images from being loaded.
+    //         */
+    //         imgless_desc = tmp.description.replace("img src", "img null");
+    //         mb.services.medium.content.push({
+    //             source: source,
+    //             category: category,
+    //             url: tmp.link,
+    //             title: tmp.title,
+    //             pubDate: moment(new Date(tmp.pubDate)).unix(),
+    //             deck: $(imgless_desc).find(".medium-feed-snippet").text(),
+    //             id: id_service_object()
+    //         });
+    //     }
+    // };
+
+    mb.services.mywork.handle = function(response){
+        console.log(response);
+        var source = "mywork",
+            category = "articles",
+            sample = _.sample(response.projects, mb.services.mywork.maxnumber),
+            tmp;
+
+        for (var i = 0; i < sample.length; i++) {
+            tmp = sample[i];
+            mb.services.mywork.content.push({
                 title: tmp.title,
-                pubDate: moment(new Date(tmp.pubDate)).unix(),
-                deck: $(imgless_desc).find(".medium-feed-snippet").text(),
-                id: id_service_object()
+                deck: tmp.deck,
+                id: id_service_object(),
+                category: category,
+                source: source,
+                // pubDate: ,
+                url: "/work/" + tmp.slug,
             });
         }
     };
 
-    mb.services.medium.fetch = function(){
-        var def = $.Deferred(),
-            feed = encodeURIComponent("https://medium.com/feed/" + mb.services.medium.account);
+    mb.services.mywork.fetch = function(){
+        var def = $.Deferred();
 
-        $.ajax({
-            url: "//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'" + feed + "'&format=json",
-            dataType: "JSON",
-            success: mb.services.medium.handle
-        }).always(function() {
+        $.getJSON(mb.services.mywork.endpoint, mb.services.mywork.handle).always(function(){
             def.resolve();
         });
 

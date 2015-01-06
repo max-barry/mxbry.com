@@ -90,6 +90,9 @@
         &:active {
             @include transform(scale(1.3) translateZ(0));
         }
+        span {
+            color: white;
+        }
     }
 
     .scale-takeover.active + i.scale-takeover-trigger.round-icon {
@@ -100,6 +103,9 @@
         position: fixed;
         @include transform(scale(2) translateZ(0));
         @include transform-origin(right bottom);
+        span {
+            display: none;
+        }
     }
 
     .scale-takeover a, .scale-takeover p {

@@ -151,7 +151,8 @@ module.exports = function(grunt) {
           -  HTML Prettification
           -  Image optimisation
           -  WebP creation
-          -  Perfbudget
+          -  Perfbudget testing
+          -  JSON minification
         */
         concat: {
             options: {
@@ -210,21 +211,12 @@ module.exports = function(grunt) {
                 ext: ".css"
             }
         },
-        penthouse: {
-            extract: {
-                outfile: "<%= pkg.dest.css %>crit.pent.css",
-                css: "<%= pkg.dest.css %>app.css",
-                url: "http://staging.mxbry.com/"
-            },
-        },
-        // prettify: {
-        //     files: {
-        //         expand: true,
-        //         cwd: "<%= pkg.dest.assets %>",
-        //         ext: ".html",
-        //         src: ["*.html"],
-        //         dest: "<%= pkg.dest.assets %>"
-        //     }
+        // penthouse: {
+        //     extract: {
+        //         outfile: "<%= pkg.dest.css %>crit.pent.css",
+        //         css: "<%= pkg.dest.css %>app.css",
+        //         url: "http://staging.mxbry.com/"
+        //     },
         // },
         imagemin: {
             dist: {
@@ -306,6 +298,11 @@ module.exports = function(grunt) {
                     url: "http://staging.mxbry.com/",
                 }
             },
+        },
+        'json-minify': {
+          build: {
+            files: "<%= pkg.dest.data %>projects.json"
+          }
         }
     });
 
@@ -322,6 +319,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-imagemin");
     grunt.loadNpmTasks("grunt-webp");
     grunt.loadNpmTasks("grunt-combine-media-queries");
+    grunt.loadNpmTasks("grunt-json-minify");
     // grunt.loadNpmTasks('grunt-uncss');
 
     grunt.loadNpmTasks("grunt-contrib-copy");
@@ -333,7 +331,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-perfbudget');
 
     grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "cmq", "copy:fonts", "copy:images", "copy:devdata"]);
-    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "cssmin", "copy:fonts", "copy:livedata", "imagemin",]);
+    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "cssmin", "copy:fonts", "copy:livedata", "json-minify", "imagemin",]);
     grunt.registerTask("perf", "perfbudget:staging");
     grunt.registerTask("serve", "nodemon");
 

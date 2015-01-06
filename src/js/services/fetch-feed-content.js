@@ -12,7 +12,6 @@ $(function(jQuery) {
         // #### _initial_append
         // Appends the initial set of items to the DOM
         function _initial_append() {
-            console.log("Appending feeds initially");
             var $activity_container = $(".activity");
             pub.initial_activities = _calculate_initial_activities();
             _.forEach(pub.initial_activities, function(item) {
@@ -37,7 +36,7 @@ $(function(jQuery) {
                 $initial_activities = $(".activity .source-initial");
 
             var revealInt = setInterval(function(){
-                console.log("Iteration: " + i);
+                // console.log("Iteration: " + i);
                 $($initial_activities.get(i)).addClass("source-enter");
                 if (i == $initial_activities.length - 1) {
                     clearInterval(revealInt);
@@ -52,7 +51,6 @@ $(function(jQuery) {
         // #### _mash_feeds
         // Mashes the content of each service in to a single array
         function _mash_feeds() {
-            console.log("Mashing feeds");
             var all_items = [].concat.apply([], _.pluck(mb.services, "content"));
             pub.all_activities = _.sortBy(all_items, "pubDate").reverse();
         }
@@ -105,11 +103,9 @@ $(function(jQuery) {
             // #### fetch_all_feeds
             // Uses deferred promises to asynchronously fetch each 3rd party service
             fetch_all_feeds: function(callback) {
-                console.log("Fetching services");
                 // mb.utils.add_loader($(".hp-activities"));
                 var fetch_promises = _collate_fetch_promises();
                 $.when.apply($, fetch_promises).done(function() {
-                    console.log("Fetched all services");
                     if (callback) {
                         callback();
                     }

@@ -47,6 +47,7 @@
     span {
         color: $black;
         font-family: $heavy-font-family;
+        padding-top: 3px;
         @include scut-center-transform;
         @media #{$small-all} {
             font-size: rem(14);
@@ -115,35 +116,52 @@
         background-color: $black;
         background-image: url("#{$image-url}icons/link-wh.svg");
     }
-    &.python, &.javascript {
-        cursor: default;
-        span {
-            color: white;
-            font-size: rem(26);
+    &.mywork {
+        background-color: $black;
+        &:hover:before {
+            display: none;
+        }
+        &:before {
+            content: "W";
+            color: $primary-color;
+            font-family: $block-font-family;
+            font-size: rem(32);
+            padding-top: rem(12);
+            @include scut-center-transform;
+            @media #{$small-all} {
+                font-size: rem(22);
+            }
         }
     }
-    &.scss, &.html {
-        cursor: default;
-        span {
-            color: white;
-            font-size: rem(20);
-        }
-    }
-    &.grunt {
-        cursor: default;
-        span {
-            color: white;
-            font-size: rem(16);
-        }
-        &.gr-shrt {
-            span {font-size: rem(26);}
-        }
-    }
-    &.html {
-        span {
-            font-size: rem(17);
-        }
-    }
+    // &.python, &.javascript {
+    //     cursor: default;
+    //     span {
+    //         color: white;
+    //         font-size: rem(26);
+    //     }
+    // }
+    // &.scss, &.html {
+    //     cursor: default;
+    //     span {
+    //         color: white;
+    //         font-size: rem(20);
+    //     }
+    // }
+    // &.grunt {
+    //     cursor: default;
+    //     span {
+    //         color: white;
+    //         font-size: rem(16);
+    //     }
+    //     &.gr-shrt {
+    //         span {font-size: rem(26);}
+    //     }
+    // }
+    // &.html {
+    //     span {
+    //         font-size: rem(17);
+    //     }
+    // }
 }
 
 
