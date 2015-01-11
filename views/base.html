@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Max Barry - A Digital Dude's Portfolio | mxbry.com</title>
-    <meta name="description" content="Max Barry makes stuff on the internet. He's way too in to site performance, statistical analysis, data research, UX bits, Python and Django, Javascript, Node junk like Grunt, CSS3, and HTML5. It's kind of weird.">
-    <meta name="keywords" content="web,developer,digital,python,django,node,grunt,yeoman,london,uk,ux,internet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include "includes/baseincludes/meta.html" %}
 
     {% if homepage %}
     <!-- Critical CSS for performance (see: https://developers.google.com/speed/pagespeed/service/PrioritizeCriticalCss) -->
-    <style>
-    {% include "includes/criticalcss/hp.html" %}
-    </style>
+    <style>{% include "includes/criticalcss/hp.html" %}</style>
+    
     {% else %}<link rel="stylesheet" href="{{global.urls.statics}}stylesheets/app.css">{% endif %}
 
-    <script src="{{global.urls.statics}}js/modernizr.min.js" async></script>
+    {# <script src="{{global.urls.statics}}js/modernizr.min.js" async></script> #}
 </head>
 
 <body>
@@ -35,6 +29,7 @@
       else window.addEventListener('load', cb);
     </script>
 {% endif %}
+{% include "includes/baseincludes/ga.html" %}
 <!-- Asynchronous js load for performance -->
 <script src="{{global.urls.statics}}js/app.js" async></script>
 </body>
