@@ -134,6 +134,7 @@ module.exports = function(grunt) {
           -  Clean build folder
           -  Javascript documentation
           -  Project version bump
+          -  Cachebust
         */
         clean: [
             "<%= pkg.dest.assets %>",
@@ -155,6 +156,18 @@ module.exports = function(grunt) {
                     "package.json",
                     "bower.json"
                 ]
+            }
+        },
+        cacheBust: {
+            options: {
+                encoding: "utf8",
+                algorithm: "md5",
+                length: 16
+            },
+            assets: {
+                files: [{
+                    src: ["<%= pkg.paths.templates %>base.html"]
+                }]
             }
         },
         /**
@@ -360,9 +373,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-docco");
     grunt.loadNpmTasks("grunt-nodemon");
     grunt.loadNpmTasks('grunt-perfbudget');
+    grunt.loadNpmTasks('grunt-cache-bust');
 
     grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "cmq", "penthouse", "copy:fonts", "copy:images", "copy:markdown", "copy:devdata"]);
-    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:markdown", "copy:livedata", "json-minify", "imagemin",]);
+    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:markdown", "copy:livedata", "json-minify", "imagemin", "cacheBust"]);
     grunt.registerTask("perf", "perfbudget:staging");
     grunt.registerTask("serve", "nodemon");
 

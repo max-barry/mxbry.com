@@ -31,7 +31,8 @@
     "lodash": "~2.4.1",
     "marked": "~0.3.2",
     "grunt-penthouse": "~0.1.2",
-    "grunt-json-minify": "~0.4.0"
+    "grunt-json-minify": "~0.4.0",
+    "grunt-cache-bust": "~0.4.5"
   },
   "main": "Gruntfile.js",
   "repository": {
