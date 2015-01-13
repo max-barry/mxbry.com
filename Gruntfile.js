@@ -51,6 +51,14 @@ module.exports = function(grunt) {
                 src: "<%= pkg.src.data %>projects.example.json",
                 dest: "<%= pkg.dest.data %>projects.json"
             },
+            markdown: {
+                files: [{
+                    expand: true,
+                    cwd: "<%= pkg.src.data %>markdown/",
+                    src: ["*.mdown", ],
+                    dest: "<%= pkg.dest.data %>"
+                }]
+            }
         },
         // Watch task to compile files live
         watch: {
@@ -79,6 +87,12 @@ module.exports = function(grunt) {
                     "<%= pkg.src.data %>**/*.json"
                 ],
                 tasks: ["copy:devdata"]
+            },
+            markdown: {
+                files: [
+                    "<%= pkg.src.data %>**/*.mdown"
+                ],
+                tasks: ["copy:markdown"]
             }
             // templates: {
             //     files: [
@@ -347,8 +361,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-nodemon");
     grunt.loadNpmTasks('grunt-perfbudget');
 
-    grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "cmq", "penthouse", "copy:fonts", "copy:images", "copy:devdata"]);
-    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:livedata", "json-minify", "imagemin",]);
+    grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "cmq", "penthouse", "copy:fonts", "copy:images", "copy:markdown", "copy:devdata"]);
+    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:markdown", "copy:livedata", "json-minify", "imagemin",]);
     grunt.registerTask("perf", "perfbudget:staging");
     grunt.registerTask("serve", "nodemon");
 

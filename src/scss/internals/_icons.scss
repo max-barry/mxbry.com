@@ -73,7 +73,7 @@
         box-shadow: $shadow-depth-1;
         cursor: pointer;
         will-change: box-shadow;
-        @include transition(box-shadow 250ms $ease-out-quint);
+        @include transition(box-shadow 250ms $ease-out-quint, background-color 250ms $ease-out-quint);
     }
     &.medium {
         @include icon-medium;

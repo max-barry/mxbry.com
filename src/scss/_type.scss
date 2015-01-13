@@ -97,3 +97,7 @@ sup, sub {
 sub {
     top: 0.4em;
 }
+
+h1, h2 {
+    text-rendering: geometricPrecision;
+}
