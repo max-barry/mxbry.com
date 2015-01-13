@@ -48,7 +48,7 @@ module.exports = function(grunt) {
                 dest: "<%= pkg.dest.data %>projects.json"
             },
             livedata: {
-                src: "<%= pkg.src.data %>projects.example.json",
+                src: "<%= pkg.src.data %>projects.json",
                 dest: "<%= pkg.dest.data %>projects.json"
             },
             markdown: {
