@@ -7,8 +7,13 @@ $(function(jQuery) {
 
         var tpl_vars;
 
-        // ### APPEND COLLECTED ITEMS TO DOM
+        // ### POPULATE THE RANDOM ARTICLE LINK
+        function _populate_random_article() {
+            var rnd_project = _.sample(mb.services.mywork.content);
+            $("[data-random-project]").attr("href", rnd_project.url);
+        }
 
+        // ### APPEND COLLECTED ITEMS TO DOM
         // #### _initial_append
         // Appends the initial set of items to the DOM
         function _initial_append() {
@@ -118,6 +123,7 @@ $(function(jQuery) {
                 _mash_feeds();
                 _initial_append();
                 _reveal_items();
+                _populate_random_article();
             });
         }
 

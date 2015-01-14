@@ -1,5 +1,5 @@
 var activity_source_string = "<li class=\"source-{{=it.state}}\">" + 
-            "<a href=\"{{=it.url}}\" target=\"_blank\">" +
+            "<a href=\"{{=it.url}}\" {{? it.service != 'mywork'}}target=\"_blank\"{{?}}>" +
                 "<div class=\"round-icon {{=it.service}}\"></div>" +
             "</a>" +
             "<div class=\"copy-wrap\">" +

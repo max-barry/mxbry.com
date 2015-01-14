@@ -103,20 +103,22 @@ $(function() {
             }, 250);
     }
 
-    $.getJSON("/static/data/projects.json", function(response){
-        mb.overview.projects = response.projects.reverse();
+    if ($(".overview-controls").length) {
+        $.getJSON("/static/data/projects.json", function(response){
+            mb.overview.projects = response.projects.reverse();
 
-        var hash = window.location.hash.split("#")[1],
-            items = hash ? get_items_for_category(hash) : undefined;
+            var hash = window.location.hash.split("#")[1],
+                items = hash ? get_items_for_category(hash) : undefined;
 
-        if (hash && items) {
-            preset_category_button(hash);
-            load_items(items);
-        } else {
-            load_inital();
-        }
-        mb.utils.remove_loader();
-    });
+            if (hash && items) {
+                preset_category_button(hash);
+                load_items(items);
+            } else {
+                load_inital();
+            }
+            mb.utils.remove_loader();
+        });
+    }
 
     // /**
     // Changes the category of work items on display
