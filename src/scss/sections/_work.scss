@@ -32,7 +32,6 @@
         margin-top: 2 * $gutter;
         line-height: 1.3;
         @media #{$large-up} {
-            // max-width: 45%;
             max-width: rem(650);
         }
         @media #{$medium-only} {

@@ -7,7 +7,7 @@
     <!-- Critical CSS for performance (see: https://developers.google.com/speed/pagespeed/service/PrioritizeCriticalCss) -->
     <style>{% include "includes/criticalcss/hp.html" %}</style>
     
-    {% else %}<link rel="stylesheet" href="{{global.urls.statics}}stylesheets/app.css?ver=1">{% endif %}
+    {% else %}<link rel="stylesheet" href="{{global.urls.statics}}stylesheets/app.css?ver=2">{% endif %}
 
     {# <script src="{{global.urls.statics}}js/modernizr.min.js" async></script> #}
 </head>
@@ -21,7 +21,7 @@
     <script>
       var cb = function() {
         var l = document.createElement('link'); l.rel = 'stylesheet';
-        l.href = '{{global.urls.statics}}stylesheets/app.css?ver=1';
+        l.href = '{{global.urls.statics}}stylesheets/app.css?ver=2';
         var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
       };
       var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
@@ -31,7 +31,7 @@
 {% endif %}
 {% include "includes/baseincludes/ga.html" %}
 <!-- Asynchronous js load for performance -->
-<script src="{{global.urls.statics}}js/app.js?ver=1" async></script>
+<script src="{{global.urls.statics}}js/app.js?ver=2" async></script>
 </body>
 
 </html>

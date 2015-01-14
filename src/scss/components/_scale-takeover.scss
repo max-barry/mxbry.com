@@ -76,13 +76,10 @@
 
 
     i.scale-takeover-trigger.round-icon {
-        // display: none;
         display: inline-block;
         position: fixed;
         top: 2 * $gutter;
         left: 2 * $gutter;
-        // box-shadow: $shadow-depth-1;
-        // cursor: pointer;
         z-index: 1000;
         @include transition(background-color 150ms, transform 250ms, background-position 150ms);
         @include transform(translateZ(0));
@@ -100,7 +97,6 @@
 
     .scale-takeover.active + i.scale-takeover-trigger.round-icon {
         box-shadow: none;
-        // background-color: $error-color;
         background-position: 20px 22px;
         background-image: url("#{$image-url}icons/clear-wh.svg");
         position: fixed;
@@ -112,7 +108,6 @@
     }
 
     .scale-takeover a, .scale-takeover p {
-        // color: $black;
         display: block;
     }
     .scale-takeover p {

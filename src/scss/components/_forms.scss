@@ -62,6 +62,5 @@ input[type="checkbox"] + label.checkbox:before, input[type="checkbox"] + label.c
     border-radius: 2px;
 }
 input[type="checkbox"]:checked + label:before {
-    // border-radius: 3px;
     @include transform(none);
 }

@@ -3,17 +3,10 @@
     padding: $gutter * 2;
     box-shadow: 0 -3px 5px 0 rgba(0, 0, 0, 0.26);
     z-index: 4;
-    // @media #{$} {
-    // }
-    // height: 33vh;
     @include transform(translateY(105%));
     @include transition(transform 350ms $ease-out-quint);
     @include position(fixed, n  0 0 0);
     &.bottom-sheet-active {
         @include transform(none);
     }
-    // ul {
-    //     padding: 0;
-    //     margin: 0;
-    // }
 } 

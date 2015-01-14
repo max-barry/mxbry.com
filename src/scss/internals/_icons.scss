@@ -137,35 +137,6 @@
             }
         }
     }
-    // &.python, &.javascript {
-    //     cursor: default;
-    //     span {
-    //         color: white;
-    //         font-size: rem(26);
-    //     }
-    // }
-    // &.scss, &.html {
-    //     cursor: default;
-    //     span {
-    //         color: white;
-    //         font-size: rem(20);
-    //     }
-    // }
-    // &.grunt {
-    //     cursor: default;
-    //     span {
-    //         color: white;
-    //         font-size: rem(16);
-    //     }
-    //     &.gr-shrt {
-    //         span {font-size: rem(26);}
-    //     }
-    // }
-    // &.html {
-    //     span {
-    //         font-size: rem(17);
-    //     }
-    // }
 }
 
 
@@ -185,23 +156,3 @@
         border: 1px solid $c;
     }
 }
-
-// .scss {
-//     background-color: $col-scss;
-// }
-
-// .grunt {
-//     background-color: $col-grunt;
-// }
-
-// .html {
-//     background-color: $col-html;
-// }
-
-// .python {
-//     background-color: $col-python;
-// }
-
-// .javascript {
-//     background-color: $col-javascript;
-// }

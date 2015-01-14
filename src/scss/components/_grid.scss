@@ -27,18 +27,6 @@ $single-item-width: rem(460);
 }
 
 .grid-item {
-    // padding: $gutter;
     @include flex(1);
 }
 
-// .single-flex {
-//     @include flex-grow(1);
-//     @include flex-shrink(1);
-//     @include flex-basis($single-item-width);
-// }
-
-// .double-flex {
-//     @include flex-grow(2);
-//     @include flex-shrink(2);
-//     @include flex-basis($single-item-width * 2);
-// }

@@ -5,10 +5,10 @@
     float: left;
     cursor: pointer;
 }
+
 /**
 Activity componenet
 */
-
 .activity {
     margin: 0 auto;
     &.reset {
@@ -57,10 +57,10 @@ Activity componenet
         @include animation(screw-scale-in $revealduration, fadein $revealduration);
     }
 }
+
 /**
 Activity transitions
 */
-
 $source-entrance-duration: 500ms;
 .source-initial {
     .round-icon {
@@ -79,10 +79,10 @@ $source-entrance-duration: 500ms;
         @include animation-delay($source-entrance-duration * 0.65);
     }
 }
+
 /**
 Activity split-view
 */
-
 .cat-view .activity {
     @media #{$small-all} {
         &:first-of-type {
@@ -105,7 +105,6 @@ Activity split-view
         width: 45%;
         &:first-of-type {
             margin-left: $gutter;
-            // @include transform(translate3d(-5%, 0, 0));
         }
         &:last-of-type {
             margin-left: $gutter * 2;
@@ -121,10 +120,10 @@ Activity split-view
     margin-left: auto;
     margin-right: auto;
 }
+
 /**
 Filter
 */
-
 .filter {
     margin-bottom: 2 * $gutter;
     @include transform-style(preserve-3d);
@@ -158,14 +157,12 @@ Filter
     @include animation(screw-scale-in 550ms, fadein 200ms);
 }
 .filter .round-icon.control {
-    // background-color: $neutral;
     opacity: 0;
 }
 .filter .round-icon:not(.control) {
     background-color: $neutral-darker;
     opacity: 0;
     position: relative;
-    // TODO : Pointer event polyfill
     pointer-events: none;
 }
 .filter .round-icon:nth-child(2) {

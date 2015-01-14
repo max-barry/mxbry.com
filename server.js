@@ -11,6 +11,7 @@ app.use('/static', express.static("./public"));
 /**
 Template settings
 */
+app.locals.pretty = true;
 require("./config/swig-conf.js")(app);
 
 /**
