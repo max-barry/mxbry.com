@@ -41,7 +41,7 @@ a {
     outline: 0;
     @include transition(color 150ms);
     &:visited {
-        color: currentcolor;
+        color: #2D2D2D;
     }
 }
 .header-1 a, .header-2 a {

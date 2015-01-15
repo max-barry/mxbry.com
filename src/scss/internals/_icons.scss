@@ -45,8 +45,8 @@
     background-size: 50%;
     position: relative;
     @media #{$small-all} {
-        height: $round-icon-height * 0.7;
-        width: $round-icon-height * 0.7;
+        height: $round-icon-height * 0.80;
+        width: $round-icon-height * 0.80;
     }
     span {
         color: $black;

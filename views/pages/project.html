@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block base_content %}
-<article class="work-hero mobile-wide">
+<article id="work-hero" class="work-hero mobile-wide">
     <section class="work-hero-text-wrap">
         <h1 class="header-1">{{project.title}}</h1>
         {% if project.deck %}<h2>{{project.deck}}</h2>{% endif %}
@@ -33,4 +33,8 @@
 <article class="work-extro page-wrap sct-break tiny">
     <a href="{{global.urls.work}}">Check out another thing I've made</a>
 </article>
+
+<script>
+    document.getElementById("work-hero").className += " " + ["primary", "accent"][Math.floor(Math.random() * (2 - 0)) + 0];
+</script>
 {% endblock base_content %}

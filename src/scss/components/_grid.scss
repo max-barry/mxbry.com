@@ -1,32 +1,32 @@
-// Columns
-$colwdths-lrg: 4, 5, 6, 7, 8;
-$colwdths-sml: 12;
+// // Columns
+// $colwdths-lrg: 4, 5, 6, 7, 8;
+// $colwdths-sml: 12;
 
-    @each $width in $colwdths-lrg {
-        .lrg-#{$width} {
-            @include span-columns($width);
-        }
-    }
+//     @each $width in $colwdths-lrg {
+//         .lrg-#{$width} {
+//             @include span-columns($width);
+//         }
+//     }
 
-@media #{$small-all} {
-@each $width in $colwdths-sml {
-    .sml-#{$width} {
-        @include span-columns($width);
-    }
-}
-}
+// @media #{$small-all} {
+// @each $width in $colwdths-sml {
+//     .sml-#{$width} {
+//         @include span-columns($width);
+//     }
+// }
+// }
 
-// Item Grid
-$single-item-width: rem(460);
+// // Item Grid
+// $single-item-width: rem(460);
 
-.grid {
-    @include clearfix;
-    @include display(flex);
-    @include flex-wrap(wrap);
-    @include justify-content(center);
-}
+// .grid {
+//     @include clearfix;
+//     @include display(flex);
+//     @include flex-wrap(wrap);
+//     @include justify-content(center);
+// }
 
-.grid-item {
-    @include flex(1);
-}
+// .grid-item {
+//     @include flex(1);
+// }
 
