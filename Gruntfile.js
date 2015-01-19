@@ -252,8 +252,8 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: "<%= pkg.src.images %>",
-                    src: ["**/*.{png,jpg,gif,svg}"],
+                    cwd: "<%= pkg.dest.images %>",
+                    src: ["**/*.{png,jpg,svg}"],
                     dest: "<%= pkg.dest.images %>"
                 }]
             }
@@ -362,7 +362,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-perfbudget');
 
     grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "cmq", "penthouse", "copy:fonts", "copy:images", "copy:markdown", "copy:devdata"]);
-    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:markdown", "copy:livedata", "json-minify", "imagemin",]);
+    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:markdown", "copy:livedata", "json-minify", "copy:images", "imagemin",]);
     grunt.registerTask("perf", "perfbudget:staging");
     grunt.registerTask("serve", "nodemon");
 

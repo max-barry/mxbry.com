@@ -62,6 +62,52 @@
                 "ux",
                 "performance"
             ]
-        }
+        },
+        {
+            "title": "Jumpstart ~ Static",
+            "deck": "My Yeoman generator for kicking off Assemble based, static sites fast.",
+            "actions": [
+                {
+                    "key": "Code",
+                    "value": "https://github.com/max-barry/generator-jumpstart-static"
+                },
+                {
+                    "key": "npm",
+                    "value": "https://www.npmjs.com/package/generator-jumpstart-static"
+                }
+            ],
+            "info": [
+                {
+                    "key": "We're talking",
+                    "style": true,
+                    "values": [
+                        "Site builds",
+                        "Yeoman",
+                        "Grunt"
+                    ]
+                },
+                {
+                    "key": "Made in",
+                    "values": [
+                        "mid 2014"
+                    ]
+                },
+                {
+                    "key": "It uses",
+                    "values": [
+                        "Yeoman",
+                        "npm",
+                        "Grunt.js"
+                    ]
+                }
+            ],
+            "listerimg": "/static/images/uploads/jumpstart-static/rocket.gif",
+            "slug": "jumpstart-static",
+            "categories": [
+                "yeoman",
+                "site-builds",
+                "grunt"
+            ]
+        },
     ]
 }
