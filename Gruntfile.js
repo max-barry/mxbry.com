@@ -258,37 +258,37 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        // webp: {
-        //     files: {
-        //         expand: true,
-        //         cwd: "<%= pkg.dest.images %>",
-        //         src: "**/*.png",
-        //         dest: "<%= pkg.dest.images %>"
-        //     },
-        //     options: {
-        //         binpath: require("webp-bin").path,
-        //         preset: "default",
-        //         verbose: true,
-        //         quality: 80,
-        //         alphaQuality: 80,
-        //         compressionMethod: 6,
-        //         segments: 4,
-        //         psnr: 42,
-        //         sns: 50,
-        //         filterStrength: 40,
-        //         filterSharpness: 3,
-        //         simpleFilter: true,
-        //         partitionLimit: 50,
-        //         analysisPass: 6,
-        //         multiThreading: true,
-        //         lowMemory: false,
-        //         alphaMethod: 0,
-        //         alphaFilter: "best",
-        //         alphaCleanup: true,
-        //         noAlpha: false,
-        //         lossless: false
-        //     }
-        // },
+        webp: {
+            files: {
+                expand: true,
+                cwd: "<%= pkg.dest.images %>",
+                src: "**/*.jpg",
+                dest: "<%= pkg.dest.images %>"
+            },
+            options: {
+                binpath: require("webp-bin").path,
+                preset: "default",
+                verbose: true,
+                quality: 80,
+                alphaQuality: 80,
+                compressionMethod: 6,
+                segments: 4,
+                psnr: 42,
+                sns: 50,
+                filterStrength: 40,
+                filterSharpness: 3,
+                simpleFilter: true,
+                partitionLimit: 50,
+                analysisPass: 6,
+                multiThreading: true,
+                lowMemory: false,
+                alphaMethod: 0,
+                alphaFilter: "best",
+                alphaCleanup: true,
+                noAlpha: false,
+                lossless: false
+            }
+        },
         cmq: {
             options: {
                 log: true
@@ -362,7 +362,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-perfbudget');
 
     grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "cmq", "penthouse", "copy:fonts", "copy:images", "copy:markdown", "copy:devdata"]);
-    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:markdown", "copy:livedata", "json-minify", "imagemin", ]);
+    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:markdown", "copy:livedata", "json-minify", "imagemin", "webp"]);
     grunt.registerTask("perf", "perfbudget:staging");
     grunt.registerTask("serve", "nodemon");
 

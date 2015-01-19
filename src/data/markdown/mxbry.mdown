@@ -1,15 +1,15 @@
-I wanted a portfolio that from UX through design and dev was simple and a directed experience. Each page had a clear motive, and focused on the content or primary actions it contained.
+I wanted a portfolio that from UX through design and dev, was a simple and directed experience. Each page had a clear motive, and focused on the content or primary actions it contained.
 
-An Express.js backend serves three routes; the [index](/), [project list](/work/), and project slug pages like this one. [Bourbon SCSS](http://bourbon.io/), viewport units, and a dollop of flexbox, do most of the visual heavy lifting. A full Grunt workflow and continuous performance testing underpins the development process. Digital Ocean provide the hosting, with Nginx and [PM2](https://github.com/Unitech/pm2) the primary server side packages. Task tracking and bug reporting was done using [Podio](https://podio.com).
+An Express.js backend currently serves just the three routes; an [index](/), [project list](/work/), and project slug pages like this one. [Bourbon SCSS](http://bourbon.io/), viewport units, and a dollop of flexbox, do most of the visual heavy lifting. A full Grunt workflow and continuous performance testing underpins the development process. Digital Ocean provide the hosting, with Nginx and [PM2](https://github.com/Unitech/pm2) the primary server side packages. Task tracking and bug reporting was done with [Podio](https://podio.com).
 
 ## Think, Sketch, Build, Repeat
-Design, UX, and dev are part of the same process for me. They're distinct disciplines, but non-reusable content poured into a single area is wasted energy.
+Design, UX, and dev are part of the same process for me. They're distinct disciplines, but non-reusable content created for a single area is wasted energy.
 
-I try and start on paper where I can, with a variant on [Todd Warfel's 6-8-5 technique](http://www.quora.com/Why-does-Adaptive-Path-say-that-sketching-a-design-should-take-5-minutes-and-6-iterations/answer/Todd-Zaki-Warfel); 8 rounds of 40 seconds to sketch a user experience/design for the ? (replace the question mark with words like "homepage", "grid view", "slug page", etc.).
+I try and start on paper where I can, with a variant on [Todd Warfel's 6-8-5 technique](http://www.quora.com/Why-does-Adaptive-Path-say-that-sketching-a-design-should-take-5-minutes-and-6-iterations/answer/Todd-Zaki-Warfel); 8 rounds of 40 seconds to sketch a user experience/design for the ? (replace the question mark with words like "homepage", "grid view", "slug page", etc.)
 
-For this project I became acutely focused on the portfolio list view. Lists of items are a real struggle for me. They're all so generic. I knew the information that mattered for this page, fortunately; the project's title, one or more relevant links for that item, and a way to filter items by their discipline (i.e. one should be able to quickly discern Django builds from a Yeoman generator).
+I don't think I ever realised a truly fantastic portfolio list view solution. Lists of items are a real struggle for me. They're all so generic. I knew the information that mattered for this page, fortunately; the project's title, one or more relevant links for that item, and a way to filter items by their discipline (i.e. one should be able to quickly discern Django builds from a Yeoman generator). But achieving something with a little more ambition than a generic roll-call of articles, stacked with pagination proved difficult.
 
-I tried desperately to escape the vertical list. Original sketches included a spider-like approach; a center anchor surrounded by projects, and instead of scrolling down the user would scroll out to reveal more projects. This is an ambitious interface to onboard the user with. I shelved that idea, but it intrigues me... watch this space.
+I tried desperately to escape the vertical list. Original sketches included a starmap-like approach; a center anchor surrounded by projects, and instead of scrolling down the user would scroll out to reveal more projects. This is an ambitious interface to onboard the user with. I shelved that idea, but it intrigues me... watch this space.
 
 ### Creating a Narrative with Animation
 Animation is a tremendously powerful tool when writing the narrative of the page. I love UX (and by extension design) that delivers a user from one action to the next; the invisible hand guiding the user through the experience, unfolding a story along the way.
@@ -19,7 +19,7 @@ Lots of little examples exist across the site: the full-page takeover menu grows
 ## Performance
 I weigh site performance against two metrics: [Google's Page Insights](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fmxbry.com%2F&tab=desktop) and my self-set performance budget.
 
-The latter is an idea introduced to me by Smashing Magazine's fantastic [deep dive on web performance](http://www.smashingmagazine.com/2014/09/08/improving-smashing-magazine-performance-case-study/) in the modern web. The premise being that a page should visually render within an acceptable time, we have the tools to measure this (at least the people at [Web Page Test](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index) do), and so with smart maths we can create an index against which we measure our site.
+The latter is an idea introduced to me by Smashing Magazine's fantastic [deep dive on web performance](http://www.smashingmagazine.com/2014/09/08/improving-smashing-magazine-performance-case-study/). The premise being that a page should visually render within an acceptable time, we have the tools to measure this (at least the people at [Web Page Test](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index) do), and so with smart maths we can create an index against which we measure our site.
 
 1000 is the slightly arbitrary figure Smashing Magazine chose for their target index, and so I followed suit for my performance budget. I should mention that Web Page Test do provide some context for that 1000 number; it puts your site in the 90th percentile for performance across the web. Testing the site against it's performance budget is baked in to the build workflow using a nifty Grunt task ([grunt-perfbudget](https://github.com/tkadlec/grunt-perfbudget)) and Web Page Test's cloud emulation API. At the moment all key pages on this site pass.
 
@@ -28,15 +28,11 @@ Google's Page Insights is a really descriptive and helpful tool for grinding out
 <!-- For more information on how this level of performance was reached, find my deep dive on Medium -->
 
 ## Stuff I Don't Like
-I don't like...
 
  - How much I prevaricated putting it all together.
-
-... and I really hate...
-
  - The mobile and tablet views of the portfolio list page. A rework is imminent.
 
-... and I'm going to...
+### And I'm going to...
 
  - Go into much more detail about what packages I'm using, why and how.
  - Provide a neat "next step" once the user reaches the end of a specific project's slug page. At the moment the experience reaches a dead end.

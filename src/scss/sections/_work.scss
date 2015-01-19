@@ -119,6 +119,7 @@ Body content stylings
     }
     h1, h2, h3, h4, h5, h6 {
         font-family: $heavy-font-family;
+        margin-top: rem(48);
     }
     h1 {
         font-size: rem(32);
