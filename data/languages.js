@@ -6,8 +6,8 @@ var languages = [
     "Design",
     "UX",
     "CSS3",
-    "Django",
-    "DevOps",
+    // "Django",
+    // "DevOps",
 ];
 
 module.exports = {
