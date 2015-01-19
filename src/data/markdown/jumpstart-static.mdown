@@ -1,11 +1,11 @@
 Jumpstart Static is a Yeoman generator that has made small projects and prototypes exceedingly easy to begin. It is the first in a series of foundational works, and was born from a [Grunt Init](http://gruntjs.com/project-scaffolding) template I had for launching Assemble projects. From an empty directory, a series of prompts (charting the inclusion/exclusion of SCSS and Javascript packages) leave the user with a fully functioning static site. It aims to take care of the gritty bits of project architecture, like SCSS compilation or Grunt tasks for development and performance. The templating engine [Assemble](http://assemble.io/) provides a robust backbone.
 
+<img src="/static/images/uploads/jumpstart-static/jumpstart-static.gif" alt="Jumpstart Static demo gif">
+
 ## Assemble
 My first exposure to Assemble came from following the really smart work the folks at [Webhook](http://www.webhook.com/) are doing. I've come to terms with the idea that Django is probably overkill for most of what I'm trying to achieve on the web. Prototypes, corporate sites, nameplates, etc., don't need (or warrant) the brain investment and headaches of all the weight that comes with a Django installation. "But there are parts of Django I really like", I cried! The Jinja templates are delightful, but with a little nouse a similar setup can be gerrymandered with Assemble and the Swig engine. All that thinking landed me where I am today: why the effort when business logic-less, static sites will do for most cases?
 
-
 <img src="/static/images/uploads/jumpstart-static/assemble-example.jpg" alt="Assemble.js example template">
-
 
 I've made dalliances with a smarter dumb site model, whereby dynamic content can be built from a JSON source. Assemble is great if you have a bunch of pages that stand alone from one another, but less competent at dynamic content. For example, creating a list of news articles, and then a slug page for each news article, is more work than it should be. My solutions to this problem have so far involved duplicating a source template "X" number of times for each (in this example) news article, and then having Assemble compile those pseudo pages. It works, but it just doesn't feel like the right answer. A lot of huffing and puffing that leaves platforms like Express.js or Django my go to for mid-sized projects with dynamic pages (e.g. blogs or news magazines).
 
