@@ -34,7 +34,7 @@
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:max-barry/mxbry.com.git"
   },
   "licence": "MIT",
   "readmeFilename": "Readme.md",
