@@ -10,6 +10,7 @@
     {% else %}<link rel="stylesheet" href="{{global.urls.statics}}stylesheets/app.css?ver=2">{% endif %}
 
     {# <script src="{{global.urls.statics}}js/modernizr.min.js" async></script> #}
+    {% include "includes/baseincludes/ga.html" %}
 </head>
 
 <body>
@@ -29,7 +30,6 @@
       else window.addEventListener('load', cb);
     </script>
 {% endif %}
-{% include "includes/baseincludes/ga.html" %}
 <!-- Asynchronous js load for performance -->
 <script src="{{global.urls.statics}}js/app.js?ver=2" async></script>
 </body>
