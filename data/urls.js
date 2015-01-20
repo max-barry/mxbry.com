@@ -1,7 +1,8 @@
 var urls = {
     index: "/",
     work: "/work/",
-    statics: "/static/"
+    statics: "/static/",
+    sitemap: "/sitemap.xml"
 };
 
 module.exports = {

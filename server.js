@@ -35,6 +35,9 @@ app.get(urls.index, routes.index);
 app.get(urls.work, routes.work.index);
 app.get(urls.work + ":slug", routes.work.slug);
 
+// Sitemap
+app.get(urls.sitemap, routes.sitemap.index);
+
 /**
 Server
 */
