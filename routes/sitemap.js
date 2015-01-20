@@ -8,7 +8,6 @@ exports.index = function(req, res) {
         ];
     
     for (var i = 0; i < projects.length; i++) {
-        console.log(u);
         urls.push({
             url: "/work/" + projects[i].slug,
             changefreq: "monthly",
