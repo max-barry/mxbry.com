@@ -2,7 +2,7 @@
   "name": "mxbry.com",
   "title": "mxbry.com",
   "description": "Portfolio for Max Barry",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "keywords": [],
   "devDependencies": {
     "grunt-docco": "~0.3.3",
