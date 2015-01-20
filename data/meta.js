@@ -6,5 +6,6 @@ var title = "Max Barry - A Digital Dude's Portfolio | mxbry.com",
 module.exports = {
     title: title,
     description: description,
-    keywords: keywords
+    keywords: keywords,
+    site_img: site_img
 };
