@@ -19,7 +19,8 @@ Global template variables
 */
 app.locals.global = {
     languages: require("./data/languages.js").languages,
-    urls: require("./data/urls.js").urls
+    urls: require("./data/urls.js").urls,
+    meta: require("./data/meta.js")
 };
 
 /**
