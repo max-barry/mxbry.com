@@ -1,6 +1,25 @@
 {
     "projects": [
         {
+            "title": "Django Generic Importer",
+            "deck": "An experimental schema and input agnostic data importer for Django, that I co-authored.",
+            "slug": "https://pypi.python.org/pypi/django-genericimports/0.1b3",
+            "external": true,
+            "categories": [
+                "django",
+                "python"
+            ]
+        },
+        {
+            "title": "Grunt HTML PDF",
+            "deck": "A whisper thin Grunt wrapper for Marc Bachmann's node-html-pdf",
+            "slug": "https://github.com/max-barry/grunt-html-pdf",
+            "external": true,
+            "categories": [
+                "Grunt"
+            ]
+        },
+        {
             "title": "mxbry.com",
             "deck": "This website you're reading right now! An exercise in little animations, and super lean web builds.",
             "actions": [
@@ -107,16 +126,6 @@
                 "yeoman",
                 "site-builds",
                 "grunt"
-            ]
-        },
-        {
-            "title": "Django Generic Importer",
-            "deck": "An experimental schema and input agnostic data importer for Django, that I co-authored.",
-            "slug": "https://pypi.python.org/pypi/django-genericimports/0.1b3",
-            "external": true,
-            "categories": [
-                "django",
-                "python"
             ]
         }
     ]
