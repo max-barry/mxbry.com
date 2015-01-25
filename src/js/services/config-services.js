@@ -177,36 +177,11 @@ $(function() {
         content: []
     };
 
-    // mb.services.medium.handle = function(response){
-    //     var results = response.query.results.item.reverse(),
-    //         source = "medium",
-    //         category = "articles",
-    //         tmp, imgless_desc;
-
-    //     for (var i = results.length - 1; i >= 0; i--) {
-    //         tmp = results[i];
-    //         /**
-    //         As soon as the description was become a jQuery object, all the images were loading.
-    //         The following line nixes the description string and prevents the images from being loaded.
-    //         */
-    //         imgless_desc = tmp.description.replace("img src", "img null");
-    //         mb.services.medium.content.push({
-    //             source: source,
-    //             category: category,
-    //             url: tmp.link,
-    //             title: tmp.title,
-    //             pubDate: moment(new Date(tmp.pubDate)).unix(),
-    //             deck: $(imgless_desc).find(".medium-feed-snippet").text(),
-    //             id: id_service_object()
-    //         });
-    //     }
-    // };
-
     mb.services.mywork.handle = function(response){
         var source = "mywork",
             category = "articles",
             sample = _.sample(response.projects, mb.services.mywork.maxnumber),
-            tmp;
+            tmp, url;
 
         for (var i = 0; i < sample.length; i++) {
             tmp = sample[i];
@@ -217,7 +192,7 @@ $(function() {
                 category: category,
                 source: source,
                 // pubDate: ,
-                url: "/work/" + tmp.slug,
+                url: tmp.external ? tmp.slug : "/work/" + tmp.slug,
             });
         }
     };

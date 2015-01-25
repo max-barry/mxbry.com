@@ -17,7 +17,7 @@ var porfolio_item_string = "<article class = \"usn\">" +
                                 "<section class=\"overview-article-content card center grow-screw-in\" {{? it.listerimg }}style=\"background-image: url('{{=it.listerimg}}')\"{{?}}>" +
                                     "<h2 class=\"header-3 center\"><a href=\"/work/{{=it.slug}}\">{{=it.title}}</a></h2>" +
                                     "<p class=\"center\">{{=it.deck}}</p>" +
-                                    "<a href=\"/work/{{=it.slug}}\" class=\"btn flat\">More</a>" +
+                                    "<a href=\"{{ if(!it.external){ }}/work/{{ } }}{{=it.slug}}\" class=\"btn flat\">More</a>" +
                                     "{{? it.demo }}<a href=\"{{=it.demo}}\" class=\"btn flat\">Demo</a>{{?}}" +
                                 "</section>" +
                             "</article>",
