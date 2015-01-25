@@ -16,12 +16,13 @@
             "slug": "https://github.com/max-barry/grunt-html-pdf",
             "external": true,
             "categories": [
-                "Grunt"
+                "grunt"
             ]
         },
         {
             "title": "mxbry.com",
             "deck": "This website you're reading right now! An exercise in little animations, and super lean web builds.",
+            "meta_description": "A detailed description of how mxbry.com was built. It provides details on Google Page Insight optimisations, Assemble.js, Express.js, clean UX, and CSS3 animations.",
             "actions": [
                 {
                     "key": "Code",
@@ -37,7 +38,8 @@
                         "CSS3",
                         "UX",
                         "Design",
-                        "Performance"
+                        "Performance",
+                        "Express"
                     ]
                 },
                 {
@@ -79,12 +81,14 @@
                 "site-builds",
                 "design",
                 "ux",
-                "performance"
+                "performance",
+                "express"
             ]
         },
         {
             "title": "Jumpstart ~ Static",
             "deck": "My Yeoman generator for kicking off Assemble based, static sites fast.",
+            "meta_description": "A Yeoman generator for fast deployment of smart sites backed by Assemble, with accomadations for Ember.js, ZURB Foundation, Bourbon and Neat SCSS.",
             "actions": [
                 {
                     "key": "Code",

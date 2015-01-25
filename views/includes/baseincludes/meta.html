@@ -1,13 +1,14 @@
+{% set projectpage=project %}
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>{{global.meta.title|safe}}</title>
-<meta name="description" content="{{global.meta.description|safe}}">
+<title>{% if projectpage %}{{project.title}} | {% endif %}{{global.meta.title|safe}}</title>
+<meta name="description" content="{% if projectpage and project.meta_description %}Digital work from the portfolio of Max Barry. {{project.meta_description|safe}}{% else %}{{global.meta.description|safe}}{% endif %}">
 <meta name="keywords" content="{{global.meta.keywords|safe}}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Twitter meta -->
-<meta name="twitter:title" content="{{global.meta.title|safe}}">
-<meta name="twitter:description" content="{{global.meta.description|safe}}">
+<meta name="twitter:title" content="{% if projectpage %}{{project.title}} | {% endif %}{{global.meta.title|safe}}">
+<meta name="twitter:description" content="{% if projectpage and project.meta_description %}Digital work from the portfolio of Max Barry. {{project.meta_description|safe}}{% else %}{{global.meta.description|safe}}{% endif %}">
 
 <meta name="twitter:site" content="@mxbrry">
 <meta name="twitter:site:id" content="276204106">
@@ -22,8 +23,8 @@
 <meta name="twitter:image:height" content="783">
 
 <!-- Open Graph meta -->
-<meta property="og:title" content="{{global.meta.title|safe}}">
-<meta property="og:description" content="{{global.meta.description|safe}}">
+<meta property="og:title" content="{% if projectpage %}{{project.title}} | {% endif %}{{global.meta.title|safe}}">
+<meta property="og:description" content="{% if projectpage and project.meta_description %}Digital work from the portfolio of Max Barry. {{project.meta_description|safe}}{% else %}{{global.meta.description|safe}}{% endif %}">
 <meta property="og:url" content="http://www.mxbry.com/">
 <meta property="og:site_name" content="mxbry.com">
 <meta property="og:image" content="{{global.meta.site_img}}">

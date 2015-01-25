@@ -77,8 +77,12 @@ $devops: (
     color: #669999,
     name: "devops",
 );
+$express: (
+    color: #FF1919,
+    name: "express",
+);
 
-$languages: $python $javascript $grunt $scss $html $sitebuilds $css3 $performance $design $ux $yeoman $django $devops;
+$languages: $python $javascript $grunt $scss $html $sitebuilds $css3 $performance $design $ux $yeoman $django $devops $express;
 
 
 /**
