@@ -6,7 +6,8 @@ var languages = [
     "Design",
     "UX",
     "CSS3",
-    // "Django",
+    "Django",
+    "Python",
     // "DevOps",
 ];
 

@@ -109,5 +109,14 @@
                 "grunt"
             ]
         },
+        {
+            "title": "Django Generic Importer",
+            "deck": "An experimental schema and input agnostic data importer for Django, that I co-authored.",
+            "slug": "https://pypi.python.org/pypi/django-genericimports/0.1b3",
+            "categories": [
+                "django",
+                "python"
+            ]
+        }
     ]
 }
