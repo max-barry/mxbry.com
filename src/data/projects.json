@@ -104,7 +104,6 @@
                     "key": "We're talking",
                     "style": true,
                     "values": [
-                        "Site builds",
                         "Yeoman",
                         "Grunt"
                     ]
@@ -128,7 +127,6 @@
             "slug": "jumpstart-static",
             "categories": [
                 "yeoman",
-                "site-builds",
                 "grunt"
             ]
         }
