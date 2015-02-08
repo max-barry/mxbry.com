@@ -10,7 +10,7 @@
     }
     // @include linear-gradient(27deg, $accent-color 20%, $grey 20%, $grey 60%, $primary-color 60%);
     @media #{$medium-down} {
-        height: calc(45vh - #{$header-height});
+        height: calc(80vh - #{$header-height});
     }
 }
 
@@ -31,6 +31,7 @@
         }
         @media #{$small-all} {
             font-size: rem(40);
+            margin-top: 0;
         }
     }
     h2 {
