@@ -94,41 +94,7 @@ module.exports = function(grunt) {
                 ],
                 tasks: ["copy:markdown"]
             }
-            // templates: {
-            //     files: [
-            //         "<%= pkg.templates.templates %>**/*.swig",
-            //         "<%= pkg.templates.data %>**/*.{json,yml}"
-            //     ],
-            //     tasks: ["assemble"]
-            // }
         },
-        // Run local server
-        // connect: {
-        //     server: {
-        //         options: {
-        //             keepalive: true,
-        //             base: "<%= pkg.dest.assets %>"
-        //         }
-        //     }
-        // },
-        // Assemble Swig templates
-        // assemble: {
-        //     options: {
-        //         engine: "swig",
-        //         data: ["<%= pkg.templates.data %>*.{json,yml}"],
-        //         assets: "<%= pkg.dest.assets %>",
-        //         partials: "<%= pkg.templates.partials %>*.swig",
-        //         layoutdir: "<%= pkg.templates.layouts %>",
-        //         layoutext: ".swig",
-        //         layout: "base",
-        //         helpers: ["<%= pkg.templates.helpers %>*"],
-        //         flatten: true
-        //     },
-        //     pages: {
-        //         src: ["<%= pkg.templates.pages %>*.swig"],
-        //         dest: "<%= pkg.dest.assets %>"
-        //     }
-        // },
         /**
         General
           -  Clean build folder
@@ -176,6 +142,7 @@ module.exports = function(grunt) {
             dist: {
                 src: [
                     "<%= pkg.paths.bower %>jquery/dist/jquery.min.js",
+                    "<%= pkg.paths.bower %>viewport-units-buggyfill/viewport-units-buggyfill.js",
                     // "<%= pkg.paths.bower %>jquery.wait/jquery.wait.js",
                     "<%= pkg.paths.bower %>lodash/dist/lodash.min.js",
                     // "<%= pkg.paths.bower %>multiline/browser.js",
@@ -239,15 +206,6 @@ module.exports = function(grunt) {
                 url: "http://staging.mxbry.com/"
             },
         },
-        // criticalcss: {
-        //     custom_options: {
-        //         options: {
-        //             url: "http://staging.mxbry.com/",
-        //             outputfile: "<%= pkg.templates.includes %>criticalcss/hp.html",
-        //             filename: "<%= pkg.dest.css %>app.css"
-        //         }
-        //     }
-        // },
         imagemin: {
             dist: {
                 files: [{
@@ -258,37 +216,6 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        // webp: {
-        //     files: {
-        //         expand: true,
-        //         cwd: "<%= pkg.dest.images %>",
-        //         src: "**/*.jpg",
-        //         dest: "<%= pkg.dest.images %>"
-        //     },
-        //     options: {
-        //         binpath: require("webp-bin").path,
-        //         preset: "default",
-        //         verbose: true,
-        //         quality: 80,
-        //         alphaQuality: 80,
-        //         compressionMethod: 6,
-        //         segments: 4,
-        //         psnr: 42,
-        //         sns: 50,
-        //         filterStrength: 40,
-        //         filterSharpness: 3,
-        //         simpleFilter: true,
-        //         partitionLimit: 50,
-        //         analysisPass: 6,
-        //         multiThreading: true,
-        //         lowMemory: false,
-        //         alphaMethod: 0,
-        //         alphaFilter: "best",
-        //         alphaCleanup: true,
-        //         noAlpha: false,
-        //         lossless: false
-        //     }
-        // },
         cmq: {
             options: {
                 log: true
@@ -299,20 +226,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        // uncss: {
-        //     dist: {
-        //         options: {
-        //             ignore: [".scale-takeover.active", ".reveal-filter", ".reveal-filter-options", ".loader", ".grow-in"],
-        //             // stylesheets: ["<%= pkg.dest.css %>app.css",],
-        //             timeout: 5000,
-        //             // htmlroot: "<%= pkg.dest.css %>",
-        //             report: "min"
-        //         },
-        //         files: {
-        //             "<%= pkg.dest.css %>tidy.css": ["<%= pkg.dest.assets %>*.html",]
-        //         }
-        //     }
-        // }
         perfbudget: {
             options: {
                 key: "A.0b29f60d31dfd7bcdfe8158ec29c9cde",
