@@ -47,6 +47,41 @@
             ]
         },
         {
+            "title": "Zebra or Black Beauty?",
+            "deck": "A creative idea for a little magic on Twitter.",
+            "slug": "zebra-horse-twitter",
+            "listerimg": "/static/images/uploads/zebra-black-beauty/zebra-black-beauty-twitter.gif",
+            "categories": [
+                "design"
+            ],
+            "info": [
+                {
+                    "key": "Inspired by",
+                    "values": [
+                        {
+                            "value": "Stanley Green",
+                            "url": "http://totallytransparent.tumblr.com/"
+                        }
+                    ]
+                },
+                {
+                    "key": "See it live",
+                    "values": [
+                        {
+                            "value": "Right here!",
+                            "url": "https://twitter.com/mxbrry/status/608737997002055680"
+                        }
+                    ]
+                },
+                {
+                    "key": "Made in",
+                    "values": [
+                        "June 2015"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "mxbry.com",
             "deck": "This website you're reading right now! An exercise in little animations, and super lean web builds.",
             "actions": [

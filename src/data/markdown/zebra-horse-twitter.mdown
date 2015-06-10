@@ -1,0 +1,8 @@
+I was inspired by a [smart trick](http://metro.co.uk/2015/03/15/this-picture-is-more-confusing-but-logical-than-the-black-and-blue-dress-5104693/) from [Stanley Green](http://totallytransparent.tumblr.com/) to explore the boundaries of Twitter, with my [Black-Beauty-or-zebra](https://twitter.com/mxbrry/status/608737997002055680) social creative. A neat bit of "magic" on social.
+
+<img src="/static/images/uploads/zebra-black-beauty/zebra-black-beauty-twitter.gif" alt="Zebra horse black beauty Twitter trick">
+
+## The Prestige
+A single image with well placed transparency magically converts from a picture of a zebra to a black horse, when viewed within the Twitter app. The trick lies in how the Twitter app features images. In thumbnail view they appear on a white background, when focused they're on black. The transparency in the image does the rest of the work. That's it really!
+
+**n.b. The effect will only work on the Twitter mobile app. Also [Twicca](http://twicca.r246.jp/); my Android Twitter client of choice**
