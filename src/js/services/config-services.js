@@ -86,7 +86,16 @@ $(function() {
         for (var i = response.length - 1; i >= 0; i--) {
             tmp = response[i];
             title = mb.services.github.account + " " + _get_event_verb(tmp.type, tmp.payload) + " " + tmp.repo.name;
-            deck = tmp.type == "CreateEvent" ? tmp.payload.description : tmp.payload.commits[0].message;
+            switch (tmp.type) {
+                case "CreateEvent":
+                    deck = tmp.payload.description;
+                    break;
+                case "PushEvent":
+                    deck = tmp.payload.commits[0].message;
+                    break;
+                default:
+                    deck = "Dealt with a " + tmp.type;
+            }
             actions.push({
                 source: source,
                 category: category,
