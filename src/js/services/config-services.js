@@ -127,51 +127,51 @@ $(function() {
     MEDIUM
     --------------------------
     */
-    // mb.services.medium = {
-    //     account: "@ev",
-    //     initial: 1,
-    //     content: []
-    // };
+    mb.services.medium = {
+        account: "@maxbarry",
+        initial: 1,
+        content: []
+    };
 
-    // mb.services.medium.handle = function(response){
-    //     var results = response.query.results.item.reverse(),
-    //         source = "medium",
-    //         category = "articles",
-    //         tmp, imgless_desc;
+    mb.services.medium.handle = function(response){
+        var results = response.query.results.item.reverse(),
+            source = "medium",
+            category = "articles",
+            tmp, imgless_desc;
 
-    //     for (var i = results.length - 1; i >= 0; i--) {
-    //         tmp = results[i];
-    //         /**
-    //         As soon as the description was become a jQuery object, all the images were loading.
-    //         The following line nixes the description string and prevents the images from being loaded.
-    //         */
-    //         imgless_desc = tmp.description.replace("img src", "img null");
-    //         mb.services.medium.content.push({
-    //             source: source,
-    //             category: category,
-    //             url: tmp.link,
-    //             title: tmp.title,
-    //             pubDate: moment(new Date(tmp.pubDate)).unix(),
-    //             deck: $(imgless_desc).find(".medium-feed-snippet").text(),
-    //             id: id_service_object()
-    //         });
-    //     }
-    // };
+        for (var i = results.length - 1; i >= 0; i--) {
+            tmp = results[i];
+            /**
+            As soon as the description was become a jQuery object, all the images were loading.
+            The following line nixes the description string and prevents the images from being loaded.
+            */
+            imgless_desc = tmp.description.replace("img src", "img null");
+            mb.services.medium.content.push({
+                source: source,
+                category: category,
+                url: tmp.link,
+                title: tmp.title,
+                pubDate: moment(new Date(tmp.pubDate)).unix(),
+                deck: $(imgless_desc).find(".medium-feed-snippet").text(),
+                id: id_service_object()
+            });
+        }
+    };
 
-    // mb.services.medium.fetch = function(){
-    //     var def = $.Deferred(),
-    //         feed = encodeURIComponent("https://medium.com/feed/" + mb.services.medium.account);
+    mb.services.medium.fetch = function(){
+        var def = $.Deferred(),
+            feed = encodeURIComponent("https://medium.com/feed/" + mb.services.medium.account);
 
-    //     $.ajax({
-    //         url: "//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'" + feed + "'&format=json",
-    //         dataType: "JSON",
-    //         success: mb.services.medium.handle
-    //     }).always(function() {
-    //         def.resolve();
-    //     });
+        $.ajax({
+            url: "//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'" + feed + "'&format=json",
+            dataType: "JSON",
+            success: mb.services.medium.handle
+        }).always(function() {
+            def.resolve();
+        });
 
-    //     return def;
-    // };
+        return def;
+    };
 
 
     /*
