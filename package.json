@@ -16,6 +16,7 @@
     "grunt-perfbudget": "~0.1.6"
   },
   "dependencies": {
+    "bower": "^1.6.5",
     "express": "^4.10.4",
     "grunt": "~0.4.2",
     "grunt-cli": "^0.1.13",
