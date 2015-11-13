@@ -1,7 +1,7 @@
 var express = require("express"),
     app = express(),
-    env = process.env.NODE_ENV || "development",
-    config = require("./config/config.json")[env];
+    env = process.env.NODE_ENV || "development";
+    // config = require("./config/config.json")[env];
 
 /**
 Statics
@@ -42,4 +42,5 @@ app.get(urls.sitemap, routes.sitemap.index);
 /**
 Server
 */
-app.listen(config.port);
+var port = process.env.PORT || 3000;
+app.listen(port);
