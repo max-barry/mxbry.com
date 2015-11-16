@@ -10,10 +10,10 @@
     {% else %}<link rel="stylesheet" href="{{global.urls.statics}}stylesheets/app.css?ver=5">{% endif %}
 
     {# <script src="{{global.urls.statics}}js/modernizr.min.js" async></script> #}
-    {% include "includes/baseincludes/ga.html" %}
 </head>
 
 <body>
+{% include "includes/baseincludes/ga.html" %}
 {% block base_content %}
 {% endblock base_content %}
 {% include "includes/takeover.html" %}
