@@ -1,7 +1,7 @@
 {% set projectpage=project %}
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>{% if projectpage %}{{project.title}} | {% endif %}{{global.meta.title|safe}}</title>
+<title>{{global.meta.title|safe}}{% if projectpage %} | {{project.title}}{% endif %}</title>
 <meta name="description" content="{% if projectpage and project.meta_description %}Digital work from the portfolio of Max Barry. {{project.meta_description|safe}}{% else %}{{global.meta.description|safe}}{% endif %}">
 <meta name="keywords" content="{{global.meta.keywords|safe}}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
