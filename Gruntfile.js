@@ -17,14 +17,29 @@ module.exports = function(grunt) {
                 }
             }
         },
-        // Compass to handle CSS compilation and concatanation
-        compass: {
+        // Node SASS to handle CSS compilation and concatanation
+        sass: {
+            options: {
+                includePaths: [
+                    '<%= pkg.paths.bower %>bourbon/dist/',
+                    '<%= pkg.paths.bower %>neat/app/assets/stylesheets/',
+                    '<%= pkg.paths.bower %>reset-scss/',
+                    '<%= pkg.paths.bower %>scut/dist/',
+                ]
+            },
             dist: {
-                options: {
-                    config: "config.rb"
+                files: {
+                    '<%= pkg.dest.css %>app.css': '<%= pkg.src.scss %>app.scss'
                 }
             }
         },
+        // compass: {
+        //     dist: {
+        //         options: {
+        //             config: "config.rb"
+        //         }
+        //     }
+        // },
         // Copy fonts and images to build output directory
         copy: {
             images: {
@@ -249,33 +264,11 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks("grunt-contrib-clean");
 
-    grunt.loadNpmTasks("grunt-contrib-jshint");
-    grunt.loadNpmTasks("grunt-contrib-concat");
-    grunt.loadNpmTasks("grunt-contrib-uglify");
+    require('load-grunt-tasks')(grunt);
 
-    grunt.loadNpmTasks("grunt-contrib-compass");
-
-    grunt.loadNpmTasks("grunt-contrib-cssmin");
-    grunt.loadNpmTasks('grunt-penthouse');
-    // grunt.loadNpmTasks('grunt-criticalcss');
-    grunt.loadNpmTasks("grunt-contrib-imagemin");
-    // grunt.loadNpmTasks("grunt-webp");
-    grunt.loadNpmTasks("grunt-combine-media-queries");
-    grunt.loadNpmTasks("grunt-json-minify");
-    // grunt.loadNpmTasks('grunt-uncss');
-
-    grunt.loadNpmTasks("grunt-contrib-copy");
-
-    grunt.loadNpmTasks("grunt-contrib-watch");
-    grunt.loadNpmTasks('grunt-bump');
-    grunt.loadNpmTasks("grunt-docco");
-    grunt.loadNpmTasks("grunt-nodemon");
-    grunt.loadNpmTasks('grunt-perfbudget');
-
-    grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "compass", "cmq", "penthouse", "copy:fonts", "copy:images", "copy:markdown", "copy:devdata"]);
-    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "compass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:markdown", "copy:livedata", "json-minify", "copy:images", "imagemin",]);
+    grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "sass", "cmq", "penthouse", "copy:fonts", "copy:images", "copy:markdown", "copy:devdata"]);
+    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "sass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:markdown", "copy:livedata", "json-minify", "copy:images", "imagemin",]);
     grunt.registerTask("perf", "perfbudget:staging");
     grunt.registerTask("serve", "nodemon");
 
