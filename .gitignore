@@ -11,4 +11,6 @@ public/*
 *.sublime-project
 *.sublime-workspace
 
+*.log
+
 .env
