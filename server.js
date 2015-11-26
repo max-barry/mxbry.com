@@ -3,6 +3,10 @@ var express = require("express"),
     env = process.env.NODE_ENV || "development";
     // config = require("./config/config.json")[env];
 
+// Load New Relic
+require('dotenv').load();
+require("newrelic");
+
 /**
 Statics
 */

@@ -8,12 +8,13 @@
   },
   "keywords": [],
   "devDependencies": {
-    "grunt-docco": "~0.3.3",
-    "grunt-contrib-watch": "~0.5.3",
+    "dotenv": "^1.2.0",
     "grunt-bump": "0.0.16",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-docco": "~0.3.3",
     "grunt-nodemon": "^0.3.0",
-    "nodemon": ">=1.2.1",
-    "grunt-perfbudget": "~0.1.6"
+    "grunt-perfbudget": "~0.1.6",
+    "nodemon": ">=1.2.1"
   },
   "dependencies": {
     "bower": "^1.6.5",
@@ -35,6 +36,7 @@
     "lodash": "~2.4.1",
     "marked": "~0.3.2",
     "moment": "~2.8.4",
+    "newrelic": "^1.24.0",
     "sitemap": "~0.7.4",
     "swig": "^1.4.2"
   },

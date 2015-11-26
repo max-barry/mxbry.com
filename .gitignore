@@ -10,3 +10,5 @@ public/*
 *.DS_Store
 *.sublime-project
 *.sublime-workspace
+
+.env
