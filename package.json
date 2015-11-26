@@ -2,7 +2,7 @@
   "name": "mxbry.com",
   "title": "mxbry.com",
   "description": "Portfolio for Max Barry",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "scripts": {
     "postinstall": "bower install && grunt dist"
   },
