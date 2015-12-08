@@ -70,7 +70,8 @@
     }
     .scale-takeover.active {
         opacity: 1;
-        @include transition(transform 550ms $ease-out-quint, opacity 150ms);
+        -webkit-transition: transform 550ms $ease-out-quint, opacity 150ms;
+        transition: transform 550ms $ease-out-quint, opacity 150ms;
         @include transform(scale(1) translateZ(0));
     }
 
@@ -81,7 +82,8 @@
         top: 2 * $gutter;
         left: 2 * $gutter;
         z-index: 1000;
-        @include transition(background-color 150ms, transform 250ms, background-position 150ms);
+        -webkit-transition: background-color 150ms, transform 250ms, background-position 150ms;
+        transition: background-color 150ms, transform 250ms, background-position 150ms;
         @include transform(translateZ(0));
         @include black-icon-states;
         &:hover {

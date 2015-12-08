@@ -1,1 +1,6 @@
-[For more information check this dope link out](http://mxbry.com/work/mxbry).
+[For more information check this link out](http://mxbry.com/work/mxbry).
+
+## Environmental Variables
+**NODE_ENV**
+**PORT**
+**NEWRELIC**

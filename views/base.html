@@ -3,13 +3,10 @@
 <head>
     {% include "includes/baseincludes/meta.html" %}
 
-    {% if homepage %}
-    <!-- Critical CSS for performance (see: https://developers.google.com/speed/pagespeed/service/PrioritizeCriticalCss) -->
+    <!-- CURRENTLY NOT WORKING UNDER DEPLOYMENT: Critical CSS for performance (see: https://developers.google.com/speed/pagespeed/service/PrioritizeCriticalCss) -->
     <style>{% include "includes/criticalcss/hp.html" %}</style>
     
-    {% else %}<link rel="stylesheet" href="{{global.urls.statics}}stylesheets/app.css?ver=5">{% endif %}
-
-    {# <script src="{{global.urls.statics}}js/modernizr.min.js" async></script> #}
+    <link rel="stylesheet" href="{{global.urls.statics}}stylesheets/app.css?ver=6">
 </head>
 
 <body>
@@ -31,7 +28,7 @@
     </script>
 {% endif %}
 <!-- Asynchronous js load for performance -->
-<script src="{{global.urls.statics}}js/app.js?ver=5" async></script>
+<script src="{{global.urls.statics}}js/app.js?ver=6" async></script>
 </body>
 
 </html>
