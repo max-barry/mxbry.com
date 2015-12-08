@@ -157,7 +157,7 @@ module.exports = function(grunt) {
             dist: {
                 src: [
                     "<%= pkg.paths.bower %>jquery/dist/jquery.min.js",
-                    "<%= pkg.paths.bower %>viewport-units-buggyfill/viewport-units-buggyfill.js",
+                    // "<%= pkg.paths.bower %>viewport-units-buggyfill/viewport-units-buggyfill.js",
                     // "<%= pkg.paths.bower %>jquery.wait/jquery.wait.js",
                     "<%= pkg.paths.bower %>lodash/dist/lodash.min.js",
                     // "<%= pkg.paths.bower %>multiline/browser.js",
