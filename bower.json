@@ -1,6 +1,6 @@
 {
   "name": "mxbry.com",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "private": "true",
   "dependencies": {
     "jquery": "~2.1.1",
