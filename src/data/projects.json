@@ -164,6 +164,17 @@
                 "yeoman",
                 "grunt"
             ]
-        }
+        },
+        {
+            "title": "Demos ~ Text Shadow",
+            "deck": "Messing around with different text-shadow animations on a hypothetical mxbry.com logo (n.b. Chrome, Firefox only)",
+            "slug": "http://textshadow.demo.mxbry.com",
+            "external": true,
+            "listerimg": "/static/images/uploads/demo-textshadow/hero.gif",
+            "categories": [
+                "css3",
+                "design"
+            ]
+        },
     ]
 }
