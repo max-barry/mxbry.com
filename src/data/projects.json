@@ -168,7 +168,7 @@
         {
             "title": "Demos ~ Text Shadow",
             "deck": "Messing around with different text-shadow animations on a hypothetical mxbry.com logo (n.b. Chrome, Firefox only)",
-            "slug": "http://textshadow.demo.mxbry.com",
+            "slug": "http://textshadow.demo.mxbry.com/?utm_source=portfolioproject&utm_medium=portfolio&utm_campaign=Text%20Shadow%20Experiments",
             "external": true,
             "listerimg": "/static/images/uploads/demo-textshadow/hero.gif",
             "categories": [
