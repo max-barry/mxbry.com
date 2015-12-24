@@ -6,6 +6,9 @@
     <!-- CURRENTLY NOT WORKING UNDER DEPLOYMENT: Critical CSS for performance (see: https://developers.google.com/speed/pagespeed/service/PrioritizeCriticalCss) -->
     <style>{% include "includes/criticalcss/hp.html" %}</style>
     
+    {% if not homepage %}
+    <link rel="stylesheet" href="{{global.urls.statics}}stylesheets/app.css?ver=6">
+    {% endif %}
 </head>
 
 <body>
