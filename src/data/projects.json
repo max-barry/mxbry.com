@@ -176,5 +176,24 @@
                 "design"
             ]
         },
+        {
+            "title": "Grunt Jimp",
+            "deck": "A Grunt wrapper for JIMP; a Javascript only image manipulation library.",
+            "slug": "https://www.npmjs.com/package/grunt-jimp",
+            "external": true,
+            "categories": [
+                "grunt",
+            ]
+        },
+        {
+            "title": "Demos ~ Lazy Placeholder Workflow",
+            "deck": "A workflow and Grunt configuration for lazy loading small blurry placeholders.",
+            "slug": "https://medium.com/@maxbarry/a-workflow-for-lazy-loading-images-with-nice-blurry-placeholders-8592894d13fa#.bp4z4fnv8",
+            "external": true,
+            "listerimg": "/static/images/uploads/demo-lazyload/demo.lazyload.jpeg",
+            "categories": [
+                "grunt",
+            ]
+        }
     ]
 }
