@@ -120,7 +120,8 @@ Body content stylings
     }
     @media #{$large-up} {
         img {
-            @include transition(transform 250ms $ease-out-quint);
+            -webkit-transition: transform 150ms $ease-out-quint;
+            transition: transform 150ms $ease-out-quint;
             &:hover {
                 @include transform(scale(1.3));
             }

@@ -5,7 +5,9 @@ var express = require("express"),
 
 // Load New Relic
 require('dotenv').load();
-require("newrelic");
+if (env !== "development") {
+	require("newrelic");
+}
 
 /**
 Statics
