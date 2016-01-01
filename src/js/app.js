@@ -6,9 +6,9 @@ var mb = {
 
 var activity_animate_time = 550;
 
-$(function() {
+// $(function() {
     /**
     Viewport units bug fixes
     */
-    window.viewportUnitsBuggyfill.init();
-});
+    // window.viewportUnitsBuggyfill.init();
+// });
