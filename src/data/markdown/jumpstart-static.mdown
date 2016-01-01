@@ -1,6 +1,17 @@
-Jumpstart Static is a Yeoman generator that has made small projects and prototypes exceedingly easy to begin. It is the first in a series of foundational works, and was born from a [Grunt Init](http://gruntjs.com/project-scaffolding) template I had for launching Assemble projects. From an empty directory, a series of prompts (charting the inclusion/exclusion of SCSS and Javascript packages) leave the user with a fully functioning static site. It aims to take care of the gritty bits of project architecture, like SCSS compilation or Grunt tasks for development and performance. The templating engine [Assemble](http://assemble.io/) provides a robust backbone.
+Jumpstart Static is a Yeoman generator that has made small projects and prototypes exceedingly easy to begin. It is the first in a series of foundational works, and was born from a [Grunt Init](http://gruntjs.com/project-scaffolding) template I had for launching Assemble projects. From an empty directory, a series of prompts (charting the inclusion/exclusion of SCSS and Javascript packages) leave the user with a fully functioning static site. It aims to take care of the gritty bits of project architecture, like SCSS compilation or Grunt tasks for development and performance. The templating engine [Swig](http://paularmstrong.github.io/swig/) provides a robust backbone.
 
 <img src="/static/images/uploads/jumpstart-static/jumpstart-static.gif" alt="Jumpstart Static demo gif">
+
+## UPDATE: January 2016
+A lot of what I have written below is now outmoded. I've developed this project a lot since it was first published, and a big part of that has been removing the Assemble aspect. It turned out Assemble just wasn't giving enough, that vanilla Swig and a smart Grunt task wouldn't do better.
+
+I've also adopted a modular approach to Grunt task configuration. I've started using [jit-grunt](https://www.npmjs.com/package/jit-grunt) to make tasks load faster than ever (the big Grunt performance bottleneck), and have moved to a more sophisticated Javascript concatenation process. Webpack has been introduced.
+
+[Surge](https://surge.sh/) is one of my favourite new services for deploying static sites at 0 cost, and I can't believe how simple they make hosting with custom domains. I vehemently recommend it, and incorporated a small Grunt task to make deployment easy.
+
+Finally I've done away with my literal and wider Ruby dependency. No more Compass. Lots more Node Sass. It's faster and means no Ruby needed.
+
+I'm going to leave what I've written below for posterity. A lot of *that* &darr; still applied.
 
 ## Assemble
 My first exposure to Assemble came from following the really smart work the folks at [Webhook](http://www.webhook.com/) are doing. I've come to terms with the idea that Django is probably overkill for most of what I'm trying to achieve on the web. Prototypes, corporate sites, nameplates, etc., don't need (or warrant) the brain investment and headaches of all the weight that comes with a Django installation. "But there are parts of Django I really like", I cried! The Jinja templates are delightful, but with a little nouse a similar setup can be gerrymandered with Assemble and the Swig engine. All that thinking landed me where I am today: why the effort when business logic-less, static sites will do for most cases?
@@ -11,8 +22,3 @@ I've made dalliances with a smarter dumb site model, whereby dynamic content can
 
 ## The Gruntfile
 The Gruntfile generated is version 1 million of my constantly evolving and iterated base. It covers the development process (SCSS compilation, watches, template compilation), basic performance optimisation (asset minification, concatenation, etc.), and more intricate touches like [media-query clustering](https://www.npmjs.com/package/grunt-combine-media-queries) and WebP generation.
-
-## The Next Step
-I want to support more frontend packages, and continue to iterate upon my base Gruntfile. I will also introduce new scripts under with the Jumpstart name; Express.js projects and server configuration file generators are incoming.
-
-I find that work dealing with project architecture is more iterative than most. I fully expect a collection of Yeoman generators to be a constantly evolving process, and I doubt I will ever label it truly "finished".
