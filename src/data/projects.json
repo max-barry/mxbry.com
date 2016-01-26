@@ -182,7 +182,7 @@
             "slug": "https://www.npmjs.com/package/grunt-jimp",
             "external": true,
             "categories": [
-                "grunt",
+                "grunt"
             ]
         },
         {
@@ -192,7 +192,7 @@
             "external": true,
             "listerimg": "/static/images/uploads/demo-lazyload/demo.lazyload.jpeg",
             "categories": [
-                "grunt",
+                "grunt"
             ]
         },
         {
@@ -203,7 +203,7 @@
             "listerimg": "/static/images/uploads/demo-vhs/social.png",
             "categories": [
                 "design",
-                "css3",
+                "css3"
             ]
         },
         {
@@ -213,7 +213,18 @@
             "external": true,
             "categories": [
                 "design",
+                "ux"
+            ]
+        },
+        {
+            "title": "Diction, My Boy",
+            "deck": "[Android Only] Using the HTML5 speech recognition API with Firebase.",
+            "slug": "https://mxbry-diction.surge.sh/",
+            "external": true,
+            "categories": [
+                "design",
                 "ux",
+                "site-builds"
             ]
         }
     ]
