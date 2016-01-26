@@ -194,6 +194,27 @@
             "categories": [
                 "grunt",
             ]
+        },
+        {
+            "title": "Demos ~ CSS VHS Effect",
+            "deck": "Secret tapes recovered from an 80s nightclub where things went wrong.",
+            "slug": "http://vhs.demo.mxbry.com/",
+            "external": true,
+            "listerimg": "/static/images/uploads/demo-vhs/social.png",
+            "categories": [
+                "design",
+                "css3",
+            ]
+        },
+        {
+            "title": "Demos ~ On-page Search",
+            "deck": "Prototype UX for a realtime on-page search component.",
+            "slug": "http://search.demo.mxbry.com/",
+            "external": true,
+            "categories": [
+                "design",
+                "ux",
+            ]
         }
     ]
 }
