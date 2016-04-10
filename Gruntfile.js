@@ -53,12 +53,12 @@ module.exports = function(grunt) {
             },
             devdata: {
                 src: "<%= pkg.src.data %>projects.example.json",
-                dest: "<%= pkg.dest.data %>projects.json"
+                dest: "<%= pkg.dest.cms %>projects.json"
             },
-            livedata: {
-                src: "<%= pkg.src.data %>projects.json",
-                dest: "<%= pkg.dest.data %>projects.json"
-            },
+            // livedata: {
+                // src: "<%= pkg.src.data %>projects.json",
+                // dest: "<%= pkg.dest.data %>projects.json"
+            // },
             markdown: {
                 files: [{
                     expand: true,
@@ -265,7 +265,7 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.registerTask("build", ["jshint", "concat", "uglify:dev", "sass", "cmq", "penthouse", "copy:fonts", "copy:images", "copy:markdown", "copy:devdata"]);
-    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "sass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:markdown", "copy:livedata", "json-minify", "copy:images", "imagemin",]);
+    grunt.registerTask("dist", ["clean", "jshint", "concat", "uglify", "sass", "cmq", "penthouse", "cssmin", "copy:fonts", "copy:markdown", "json-minify", "copy:images", "imagemin",]);
     grunt.registerTask("perf", "perfbudget:staging");
     grunt.registerTask("serve", "nodemon");
 

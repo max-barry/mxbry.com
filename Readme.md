@@ -2,5 +2,6 @@
 
 ## Environmental Variables
 **NODE_ENV**
+**AUTHORIZATION**
 **PORT**
 **NEWRELIC**

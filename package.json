@@ -16,6 +16,8 @@
     "nodemon": ">=1.2.1"
   },
   "dependencies": {
+    "auth-header": "^0.3.0",
+    "body-parser": "^1.15.0",
     "bower": "^1.6.5",
     "dotenv": "^1.2.0",
     "express": "^4.10.4",
@@ -60,7 +62,8 @@
     "fonts": "public/fonts/",
     "images": "public/images/",
     "css": "public/stylesheets/",
-    "data": "public/data/"
+    "data": "public/data/",
+    "cms": "cms/"
   },
   "src": {
     "js": "src/js/",
