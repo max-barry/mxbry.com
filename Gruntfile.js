@@ -33,13 +33,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        // compass: {
-        //     dist: {
-        //         options: {
-        //             config: "config.rb"
-        //         }
-        //     }
-        // },
         // Copy fonts and images to build output directory
         copy: {
             images: {
