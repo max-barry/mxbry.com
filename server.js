@@ -47,11 +47,11 @@ app.get(urls.index, routes.index);
 app.get(urls.work, routes.work.index);
 app.get(urls.work + ":slug", routes.work.slug);
 
-// CMS Ingestion
-app.post(urls.ingest, routes.ingest.index);
-
 // Sitemap
 app.get(urls.sitemap, routes.sitemap.index);
+
+// API for projects
+app.get(urls.apiProjects, routes.api.projects);
 
 /**
 Server

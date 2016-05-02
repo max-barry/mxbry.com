@@ -2,7 +2,7 @@ var urls = {
     index: "/",
     work: "/work/",
     statics: "/static/",
-    ingest: "/api/ingest",
+    apiProjects: "/api/projects/",
     sitemap: "/sitemap.xml"
 };
 

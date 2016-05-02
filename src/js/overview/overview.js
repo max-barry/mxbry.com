@@ -104,8 +104,8 @@ $(function() {
     }
 
     if ($(".overview-controls").length) {
-        $.getJSON("/static/data/projects.json", function(response){
-            mb.overview.projects = response.projects.reverse();
+        $.getJSON("/api/projects", function(response){
+            mb.overview.projects = response.projects[0].reverse();
 
             var hash = window.location.hash.split("#")[1],
                 items = hash ? get_items_for_category(hash) : undefined;
@@ -148,7 +148,6 @@ $(function() {
 
         if ($(this).get(0).tagName === "SELECT") {
             category = $(".overview-filter select").val();
-            console.log(category);
         } else {
             $(".overview-controls li.active").removeClass("active");
             category = $(this).addClass("active").data("category");
