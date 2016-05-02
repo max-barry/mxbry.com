@@ -1,18 +1,23 @@
 var express = require("express"),
     app = express(),
-    env = process.env.NODE_ENV || "development";
-    // config = require("./config/config.json")[env];
+    env = process.env.NODE_ENV || "development",
+    bodyParser = require('body-parser');
 
 // Load New Relic
 require('dotenv').load();
 if (env !== "development") {
-	require("newrelic");
+    require("newrelic");
 }
+
+/**
+Middleware
+*/
+app.use(bodyParser.json());
+app.use('/static', express.static("./public"));
 
 /**
 Statics
 */
-app.use('/static', express.static("./public"));
  
 /**
 Template settings
@@ -44,6 +49,9 @@ app.get(urls.work + ":slug", routes.work.slug);
 
 // Sitemap
 app.get(urls.sitemap, routes.sitemap.index);
+
+// API for projects
+app.get(urls.apiProjects, routes.api.projects);
 
 /**
 Server

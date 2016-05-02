@@ -180,7 +180,7 @@ $(function() {
     --------------------------
     */
     mb.services.mywork = {
-        endpoint: "/static/data/projects.json",
+        endpoint: "/api/projects",
         initial: 1,
         maxnumber: 8,
         content: []
@@ -189,7 +189,7 @@ $(function() {
     mb.services.mywork.handle = function(response){
         var source = "mywork",
             category = "articles",
-            sample = _.sample(response.projects, mb.services.mywork.maxnumber),
+            sample = _.sample(response.projects[0], mb.services.mywork.maxnumber),
             tmp, url;
 
         for (var i = 0; i < sample.length; i++) {
