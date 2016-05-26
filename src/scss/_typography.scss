@@ -6,7 +6,7 @@ body {
   font-weight: 400;
   font-style: normal;
   font-size: 1.25rem;
-  line-height: 1.875rem;
+  line-height: $lh;
   margin: 0 auto;
   color: $color-soft-black;
 }
@@ -15,34 +15,38 @@ h1 {
   font-weight: 600;
   font-style: inherit;
   font-size: 5.3125rem;
-  line-height: 5.625rem;
+  line-height: $lh;
   margin-top: 1.875rem;
   margin-bottom: 0rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 h2 {
   font-family: $heavy-font-family;
   font-weight: 600;
   font-style: inherit;
   font-size: 3.25rem;
-  line-height: 3.75rem;
+  line-height: $lh;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+h3 {
+  font-family: $base-font-family;
+  font-weight: 500;
+  font-style: inherit;
+  font-size: 2rem;
+  line-height: $lh;
   margin-top: 1.875rem;
   margin-bottom: 1.875rem;
 }
-h3 {
-  font-family: inherit;
-  font-weight: 600;
-  font-style: inherit;
-  font-size: 2rem;
-  line-height: 3.75rem;
-  margin-top: 1.875rem;
-  margin-bottom: 0rem;
-}
 h4 {
   font-family: inherit;
-  font-weight: 600;
+  font-weight: 500;
   font-style: inherit;
   font-size: 1.25rem;
-  line-height: 1.875rem;
+  line-height: $lh;
   margin-top: 1.875rem;
   margin-bottom: 0rem;
 }

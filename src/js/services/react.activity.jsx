@@ -9,7 +9,7 @@ class Activity extends React.Component {
         return (
             <li className="activities__item media">
                 <a target="_blank" href={ this.props.data.url } className="img">
-                    <img src={`/img/icons/${ this.props.data.source }.svg`} />
+                    <img src={`/img/icons/icons_${ this.props.data.source }.svg`} />
                 </a>
                 <div className="bd">
                     <p>
@@ -45,7 +45,6 @@ export class Activities extends React.Component {
             this.ActivitiesWaypoint = new Waypoint({
                 element: ReactDom.findDOMNode(this),
                 handler: () => {
-                    console.log('reveal');
                     this.setState({
                         reveal: 'activities__visible'
                     });
@@ -53,16 +52,6 @@ export class Activities extends React.Component {
                 offset: '60%'
             });
 
-            // windowScrollimator.watch(_activitiesList, 'topProgress', (property, value) => {
-            //     if (!this.state.reveal && value > 0.5) {
-            //         this.setState({
-            //             reveal: 'activities__visible'
-            //         });
-            //         windowScrollimator.unwatch(_activitiesList);
-            //     }
-            //
-            // });
-            // windowScrollimator.update();
         });
     }
 

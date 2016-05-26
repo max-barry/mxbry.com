@@ -17,6 +17,7 @@ import initForms from './forms.js';
 import { initXO, initScroll, initGifFlip } from './splash.js';
 import { getServices, renderServices } from './services/index.js';
 import { Activities } from './services/react.activity.jsx';
+import { initWork } from './work.js';
 
 
 DOMReady(() => {
@@ -28,6 +29,7 @@ DOMReady(() => {
     mx._html = $('html');
     mx._activity = $('#activity');
     mx._work = $('#work');
+    mx._window = $(window);
 
     // Initialise Scrollimator
     // window.windowScrollimator = new Scrollimator(window, {});
@@ -40,12 +42,10 @@ DOMReady(() => {
     initScroll();
     initGifFlip();
 
-    // Fetch services
-    // getServices().then((content) => {
-    //     renderServices(content);
-    // });
-
     // Mount activity component
     ReactDOM.render(<Activities />, mx._activity[0]);
+
+    // Initialise work
+    initWork();
 
 });

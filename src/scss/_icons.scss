@@ -1,0 +1,56 @@
+$icon-small: 32px;
+$icon-medium: 96px;
+$icon-large: 128px;
+
+$icons: (
+    'analytics',
+    'css',
+    'email',
+    'es6',
+    'github',
+    'grunt',
+    'gulp',
+    'html',
+    'javascript',
+    'linkedin',
+    'medium',
+    'npm',
+    'python',
+    'twitter',
+    'yeoman',
+);
+
+.icon {
+    // display: inline-block;
+    height: $icon-small;
+    width: $icon-small;
+    border-radius: 50%;
+    position: relative;
+    margin-right: $icon-small;
+    margin-bottom: $icon-small;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+    }
+    @each $ic in $icons {
+        &.--i-#{$ic}:before {
+            background-image: url('/img/icons/icons_#{$ic}.svg')
+        }
+    }
+    &.--medium {
+        height: $icon-medium;
+        width: $icon-medium;
+
+    }
+    &.--large {
+        height: $icon-large;
+        width: $icon-large;
+    }
+}

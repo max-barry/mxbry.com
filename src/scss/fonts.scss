@@ -12,18 +12,49 @@ $fonts-url: "../fonts/";
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Libre Baskerville';
+    src: url('#{$fonts-url}librebaskerville-bold-webfont.woff2') format('woff2'),
+         url('#{$fonts-url}librebaskerville-bold-webfont.woff') format('woff'),
+         url('#{$fonts-url}librebaskerville-bold-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+
+}
 
 @font-face {
-    font-family: 'Butler';
-    src: url('#{$fonts-url}butler_ultra_light-webfont.eot');
-    src: url('#{$fonts-url}butler_ultra_light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('#{$fonts-url}butler_ultra_light-webfont.woff2') format('woff2'),
-         url('#{$fonts-url}butler_ultra_light-webfont.woff') format('woff'),
-         url('#{$fonts-url}butler_ultra_light-webfont.ttf') format('truetype'),
-         url('#{$fonts-url}butler_ultra_light-webfont.svg#butlerultralight') format('svg');
-    font-weight: 100;
-    font-style: normal; 
+    font-family: 'Libre Baskerville';
+    src: url('#{$fonts-url}librebaskerville-italic-webfont.woff2') format('woff2'),
+         url('#{$fonts-url}librebaskerville-italic-webfont.woff') format('woff'),
+         url('#{$fonts-url}librebaskerville-italic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+
 }
+
+@font-face {
+    font-family: 'Libre Baskerville';
+    src: url('#{$fonts-url}librebaskerville-regular-webfont.woff2') format('woff2'),
+         url('#{$fonts-url}librebaskerville-regular-webfont.woff') format('woff'),
+         url('#{$fonts-url}librebaskerville-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+// @font-face {
+//     font-family: 'Butler';
+//     src: url('#{$fonts-url}butler_ultra_light-webfont.eot');
+//     src: url('#{$fonts-url}butler_ultra_light-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('#{$fonts-url}butler_ultra_light-webfont.woff2') format('woff2'),
+//          url('#{$fonts-url}butler_ultra_light-webfont.woff') format('woff'),
+//          url('#{$fonts-url}butler_ultra_light-webfont.ttf') format('truetype'),
+//          url('#{$fonts-url}butler_ultra_light-webfont.svg#butlerultralight') format('svg');
+//     font-weight: 100;
+//     font-style: normal;
+// }
 
 // @font-face {
 //     font-family: 'Butler';
@@ -38,17 +69,17 @@ $fonts-url: "../fonts/";
 //
 // }
 
-@font-face {
-    font-family: 'Butler';
-    src: url('#{$fonts-url}butler_regular-webfont.eot');
-    src: url('#{$fonts-url}butler_regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('#{$fonts-url}butler_regular-webfont.woff2') format('woff2'),
-         url('#{$fonts-url}butler_regular-webfont.woff') format('woff'),
-         url('#{$fonts-url}butler_regular-webfont.ttf') format('truetype'),
-         url('#{$fonts-url}butler_regular-webfont.svg#butlerregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: 'Butler';
+//     src: url('#{$fonts-url}butler_regular-webfont.eot');
+//     src: url('#{$fonts-url}butler_regular-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('#{$fonts-url}butler_regular-webfont.woff2') format('woff2'),
+//          url('#{$fonts-url}butler_regular-webfont.woff') format('woff'),
+//          url('#{$fonts-url}butler_regular-webfont.ttf') format('truetype'),
+//          url('#{$fonts-url}butler_regular-webfont.svg#butlerregular') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
+// }
 
 
 // @font-face {
@@ -64,17 +95,17 @@ $fonts-url: "../fonts/";
 //
 // }
 
-@font-face {
-    font-family: 'Butler';
-    src: url('#{$fonts-url}butler_bold-webfont.eot');
-    src: url('#{$fonts-url}butler_bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('#{$fonts-url}butler_bold-webfont.woff2') format('woff2'),
-         url('#{$fonts-url}butler_bold-webfont.woff') format('woff'),
-         url('#{$fonts-url}butler_bold-webfont.ttf') format('truetype'),
-         url('#{$fonts-url}butler_bold-webfont.svg#butlerbold') format('svg');
-    font-weight: 700;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: 'Butler';
+//     src: url('#{$fonts-url}butler_bold-webfont.eot');
+//     src: url('#{$fonts-url}butler_bold-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('#{$fonts-url}butler_bold-webfont.woff2') format('woff2'),
+//          url('#{$fonts-url}butler_bold-webfont.woff') format('woff'),
+//          url('#{$fonts-url}butler_bold-webfont.ttf') format('truetype'),
+//          url('#{$fonts-url}butler_bold-webfont.svg#butlerbold') format('svg');
+//     font-weight: 700;
+//     font-style: normal;
+// }
 
 // @font-face {
 //     font-family: 'Butler';

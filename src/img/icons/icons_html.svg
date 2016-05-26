@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="221 73 128 128" enable-background="new 221 73 128 128" xml:space="preserve">
+<g id="Networks">
+	<g id="LinkedIn">
+	</g>
+	<g id="NPM">
+		<g id="Logo">
+		</g>
+	</g>
+	<g id="Email">
+	</g>
+	<g id="Yeoman">
+	</g>
+	<g id="Python">
+		<g id="pyicon">
+		</g>
+	</g>
+	<g id="JS">
+		<g id="JS_1_">
+		</g>
+	</g>
+	<g id="HTML_1_">
+		<circle fill="#EBEBEB" cx="285" cy="137" r="64"/>
+		<g id="HTML">
+			<polygon fill="#E44F26" points="261.9,170.5 256.8,112.8 313.2,112.8 308.1,170.4 285,176.9 			"/>
+			<polygon fill="#F1662A" points="285,172 303.7,166.8 308.1,117.5 285,117.5 			"/>
+			<polygon fill="#EBEBEB" points="285,138.9 275.6,138.9 275,131.7 285,131.7 285,124.6 285,124.6 267.3,124.6 267.4,126.5 
+				269.2,146 285,146 			"/>
+			<polygon fill="#EBEBEB" points="285,157.3 285,157.3 277.1,155.1 276.6,149.5 272.8,149.5 269.5,149.5 270.5,160.6 285,164.6 
+				285,164.6 			"/>
+			<path fill="#010101" d="M262,97.1h3.6v3.5h3.3v-3.5h3.6v10.7h-3.6v-3.6h-3.3v3.6H262V97.1L262,97.1z"/>
+			<path fill="#010101" d="M277.2,100.7h-3.2v-3.6h9.9v3.6h-3.2v7.2h-3.6L277.2,100.7L277.2,100.7z"/>
+			<path fill="#010101" d="M285.5,97.1h3.7l2.3,3.8l2.3-3.8h3.7v10.7h-3.6v-5.3l-2.5,3.8h-0.1l-2.5-3.8v5.3h-3.5L285.5,97.1
+				L285.5,97.1z"/>
+			<path fill="#010101" d="M299.4,97.1h3.6v7.2h5.1v3.6h-8.6L299.4,97.1L299.4,97.1z"/>
+			<polygon fill="#FFFFFF" points="285,138.9 285,146 293.7,146 292.9,155.1 285,157.3 285,164.6 299.5,160.6 299.6,159.4 
+				301.2,140.8 301.4,138.9 299.5,138.9 			"/>
+			<polygon fill="#FFFFFF" points="285,124.6 285,129 285,131.6 285,131.7 302,131.7 302,131.7 302.1,131.7 302.2,130.1 
+				302.5,126.5 302.7,124.6 			"/>
+		</g>
+	</g>
+	<g id="CSS">
+	</g>
+	<g id="analytics">
+	</g>
+	<g id="Gulp">
+	</g>
+	<g id="Grunt">
+	</g>
+</g>
+<g id="GUIDE">
+</g>
+</svg>
