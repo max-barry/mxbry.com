@@ -1,0 +1,102 @@
+$lh: 1.5;
+$magic: rem($lh*20px);
+
+body {
+  font-family: $base-font-family;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+  margin: 0 auto;
+  color: $color-soft-black;
+}
+h1 {
+  font-family: $heavy-font-family;
+  font-weight: 600;
+  font-style: inherit;
+  font-size: 5.3125rem;
+  line-height: 5.625rem;
+  margin-top: 1.875rem;
+  margin-bottom: 0rem;
+}
+h2 {
+  font-family: $heavy-font-family;
+  font-weight: 600;
+  font-style: inherit;
+  font-size: 3.25rem;
+  line-height: 3.75rem;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem;
+}
+h3 {
+  font-family: inherit;
+  font-weight: 600;
+  font-style: inherit;
+  font-size: 2rem;
+  line-height: 3.75rem;
+  margin-top: 1.875rem;
+  margin-bottom: 0rem;
+}
+h4 {
+  font-family: inherit;
+  font-weight: 600;
+  font-style: inherit;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+  margin-top: 1.875rem;
+  margin-bottom: 0rem;
+}
+h5 {
+  font-family: inherit;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+  margin-top: 1.875rem;
+  margin-bottom: 0rem;
+}
+p, ul, ol, pre, table, blockquote {
+  margin-top: 0rem;
+  margin-bottom: 1.875rem;
+}
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+hr {
+  border: 1px solid;
+  margin: -1px 0;
+}
+b, strong, em, small, code {
+  line-height: 1;
+}
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+strong {
+    font-weight: bold;
+}
+
+a {
+    color: $color-link;
+    text-decoration: none;
+    transition: color 80ms;
+    &:hover {
+        text-decoration: underline;
+        color: darken($color-link, 5);
+    }
+}
+a:visited {
+    color: $color-linkVisited;
+}
+
+a.--no-style, a.--no-style:visited {
+    color: black;
+    text-decoration: none;
+}

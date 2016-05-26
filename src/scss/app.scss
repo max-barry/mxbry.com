@@ -1,0 +1,70 @@
+/**
+Vendor
+*/
+@import "reset";
+@import "bourbon";
+@import "scut";
+
+/**
+Functions
+*/
+@import "math";
+
+/**
+Settings & variables
+*/
+@import "settings";
+@import "typography";
+
+// Helpers
+@import "mixins";
+@import "forms_buttons";
+
+// Components
+@import "component/splash";
+@import "component/navigation";
+@import "component/sections";
+@import "component/activities";
+
+/**
+Custom resets
+*/
+html {
+    box-sizing: border-box;
+    background-color: rgb(249, 249, 249);
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+main {
+    position: relative;
+    overflow: hidden;
+}
+
+.clearfix:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+.--lock {
+    overflow: hidden;
+}
+.--bg-clip {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+// Media object
+.media {
+    margin-bottom: 2*$magic;
+}
+.media, .bd {
+    overflow: hidden; _overflow: visible; zoom: 1;
+}
+.media .img {
+    float: left;
+    margin-right: $magic;
+}
+.media .img img{ display:block; }

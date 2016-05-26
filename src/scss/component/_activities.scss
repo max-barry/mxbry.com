@@ -1,0 +1,28 @@
+.activities {
+    min-height: 100vh;
+}
+
+.activities__list {
+    max-width: 40%;
+    display: block;
+    margin: 0 auto;
+}
+
+.activities__item {
+    img {
+        width: rem(96px);
+    }
+    .bd {
+        p {
+            margin-bottom: 0;
+        }
+        a {
+            display: block;
+            font-family: $heavy-font-family;
+        }
+    }
+}
+
+.activities {
+    @include scrollReveal(".activities__item", ".activities__visible", 12);
+}

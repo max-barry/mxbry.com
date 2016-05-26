@@ -1,0 +1,74 @@
+.form__field {
+    position: relative;
+    line-height: 1;
+    &:not(:last-child) {
+        margin-bottom: 0.5*$input-height;
+    }
+}
+
+.form__field input:not([type="submit"]) {
+    font-family: $base-font-family;
+    font-size: $em-base;
+    font-weight: bold;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    width: 100%;
+    height: $input-height;
+    padding: 10px 0 1px 0;
+    border-bottom: 1px solid $color-neutral-breaker;
+    transition: color 0.1s;
+}
+
+.form__field label {
+    font-size: $em-base;
+    position: absolute;
+    pointer-events: none;
+    top: 16px;
+    transition:0.2s ease all;
+    color: $color-neutral-breaker;
+    &:after {
+        content: " ~ " attr(data-validation);
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+}
+
+
+.form__field input:focus + label,
+.form__field input:valid + label,
+.form__field input.hasValue + label {
+    top: -5px;
+    font-size: 15px;
+}
+
+.form__field input.hasValue:not(:focus):not(:valid) {
+    color: $color-error;
+    border-color: $color-error;
+    & + label {
+        color: $color-error;
+        &:after {
+            opacity: 1;
+        }
+    }
+}
+.form__field input.hasValue:not(:focus):valid {
+    color: $color-valid;
+    border-color: $color-valid;
+    & + label {
+        color: $color-valid;
+    }
+}
+
+button, input[type="submit"] {
+    font-family: $heavy-font-family;
+    text-transform: uppercase;
+    color: white;
+    background-color: $color-secondary;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    padding: 16px 16px;
+    min-width: 160px;
+    min-height: $input-height;
+}

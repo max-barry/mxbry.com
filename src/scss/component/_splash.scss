@@ -1,0 +1,176 @@
+$splash__transition: 300ms;
+$splash__fast_transition: 150ms;
+$splash__transition_op: $splash__transition*0.5;
+
+/**
+General style
+*/
+.splash {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    &.--double {
+        height: 200vh;
+    }
+}
+
+.splash__third {
+    width: 33%;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    &.--center {
+        margin: 0 auto;
+        display: block;
+    }
+
+    // TODO : Clean this up
+    &:nth-child(1) .splash__letter,
+    &:nth-child(1):hover .splash__letter,
+    &:nth-child(1).splash__active .splash__letter {
+        color: $color-primary;
+    }
+    &:nth-child(2) .splash__letter,
+    &:nth-child(2):hover .splash__letter,
+    &:nth-child(2).splash__active .splash__letter,
+    &.--center .splash__letter,
+    &.--center:hover .splash__letter {
+        color: $color-secondary;
+    }
+    &:nth-child(3) .splash__letter,
+    &:nth-child(3):hover .splash__letter,
+    &:nth-child(3).splash__active .splash__letter {
+        color: $color-neutral-breaker;
+    }
+}
+
+.splash__title {
+    font-size: 3vw;
+    line-height: 1.1;
+    width: 60%;
+    @include scut-center-transform;
+}
+
+.splash__title[data-after]:after {
+    content: attr(data-after);
+    color: $color-neutral-breaker;
+    font-family: $base-font-family;
+    font-weight: 100;
+    font-size: 20px;
+    position: absolute;
+    display: block;
+    opacity: 0;
+    transition: opacity $splash__transition;
+    text-transform: lowercase;
+}
+
+.splash__title span {
+    overflow: hidden;
+    display: inline-block;
+}
+
+.splash__title [data-copy]:after {
+    content: attr(data-copy);
+    display: block;
+}
+
+.splash__letter ~ span {
+    position: relative;
+    left: -0.7vw;
+}
+
+
+
+/**
+Hero styles
+*/
+.splash.--hero {
+
+    @include scrollNudge;
+
+    .splash__third {
+        cursor: pointer;
+    }
+
+    .splash__letter {
+        padding: 0 0.12vw;
+        transform: scale(6);
+        transform-origin: -20% 60%;
+        transition: transform $splash__transition;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        color: $color-soft-black;
+    }
+
+    .splash__title [data-copy]:after {
+        opacity: 0;
+        transition: opacity $splash__transition_op;
+        transform: translateY(100%);
+        transition-delay: $splash__transition_op;
+    }
+
+    .splash__third:hover, .splash__active {
+
+        .splash__letter {
+            transform: none;
+            transition: transform $splash__transition, color $splash__fast_transition $splash__transition;
+            &.--bg-clip {
+                background-image: none !important;
+                -webkit-text-fill-color: initial;
+                -webkit-background-clip: initial;
+            }
+        }
+
+        .splash__title [data-copy]:after {
+            opacity: 1;
+            transition: transform $splash__transition;
+            transition-delay: $splash__transition;
+            transform: none;
+        }
+
+        &:not(:last-child) .splash__title [data-copy]:last-child:after {
+            transition-delay: $splash__transition*1.5;
+        }
+
+        .splash__title[data-after]:after {
+            transition-delay: $splash__transition*1.5;
+            opacity: 1;
+        }
+
+    }
+}
+
+/**
+Header styles
+*/
+
+.splash.--header .splash__title {
+    &:after, &:before {
+        content: "";
+        background-color: $color-soft-black;
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 10%;
+        opacity: 0;
+        transition: opacity 150ms, transform 300ms;
+    }
+    &:after {
+        bottom: -25%;
+        transform: translateY(-200%);
+        transform-origin: top;
+    }
+    &:before {
+        top: -25%;
+        transform: translateY(200%);
+        transform-origin: bottom;
+    }
+    &.splash__border {
+        &:after, &:before {
+            opacity: 1;
+            transform: none;
+        }
+    }
+}

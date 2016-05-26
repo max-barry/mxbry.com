@@ -1,0 +1,67 @@
+// -------------
+// Typography
+// -------------
+$em-base: 16px;
+
+$base-font-family: 'Butler', $helvetica;
+$heavy-font-family: 'League Spartan', $base-font-family;
+
+// -------------
+// Media Queries
+// -------------
+$xsmall-break: 380px;
+$small-break: 640px;
+$medium-break: 1024px;
+$large-break: 1440px;
+
+$xsmall-range: (0, $xsmall-break);
+$small-range: ($xsmall-break + 1, $small-break);
+$medium-range: ($small-break + 1, $medium-break);
+$large-range: ($medium-break + 1, $large-break);
+$xlarge-range: ($large-break + 1);
+
+/**
+Timings
+*/
+$navigation__duration: 1300ms;
+$navigation__ease: $ease-out-cubic;
+
+/**
+Colours
+*/
+$color-primary: #3DE0BB;
+$color-secondary: #f50057;
+$color-neutral: #F7F7F7;
+$color-neutral-breaker: #ABABAB;
+$color-link: #0089EA;
+$color-linkVisited: lighten($color-link, 30);
+$color-error: rgb(245, 62, 50);
+$color-valid: rgb(98, 191, 86);
+$color-soft-black: #202020;
+
+/**
+Dimensions
+*/
+$input-height: 48px;
+
+/**
+@link https://github.com/zurb/bower-foundation/blob/master/scss/foundation/_settings.scss#L151
+*/
+$screen: "only screen";
+
+$landscape: "#{$screen} and (orientation: landscape)";
+$portrait: "#{$screen} and (orientation: portrait)";
+
+$xsmall-only: "#{$screen} and (max-width: #{nth($xsmall-range, 2)})";
+
+$small-up: "#{$screen} and (min-width:#{nth($small-range, 1)})";
+$small-only: "#{$screen} and (min-width:#{nth($small-range, 1)}) and (max-width: #{nth($small-range, 2)})";
+$small-all: "#{$screen} and (max-width: #{nth($small-range, 2)})";
+
+$medium-up: "#{$screen} and (min-width:#{nth($medium-range, 1)})";
+$medium-only: "#{$screen} and (min-width:#{nth($medium-range, 1)}) and (max-width:#{nth($medium-range, 2)})";
+
+$large-up: "#{$screen} and (min-width:#{nth($large-range, 1)})";
+$large-only: "#{$screen} and (min-width:#{nth($large-range, 1)}) and (max-width:#{nth($large-range, 2)})";
+
+$xlarge-up: "#{$screen} and (min-width:#{nth($xlarge-range, 1)})";
