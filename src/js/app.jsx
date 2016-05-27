@@ -54,7 +54,21 @@ DOMReady(() => {
     ReactDOM.render(<Activities />, mx._activity[0]);
 
     // Initialise work
-    // initWork();
     ReactDOM.render(<Work />, mx._work[0]);
+
+    $('body').on('click', '.work__profile', function(){
+
+        $(this).toggleClass('--reveal');
+        // var $headline = $(this).find('.work__headline');
+        // var yPos = $headline.offset().top - $(window).scrollTop();
+        //
+        // $headline.css({
+        //     top: yPos,
+        //     position: 'fixed',
+        //     zIndex: 100
+        // });
+        //
+        // $('.overlay').addClass('--reveal');
+    });
 
 });

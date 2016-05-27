@@ -84,34 +84,34 @@ Default work styles
     flex-wrap: wrap;
     align-items: flex-start;
     min-height: 100vh;
-    padding-top: $work-padding*0.5;
-    padding-bottom: $work-padding*0.5;
-    padding-left: $work-padding*0.5;
-    padding-right: $work-padding*0.5;
+
+    padding: $work-padding*0.5;
+
+    .work__profile, .work__title {
+        padding: $work-padding*0.5;
+    }
 
     .work__profile {
         flex-grow: 1;
         flex-basis: 25%;
         min-width: 25%;
         max-width: 50%;
-        padding: $work-padding*0.5;
         background-color: transparent;
     }
     .work__title {
         max-width: none;
         color: $color-soft-black;
         background-color: white;
-        padding: $work-padding*0.5;
         box-shadow: 0 2px 5px 0 rgba(245, 245, 245, 0.16),0 2px 10px 0 rgba(0,0,0,0.12);
         i {
             display: none;
         }
-    }
-    .work__headline {
-        font-size: $magic;
-    }
-    .work__subline {
-        font-size: $fontBaseREM;
+        .work__headline {
+            font-size: $magic;
+        }
+        .work__subline {
+            font-size: $fontBaseREM;
+        }
     }
     .work__feature_list {
         display: none;
@@ -123,5 +123,50 @@ Default work styles
         width: $icon-small;
         height: $icon-small;
         box-shadow: none;
+    }
+}
+
+// Overlay
+// .overlay {
+//     z-index: 99;
+//     background-color: red;
+//     top: 0;
+//     bottom: 0;
+//     right: 0;
+//     left: 0;
+//     opacity: 0;
+//     pointer-events: none;
+//     &.--reveal {
+//         opacity: 1;
+//         transition: opacity 300ms;
+//     }
+// }
+
+.work__profile {
+    overflow: hidden;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $color-soft-black;
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+}
+
+.--reveal {
+    &:before {
+        transition: transform 400ms $ease-out-quint;
+        transform: none;
+    }
+    i {
+        display: none;
+    }
+    .work__subline, .work__feature_list, .work__tech_list {
+        transition: opacity 150ms;
+        opacity: 0;
     }
 }
