@@ -7,6 +7,7 @@
     transform: translateX(100%);
     padding: 2*$em-base;
     transition: transform $navigation__duration*0.5 $navigation__ease;
+    overflow: auto;
 }
 
 .navigation__content {

@@ -1,13 +1,17 @@
 $work-padding: 48px;
 
+/**
+Default work styles
+*/
 .work__profile {
     padding: $work-padding;
     position: relative;
+    background-color: $color-grey;
     background-repeat: no-repeat;
-    background-size: 105%;
-    background-position: -25px -50px;
-    &.--large {
-        min-height: 100vh;
+    background-size: cover;
+    background-position: left center;
+    &.--right {
+        background-position: right center;
     }
 }
 
@@ -24,10 +28,16 @@ $work-padding: 48px;
     cursor: pointer;
 }
 
-// .work__profile[data-expand]:hover .work__headline {
-//     transition: opacity 150ms;
-//     opacity: 0.8;
-// }
+.work__title {
+    color: $color-neutral;
+    max-width: 50%;
+    .work__profile.--invertText & {
+        color: $color-soft-black;
+    }
+    .work__profile.--right & {
+        float: right;
+    }
+}
 
 .work__profile[data-expand] .work__headline i:before {
     content:"\203A";
@@ -46,7 +56,6 @@ $work-padding: 48px;
     margin-top: $magic*2;
 }
 .work__tech {
-    // display: inline-block;
     float: left;
     box-shadow: 1px 1px 5px black;
 }
@@ -54,18 +63,66 @@ $work-padding: 48px;
 
 // Large
 .work__profile.--large {
+    background-size: 105%;
+    background-position: -25px -50px;
+    min-height: 100vh;
     .work__title {
         position: absolute;
-        color: $color-neutral;
+    }
+    &.--right .work__title {
+        right: $work-padding;
+    }
+    &.--bottom .work__title {
+        bottom: $work-padding;
+    }
+}
+
+// Card
+
+.work__card-profiles {
+
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    padding-top: $work-padding*0.5;
+    padding-bottom: $work-padding*0.5;
+    padding-left: $work-padding*0.5;
+    padding-right: $work-padding*0.5;
+
+    .work__profile {
+        flex-grow: 1;
+        flex-basis: 25%;
+        min-width: 25%;
         max-width: 50%;
-        &.--top {
-            top: $work-padding;
+        padding: $work-padding*0.5;
+        background-color: transparent;
+    }
+    .work__title {
+        max-width: none;
+        color: $color-soft-black;
+        background-color: white;
+        padding: $work-padding*0.5;
+        i {
+            display: none;
         }
-        &.--bottom {
-            bottom: $work-padding;
-        }
-        .work__subline {
-            max-width: 60%;
-        }
+    }
+    .work__headline {
+        font-size: $magic;
+    }
+    .work__subline {
+        font-size: $fontBaseREM;
+    }
+    .work__feature_list {
+        display: none;
+    }
+    .work__tech_list {
+        margin-bottom: 0;
+    }
+    .work__tech {
+        width: $icon-small;
+        height: $icon-small;
+        box-shadow: none;
     }
 }

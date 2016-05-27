@@ -1,4 +1,5 @@
-$icon-small: 32px;
+$icon-xsmall: 32px;
+$icon-small: 64px;
 $icon-medium: 96px;
 $icon-large: 128px;
 
@@ -22,12 +23,12 @@ $icons: (
 
 .icon {
     // display: inline-block;
-    height: $icon-small;
-    width: $icon-small;
+    height: $icon-xsmall;
+    width: $icon-xsmall;
     border-radius: 50%;
     position: relative;
-    margin-right: $icon-small;
-    margin-bottom: $icon-small;
+    margin-right: $icon-xsmall;
+    margin-bottom: $icon-xsmall;
     &:before {
         content: "";
         position: absolute;
@@ -44,10 +45,13 @@ $icons: (
             background-image: url('/img/icons/icons_#{$ic}.svg')
         }
     }
+    &.--small {
+        height: $icon-small;
+        width: $icon-small;
+    }
     &.--medium {
         height: $icon-medium;
         width: $icon-medium;
-
     }
     &.--large {
         height: $icon-large;

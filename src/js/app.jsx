@@ -17,7 +17,8 @@ import initForms from './forms.js';
 import { initXO, initScroll, initGifFlip } from './splash.js';
 import { getServices, renderServices } from './services/index.js';
 import { Activities } from './services/react.activity.jsx';
-import { initWork } from './work.js';
+import { Work } from './work/react.work.jsx';
+// import { initWork } from './work.js';
 
 
 DOMReady(() => {
@@ -46,6 +47,7 @@ DOMReady(() => {
     ReactDOM.render(<Activities />, mx._activity[0]);
 
     // Initialise work
-    initWork();
+    // initWork();
+    ReactDOM.render(<Work />, mx._work[0]);
 
 });

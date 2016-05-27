@@ -1,11 +1,11 @@
 $lh: 1.5;
-$magic: rem($lh*20px);
+$magic: rem($lh*$fontBase);
 
 body {
   font-family: $base-font-family;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.25rem;
+  font-size: $fontBaseREM;
   line-height: $lh;
   margin: 0 auto;
   color: $color-soft-black;

@@ -8,7 +8,7 @@ const calculateBgPosition = function(width, height, winWidth, winHeight, mouseX,
 };
 
 
-export function initWork() {
+export function workParralax() {
 
     let wWidth = mx._window.width();
     let wHeight = mx._window.height();

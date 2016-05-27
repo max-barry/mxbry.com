@@ -2,6 +2,8 @@
 // Typography
 // -------------
 $em-base: 16px;
+$fontBase: 20px;
+$fontBaseREM: rem(20px);
 
 $base-font-family: 'Libre Baskerville', $helvetica;
 $heavy-font-family: 'League Spartan', $base-font-family;
@@ -36,6 +38,7 @@ $color-primary: #3DE0BB;
 $color-secondary: #f50057;
 $color-neutral: #F7F7F7;
 $color-neutral-breaker: #ABABAB;
+$color-grey: #929292;
 $color-link: #0089EA;
 $color-linkVisited: lighten($color-link, 30);
 $color-error: rgb(245, 62, 50);
