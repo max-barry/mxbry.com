@@ -90,6 +90,7 @@
   "dependencies": {
     "async": "^2.0.0-rc.5",
     "detect-dom-ready": "^1.0.2",
+    "firebase": "^3.0.3",
     "fixed-sticky": "^0.1.7",
     "gulp-filter": "^4.0.0",
     "jquery": "^2.2.4",

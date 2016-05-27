@@ -4,6 +4,7 @@ import jQuery from 'jquery';
 import DOMReady from 'detect-dom-ready';
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import firebase from 'firebase';
 import 'waypoints/lib/noframework.waypoints.min.js';
 
 window.$ = $;
@@ -18,11 +19,20 @@ import { initXO, initScroll, initGifFlip } from './splash.js';
 import { getServices, renderServices } from './services/index.js';
 import { Activities } from './services/react.activity.jsx';
 import { Work } from './work/react.work.jsx';
-// import { initWork } from './work.js';
 
 
 DOMReady(() => {
 
+
+    // Initialise Firebase
+    firebase.initializeApp({
+        apiKey: 'AIzaSyDUjHTVLg3QZBJFbc1ryz57DJBe37eZgZ4',
+        authDomain: 'mxbry-2016.firebaseapp.com',
+        databaseURL: 'https://mxbry-2016.firebaseio.com',
+        storageBucket: 'mxbry-2016.appspot.com',
+    });
+
+    // mx.fb = firebase;
 
     // Push shared elements in to global object
     mx._main = $('main');
@@ -31,9 +41,6 @@ DOMReady(() => {
     mx._activity = $('#activity');
     mx._work = $('#work');
     mx._window = $(window);
-
-    // Initialise Scrollimator
-    // window.windowScrollimator = new Scrollimator(window, {});
 
     // Initialise form logic
     initForms();

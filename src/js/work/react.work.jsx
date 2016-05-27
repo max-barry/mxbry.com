@@ -21,29 +21,32 @@ const buildCollection = function(arr, type) {
 };
 
 
-const getWork = function() {
+const getWork = function(cb) {
 
-    let source = testWorks;
+    firebase.database().ref('/projects/').once('value').then(function(snapshot) {
+        let source = snapshot.val();
 
-    // Split smalls from non-smalls
-    let partitions = _partition(source, { size: 'card' });
+        // Split smalls from non-smalls
+        let partitions = _partition(source, { size: 'card' });
 
-    // Chunk the smalls in groups of 3, and then put them in an object identifying the chunk as small
-    let smallsChunk = _map(_chunk(partitions[0], 8), (arr) => {
-        return buildCollection(arr, 'card');
+        // Chunk the smalls in groups of 3, and then put them in an object identifying the chunk as small
+        let smallsChunk = _map(_chunk(partitions[0], 8), (arr) => {
+            return buildCollection(arr, 'card');
+        });
+
+        // As above with nonSmalls
+        let nonSmallsChunk = _map(_chunk(partitions[1], 3), (arr) => {
+            return buildCollection(arr, 'full');
+        });
+
+        // Recombine smalls and nonSmalls with a zip...
+        // Flatten the multidimensional array you  have...
+        // Remove all undefined objects (caused if there are more nonsmalls than smalls)
+        let combined = _compact(_flatten(_zip(nonSmallsChunk, smallsChunk)));
+
+        cb(combined);
+
     });
-
-    // As above with nonSmalls
-    let nonSmallsChunk = _map(_chunk(partitions[1], 3), (arr) => {
-        return buildCollection(arr, 'full');
-    });
-
-    // Recombine smalls and nonSmalls with a zip...
-    // Flatten the multidimensional array you  have...
-    // Remove all undefined objects (caused if there are more nonsmalls than smalls)
-    let combined = _compact(_flatten(_zip(nonSmallsChunk, smallsChunk)));
-
-    return combined;
 };
 
 class WorkTechs extends React.Component {
@@ -75,14 +78,6 @@ class WorkFeatures extends React.Component {
     }
 }
 
-// class WorkImage extends React.Component {
-//     render() {
-//         return(
-//             <div className="work__image"></div>
-//         );
-//     }
-// }
-
 class WorkProfile extends React.Component {
 
     componentDidMount() {
@@ -105,6 +100,7 @@ class WorkProfile extends React.Component {
 
         if (thisWork.bgColor) {
             styles.backgroundColor = thisWork.bgColor;
+            styles.color = thisWork.color;
         }
 
 
@@ -129,6 +125,8 @@ class WorkProfile extends React.Component {
         );
     }
 }
+
+// TODO Simplify all of the below
 
 class CardProfiles extends React.Component {
     render() {
@@ -166,7 +164,9 @@ export class Work extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({works: getWork()});
+        getWork((results) => {
+            this.setState({ works:results });
+        });
     }
 
     render() {
