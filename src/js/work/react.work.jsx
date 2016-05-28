@@ -101,7 +101,7 @@ class WorkProfile extends React.Component {
         // Setting defaults
         thisWork.size = thisWork.size || 'auto'; // Size of component, options: large, auto
         thisWork.direction = thisWork.direction || 'left';
-        thisWork.invertClass = thisWork.invert ? 'invertText' : 'noInvertText';
+        thisWork.invertClass = thisWork.invert || thisWork.size === 'card' ? 'invertText' : 'noInvertText';
 
         thisWork.featuresTemplate = thisWork.features ? <WorkFeatures data={thisWork.features} /> : null;
         thisWork.techTemplate = thisWork.tech ? <WorkTechs data={thisWork.tech} /> : null;

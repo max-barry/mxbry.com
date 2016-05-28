@@ -28,8 +28,3 @@ export function getServices() {
 };
 
 // TODO : Add a promise polyfill
-
-export function renderServices(services) {
-    console.log(services);
-    console.log('rendering services');
-};

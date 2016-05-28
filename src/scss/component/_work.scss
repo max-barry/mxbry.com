@@ -6,11 +6,8 @@ Default work styles
 .work__profile {
     padding: $work-padding;
     position: relative;
-    // background-color: $color-grey;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     cursor: pointer;
+    @include bgReset;
     &.--blank {
         > * {
             opacity: 0;
@@ -19,17 +16,11 @@ Default work styles
 }
 
 .work__feature {
-    // color: $color-primary;
     margin-bottom: $magic;
-    font-weight: bold;
     .img:before {
         content:"\203A";
     }
 }
-
-// .work__profile[data-expand] {
-//     cursor: pointer;
-// }
 
 .work__title {
     color: $color-neutral;
@@ -102,16 +93,11 @@ Default work styles
         flex-basis: 25%;
         min-width: 25%;
         max-width: 50%;
-        background-color: transparent;
     }
     .work__title {
         max-width: none;
-        color: $color-soft-black;
         background-color: white;
         box-shadow: 0 2px 5px 0 rgba(245, 245, 245, 0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-        i {
-            display: none;
-        }
         .work__headline {
             font-size: $magic;
         }
@@ -119,34 +105,31 @@ Default work styles
             font-size: $fontBaseREM;
         }
     }
-    .work__feature_list {
+    i, .work__feature_list {
         display: none;
     }
     .work__tech_list {
         margin-bottom: 0;
     }
     .work__tech {
-        @include icon-size(nth(nth($icon-sizes, 2), 2));
         box-shadow: none;
+        @include icon-size(nth(nth($icon-sizes, 2), 2));
     }
 }
 
 // Overlay
-$transition-overlay: 350ms;
+$overlay-transition: 350ms;
 
 .overlay {
     z-index: 99;
     background-color: white;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
     opacity: 0;
     width: 0;
     height: 0;
     pointer-events: none;
     transform: scale(0.9);
     padding: $work-padding 0;
+    @include scut-fill;
     .overlay__close {
         font-family: $heavy-font-family;
         font-size: 26px;
@@ -180,19 +163,19 @@ $transition-overlay: 350ms;
         width: auto;
         opacity: 1;
         transform: none;
-        transition: transform 350ms $ease-out-quint, opacity 150ms;
+        transition: transform $overlay-transition $ease-out-quint, opacity 150ms;
 
         .work-overlay__title, .work-overlay__body {
             transform: none;
             opacity: 1;
-            transition: transform 350ms ease-out, opacity 150ms;
+            transition: transform $overlay-transition ease-out, opacity 150ms;
         }
 
         .work-overlay__title {
-            transition-delay: $transition-overlay;
+            transition-delay: $overlay-transition;
         }
         .work-overlay__body {
-            transition-delay: $transition-overlay + 80ms;
+            transition-delay: $overlay-transition + 80ms;
         }
     }
 
