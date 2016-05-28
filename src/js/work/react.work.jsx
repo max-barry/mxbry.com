@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 
 import _partition from 'lodash/partition';
 import _chunk from 'lodash/chunk';
@@ -11,7 +11,7 @@ import _compact from 'lodash/compact';
 import { workParralax } from './work.parralax.js';
 import { WorkTechs, WorkFeatures } from './react.work.parts.jsx';
 import { ID } from '../_utilities.js';
-import { populateOverlayWork, toggleOverlay } from '../overlay.js';
+import { populateOverlayWork, toggleOverlay } from '../_overlay.js';
 
 
 const buildCollection = function(arr, type) {
@@ -63,7 +63,7 @@ class WorkProfile extends React.Component {
 
     componentDidMount() {
         if (this.props.data.size === 'large') {
-            let el = $(ReactDom.findDOMNode(this));
+            let el = $(ReactDOM.findDOMNode(this));
             workParralax(el);
         }
     }
@@ -119,7 +119,7 @@ class WorkProfile extends React.Component {
     }
 }
 
-export class Work extends React.Component {
+class Work extends React.Component {
 
     constructor(props) {
         super(props);
@@ -152,5 +152,9 @@ export class Work extends React.Component {
             </div>
         );
     }
+}
 
+export function initWork() {
+    // Mount work component
+    ReactDOM.render(<Work />, mx._work[0]);
 }

@@ -1,4 +1,5 @@
-{% extends "../layouts/base.html" %} {% block content %}
+{% extends "../layouts/base.html" %}
+{% block content %}
 
 <aside class="about--hero --fixed">
     {% include "../includes/about/about.master.html" %}
@@ -17,6 +18,8 @@
 {% include "../includes/overlays/overlay.work.html" %}
 
 
-{% endblock %} {% block extrajs %}
-<!-- Template specific <script> tags should go here -->
+{% endblock %}
+
+{% block js %}
+<script src="/js/index.js"></script>
 {% endblock %}

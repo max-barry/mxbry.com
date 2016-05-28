@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import { getServices, renderServices } from './index.js';
 
 class Activity extends React.Component {
@@ -21,7 +21,7 @@ class Activity extends React.Component {
 }
 
 
-export class Activities extends React.Component {
+class Activities extends React.Component {
 
     constructor (props) {
         super(props);
@@ -34,14 +34,12 @@ export class Activities extends React.Component {
     componentDidMount () {
         getServices().then((activities) => {
 
-            var _activitiesList = $('.activities__list')[0];
-
             this.setState({
                 items: activities
             });
 
             this.ActivitiesWaypoint = new Waypoint({
-                element: ReactDom.findDOMNode(this),
+                element: ReactDOM.findDOMNode(this),
                 handler: () => {
                     this.setState({
                         reveal: 'active'
@@ -62,4 +60,9 @@ export class Activities extends React.Component {
             </ul>
         );
     }
+}
+
+export function initActivities() {
+    // Mount activity component
+    ReactDOM.render(<Activities />, mx._activity[0]);
 }
