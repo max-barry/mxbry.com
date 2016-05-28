@@ -10,6 +10,12 @@ Default work styles
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    cursor: pointer;
+    &.--blank {
+        > * {
+            opacity: 0;
+        }
+    }
 }
 
 .work__feature {
@@ -21,9 +27,9 @@ Default work styles
     }
 }
 
-.work__profile[data-expand] {
-    cursor: pointer;
-}
+// .work__profile[data-expand] {
+//     cursor: pointer;
+// }
 
 .work__title {
     color: $color-neutral;
@@ -120,53 +126,74 @@ Default work styles
         margin-bottom: 0;
     }
     .work__tech {
-        width: $icon-small;
-        height: $icon-small;
+        @include icon-size(nth(nth($icon-sizes, 2), 2));
         box-shadow: none;
     }
 }
 
 // Overlay
-// .overlay {
-//     z-index: 99;
-//     background-color: red;
-//     top: 0;
-//     bottom: 0;
-//     right: 0;
-//     left: 0;
-//     opacity: 0;
-//     pointer-events: none;
-//     &.--reveal {
-//         opacity: 1;
-//         transition: opacity 300ms;
-//     }
-// }
+$transition-overlay: 350ms;
 
-.work__profile {
-    overflow: hidden;
-    &:before {
-        content: "";
+.overlay {
+    z-index: 99;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    transform: scale(0.9);
+    padding: $work-padding 0;
+    .overlay__close {
+        font-family: $heavy-font-family;
+        font-size: 26px;
+        text-transform: lowercase;
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: $color-soft-black;
-        transform: scaleY(0);
-        transform-origin: top;
+        top: $work-padding;
+        right: $work-padding;
+        color: $color-neutral-breaker;
+        transition: color 80ms;
+        cursor: pointer;
+        &:hover {
+            color: $color-soft-black;
+        }
     }
-}
-
-.--reveal {
-    &:before {
-        transition: transform 400ms $ease-out-quint;
-        transform: none;
+    .work-overlay__title {
+        text-align: center;
     }
-    i {
-        display: none;
-    }
-    .work__subline, .work__feature_list, .work__tech_list {
-        transition: opacity 150ms;
+    .work-overlay__title, .work-overlay__body {
+        max-width: 580px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: $magic*0.5;
+        padding-right: $magic*0.5;
+        transform: translateY(-70px);
         opacity: 0;
     }
+
+    &.--active {
+        pointer-events: initial;
+        height: auto;
+        width: auto;
+        opacity: 1;
+        transform: none;
+        transition: transform 350ms $ease-out-quint, opacity 150ms;
+
+        .work-overlay__title, .work-overlay__body {
+            transform: none;
+            opacity: 1;
+            transition: transform 350ms ease-out, opacity 150ms;
+        }
+
+        .work-overlay__title {
+            transition-delay: $transition-overlay;
+        }
+        .work-overlay__body {
+            transition-delay: $transition-overlay + 80ms;
+        }
+    }
+
 }

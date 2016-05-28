@@ -6,11 +6,6 @@ Vendor
 @import "scut";
 
 /**
-Functions
-*/
-@import "math";
-
-/**
 Settings & variables
 */
 @import "settings";
@@ -20,9 +15,9 @@ Settings & variables
 @import "mixins";
 @import "forms_buttons";
 @import "icons";
+@import "junk";
 
 // Components
-@import "component/media";
 @import "component/splash";
 @import "component/navigation";
 @import "component/activities";

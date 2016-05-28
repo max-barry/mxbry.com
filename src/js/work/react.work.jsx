@@ -11,6 +11,7 @@ import _compact from 'lodash/compact';
 import { workParralax } from './work.parralax.js';
 import { WorkTechs, WorkFeatures } from './react.work.parts.jsx';
 import { ID } from '../_utilities.js';
+import { populateOverlayWork, toggleOverlay } from '../overlay.js';
 
 
 const buildCollection = function(arr, type) {
@@ -53,18 +54,37 @@ const getWork = function(cb) {
 
 class WorkProfile extends React.Component {
 
-    componentDidMount() {
+    constructor(props) {
+        super(props);
 
+        // Bind the overlay reveal
+        this.revealOverlay = () => this._revealOverlay();
+    }
+
+    componentDidMount() {
         if (this.props.data.size === 'large') {
             let el = $(ReactDom.findDOMNode(this));
             workParralax(el);
         }
     }
 
+    _isExternal() {
+        // TODO : Handle external links
+        return false;
+    }
+
+    _revealOverlay() {
+        if ( this._isExternal(this.props.data.slug) ) {
+            window.location = this.props.data.slug;
+        } else {
+            populateOverlayWork(this.props.data);
+            toggleOverlay();
+        }
+    }
+
     render() {
 
         let thisWork = this.props.data;
-
 
         let styles = {};
         if (thisWork.size === 'large') {
@@ -87,7 +107,7 @@ class WorkProfile extends React.Component {
         thisWork.techTemplate = thisWork.tech ? <WorkTechs data={thisWork.tech} /> : null;
 
         return (
-            <section className={`work__profile --${thisWork.size} --${thisWork.direction} --${thisWork.invertClass} clearfix`} style={styles} data-expand>
+            <section data-history-goto={`/work/${thisWork.slug}`} onClick={this.revealOverlay} className={`work__profile --${thisWork.size} --${thisWork.direction} --${thisWork.invertClass} clearfix`} style={styles}>
                 <div className="work__title">
                     <h2 className="work__headline">{thisWork.title}&nbsp;<i></i></h2>
                     <h3 className="work__subline">{thisWork.deck}</h3>

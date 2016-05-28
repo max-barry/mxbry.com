@@ -1,5 +1,13 @@
-.navigation {
-    position: fixed;
+.navigation__content {
+    max-width: 450px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 90px;
+}
+
+
+// Homescreen splash specific settings
+.navigation--hero {
     width: 66vw;
     top: 0;
     bottom: 0;
@@ -8,13 +16,6 @@
     padding: 2*$em-base;
     transition: transform $navigation__duration*0.5 $navigation__ease;
     overflow: auto;
-}
-
-.navigation__content {
-    max-width: 450px;
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 90px;
 }
 
 .splash {
@@ -26,7 +27,7 @@
     transform: translateX(-66%);
 }
 
-.visible__splash_navigation .navigation {
+.visible__splash_navigation .navigation--hero {
     transform: none;
     transition: transform $navigation__duration $navigation__ease;
     transition-delay: 80ms;

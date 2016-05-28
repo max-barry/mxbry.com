@@ -1,7 +1,4 @@
-$icon-xsmall: 32px;
-$icon-small: 64px;
-$icon-medium: 96px;
-$icon-large: 128px;
+$icon-sizes: ('xsmall', 32px), ('small', 64px), ('medium', 96px), ('large', 128px);
 
 $icons: (
     'analytics',
@@ -25,14 +22,24 @@ $icons: (
     'react',
 );
 
+@mixin icon-size($dim) {
+    height: $dim;
+    width: $dim;
+    margin-right: $dim*0.25;
+    margin-bottom: $dim*0.25;
+}
+
+@mixin icon-size-class($size) {
+    $d: nth($size, 2);
+
+    &.--#{nth($size, 1)} {
+        @include icon-size($d);
+    }
+}
+
 .icon {
-    // display: inline-block;
-    height: $icon-xsmall;
-    width: $icon-xsmall;
     border-radius: 50%;
     position: relative;
-    margin-right: $icon-xsmall;
-    margin-bottom: $icon-xsmall;
     &:before {
         content: "";
         position: absolute;
@@ -49,16 +56,7 @@ $icons: (
             background-image: url('/img/icons/icons_#{$ic}.svg')
         }
     }
-    &.--small {
-        height: $icon-small;
-        width: $icon-small;
-    }
-    &.--medium {
-        height: $icon-medium;
-        width: $icon-medium;
-    }
-    &.--large {
-        height: $icon-large;
-        width: $icon-large;
+    @each $size in $icon-sizes {
+        @include icon-size-class($size);
     }
 }

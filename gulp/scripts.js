@@ -30,7 +30,8 @@ gulp.task('modernizr', function() {
     return gulp.src(path.join(pkg.src.scss, '**/*.scss'))
         .pipe(modernizr({
             tests: [
-                'backgroundcliptext'
+                'backgroundcliptext',
+                'history'
             ]
         }))
         .pipe(uglify())
