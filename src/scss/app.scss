@@ -39,19 +39,3 @@ main {
     position: relative;
     overflow: hidden;
 }
-
-.clearfix:after {
-    content:"";
-    display:block;
-    clear:both;
-}
-.--lock {
-    overflow: hidden;
-}
-.--bg-clip {
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-}
-.--fixed {
-    position: fixed;
-}

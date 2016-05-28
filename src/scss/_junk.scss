@@ -14,3 +14,19 @@
 .bd p {
     margin-bottom: 0;
 }
+
+.clearfix:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+.--lock {
+    overflow: hidden;
+}
+.--bg-clip {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.--fixed {
+    position: fixed;
+}

@@ -1,3 +1,13 @@
+$input-height: 48px;
+
+@mixin input-state($col) {
+    color: $color-valid;
+    border-color: $color-valid;
+    & + label {
+        color: $color-valid;
+    }
+}
+
 .form__field {
     position: relative;
     line-height: 1;
@@ -6,69 +16,66 @@
     }
 }
 
+.form__field input, button {
+    min-height: $input-height;
+}
+
 .form__field input:not([type="submit"]) {
+    background-color: transparent;
     font-family: $base-font-family;
     font-size: $em-base;
     font-weight: bold;
-    background-color: transparent;
-    outline: 0;
-    border: 0;
-    width: 100%;
-    height: $input-height;
     padding: 10px 0 1px 0;
     border-bottom: 1px solid $color-neutral-breaker;
-    transition: color 0.1s;
+    width: 100%;
+    transition: color 100ms;
+    @include inputReset
 }
+
+
+button, input[type="submit"] {
+    background-color: $color-secondary;
+    color: white;
+    text-transform: uppercase;
+    font-family: $heavy-font-family;
+    padding: $magic*0.5;
+    cursor: pointer;
+    min-width: 160px;
+    @include inputReset;
+}
+
 
 .form__field label {
     font-size: $em-base;
     position: absolute;
     pointer-events: none;
     top: 16px;
-    transition:0.2s ease all;
+    transition:200ms ease all;
     color: $color-neutral-breaker;
     &:after {
-        content: " ~ " attr(data-validation);
+        content: attr(data-validation);
         opacity: 0;
-        transition: opacity 0.2s;
+        transition: opacity 200ms;
     }
 }
 
 
-.form__field input:focus + label,
-.form__field input:valid + label,
-.form__field input.hasValue + label {
-    top: -5px;
-    font-size: 15px;
-}
-
-.form__field input.hasValue:not(:focus):not(:valid) {
-    color: $color-error;
-    border-color: $color-error;
-    & + label {
-        color: $color-error;
-        &:after {
-            opacity: 1;
+.form__field {
+    input:focus, input:valid, input.hasValue {
+        & + label {
+            top: -5px;
+            font-size: 15px;
         }
     }
 }
-.form__field input.hasValue:not(:focus):valid {
-    color: $color-valid;
-    border-color: $color-valid;
-    & + label {
-        color: $color-valid;
+
+// Valid and invalid states
+.form__field input.hasValue:not(:focus):not(:valid) {
+    @include input-state($color-error);
+    & + label:after {
+        opacity: 1;
     }
 }
-
-button, input[type="submit"] {
-    font-family: $heavy-font-family;
-    text-transform: uppercase;
-    color: white;
-    background-color: $color-secondary;
-    cursor: pointer;
-    border: 0;
-    outline: 0;
-    padding: 16px 16px;
-    min-width: 160px;
-    min-height: $input-height;
+.form__field input.hasValue:not(:focus):valid {
+    @include input-state($color-valid);
 }

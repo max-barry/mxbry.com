@@ -38,3 +38,9 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+
+@mixin inputReset {
+    border: 0;
+    outline: 0;
+}

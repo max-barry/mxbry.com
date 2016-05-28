@@ -76,15 +76,12 @@ Default work styles
 .work__card-profiles {
 
     display: flex;
-    // justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     align-items: flex-start;
     min-height: 100vh;
 
-    padding: $work-padding*0.5;
-
-    .work__profile, .work__title {
+    .work__profile, .work__title, & {
         padding: $work-padding*0.5;
     }
 
