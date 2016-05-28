@@ -12,7 +12,7 @@ $about__ease: $ease-out-cubic;
 // Homescreen splash specific settings
 .about--hero {
     width: 66vw;
-    height: 100%:
+    height: 100%;
     right: 0;
     transform: translateX(100%);
     padding: $magic*2;
@@ -23,8 +23,11 @@ $about__ease: $ease-out-cubic;
     transition: transform $about__duration*0.5 $about__ease;
 }
 
+.visible__splash_about .splash {
+    transform: translateX(-66%);
+}
+
 .visible__splash_about .about--hero {
     transform: none;
-    transition: transform $about__duration $about__ease;
     transition-delay: 80ms;
 }

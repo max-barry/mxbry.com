@@ -2,16 +2,27 @@ $splash__transition: 300ms;
 $splash__fast_transition: 150ms;
 $splash__transition_op: $splash__transition*0.5;
 
+@mixin splash__header-border($pos, $trans, $orig) {
+    #{$pos}: -25%;
+    transform: translateY(#{$trans});
+    transform-origin: $orig;
+};
+
+@mixin splash__first-letter($n, $col) {
+    &:nth-child(#{$n}) {
+        &:hover, &.splash__active, .splash.--header & {
+            .splash__letter {
+                color: $col;
+            }
+        }
+    }
+}
+
 /**
 General style
 */
 .splash {
-    position: relative;
     height: 100vh;
-    width: 100%;
-    &.--double {
-        height: 200vh;
-    }
 }
 
 .splash__third {
@@ -24,33 +35,34 @@ General style
         display: block;
     }
 
-    // TODO : Clean this up
-    &:nth-child(1) .splash__letter,
-    &:nth-child(1):hover .splash__letter,
-    &:nth-child(1).splash__active .splash__letter {
-        color: $color-primary;
-    }
-    &:nth-child(2) .splash__letter,
-    &:nth-child(2):hover .splash__letter,
-    &:nth-child(2).splash__active .splash__letter,
-    &.--center .splash__letter,
-    &.--center:hover .splash__letter {
-        color: $color-secondary;
-    }
-    &:nth-child(3) .splash__letter,
-    &:nth-child(3):hover .splash__letter,
-    &:nth-child(3).splash__active .splash__letter {
-        color: $color-neutral-breaker;
-    }
+    @include splash__first-letter(1, $color-primary);
+    @include splash__first-letter(2, $color-secondary);
+    @include splash__first-letter(3, $color-neutral-breaker);
 }
 
 .splash__title {
     font-size: 3vw;
     line-height: 1.1;
-    width: 60%;
+    min-width: 60%;
     @include scut-center-transform;
+    span {
+        overflow: hidden;
+        display: inline-block;
+    }
+    [data-copy]:after {
+        content: attr(data-copy);
+        display: block;
+    }
 }
 
+// All of the overflows and individual elements means we need to manually
+// tune the type spacing slightly
+.splash__letter ~ span {
+    position: relative;
+    left: -1.15vw;
+}
+
+// Tag after a headline, e.g. 'about me' under xoxo on Splash
 .splash__title[data-after]:after {
     content: attr(data-after);
     color: $color-neutral-breaker;
@@ -62,22 +74,6 @@ General style
     opacity: 0;
     text-transform: lowercase;
 }
-
-.splash__title span {
-    overflow: hidden;
-    display: inline-block;
-}
-
-.splash__title [data-copy]:after {
-    content: attr(data-copy);
-    display: block;
-}
-
-.splash__letter ~ span {
-    position: relative;
-    left: -1.15vw;
-}
-
 
 
 /**
@@ -93,13 +89,11 @@ Hero styles
 
     .splash__letter {
         padding: 0 0.12vw;
+        color: $color-soft-black;
         transform: scale(6);
         transform-origin: -20% 60%;
         transition: transform $splash__transition;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        color: $color-soft-black;
+        @include bgReset;
     }
 
     .splash__title [data-copy]:after {
@@ -128,7 +122,7 @@ Hero styles
             transform: none;
         }
 
-        &:not(:last-child) .splash__title [data-copy]:last-child:after {
+        .splash__title [data-copy]:last-child:after {
             transition-delay: $splash__transition*1.5;
         }
 
@@ -144,19 +138,12 @@ Hero styles
 /**
 Header styles
 */
-@mixin splash__header-border($pos, $trans, $orig) {
-
-    #{$pos}: -25%;
-    transform: translateY(#{$trans});
-    transform-origin: $orig;
-
-};
 
 .splash.--header .splash__title {
     &:after, &:before {
         content: "";
         background-color: $color-soft-black;
-        display: block;
+        // display: block;
         position: absolute;
         left: 0;
         right: 0;
@@ -170,7 +157,7 @@ Header styles
     &:before {
         @include splash__header-border(top, 200%, bottom);
     }
-    &.splash__border {
+    &.active {
         &:after, &:before {
             opacity: 1;
             transform: none;

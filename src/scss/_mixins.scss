@@ -31,3 +31,10 @@
         pointer-events: none;
     }
 }
+
+
+@mixin bgReset{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

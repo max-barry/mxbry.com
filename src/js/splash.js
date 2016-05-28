@@ -71,7 +71,7 @@ export function initGifFlip() {
 Handle scrolls for Splash
 */
 const revealHeader = function(direction) {
-    this.element.classList.add('splash__border');
+    this.element.classList.add('active');
     this.destroy();
 };
 

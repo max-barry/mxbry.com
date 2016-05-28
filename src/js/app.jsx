@@ -17,8 +17,7 @@ window.mx = {};
 // Application imports
 import initForms from './forms.js';
 import { initXO, initScroll, initGifFlip } from './splash.js';
-import { getServices, renderServices } from './services/index.js';
-import { Activities } from './services/react.activity.jsx';
+import { Activities } from './activities/react.activity.jsx';
 import { Work } from './work/react.work.jsx';
 import { initOverlay } from './overlay.js';
 import { initHistory } from './history.js';
