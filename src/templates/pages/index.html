@@ -1,6 +1,6 @@
 {% extends "../layouts/base.html" %} {% block content %}
 
-<aside class="navigation--hero --fixed">
+<aside class="about--hero --fixed">
     {% include "../includes/about/about.master.html" %}
 </aside>
 
@@ -14,12 +14,7 @@
 
 {% include "../includes/work/work.master.html" %}
 
-
-<article id="work-overlay" class="overlay --fixed">
-    <h2 class="work-overlay__title"></h2>
-    <section class="work-overlay__body"></section>
-    <span class="overlay__close" data-history-backwards>Close</span>
-</article>
+{% include "../includes/overlays/overlay.work.html" %}
 
 
 {% endblock %} {% block extrajs %}

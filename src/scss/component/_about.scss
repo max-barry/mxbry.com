@@ -1,0 +1,37 @@
+$about__duration: 1300ms;
+$about__ease: $ease-out-cubic;
+
+.about__content {
+    max-width: 450px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 90px;
+}
+
+
+// Homescreen splash specific settings
+.about--hero {
+    width: 66vw;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform: translateX(100%);
+    padding: 2*$em-base;
+    transition: transform $about__duration*0.5 $about__ease;
+    overflow: auto;
+}
+
+.splash {
+    transition: transform $about__duration*0.5 $about__ease;
+}
+
+.visible__splash_about .splash.--hero {
+    transition: transform $about__duration $about__ease;
+    transform: translateX(-66%);
+}
+
+.visible__splash_about .about--hero {
+    transform: none;
+    transition: transform $about__duration $about__ease;
+    transition-delay: 80ms;
+}
