@@ -23,7 +23,7 @@ gulp.task('styles', function() {
             browsers: ['last 3 version']
         }),
         require('pixrem')(),
-        require('cssnano')()
+        require('cssnano')({ discardUnused: { fontFace: false } })
     ];
 
     var includePaths = [

@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 requireDir('./gulp/', { recurse: true });
 
 // Basic task and alias
-gulp.task('default', gulp.parallel('scripts', 'styles', 'fonts', 'images', 'templates'));
+gulp.task('default', gulp.parallel('scripts', 'modernizr', 'styles', 'fonts', 'images', 'templates'));
 
 // Clean task
 gulp.task('clean', function(done){
