@@ -8,7 +8,7 @@ class Activity extends React.Component {
 
         return (
             <li className="activities__item media">
-                <a target="_blank" href={ this.props.data.url } className={`img icon --i-${ this.props.data.source } --medium`}></a>
+                <a target="_blank" href={ this.props.data.url } className={`img icon i-${ this.props.data.source } i-size--medium`}></a>
                 <div className="bd">
                     <p>
                         <a target="_blank" href={ this.props.data.url }>{ this.props.data.title }</a>

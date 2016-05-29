@@ -20,13 +20,13 @@
     display:block;
     clear:both;
 }
-.--lock {
+.lock {
     overflow: hidden;
 }
-.--bg-clip {
+.bg-clip {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
-.--fixed {
+.fixed {
     position: fixed;
 }

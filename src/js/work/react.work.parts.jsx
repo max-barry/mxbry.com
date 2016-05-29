@@ -6,7 +6,7 @@ export class WorkTechs extends React.Component {
         return (
             <ul className="work__tech_list clearfix">
                 { this.props.data.map((tech) => {
-                    return ( <li key={ ID() } className={`work__tech icon --medium --i-${tech}`}></li> );
+                    return ( <li key={ ID() } className={`work__tech icon i-size--medium i-${tech}`}></li> );
                 })}
             </ul>
         );

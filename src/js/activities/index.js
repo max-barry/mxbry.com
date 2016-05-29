@@ -1,6 +1,8 @@
 // Import libraries
 import async from 'async';
 import _ from 'lodash';
+import promise from 'es6-promise';
+var Promise = promise.Promise;
 
 // Import services
 import github from './github.js';

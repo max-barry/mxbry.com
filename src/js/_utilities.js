@@ -1,4 +1,5 @@
-const rImg = new RegExp(/url(?:\(['"]?)(.*?)(?:['"]?\))|src\s*=\s*(["'][^"']+["']|[^>]+)/, 'g');
+const rImg = new RegExp(/url(?:\(['"]?)(.*?)(?:['"]?\))|src\s*=\s*(["'][^"']+["']|[^>]+)/g);
+// const rImg = "";
 
 export function randomNumber(max, min) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -25,11 +26,12 @@ export function getGifUrl(gif) {
 }
 
 export function detectDevice() {
-    var device = window.getComputedStyle(document.querySelector('html'), ':before').getPropertyValue('content').replace(/\"/g, '');
+    var device = window.getComputedStyle(document.querySelector('html'), ':before').getPropertyValue('content').replace(new RegExp(/\"/g), '');
 
     mx.device = {
         isMobile: device === 'mobile',
         isTablet: device === 'tablet',
         isDesktop: device === 'desktop'
     };
+
 }

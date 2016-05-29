@@ -26,7 +26,7 @@ $overlay-transition: 350ms;
             color: $color-soft-black;
         }
     }
-    &.--active {
+    &.active {
         pointer-events: initial;
         height: auto;
         width: auto;
@@ -50,7 +50,7 @@ $overlay-transition: 350ms;
         transform: translateY(-70px);
         opacity: 0;
     }
-    &.--active {
+    &.active {
         .work-overlay__title, .work-overlay__body {
             transform: none;
             opacity: 1;

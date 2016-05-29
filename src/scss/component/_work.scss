@@ -1,7 +1,7 @@
 $work-padding: 48px;
 
 @mixin work__title-position($pos) {
-    &.--#{$pos} .work__title {
+    &.work__profile--#{$pos} .work__title {
         #{$pos}: $work-padding;
     }
 }
@@ -14,7 +14,7 @@ Default work styles
     position: relative;
     cursor: pointer;
     @include bgReset;
-    &.--blank {
+    &.blank {
         > * {
             opacity: 0;
         }
@@ -31,10 +31,10 @@ Default work styles
 .work__title {
     color: $color-neutral;
     max-width: 50%;
-    .work__profile.--invertText & {
+    .work__profile.invertText & {
         color: $color-soft-black;
     }
-    .work__profile.--right & {
+    .work__profile.right & {
         float: right;
     }
 }
@@ -62,7 +62,7 @@ Default work styles
 
 
 // Large
-.work__profile.--large {
+.work__profile.work__profile--large {
     background-size: 105%;
     background-position: -25px -50px;
     min-height: 100vh;
@@ -121,9 +121,9 @@ Work
 @media #{$small-all} {
     .work__profile,
     .work__title,
-    .work__profile.--card,
+    .work__profile.work__profile--card,
     .work__card-profiles,
-    .work__profile.--card .work__title {
+    .work__profile.work__profile--card .work__title {
         padding: 0;
         max-width: none;
         overflow: auto;
@@ -133,7 +133,7 @@ Work
         padding-right: $magic*0.5;
         margin-bottom: 0.5*$magic;
         overflow: hidden;
-        &.--large {
+        &.work__profile--large {
             background-size: cover;
             background-position: center;
             min-height: 0;
@@ -142,7 +142,7 @@ Work
                 position: static;
             }
         }
-        &.--card {
+        &.work__profile--card {
             flex-basis: 100%;
             .work__title {
                 padding: 0.5*$magic;

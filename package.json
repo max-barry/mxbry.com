@@ -90,6 +90,7 @@
   "dependencies": {
     "async": "^2.0.0-rc.5",
     "detect-dom-ready": "^1.0.2",
+    "es6-promise": "^3.2.1",
     "firebase": "^3.0.3",
     "jquery": "^2.2.4",
     "lodash": "^4.13.1",

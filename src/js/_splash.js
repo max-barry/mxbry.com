@@ -11,7 +11,7 @@ import SweetScroll from 'sweet-scroll';
 Handle clicks on the XOXO splash column
 */
 const splashXO = function() {
-    mx._body.toggleClass('--lock');
+    mx._body.toggleClass('lock');
     mx._main.toggleClass('visible__splash_about');
     $(this).toggleClass('splash__active');
 };
@@ -29,18 +29,16 @@ export function initGifFlip() {
 
         let thirds = $('.splash__third');
         const AGL = AVAILABLE_GIFS.length;
-        const clsGif = '--bg-clip';
+        const clsGif = 'bg-clip';
 
         const update = (imgSrc = null) => {
-            // if (!mx._html.hasClass('scrolling__preactive')) {
-                $(`.splash__third .${clsGif}`)
-                    .removeClass(clsGif)
-                    .css('background-image', '');
+            $(`.splash__third .${clsGif}`)
+                .removeClass(clsGif)
+                .css('background-image', '');
 
-                thirds.eq(randomNumber(0, 3)).find('.splash__letter')
-                    .addClass(clsGif)
-                    .css('background-image', `url('${ getGifUrl(imgSrc || AVAILABLE_GIFS[randomNumber(0, AGL)]) }`);
-            // }
+            thirds.eq(randomNumber(0, 3)).find('.splash__letter')
+                .addClass(clsGif)
+                .css('background-image', `url('${ getGifUrl(imgSrc || AVAILABLE_GIFS[randomNumber(0, AGL)]) }`);
         };
 
         let firstImage = AVAILABLE_GIFS[randomNumber(0, AGL)];
@@ -74,7 +72,7 @@ const revealHeader = function(direction) {
 
 export function initScroll() {
 
-    let headers = $('.--header .splash__title');
+    let headers = $('.splash--header .splash__title');
 
     headers.each((idx, el) => {
         new Waypoint({

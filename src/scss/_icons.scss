@@ -32,7 +32,7 @@ $icons: (
 @mixin icon-size-class($size) {
     $d: nth($size, 2);
 
-    &.--#{nth($size, 1)} {
+    &.i-size--#{nth($size, 1)} {
         @include icon-size($d);
     }
 }
@@ -52,7 +52,7 @@ $icons: (
         background-position: center;
     }
     @each $ic in $icons {
-        &.--i-#{$ic}:before {
+        &.i-#{$ic}:before {
             background-image: url('/img/icons/icons_#{$ic}.svg')
         }
     }

@@ -10,7 +10,7 @@ $splash__transition_op: $splash__transition*0.5;
 
 @mixin splash__first-letter($n, $col) {
     &:nth-child(#{$n}) {
-        &:hover, &.splash__active, .splash.--header & {
+        &:hover, &.splash__active, .splash.splash--header & {
             .splash__letter {
                 color: $col;
             }
@@ -31,7 +31,7 @@ General style
     height: 100%;
     display: inline-block;
     position: relative;
-    &.--center {
+    &.splash--center {
         margin: 0 auto;
         display: block;
     }
@@ -85,7 +85,7 @@ General style
 /**
 Hero styles
 */
-.splash.--hero {
+.splash.splash--hero {
 
     @include scrollNudge;
 
@@ -114,7 +114,7 @@ Hero styles
         .splash__letter {
             transform: none;
             transition: transform $splash__transition, color $splash__fast_transition $splash__transition;
-            &.--bg-clip {
+            &.bg-clip {
                 background-image: none !important;
                 -webkit-text-fill-color: initial;
                 -webkit-background-clip: initial;
@@ -145,7 +145,7 @@ Hero styles
 Header styles
 */
 
-.splash.--header .splash__title {
+.splash.splash--header .splash__title {
     &:after, &:before {
         content: "";
         background-color: $color-soft-black;
@@ -175,7 +175,7 @@ Header styles
 Mobile styles
 */
 @media #{$small-all} {
-    .splash.--hero {
+    .splash.splash--hero {
 
         &:after {
             font-size: 54px;
@@ -198,7 +198,7 @@ Mobile styles
             }
         }
     }
-    .splash.--header {
+    .splash.splash--header {
         padding-left: $magic*0.5;
         padding-right: $magic*0.5;
         .splash__third, .splash__title {

@@ -19,8 +19,8 @@ export const populateAboutOverlay = function(data) {
 
 export const toggleOverlay = function() {
 
-    mx._body.toggleClass('--lock');
-    mx._overlay.toggleClass('--active');
+    mx._body.toggleClass('lock');
+    mx._overlay.toggleClass('active');
 
 };
 

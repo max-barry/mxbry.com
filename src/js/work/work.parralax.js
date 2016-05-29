@@ -16,7 +16,7 @@ export function workParralax() {
         let width = STRENGTH / wWidth;
         let height = STRENGTH / wHeight;
 
-        $('.work__profile.--large').mousemove((e) => {
+        $('.work__profile.work__profile--large').mousemove((e) => {
             // console.log(e);
             calculateBgPosition(width, height, wWidth, wHeight, e.pageX, e.pageY, $(e.currentTarget));
         });
