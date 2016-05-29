@@ -6,8 +6,8 @@ var gulp = require('gulp'),
 var bump = require('gulp-bump');
 
 // Version bump variables
-var src = ['../package.json', '../bower.json'];
-var dest = '../';
+var src = ['./package.json', './bower.json'];
+var dest = './';
 
 // Version bump tasks
 gulp.task('bump', function() {

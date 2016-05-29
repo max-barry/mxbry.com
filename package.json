@@ -2,7 +2,7 @@
   "name": "portfolio_2016",
   "title": "portfolio_2016",
   "description": "",
-  "version": "0.0.1gi",
+  "version": "0.0.2",
   "keywords": [],
   "scripts": {
     "postinstall": "bower install && gulp --env production"
