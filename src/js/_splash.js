@@ -5,8 +5,7 @@ import {
 } from './_utilities.js';
 import _remove from 'lodash/remove';
 import _sample from 'lodash/sample';
-// import StickyFill from 'stickyfill';
-// import scrollMonitor from 'scrollMonitor';
+import SweetScroll from 'sweet-scroll';
 
 /**
 Handle clicks on the XOXO splash column
@@ -20,8 +19,6 @@ const splashXO = function() {
 export function initXO() {
     mx._body.on('click', '.splash__third[data-show-menu]', splashXO);
 }
-
-// TODO : http://tsuyoshiwada.github.io/sweet-scroll/
 
 /**
 Set one of the hero letters off on a GIF flip
@@ -88,3 +85,15 @@ export function initScroll() {
     });
 
 };
+
+
+/**
+Jumps from clicking the Splash area
+*/
+
+export function initSplashJump() {
+
+    const sweetScroll = new SweetScroll({
+        offset: -150,
+    });
+}

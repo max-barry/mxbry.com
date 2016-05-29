@@ -94,12 +94,15 @@
     "fixed-sticky": "^0.1.7",
     "gulp-filter": "^4.0.0",
     "jquery": "^2.2.4",
+    "jump.js": "^0.4.0",
     "lodash": "^4.13.1",
     "moment": "^2.13.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "scrollmonitor": "^1.0.12",
+    "smooth-scroll": "github:cferdinandi/smooth-scroll",
     "stickyfill": "^1.1.1",
+    "sweet-scroll": "^1.0.0",
     "waypoints": "^4.0.0"
   }
 }
