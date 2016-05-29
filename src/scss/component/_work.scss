@@ -13,6 +13,8 @@ Default work styles
     padding: $work-padding;
     position: relative;
     cursor: pointer;
+    background-size: cover;
+    background-position: center;
     @include bgReset;
     &.blank {
         > * {
@@ -118,7 +120,7 @@ Default work styles
 /**
 Work
 */
-@media #{$small-all} {
+@media #{$medium-down} {
     .work__profile,
     .work__title,
     .work__profile.work__profile--card,
@@ -133,14 +135,22 @@ Work
         padding-right: $magic*0.5;
         margin-bottom: 0.5*$magic;
         overflow: hidden;
+        min-height: 0;
+        position: relative;
+        background-size: cover !important;
+        background-position: center !important;
+        &[data-hide-bg-mobile="true"] {
+            background-image: none !important;
+        }
         &.work__profile--large {
-            background-size: cover;
-            background-position: center;
             min-height: 0;
             position: relative;
             .work__title {
                 position: static;
             }
+        }
+        .work__title {
+            position: static;
         }
         &.work__profile--card {
             flex-basis: 100%;

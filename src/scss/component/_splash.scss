@@ -213,3 +213,13 @@ Mobile styles
         }
     }
 }
+
+@media #{$medium-only} {
+    .splash.splash--header .splash__title {
+        font-size: 6vw;
+        max-width: 50%;
+    }
+    .splash.splash--header .splash__letter ~ span {
+        left: -2.6vw;
+    }
+}

@@ -87,13 +87,15 @@ class WorkProfile extends React.Component {
         let thisWork = this.props.data;
 
         let styles = {};
-        if (thisWork.size === 'large') {
+        if (thisWork.image) {
             styles.backgroundImage = `url('${thisWork.image}')`;
         }
 
         if (thisWork.bgColor) {
             styles.backgroundColor = thisWork.bgColor;
-            styles.color = thisWork.color;
+        }
+        if (thisWork.size) {
+            styles.backgroundSize = thisWork.backgroundSize;
         }
 
 
@@ -107,7 +109,7 @@ class WorkProfile extends React.Component {
         thisWork.techTemplate = thisWork.tech ? <WorkTechs data={thisWork.tech} /> : null;
 
         return (
-            <section onClick={this.revealOverlay} className={`work__profile work__profile--${thisWork.size} ${thisWork.direction} ${thisWork.invertClass} clearfix`} style={styles}>
+            <section onClick={this.revealOverlay} data-hide-bg-mobile={!!thisWork.hideBgMobile} className={`work__profile work__profile--${thisWork.size} ${thisWork.direction} ${thisWork.invertClass} clearfix`} style={styles}>
                 <div className="work__title">
                     <h2 className="work__headline">{thisWork.title}&nbsp;<i></i></h2>
                     <h3 className="work__subline">{thisWork.deck}</h3>
