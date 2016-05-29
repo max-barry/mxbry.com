@@ -11,6 +11,20 @@ $heavy-font-family: 'League Spartan', $base-font-family;
 // $base-font-family: 'PT Sans', $helvetica;
 // $heavy-font-family: 'Open Sans', $base-font-family;
 
+/**
+Colours
+*/
+$color-primary: #3DE0BB;
+$color-secondary: #f50057;
+$color-neutral: #F7F7F7;
+$color-neutral-breaker: #ABABAB;
+$color-grey: #929292;
+$color-link: #0089EA;
+$color-linkVisited: lighten($color-link, 30);
+$color-error: rgb(245, 62, 50);
+$color-valid: rgb(98, 191, 86);
+$color-soft-black: #202020;
+
 // -------------
 // Media Queries
 // -------------
@@ -25,19 +39,6 @@ $medium-range: ($small-break + 1, $medium-break);
 $large-range: ($medium-break + 1, $large-break);
 $xlarge-range: ($large-break + 1);
 
-/**
-Colours
-*/
-$color-primary: #3DE0BB;
-$color-secondary: #f50057;
-$color-neutral: #F7F7F7;
-$color-neutral-breaker: #ABABAB;
-$color-grey: #929292;
-$color-link: #0089EA;
-$color-linkVisited: lighten($color-link, 30);
-$color-error: rgb(245, 62, 50);
-$color-valid: rgb(98, 191, 86);
-$color-soft-black: #202020;
 
 /**
 @link https://github.com/zurb/bower-foundation/blob/master/scss/foundation/_settings.scss#L151

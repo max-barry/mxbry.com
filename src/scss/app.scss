@@ -30,7 +30,10 @@ Custom resets
 */
 html {
     box-sizing: border-box;
-    background-color: rgb(249, 249, 249);
+    background-color: $color-neutral;
+    @media #{$small-all} {
+        font-size: 14px;
+    }
 }
 
 *, *:before, *:after {

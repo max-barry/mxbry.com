@@ -11,3 +11,28 @@
 .activities {
     @include scrollReveal(".activities__item", ".active", 12);
 }
+
+/**
+Activity mobile styles
+*/
+@media #{$small-all} {
+    .activities {
+        max-width: none;
+        padding-left: $magic*0.5;
+        padding-right: $magic*0.5;
+    }
+    .activities__list {
+        max-width: none;
+        text-align: center;
+    }
+    .activities__item {
+        .img {
+            $size: nth($icon-sizes, 1);
+            $dim: nth($size, 2);
+            display: block;
+            float: none;
+            @include icon-size($dim);
+            margin: 0 auto $dim*0.5 auto;
+        }
+    }
+}

@@ -170,3 +170,46 @@ Header styles
         }
     }
 }
+
+/**
+Mobile styles
+*/
+@media #{$small-all} {
+    .splash.--hero {
+
+        &:after {
+            font-size: 54px;
+        }
+
+        .splash__third {
+            float: left;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .splash__title {
+            .splash__letter {
+                transform: none;
+                color: $color-soft-black;
+                font-size: 22vw;
+            }
+            span:not(.splash__letter) {
+                display: none;
+            }
+        }
+    }
+    .splash.--header {
+        padding-left: $magic*0.5;
+        padding-right: $magic*0.5;
+        .splash__third, .splash__title {
+            width: 100%;
+        }
+        .splash__title {
+            min-width: 0;
+            font-size: 12vw;
+        }
+        .splash__letter ~ span {
+            left: -4.5vw;
+        }
+    }
+}

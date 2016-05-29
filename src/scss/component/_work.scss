@@ -1,5 +1,11 @@
 $work-padding: 48px;
 
+@mixin work__title-position($pos) {
+    &.--#{$pos} .work__title {
+        #{$pos}: $work-padding;
+    }
+}
+
 /**
 Default work styles
 */
@@ -63,16 +69,11 @@ Default work styles
     .work__title {
         position: absolute;
     }
-    &.--right .work__title {
-        right: $work-padding;
-    }
-    &.--bottom .work__title {
-        bottom: $work-padding;
-    }
+    @include work__title-position(right);
+    @include work__title-position(bottom);
 }
 
 // Card
-
 .work__card-profiles {
 
     display: flex;
@@ -111,5 +112,50 @@ Default work styles
     .work__tech {
         box-shadow: none;
         @include icon-size(nth(nth($icon-sizes, 2), 2));
+    }
+}
+
+/**
+Work
+*/
+@media #{$small-all} {
+    .work__profile,
+    .work__title,
+    .work__profile.--card,
+    .work__card-profiles,
+    .work__profile.--card .work__title {
+        padding: 0;
+        max-width: none;
+        overflow: auto;
+    }
+    .work__profile {
+        padding-left: $magic*0.5;
+        padding-right: $magic*0.5;
+        margin-bottom: 0.5*$magic;
+        overflow: hidden;
+        &.--large {
+            background-size: cover;
+            background-position: center;
+            min-height: 0;
+            position: relative;
+            .work__title {
+                position: static;
+            }
+        }
+        &.--card {
+            flex-basis: 100%;
+            .work__title {
+                padding: 0.5*$magic;
+            }
+        }
+        .work__headline {
+            font-size: 200%;
+        }
+        .work__subline {
+            font-size: 100%;
+        }
+        .work__tech {
+            @include icon-size(nth(nth($icon-sizes, 2), 2));
+        }
     }
 }
