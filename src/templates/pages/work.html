@@ -1,0 +1,20 @@
+{% extends "../layouts/base.html" %}
+
+{% block content %}
+
+{% set work="active" %}
+{% include "../includes/header.html" %}
+{% set work="" %}
+
+{% include "../includes/splash/splash.header.made.html" %}
+{% include "../includes/work/work.master.html" %}
+{% include "../includes/overlays/overlay.work.html" %}
+{% include "../includes/overlays/overlay.about.html" %}
+
+{% endblock %}
+
+{% block js %}
+<script src="/js/work.js"></script>
+{% endblock %}
+
+<!-- TODO : Set up forward from portfolio to work -->

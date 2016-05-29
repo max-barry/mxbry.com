@@ -11,9 +11,7 @@ window.jQuery = jQuery;
 window.mx = {};
 
 // Application modules
-import initForms from './_forms.js';
 import { initOverlay } from './_overlay.js';
-import { initHistory } from './_history.js';
 
 export const initApplication = function() {
 
@@ -33,12 +31,6 @@ export const initApplication = function() {
         mx._work = $('#work');
         mx._overlay = $('.overlay');
         mx._window = $(window);
-
-        // Initialise form logic
-        initForms();
-
-        // History API
-        initHistory();
 
         // Init overlay
         initOverlay();

@@ -14,7 +14,7 @@ var inputChange = function() {
 };
 
 
-var init = function() {
+export function initForms() {
     $('input').on('input', inputChange);
 
     // Populate UTM values in form
@@ -22,5 +22,3 @@ var init = function() {
         $(`form input[data-utm="${utm}"]`).val(getQueryStringValue(utm));
     });
 };
-
-export default init;

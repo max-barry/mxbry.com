@@ -1,14 +1,18 @@
 {% extends "../layouts/base.html" %}
 
+
 {% block content %}
 
+{% set active="active" %}
 {% include "../includes/header.html" %}
+{% set active="" %}
 
 {% include "../includes/splash/splash.header.active.html" %}
 {% include "../includes/activities/activities.master.html" %}
+{% include "../includes/overlays/overlay.about.html" %}
 
 {% endblock %}
 
 {% block js %}
-<script src="/js/app.js"></script>
+<script src="/js/active.js"></script>
 {% endblock %}

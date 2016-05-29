@@ -33,7 +33,7 @@ Default work styles
     }
 }
 
-.work__profile[data-expand] .work__headline i:before {
+.work__profile .work__headline i:before {
     content:"\203A";
     display: inline-block;
     transform: translateX(100%);
@@ -41,7 +41,7 @@ Default work styles
     transition: 80ms opacity, transform 150ms ease-out;
 }
 
-.work__profile[data-expand]:hover .work__headline i:before {
+.work__profile:hover .work__headline i:before {
     opacity: 1;
     transform: none;
 }

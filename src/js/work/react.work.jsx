@@ -107,7 +107,7 @@ class WorkProfile extends React.Component {
         thisWork.techTemplate = thisWork.tech ? <WorkTechs data={thisWork.tech} /> : null;
 
         return (
-            <section data-history-goto={`/work/${thisWork.slug}`} onClick={this.revealOverlay} className={`work__profile --${thisWork.size} --${thisWork.direction} --${thisWork.invertClass} clearfix`} style={styles}>
+            <section onClick={this.revealOverlay} className={`work__profile --${thisWork.size} --${thisWork.direction} --${thisWork.invertClass} clearfix`} style={styles}>
                 <div className="work__title">
                     <h2 className="work__headline">{thisWork.title}&nbsp;<i></i></h2>
                     <h3 className="work__subline">{thisWork.deck}</h3>

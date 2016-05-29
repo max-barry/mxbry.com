@@ -1,10 +1,10 @@
 $input-height: 48px;
 
 @mixin input-state($col) {
-    color: $color-valid;
-    border-color: $color-valid;
+    color: $col;
+    border-color: $col;
     & + label {
-        color: $color-valid;
+        color: $col;
     }
 }
 
@@ -26,10 +26,10 @@ $input-height: 48px;
     font-size: $em-base;
     font-weight: bold;
     padding: 10px 0 1px 0;
-    border-bottom: 1px solid $color-neutral-breaker;
     width: 100%;
     transition: color 100ms;
     @include inputReset
+    border-bottom: 1px solid $color-neutral-breaker;
 }
 
 
@@ -50,10 +50,11 @@ button, input[type="submit"] {
     position: absolute;
     pointer-events: none;
     top: 16px;
+    left: 0;
     transition:200ms ease all;
     color: $color-neutral-breaker;
     &:after {
-        content: attr(data-validation);
+        content: " " attr(data-validation);
         opacity: 0;
         transition: opacity 200ms;
     }

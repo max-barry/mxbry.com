@@ -62,6 +62,8 @@ class Activities extends React.Component {
     }
 }
 
+// TODO : Add pagination to load more items
+
 export function initActivities() {
     // Mount activity component
     ReactDOM.render(<Activities />, mx._activity[0]);

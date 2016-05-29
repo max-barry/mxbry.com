@@ -16,6 +16,7 @@ $splash__transition_op: $splash__transition*0.5;
             }
         }
     }
+    @content;
 }
 
 /**
@@ -36,8 +37,13 @@ General style
     }
 
     @include splash__first-letter(1, $color-primary);
-    @include splash__first-letter(2, $color-secondary);
+    @include splash__first-letter(2, $color-secondary) {
+        #activity-heading & .splash__letter {
+            color: $color-secondary;
+        }
+    };
     @include splash__first-letter(3, $color-neutral-breaker);
+
 }
 
 .splash__title {

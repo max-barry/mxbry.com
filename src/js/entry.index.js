@@ -6,6 +6,7 @@ import { initApplication } from './app.jsx';
 import { initXO, initScroll, initGifFlip } from './_splash.js';
 import { initActivities } from './activities/react.activity.jsx';
 import { initWork } from './work/react.work.jsx';
+import { initAbout } from './about/react.about.jsx';
 
 DOMReady(() => {
 
@@ -15,6 +16,9 @@ DOMReady(() => {
     initXO();
     initScroll();
     initGifFlip();
+
+    // Mount about
+    initAbout($('.about--hero')[0]);
 
     // Mount activities
     initActivities();
