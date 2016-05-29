@@ -65,6 +65,11 @@ $overlay-transition: 350ms;
     }
 }
 
+// About overlay
+#about-overlay {
+    padding-left: $work-padding;
+}
+
 // Mobile styles
 @media #{$medium-down} {
     .overlay {

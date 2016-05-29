@@ -1,7 +1,7 @@
 $work-padding: 48px;
 
 @mixin work__title-position($pos) {
-    &.work__profile--#{$pos} .work__title {
+    &.#{$pos} .work__title {
         #{$pos}: $work-padding;
     }
 }

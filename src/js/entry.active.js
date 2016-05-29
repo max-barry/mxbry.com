@@ -18,6 +18,6 @@ DOMReady(() => {
     initActivities();
 
     // Mount about
-    initAbout(mx._overlay.filter('#about-overlay')[0]);
+    initAbout(document.getElementById('aboutOverlayMount'));
 
 });

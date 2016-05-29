@@ -14,11 +14,16 @@ import { ID } from '../_utilities.js';
 import { populateOverlayWork, toggleOverlay } from '../_overlay.js';
 
 
-const buildCollection = function(arr, type) {
-    return {
-        type: type,
-        contents: arr
-    };
+// const buildCollection = function(arr, type) {
+//     return {
+//         type: type,
+//         contents: arr
+//     };
+// };
+
+
+const domain = function(url) {
+    return url.replace('http://','').replace('https://','').split('/')[0];
 };
 
 
@@ -51,7 +56,6 @@ const getWork = function(cb) {
 };
 
 
-
 class WorkProfile extends React.Component {
 
     constructor(props) {
@@ -68,17 +72,17 @@ class WorkProfile extends React.Component {
         }
     }
 
-    _isExternal() {
-        // TODO : Handle external links
+    _isExternal(profile) {
+        // return domain(location.href) !== domain(profile.slug);
         return false;
     }
 
     _revealOverlay() {
-        if ( this._isExternal(this.props.data.slug) ) {
+        if ( this._isExternal(this.props.data) ) {
             window.location = this.props.data.slug;
-        } else {
+        } else if ( this.props.data.body ) {
             populateOverlayWork(this.props.data);
-            toggleOverlay();
+            toggleOverlay(this, '#work-overlay');
         }
     }
 
@@ -94,15 +98,15 @@ class WorkProfile extends React.Component {
         if (thisWork.bgColor) {
             styles.backgroundColor = thisWork.bgColor;
         }
-        if (thisWork.size) {
+        if (thisWork.backgroundSize) {
             styles.backgroundSize = thisWork.backgroundSize;
         }
 
 
         // TODO : User actual React Props to set the defaults
         // Setting defaults
-        thisWork.size = thisWork.size || 'auto'; // Size of component, options: large, auto
-        thisWork.direction = thisWork.direction || 'left';
+        thisWork.size = thisWork.size || 'auto'; // Size of component, options: large, auto, card
+        thisWork.direction = thisWork.direction || 'left'; // Location of title within the profile
         thisWork.invertClass = thisWork.invert || thisWork.size === 'card' ? 'invertText' : 'noInvertText';
 
         thisWork.featuresTemplate = thisWork.features ? <WorkFeatures data={thisWork.features} /> : null;
@@ -120,6 +124,7 @@ class WorkProfile extends React.Component {
         );
     }
 }
+
 
 class Work extends React.Component {
 
