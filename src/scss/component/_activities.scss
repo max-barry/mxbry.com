@@ -15,14 +15,18 @@
 /**
 Activity mobile styles
 */
-@media #{$small-all} {
-    .activities {
+@media #{$medium-down} {
+    .activities, .activities__list {
         max-width: none;
+    }
+    .activities {
         padding-left: $magic*0.5;
         padding-right: $magic*0.5;
     }
+}
+
+@media #{$small-all} {
     .activities__list {
-        max-width: none;
         text-align: center;
     }
     .activities__item {

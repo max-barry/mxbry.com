@@ -33,16 +33,18 @@ $about__ease: $ease-out-cubic;
     transition-delay: 80ms;
 }
 
-@media #{$small-all} {
+@media #{$medium-down} {
     .about--hero {
         transform: none;
         position: relative;
         width: auto;
         padding: $magic*0.5;
         .about__content {
-            margin-right: 0;
+            max-width: 640px;
+            margin: 0 auto;
+            display: block;
         }
-        img {
+        img.about__content {
             display: none;
         }
     }
