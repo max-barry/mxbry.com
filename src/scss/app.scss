@@ -44,3 +44,17 @@ main {
     position: relative;
     overflow: hidden;
 }
+
+html:before {
+    content: 'desktop';
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    position: absolute;
+    @media #{$medium-only} {
+        content: 'tablet';
+    }
+    @media #{$small-all} {
+        content: 'mobile';
+    }
+}

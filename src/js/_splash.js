@@ -25,7 +25,7 @@ Set one of the hero letters off on a GIF flip
 */
 
 export function initGifFlip() {
-    if (Modernizr.backgroundcliptext) {
+    if (mx.device.isDesktop && Modernizr.backgroundcliptext) {
 
         let thirds = $('.splash__third');
         const AGL = AVAILABLE_GIFS.length;

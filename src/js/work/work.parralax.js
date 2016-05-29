@@ -10,13 +10,15 @@ const calculateBgPosition = function(width, height, winWidth, winHeight, mouseX,
 
 export function workParralax() {
 
-    let wWidth = mx._window.width();
-    let wHeight = mx._window.height();
-    let width = STRENGTH / wWidth;
-    let height = STRENGTH / wHeight;
+    if ( mx.device.isDesktop ) {
+        let wWidth = mx._window.width();
+        let wHeight = mx._window.height();
+        let width = STRENGTH / wWidth;
+        let height = STRENGTH / wHeight;
 
-    $('.work__profile.--large').mousemove((e) => {
-        // console.log(e);
-        calculateBgPosition(width, height, wWidth, wHeight, e.pageX, e.pageY, $(e.currentTarget));
-    });
+        $('.work__profile.--large').mousemove((e) => {
+            // console.log(e);
+            calculateBgPosition(width, height, wWidth, wHeight, e.pageX, e.pageY, $(e.currentTarget));
+        });
+    }
 };

@@ -12,6 +12,7 @@ window.mx = {};
 
 // Application modules
 import { initOverlay } from './_overlay.js';
+import { detectDevice } from './_utilities.js';
 
 export const initApplication = function() {
 
@@ -31,6 +32,9 @@ export const initApplication = function() {
         mx._work = $('#work');
         mx._overlay = $('.overlay');
         mx._window = $(window);
+
+        // Add a device class to html
+        detectDevice();
 
         // Init overlay
         initOverlay();

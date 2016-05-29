@@ -23,3 +23,13 @@ export const AVAILABLE_GIFS = [
 export function getGifUrl(gif) {
     return `/img/gifs/${ gif }.gif`;
 }
+
+export function detectDevice() {
+    var device = window.getComputedStyle(document.querySelector('html'), ':before').getPropertyValue('content').replace(/\"/g, '');
+
+    mx.device = {
+        isMobile: device === 'mobile',
+        isTablet: device === 'tablet',
+        isDesktop: device === 'desktop'
+    };
+}
