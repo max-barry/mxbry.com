@@ -4,6 +4,7 @@ $overlay-transition: 350ms;
 .overlay {
     z-index: 99;
     background-color: white;
+    border: 0;
     opacity: 0;
     width: 0;
     height: 0;

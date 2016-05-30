@@ -1,4 +1,5 @@
 import React from 'react';
+import SweetScroll from 'sweet-scroll';
 
 import { SplashHero } from '../splash/react.SplashHero.jsx';
 import { SplashHeader } from '../splash/react.SplashHeader.jsx';
@@ -7,6 +8,13 @@ import { ActivityList } from '../active/parts/react.ActivityList.jsx';
 import { WorkList } from '../work/parts/react.WorkList.jsx';
 
 export class Home extends React.Component {
+
+    componentDidMount() {
+        mx.sweetScroll = new SweetScroll({
+            offset: -150,
+        });
+    }
+
     render() {
         return (
             <div>

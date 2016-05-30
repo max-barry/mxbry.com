@@ -1,15 +1,12 @@
 .activities__list {
     max-width: 40%;
     margin: 0 auto;
+    @include scrollReveal(".activities__item", "&.active", 12);
 }
 
 .activities__item .bd a {
     display: block;
     font-family: $heavy-font-family;
-}
-
-.activities {
-    @include scrollReveal(".activities__item", ".active", 12);
 }
 
 /**
@@ -19,7 +16,7 @@ Activity mobile styles
     .activities, .activities__list {
         max-width: none;
     }
-    .activities {
+    .activities__list {
         padding-left: $magic*0.5;
         padding-right: $magic*0.5;
     }

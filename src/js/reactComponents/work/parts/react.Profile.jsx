@@ -2,29 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { WorkTechs, WorkFeatures } from './react.SubLists.jsx';
+import { showOverlay } from '../../parts/react.Overlay.jsx';
 
 
 export class WorkProfile extends React.Component {
 
-    componentDidMount() {
-        if (this.props.data.size === 'large') {
-            let el = $(ReactDOM.findDOMNode(this));
-            // TODO Add parralax
-            // workParralax(el);
-        }
-    }
-
     _isExternal(profile) {
-        // return domain(location.href) !== domain(profile.slug);
         return false;
     }
 
     _revealOverlay() {
         if ( this._isExternal(this.props.data) ) {
+
             window.location = this.props.data.slug;
+
         } else if ( this.props.data.body ) {
-            populateOverlayWork(this.props.data);
-            toggleOverlay(this, '#work-overlay');
+
+            $('.overlay .work-overlay__title').text(this.props.data.title);
+            $('.overlay .work-overlay__body').text(this.props.data.body);
+
+            showOverlay('#overlay-work');
         }
     }
 

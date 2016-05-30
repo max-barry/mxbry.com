@@ -12,23 +12,22 @@ export class ActivityList extends React.Component {
 
         this.state = {
             items: [],
-            reveal: '',
         };
     }
 
     componentDidMount () {
         getServices().then((activities) => {
 
+            var el = ReactDOM.findDOMNode(this);
+
             this.setState({
                 items: activities
             });
 
             this.ActivitiesWaypoint = new Waypoint({
-                element: ReactDOM.findDOMNode(this),
+                element: el,
                 handler: () => {
-                    this.setState({
-                        reveal: 'active'
-                    });
+                    el.classList.add('active');
                 },
                 offset: '60%'
             });
@@ -38,7 +37,7 @@ export class ActivityList extends React.Component {
 
     render () {
         return (
-                <ul className={`activities__list ${ this.state.reveal }`}>
+                <ul id='activity' className='activities__list'>
                     { this.state.items.map(( activity ) => {
                         return <Activity key={ ID() } data={ activity } />;
                     })}

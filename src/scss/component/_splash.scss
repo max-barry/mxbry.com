@@ -9,8 +9,8 @@ $splash__transition_op: $splash__transition*0.5;
 };
 
 @mixin splash__first-letter($n, $col) {
-    &:nth-child(#{$n}) {
-        &:hover, &.splash__active, .splash.splash--header & {
+    .splash--hero &:nth-child(#{$n}) {
+        &:hover, &.splash__active {
             .splash__letter {
                 color: $col;
             }
@@ -38,8 +38,11 @@ General style
 
     @include splash__first-letter(1, $color-primary);
     @include splash__first-letter(2, $color-secondary) {
-        #activity-heading & .splash__letter {
+        .splash--header &[data-scroll="#activity"] .splash__letter {
             color: $color-secondary;
+        }
+        .splash--header &[data-scroll="#work"] .splash__letter {
+            color: $color-primary;
         }
     };
     @include splash__first-letter(3, $color-neutral-breaker);
@@ -63,10 +66,10 @@ General style
 
 // All of the overflows and individual elements means we need to manually
 // tune the type spacing slightly
-.splash__letter ~ span {
-    position: relative;
-    left: -1.15vw;
-}
+// .splash__letter ~ span {
+//     position: relative;
+//     left: -1.15vw;
+// }
 
 // Tag after a headline, e.g. 'about me' under xoxo on Splash
 .splash__title[data-after]:after {
@@ -208,9 +211,9 @@ Mobile styles
             min-width: 0;
             font-size: 12vw;
         }
-        .splash__letter ~ span {
-            left: -4.5vw;
-        }
+        // .splash__letter ~ span {
+            // left: -4.5vw;
+        // }
     }
 }
 
@@ -219,7 +222,7 @@ Mobile styles
         font-size: 6vw;
         max-width: 50%;
     }
-    .splash.splash--header .splash__letter ~ span {
-        left: -2.6vw;
-    }
+    // .splash.splash--header .splash__letter ~ span {
+        // left: -2.6vw;
+    // }
 }

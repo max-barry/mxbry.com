@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import _partition from 'lodash/partition';
 import _chunk from 'lodash/chunk';
@@ -7,11 +8,9 @@ import _flatten from 'lodash/flatten';
 import _map from 'lodash/map';
 import _compact from 'lodash/compact';
 
-// import { workParralax } from '../_parralax.js';
 import { WorkProfile } from './react.Profile.jsx';
+import { Overlay } from '../../parts/react.Overlay.jsx';
 import { ID } from '../../../parts/_utilities.js';
-// import { populateOverlayWork, toggleOverlay } from '../_overlay.js';
-
 
 
 const getWork = function(cb) {
@@ -43,7 +42,6 @@ const getWork = function(cb) {
 };
 
 
-
 export class WorkList extends React.Component {
 
     constructor(props) {
@@ -65,15 +63,21 @@ export class WorkList extends React.Component {
     render() {
         return (
             <div>
-                {this.state.works.map((workCollection) => {
-                    return (
-                        <div key={ ID() } className={ workCollection.type === 'card' ? 'work__card-profiles' : 'work__full-profiles' }>
-                            { workCollection.contents.map((profile) => {
-                                return <WorkProfile key={ ID() } data={ profile } />;
-                            }) }
-                        </div>
-                    );
-                })}
+                <div id='work'>
+                    {this.state.works.map((workCollection) => {
+                        return (
+                            <div key={ ID() } className={ workCollection.type === 'card' ? 'work__card-profiles' : 'work__full-profiles' }>
+                                { workCollection.contents.map((profile, i) => {
+                                    return <WorkProfile key={ ID() } data={ profile } />;
+                                }) }
+                            </div>
+                        );
+                    })}
+                </div>
+                <Overlay ID='overlay-work'>
+                    <h2 ref='overlayTitle' className='work-overlay__title'></h2>
+                    <section ref='overlayBody' className='work-overlay__body'></section>
+                </Overlay>
             </div>
         );
     }
