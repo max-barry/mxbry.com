@@ -13,18 +13,24 @@ import contact from './contact.js';
 
 export function getServices() {
     return new Promise((resolve, reject) => {
-        async.parallel([
-            github,
-            medium,
-            twitter,
-            npm,
-            contact,
-        ], (err, results) => {
-            // TODO : Can you do this without lodash?
-            results = results.map((sevice) => {
-                return sevice.slice(0,2);
+
+        if (!('activities' in mx)) {
+            async.parallel([
+                github,
+                medium,
+                twitter,
+                npm,
+                contact,
+            ], (err, results) => {
+                // TODO : Can you do this without lodash?
+                results = results.map((sevice) => {
+                    return sevice.slice(0,2);
+                });
+
+                mx.activities = _.shuffle([].concat.apply([], results));
             });
-            resolve(_.shuffle([].concat.apply([], results)));
-        });
+        }
+
+        resolve(mx.activities);
     });
 };
