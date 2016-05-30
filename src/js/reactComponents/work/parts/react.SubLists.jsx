@@ -1,5 +1,5 @@
 import React from 'react';
-import { ID } from '../_utilities.js';
+import { ID } from '../../../parts/_utilities.js';
 
 export class WorkTechs extends React.Component {
     render() {

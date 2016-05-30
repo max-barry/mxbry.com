@@ -4,7 +4,7 @@ import { initForms } from '../_forms.js';
 
 
 
-class About extends React.Component {
+class AboutDetails extends React.Component {
     render() {
         // TODO: Make the CV year js enabled
         return (
