@@ -10,15 +10,15 @@ import SweetScroll from 'sweet-scroll';
 /**
 Handle clicks on the XOXO splash column
 */
-const splashXO = function() {
-    mx._body.toggleClass('lock');
-    mx._main.toggleClass('visible__splash_about');
-    $(this).toggleClass('splash__active');
-};
-
-export function initXO() {
-    mx._body.on('click', '.splash__third[data-show-menu]', splashXO);
-}
+// const splashXO = function() {
+//     mx._body.toggleClass('lock');
+//     mx._main.toggleClass('visible__splash_about');
+//     $(this).toggleClass('splash__active');
+// };
+//
+// export function initXO() {
+//     mx._body.on('click', '.splash__third[data-show-menu]', splashXO);
+// }
 
 /**
 Set one of the hero letters off on a GIF flip
