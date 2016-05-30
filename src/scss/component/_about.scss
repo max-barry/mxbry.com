@@ -49,3 +49,11 @@ $about__ease: $ease-out-cubic;
         }
     }
 }
+
+
+#about-page {
+    padding: $magic;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}

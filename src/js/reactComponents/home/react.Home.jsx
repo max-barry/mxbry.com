@@ -3,7 +3,7 @@ import SweetScroll from 'sweet-scroll';
 
 import { SplashHero } from '../splash/react.SplashHero.jsx';
 import { SplashHeader } from '../splash/react.SplashHeader.jsx';
-import { About } from '../about/react.About.jsx';
+import { AboutMe } from '../about/parts/react.AboutMe.jsx';
 import { ActivityList } from '../active/parts/react.ActivityList.jsx';
 import { WorkList } from '../work/parts/react.WorkList.jsx';
 
@@ -20,7 +20,7 @@ export class Home extends React.Component {
             <div>
                 <SplashHero />
                 <aside className="about--hero fixed">
-                    <About />
+                    <AboutMe />
                 </aside>
                 <SplashHeader columnKey='active' />
                 <ActivityList />

@@ -3,6 +3,8 @@ import $ from 'jquery';
 import jQuery from 'jquery';
 import firebase from 'firebase';
 import 'waypoints/lib/noframework.waypoints.min.js';
+import DOMReady from 'detect-dom-ready';
+
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
 import ReactDOM from 'react-dom';
@@ -14,7 +16,6 @@ window.jQuery = jQuery;
 window.mx = {};
 
 // Application modules
-// import { initOverlay } from './_overlay.js';
 import { detectDevice } from './parts/_utilities.js';
 
 // React modules
@@ -36,14 +37,10 @@ const initApplication = function() {
         });
 
         // Push shared elements in to global object
-        // mx._main = $('main');
         mx._root = document.getElementById('applicationRoot');
         mx._window = $(window);
         mx._html = $('html');
         mx._body = $('body');
-        // mx._activity = $('#activity');
-        // mx._overlay = $('.overlay');
-        // mx._work = $('#work');
 
         // Add a device class to html
         detectDevice();
@@ -62,11 +59,10 @@ const initApplication = function() {
             </Router>
         ), mx._root);
 
-
-        // Init overlay
-        // initOverlay();
 };
 
 // TODO DOM Ready
 
-initApplication();
+DOMReady(() => {
+    initApplication();
+});
