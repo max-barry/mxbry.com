@@ -3,11 +3,17 @@ import { randomNumber, AVAILABLE_GIFS, getGifUrl } from '../../parts/_utilities.
 /**
 Handle clicks on the XOXO splash column
 */
-export function splashMenuReveal() {
-    mx._body.on('click', '.splash__third[data-extra="show-menu"]', function() {
-        mx._body.toggleClass('lock').toggleClass('visible__splash_about');
-        $(this).toggleClass('splash__active');
-    });
+const revealMenu = function() {
+    mx._body.toggleClass('lock').toggleClass('visible__splash_about');
+    $(this).toggleClass('splash__active');
+};
+
+export function splashMenuDettach() {
+    mx._body.off('click', revealMenu);
+}
+
+export function splashMenuAttach() {
+    mx._body.on('click', '.splash__third[data-extra="show-menu"]', revealMenu);
 }
 
 
