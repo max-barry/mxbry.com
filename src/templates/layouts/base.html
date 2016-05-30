@@ -20,12 +20,13 @@
 
 <body>
 
-<main>
-    {% block content %}{% endblock %}
-    {% include "../includes/footer.html" %}
+<div id="applicationRoot">
+</div>
 </main>
+{% include "../includes/footer.html" %}
 
 
+<script src="/js/app.js"></script>
 {% block js %}{% endblock %}
 
 </body>

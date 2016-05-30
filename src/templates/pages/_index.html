@@ -1,0 +1,23 @@
+{% extends "../layouts/base.html" %}
+{% block content %}
+
+{% include "../includes/splash/splash.hero.html" %}
+
+<aside class="about--hero fixed"></aside>
+
+{% include "../includes/splash/splash.header.active.html" %}
+
+{% include "../includes/activities/activities.master.html" %}
+
+{% include "../includes/splash/splash.header.made.html" %}
+
+{% include "../includes/work/work.master.html" %}
+
+{% include "../includes/overlays/overlay.work.html" %}
+
+
+{% endblock %}
+
+{% block js %}
+<script src="/js/index.js"></script>
+{% endblock %}

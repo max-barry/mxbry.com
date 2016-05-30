@@ -14,17 +14,17 @@ import { ID } from '../_utilities.js';
 import { populateOverlayWork, toggleOverlay } from '../_overlay.js';
 
 
-// const buildCollection = function(arr, type) {
-//     return {
-//         type: type,
-//         contents: arr
-//     };
-// };
-
-
-const domain = function(url) {
-    return url.replace('http://','').replace('https://','').split('/')[0];
+const buildCollection = function(arr, type) {
+    return {
+        type: type,
+        contents: arr
+    };
 };
+
+
+// const domain = function(url) {
+//     return url.replace('http://','').replace('https://','').split('/')[0];
+// };
 
 
 const getWork = function(cb) {

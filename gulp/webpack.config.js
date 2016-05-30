@@ -24,9 +24,10 @@ if (environments.development()) {
 var webpackSettings = {
     debug: environments.development(),
     entry: {
-        index: [ path.join(srcPath, 'entry.index.js') ],
-        active: [ path.join(srcPath, 'entry.active.js') ],
-        work: [ path.join(srcPath, 'entry.work.js') ],
+        app: [ path.join(srcPath, 'entry.app.jsx') ],
+        // index: [ path.join(srcPath, 'entry.index.js') ],
+        // active: [ path.join(srcPath, 'entry.active.js') ],
+        // work: [ path.join(srcPath, 'entry.work.js') ],
         // Each additional bundle you require (e.g. index page js, or contact page js)
         // should be added here and referenced as a script tag in the corresponding template
         // index: [ path.join(srcPath, 'index.jsx') ],

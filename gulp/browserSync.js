@@ -7,7 +7,8 @@ var gulp = require('gulp'),
 var browserSync = require('browser-sync'),
     webpack = require('webpack'),
     webpackDevMiddleware = require('webpack-dev-middleware'),
-    webpackHotMiddleware = require('webpack-hot-middleware');
+    webpackHotMiddleware = require('webpack-hot-middleware'),
+    historyApiFallback = require('connect-history-api-fallback');
 
 // Load Webpack settings
 var webpackSettings = require('./webpack.config.js'),
@@ -26,7 +27,8 @@ gulp.task('serve', gulp.parallel(function() {
               publicPath: webpackSettings.output.publicPath,
               stats: { colors: true }
             }),
-            webpackHotMiddleware(bundler)
+            webpackHotMiddleware(bundler),
+            historyApiFallback()
           ]
         },
 
