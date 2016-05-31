@@ -18,7 +18,6 @@ export class WorkDetail extends React.Component {
     componentDidMount() {
 
         let slug = this.props.params.slug;
-        // TODO : Redirect to 404
 
         getWork((snapshot) => {
 

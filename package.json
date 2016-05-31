@@ -80,6 +80,7 @@
     "js": "./src/js/",
     "scss": "./src/scss/",
     "fonts": "./src/fonts/",
+    "favicons": "./src/favicons/",
     "images": "./src/img/"
   },
   "templates": {

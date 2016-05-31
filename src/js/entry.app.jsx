@@ -47,8 +47,6 @@ const initApplication = function() {
         // Add a device class to html
         detectDevice();
 
-        // TODO : On hover on index reveal the header
-
         // React router
         ReactDOM.render((
             <Router history={ browserHistory }>

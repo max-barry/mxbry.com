@@ -28,4 +28,9 @@ gulp.task('images:optimize', function() {
         .pipe(gulp.dest(dest));
 });
 
+gulp.task('images:favicons', function() {
+    return gulp.src(path.join(pkg.src.favicons, '**/*'))
+        .pipe(gulp.dest(pkg.paths.build));
+});
+
 gulp.task('images', gulp.series('images:optimize', 'images:webp'));

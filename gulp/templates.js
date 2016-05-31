@@ -41,3 +41,9 @@ gulp.task('templates', function() {
         .pipe(environments.production(cachebust()))
         .pipe(gulp.dest(dest));
 });
+
+
+gulp.task('templates:sitemap', function() {
+    return gulp.src(path.join('./src/sitemap.xml'))
+        .pipe(gulp.dest(dest));
+});
