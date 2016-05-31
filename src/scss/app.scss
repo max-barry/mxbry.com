@@ -58,3 +58,11 @@ html:before {
         content: 'mobile';
     }
 }
+
+::selection {
+    background: $color-secondary;
+}
+
+::-moz-selection {
+    background: $color-secondary;
+}
