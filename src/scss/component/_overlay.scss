@@ -50,6 +50,9 @@ $overlay-transition: 350ms;
         padding-right: $magic*0.5;
         transform: translateY(-70px);
         opacity: 0;
+        p, span, img {
+            max-width: 100%;
+        }
     }
     &.active {
         .work-overlay__title, .work-overlay__body {

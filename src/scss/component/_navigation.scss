@@ -53,12 +53,14 @@
 
 
 // Home navigation styles
-.isHome .navigation {
-    opacity: 0;
-    transition: opacity 150ms;
-}
-.isHome .navigation:hover {
-    opacity: 1;
+@media #{$large-up} {
+    .isHome .navigation {
+        opacity: 0;
+        transition: opacity 150ms;
+    }
+    .isHome .navigation:hover {
+        opacity: 1;
+    }
 }
 
 // Footer styles

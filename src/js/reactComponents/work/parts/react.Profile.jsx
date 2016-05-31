@@ -19,9 +19,11 @@ export class WorkProfile extends React.Component {
         if ( this._shouldShowOverlay(this.props.data) ) {
 
             $('.overlay .work-overlay__title').text(this.props.data.title);
-            $('.overlay .work-overlay__body').text(this.props.data.body);
+            $('.overlay .work-overlay__body').html(this.props.data.body);
 
             showOverlay('#overlay-work');
+
+            // TODO : URL push then on close if current path != router.context.path then reset to router.context.path 
 
         } else if ( this._isExternal(this.props.data) ) {
 

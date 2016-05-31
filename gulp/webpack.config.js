@@ -24,7 +24,7 @@ if (environments.development()) {
 var webpackSettings = {
     debug: environments.development(),
     entry: {
-        app: [ path.join(srcPath, 'entry.app.jsx') ],
+        app: [path.join(srcPath, 'entry.app.jsx')],
         // index: [ path.join(srcPath, 'entry.index.js') ],
         // active: [ path.join(srcPath, 'entry.active.js') ],
         // work: [ path.join(srcPath, 'entry.work.js') ],
@@ -41,7 +41,9 @@ var webpackSettings = {
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.DefinePlugin({
-            NODE_ENV: 'production'
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
         })
     ] : [
         new webpack.optimize.OccurenceOrderPlugin(),
@@ -71,9 +73,9 @@ var webpackSettings = {
                 jsx: true,
             }
         },
-    rules: {
-        semi: 2
-    },
+        rules: {
+            semi: 2
+        },
         extends: ['eslint:recommended', 'plugin:react/recommended'],
         plugins: [
             'react'
@@ -90,7 +92,7 @@ if (environments.development()) {
     webpackSettings.devtool = "eval";
 
     // !!! Edit this if you don't use multiple entry point Webpack files
-    for ( var key in webpackSettings.entry ) {
+    for (var key in webpackSettings.entry) {
         // For each entry point in your settings
         if (webpackSettings.entry.hasOwnProperty(key)) {
             // ... add the webpack dev server and hotloader
