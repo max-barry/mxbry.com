@@ -3,6 +3,7 @@ import _filter from 'lodash/filter';
 
 import { getWork } from './_database.js';
 import { WorkBody } from './parts/react.Body.jsx';
+import { NotFound } from '../parts/react.404.jsx';
 
 export class WorkDetail extends React.Component {
 
@@ -10,7 +11,7 @@ export class WorkDetail extends React.Component {
         super(props);
 
         this.state = {
-            detail: {}
+            detail: <span></span>
         };
     }
 
@@ -22,25 +23,24 @@ export class WorkDetail extends React.Component {
         getWork((snapshot) => {
 
             let results = snapshot.val();
+            let detail = _filter(results, { slug: slug });
 
-            console.log(results);
-            console.log(_filter(results, { slug: slug }));
-
-            // TODO : Handle multiple results for same slug
-            this.setState({
-                detail: _filter(results, { slug: slug })[0]
-            });
+            if (!detail.length || detail.length > 1 || !('body' in detail[0])) {
+                this.setState({
+                    detail: <NotFound />
+                });
+            } else {
+                this.setState({
+                    detail: <article id='work-detail'> <WorkBody data={ detail[0] } /> </article>
+                });
+            }
 
         });
 
     }
 
     render () {
-        return (
-            <article id='work-detail'>
-                <WorkBody data={ this.state.detail } />
-            </article>
-        );
+        return <div>{ this.state.detail }</div>;
     }
 
 }
