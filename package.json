@@ -1,19 +1,17 @@
 {
-  "name": "portfolio_2016",
-  "title": "portfolio_2016",
-  "description": "",
-  "version": "0.0.2",
+  "name": "mxbry.com",
+  "title": "mxbry.com",
+  "description": "Portfolio of Max Barry",
+  "version": "2.4.10",
   "keywords": [],
-  "scripts": {
-    "postinstall": "bower install && gulp --env production"
-  },
   "author": {
-    "name": ""
+    "name": "Max Barry",
+    "email": "max@mxbry.com"
   },
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:max-barry/mxbry.com.git"
   },
   "license": "MIT",
   "readmeFilename": "Readme.md",
