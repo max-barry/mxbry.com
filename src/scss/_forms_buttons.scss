@@ -37,10 +37,11 @@ button, input[type="submit"] {
     background-color: $color-secondary;
     color: white;
     text-transform: uppercase;
-    font-family: $heavy-font-family;
     padding: $magic*0.5;
     cursor: pointer;
     min-width: 160px;
+    font-weight: $button-font-weight;
+    font-family: $button-font-family;
     @include inputReset;
 }
 

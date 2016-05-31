@@ -10,12 +10,14 @@
 
 .navigation__nav a, .navigation__nav span {
     margin-right: $magic;
-    font-family: $heavy-font-family;
+    font-weight: lighter;
     align-items: center;
     cursor: pointer;
     padding:0.25*$magic 0;
     text-transform: lowercase;
     position: relative;
+    font-family: $navigation-font-family;
+    font-weight: $navigation-font-weight;
     &:visited, & {
         color: white;
     }
@@ -66,21 +68,27 @@
 // Footer styles
 .footer {
     margin-top: $magic;
-    background-color: $color-soft-black;
-    color: $color-neutral;
+    background-color: $color-neutral-breaker;
+    color: $color-soft-black;
     .footer__main, .footer__foot {
         padding: $magic;
+        font-family: $heavy-font-family;
+        font-weight: 300;
     }
     h5 {
-        font-family: $heavy-font-family;
+        font-family: $display-font-family;
         font-style: normal;
     }
     h5, p:last-child {
         margin: 0;
     }
+    a, a:visited {
+        color: $color-soft-black;
+        font-weight: normal;
+    }
     .footer__foot {
         padding-top: $magic*0.5;
         padding-bottom: $magic*0.5;
-        background-color: black;
+        background-color: darken($color-neutral-breaker, 5);
     }
 }

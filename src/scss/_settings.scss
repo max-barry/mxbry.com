@@ -6,7 +6,16 @@ $fontBase: 20px;
 $fontBaseREM: rem(20px);
 
 $base-font-family: 'Libre Baskerville', $helvetica;
-$heavy-font-family: 'League Spartan', $base-font-family;
+$heavy-font-family: 'montserrat', $helvetica;
+$display-font-family: 'League Spartan', $base-font-family;
+
+$button-font-family: $heavy-font-family;
+$button-font-weight: bold;
+$navigation-font-family: $heavy-font-family;
+$navigation-font-weight: normal;
+$activities-font-family: $heavy-font-family;
+$activities-font-weight: 500;
+// $heavy-font-family: 'norwesterregular', $base-font-family;
 
 // $base-font-family: 'PT Sans', $helvetica;
 // $heavy-font-family: 'Open Sans', $base-font-family;
