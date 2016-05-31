@@ -58,9 +58,9 @@
 @media #{$large-up} {
     .isHome .navigation {
         opacity: 0;
-        transition: opacity 150ms;
     }
     .isHome .navigation:hover {
+        transition: opacity 150ms;
         opacity: 1;
     }
 }
