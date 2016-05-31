@@ -5,9 +5,10 @@ $em-base: 16px;
 $fontBase: 20px;
 $fontBaseREM: rem(20px);
 
+// $heavy-font-family: 'montserrat', $helvetica;
 $base-font-family: 'Libre Baskerville', $helvetica;
-$heavy-font-family: 'montserrat', $helvetica;
 $display-font-family: 'League Spartan', $base-font-family;
+$heavy-font-family: $display-font-family;
 
 $button-font-family: $heavy-font-family;
 $button-font-weight: bold;
