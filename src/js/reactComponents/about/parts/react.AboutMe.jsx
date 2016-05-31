@@ -17,7 +17,7 @@ export class AboutMe extends React.Component {
                             <p>Connect with me on <a target="_blank" href="https://twitter.com/mxbrry">Twitter</a>, <a target="_blank" href="https://uk.linkedin.com/in/maxbarry">LinkedIn</a> or <a href="mailto:max@mxbry.com">email me</a> directly, because <strong>I'd really like to talk</strong></p>
                         </li>
                         <li>
-                            <p>This is my <strong>2016 CV</strong>, which I'm happy to <a href="mailto:max@mxbry.com">talk you through!</a> </p>
+                            <p>This is my <a href="https://drive.google.com/open?id=1AlBkAucMXFxnDwvmJNIIQ5j4L8h9auao81NqAHfB-uA"><strong>2016 CV</strong></a>, which I'm happy to <a href="mailto:max@mxbry.com">talk you through!</a> </p>
                         </li>
                         <li>
                             <p>I've been <strong>writing</strong> about the web quasi-regularly for 2 years now at <a href="http://words.mxbry.com">words.mxbry.com</a></p>
@@ -29,7 +29,7 @@ export class AboutMe extends React.Component {
                         </li>
                     </ul>
                 </div>
-                <img src="/img/me.jpeg" alt="" className="about__content"/>
+                <img src="/img/me.png" alt="" className="about__content"/>
             </div>
         );
     }

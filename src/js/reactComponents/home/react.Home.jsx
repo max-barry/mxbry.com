@@ -17,6 +17,12 @@ export class Home extends React.Component {
             });
         }
 
+        mx._body.addClass('isHome');
+
+    }
+
+    componentWillUnmount() {
+        mx._body.removeClass('isHome');
     }
 
     render() {

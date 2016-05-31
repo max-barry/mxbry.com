@@ -56,4 +56,10 @@ $about__ease: $ease-out-cubic;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    @media #{$small-all} {
+        .about__content {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+    }
 }

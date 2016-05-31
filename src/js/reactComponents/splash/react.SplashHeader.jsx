@@ -17,7 +17,7 @@ export class SplashHeader extends React.Component {
 
         return (
             <SplashLayout wrapClass='splash--header'>
-                <SplashColumn solo={ !!this.props.columnKey === 'active' } data={ columnData[this.props.columnKey] } />
+                <SplashColumn solo={ this.props.columnKey === 'active' } data={ columnData[this.props.columnKey] } />
             </SplashLayout>
         );
     }

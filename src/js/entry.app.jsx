@@ -20,7 +20,7 @@ import { detectDevice } from './parts/_utilities.js';
 
 // React modules
 import { Navigation } from './reactComponents/layouts/react.Navigation.jsx';
-import { Main } from './reactComponents/layouts/react.Main.jsx';
+// import { Main } from './reactComponents/layouts/react.Main.jsx';
 import { NotFound } from './reactComponents/parts/react.404.jsx';
 import { Home } from './reactComponents/home/react.Home.jsx';
 import { Work } from './reactComponents/work/react.Work.jsx';
@@ -52,10 +52,8 @@ const initApplication = function() {
         // React router
         ReactDOM.render((
             <Router history={ browserHistory }>
-                <Route component={ Main }>
-                    <Route path='/' component={ Home } />
-                </Route>
                 <Route component={ Navigation }>
+                    <Route path='/' component={ Home } />
                     <Route path='/work' component={ Work } />
                     <Route path='/work/:slug' component={ WorkDetail }/>
                     <Route path='/where-max-is-active' component={ Active } />

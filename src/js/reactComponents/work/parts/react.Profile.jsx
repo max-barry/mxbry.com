@@ -8,20 +8,25 @@ import { showOverlay } from '../../parts/react.Overlay.jsx';
 export class WorkProfile extends React.Component {
 
     _isExternal(profile) {
-        return false;
+        return !!profile.slug && /^https?:\/\//.test(profile.slug);
+    }
+
+    _shouldShowOverlay(profile) {
+        return !!profile.body;
     }
 
     _revealOverlay() {
-        if ( this._isExternal(this.props.data) ) {
-
-            window.location = this.props.data.slug;
-
-        } else if ( this.props.data.body ) {
+        if ( this._shouldShowOverlay(this.props.data) ) {
 
             $('.overlay .work-overlay__title').text(this.props.data.title);
             $('.overlay .work-overlay__body').text(this.props.data.body);
 
             showOverlay('#overlay-work');
+
+        } else if ( this._isExternal(this.props.data) ) {
+
+            window.open(this.props.data.slug, '_blank');
+
         }
     }
 

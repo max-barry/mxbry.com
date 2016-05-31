@@ -23,7 +23,7 @@ $splash__transition_op: $splash__transition*0.5;
 General style
 */
 .splash {
-    height: 100vh;
+    height: calc(100vh - 45px);
 }
 
 .splash__third {
@@ -147,7 +147,6 @@ Hero styles
 /**
 Header styles
 */
-
 .splash.splash--header .splash__title {
     &:after, &:before {
         content: "";
