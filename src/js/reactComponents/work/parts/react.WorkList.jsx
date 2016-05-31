@@ -9,37 +9,39 @@ import _map from 'lodash/map';
 import _compact from 'lodash/compact';
 
 import { WorkProfile } from './react.Profile.jsx';
+import { WorkBody } from './react.Body.jsx';
+import { getWork } from '../_database.js';
 import { Overlay } from '../../parts/react.Overlay.jsx';
 import { ID } from '../../../parts/_utilities.js';
 
 
-const getWork = function(cb) {
-
-    firebase.database().ref('/projects/').once('value').then(function(snapshot) {
-        let source = snapshot.val();
-
-        // Split smalls from non-smalls
-        let partitions = _partition(source, { size: 'card' });
-
-        // Chunk the smalls in groups of 3, and then put them in an object identifying the chunk as small
-        let smallsChunk = _map(_chunk(partitions[0], 8), (arr) => {
-            return { type: 'card', contents: arr };
-        });
-
-        // As above with nonSmalls
-        let nonSmallsChunk = _map(_chunk(partitions[1], 3), (arr) => {
-            return { type: 'full', contents: arr };
-        });
-
-        // Recombine smalls and nonSmalls with a zip...
-        // Flatten the multidimensional array you  have...
-        // Remove all undefined objects (caused if there are more nonsmalls than smalls)
-        let combined = _compact(_flatten(_zip(nonSmallsChunk, smallsChunk)));
-
-        cb(combined);
-
-    });
-};
+// const getWork = function(cb) {
+//
+//     firebase.database().ref('/projects/').once('value').then(function(snapshot) {
+//         let source = snapshot.val();
+//
+//         // Split smalls from non-smalls
+//         let partitions = _partition(source, { size: 'card' });
+//
+//         // Chunk the smalls in groups of 3, and then put them in an object identifying the chunk as small
+//         let smallsChunk = _map(_chunk(partitions[0], 8), (arr) => {
+//             return { type: 'card', contents: arr };
+//         });
+//
+//         // As above with nonSmalls
+//         let nonSmallsChunk = _map(_chunk(partitions[1], 3), (arr) => {
+//             return { type: 'full', contents: arr };
+//         });
+//
+//         // Recombine smalls and nonSmalls with a zip...
+//         // Flatten the multidimensional array you  have...
+//         // Remove all undefined objects (caused if there are more nonsmalls than smalls)
+//         let combined = _compact(_flatten(_zip(nonSmallsChunk, smallsChunk)));
+//
+//         cb(combined);
+//
+//     });
+// };
 
 
 export class WorkList extends React.Component {
@@ -53,10 +55,32 @@ export class WorkList extends React.Component {
     }
 
     componentDidMount() {
-        getWork((results) => {
-            this.setState({
-                works: results
+        getWork((snapshot) => {
+
+            let source = snapshot.val();
+
+            // Split smalls from non-smalls
+            let partitions = _partition(source, { size: 'card' });
+
+            // Chunk the smalls in groups of 3, and then put them in an object identifying the chunk as small
+            let smallsChunk = _map(_chunk(partitions[0], 8), (arr) => {
+                return { type: 'card', contents: arr };
             });
+
+            // As above with nonSmalls
+            let nonSmallsChunk = _map(_chunk(partitions[1], 3), (arr) => {
+                return { type: 'full', contents: arr };
+            });
+
+            // Recombine smalls and nonSmalls with a zip...
+            // Flatten the multidimensional array you  have...
+            // Remove all undefined objects (caused if there are more nonsmalls than smalls)
+            let combined = _compact(_flatten(_zip(nonSmallsChunk, smallsChunk)));
+
+            this.setState({
+                works: combined
+            });
+
         });
     }
 
@@ -75,8 +99,7 @@ export class WorkList extends React.Component {
                     })}
                 </div>
                 <Overlay ID='overlay-work'>
-                    <h2 ref='overlayTitle' className='work-overlay__title'></h2>
-                    <section ref='overlayBody' className='work-overlay__body'></section>
+                    <WorkBody data={ {title: '', body: ''} } />
                 </Overlay>
             </div>
         );

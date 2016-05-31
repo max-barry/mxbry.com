@@ -23,6 +23,7 @@ import { Navigation } from './reactComponents/layouts/react.Navigation.jsx';
 import { Main } from './reactComponents/layouts/react.Main.jsx';
 import { Home } from './reactComponents/home/react.Home.jsx';
 import { Work } from './reactComponents/work/react.Work.jsx';
+import { WorkDetail } from './reactComponents/work/react.WorkDetail.jsx';
 import { Active } from './reactComponents/active/react.Active.jsx';
 import { About } from './reactComponents/about/react.About.jsx';
 
@@ -45,6 +46,8 @@ const initApplication = function() {
         // Add a device class to html
         detectDevice();
 
+        // TODO : On hover on index reveal the header
+
         // React router
         ReactDOM.render((
             <Router history={ browserHistory }>
@@ -53,15 +56,16 @@ const initApplication = function() {
                 </Route>
                 <Route component={ Navigation }>
                     <Route path='/work' component={ Work } />
+                    <Route path='/work/:slug' component={ WorkDetail }/>
                     <Route path='/where-max-is-active' component={ Active } />
                     <Route path='/about' component={ About } />
                 </Route>
             </Router>
         ), mx._root);
 
+        // TODO : 404
+        // <Route path="*" component={NoMatch}/>
 };
-
-// TODO DOM Ready
 
 DOMReady(() => {
     initApplication();
