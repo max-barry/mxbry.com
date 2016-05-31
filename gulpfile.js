@@ -15,13 +15,3 @@ gulp.task('default', gulp.parallel('scripts', 'modernizr', 'styles', 'fonts', 'i
 gulp.task('clean', function(done){
     return del([pkg.paths.build], done);
 });
-
-// Deploy
-gulp.task('deploy', function() {
-    var surge = require('gulp-surge');
-
-    return surge({
-        project: pkg.paths.build,
-        domain: ''
-    })
-});
