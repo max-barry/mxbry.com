@@ -21,6 +21,9 @@ export function splashMenuAttach() {
 Set one of the hero letters off on a GIF flip
 */
 export function splashLetterGif() {
+
+    clearInterval(mx.GIFInterval);
+
     if (mx.device.isDesktop && Modernizr.backgroundcliptext) {
 
         let thirds = $('.splash__third');
@@ -45,7 +48,7 @@ export function splashLetterGif() {
 
             update(firstImage);
 
-            setInterval(update, 7000);
+            mx.GIFInterval = setInterval(update, 7000);
 
             AVAILABLE_GIFS.forEach((gifUrl) => {
                 im = new Image();

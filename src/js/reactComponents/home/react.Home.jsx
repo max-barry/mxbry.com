@@ -10,9 +10,13 @@ import { WorkList } from '../work/parts/react.WorkList.jsx';
 export class Home extends React.Component {
 
     componentDidMount() {
-        mx.sweetScroll = new SweetScroll({
-            offset: -150,
-        });
+
+        if (!mx.sweetScroll) {
+            mx.sweetScroll = new SweetScroll({
+                offset: -150,
+            });
+        }
+
     }
 
     render() {

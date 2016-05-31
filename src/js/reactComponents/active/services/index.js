@@ -24,13 +24,15 @@ export function getServices() {
             ], (err, results) => {
                 // TODO : Can you do this without lodash?
                 results = results.map((sevice) => {
-                    return sevice.slice(0,2);
+                    return sevice.slice(0, 2);
                 });
 
                 mx.activities = _.shuffle([].concat.apply([], results));
+                resolve(mx.activities);
             });
+        } else {
+            resolve(mx.activities);
         }
 
-        resolve(mx.activities);
     });
 };

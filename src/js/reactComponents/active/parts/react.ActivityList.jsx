@@ -24,13 +24,15 @@ export class ActivityList extends React.Component {
                 items: activities
             });
 
-            this.ActivitiesWaypoint = new Waypoint({
-                element: el,
-                handler: () => {
-                    el.classList.add('active');
-                },
-                offset: '60%'
-            });
+            if (!this.ActivitiesWaypoint) {
+                this.ActivitiesWaypoint = new Waypoint({
+                    element: el,
+                    handler: () => {
+                        el.classList.add('active');
+                    },
+                    offset: '60%'
+                });
+            }
 
         });
     }
