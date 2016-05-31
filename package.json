@@ -26,6 +26,7 @@
     "connect-history-api-fallback": "^1.2.0",
     "cssnano": "^3.5.2",
     "del": "^2.2.0",
+    "devbridge-styleguide": "^0.4.9",
     "eslint": "^2.10.2",
     "eslint-loader": "^1.3.0",
     "eslint-plugin-react": "^5.1.1",
