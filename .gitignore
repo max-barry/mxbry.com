@@ -4,6 +4,10 @@ node_modules/*
 .sass-cache/*
 .webpbuild/*
 
+.imdone/
+
+build/
+
 public/*
 
 *.DS_Store
