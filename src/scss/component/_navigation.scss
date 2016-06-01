@@ -1,6 +1,7 @@
 .navigation {
     background-color: $color-soft-black;
     padding: 0 $magic;
+    z-index: 99;
 }
 
 .navigation__nav {
@@ -56,10 +57,10 @@
 
 // Home navigation styles
 @media #{$large-up} {
-    .isHome .navigation {
+    .isHome .navigation, .isHome .navigation .active:after {
         opacity: 0;
     }
-    .isHome .navigation:hover {
+    .isHome .navigation:hover, .isHome .navigation .active:after {
         transition: opacity 150ms;
         opacity: 1;
     }

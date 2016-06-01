@@ -26,12 +26,14 @@ export function getGifUrl(gif) {
 }
 
 export function detectDevice() {
-    var device = window.getComputedStyle(document.querySelector('html'), ':before').getPropertyValue('content').replace(new RegExp(/\"/g), '');
+    let device = window.getComputedStyle(document.querySelector('html'), ':before').getPropertyValue('content').replace(new RegExp(/\"/g), '');
+    let isSafari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1;
 
     mx.device = {
         isMobile: device === 'mobile',
         isTablet: device === 'tablet',
-        isDesktop: device === 'desktop'
+        isDesktop: device === 'desktop',
+        isSafari: isSafari,
     };
 }
 

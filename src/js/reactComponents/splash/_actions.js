@@ -24,7 +24,7 @@ export function splashLetterGif() {
 
     clearInterval(mx.GIFInterval);
 
-    if (mx.device.isDesktop && Modernizr.backgroundcliptext) {
+    if (mx.device.isDesktop && Modernizr.backgroundcliptext && !mx.device.isSafari) {
 
         let thirds = $('.splash__third');
         const AGL = AVAILABLE_GIFS.length;
