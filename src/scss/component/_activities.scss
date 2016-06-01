@@ -1,5 +1,5 @@
 .activities__list {
-    max-width: 40%;
+    max-width: 50%;
     margin: 0 auto;
     @include scrollReveal(".activities__item", "&.active", 12);
 }
