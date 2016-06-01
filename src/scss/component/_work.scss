@@ -24,7 +24,16 @@ $work-padding: 48px;
 
 .work__inner {
     border: 1px solid $color-neutral-breaker;
+    outline: 0px solid $color-neutral-breaker;
     padding: $magic*0.5;
+    transition: border-color 150ms, outline-color 150ms, outline-width 150ms;
+    @media #{$large-up} {
+        &:hover {
+            border-color: $color-primary;
+            outline-color: $color-primary;
+            outline-width: 3px;
+        }
+    }
 }
 
 .work__subline {
