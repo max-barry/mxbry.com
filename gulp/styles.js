@@ -29,6 +29,7 @@ gulp.task('styles', function() {
     var includePaths = [
         'bourbon/app/assets/stylesheets/',
         'reset-scss/',
+        'family.scss/source/src/',
         'scut/dist/'
     ].map(function(package) {
         return path.join(pkg.paths.bower, package)
