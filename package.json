@@ -1,16 +1,42 @@
 {
-  "name": "mxbry",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "name": "mxbry",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "emotion": "^9.2.6",
+        "facepaint": "^1.2.1",
+        "lazysizes": "^4.1.0",
+        "lodash": "^4.17.10",
+        "polished": "^1.9.3",
+        "prop-types": "^15.6.2",
+        "react": "^16.4.2",
+        "react-dom": "^16.4.2",
+        "react-emotion": "^9.2.6",
+        "react-pose": "^2.2.0",
+        "react-scripts": "1.1.4",
+        "react-stonecutter": "^0.3.9",
+        "shevyjs": "^1.1.0"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "storybook": "start-storybook -p 9009 -s public"
+    },
+    "devDependencies": {
+        "@storybook/addon-a11y": "^3.4.10",
+        "@storybook/addon-actions": "^3.4.10",
+        "@storybook/addon-centered": "^3.4.10",
+        "@storybook/addon-console": "^1.0.4",
+        "@storybook/addon-knobs": "^3.4.10",
+        "@storybook/addon-links": "^3.4.10",
+        "@storybook/addon-viewport": "^3.4.10",
+        "@storybook/addons": "^3.4.10",
+        "@storybook/react": "^3.4.10",
+        "eslint-config-prettier": "^2.9.0",
+        "eslint-plugin-prettier": "^2.6.2",
+        "faker": "^4.1.0",
+        "prettier": "^1.14.2"
+    }
 }
