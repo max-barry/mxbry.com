@@ -10,16 +10,19 @@ import Lede from './Lede';
 import List from './List';
 import Gallery, { galleryTypes } from './Gallery';
 import { dimensions } from '../../settings';
+import FocustText from './FocusText';
 
 const defaultTitle = faker.lorem.words(4);
 const defaultDeck = faker.lorem.lines(4);
+const defaultBodyCopy = faker.lorem.lines(10);
 const defaultYear = faker.random.number({ min: 2011, max: 2018 });
 
 const dummyListItems = Array(5)
     .fill()
     .map(_ => ({
         title: faker.lorem.words(1),
-        deck: faker.lorem.words(5)
+        deck: faker.lorem.words(5),
+        link: Math.random() >= 0.5 ? 'https://google.com' : null
     }));
 
 const makeGalleryItem = _ => {
@@ -66,6 +69,11 @@ storiesOf('Display', module)
     .add('Display.List', _ => {
         const c = color('Color', '#198e67');
         return <List color={c} items={dummyListItems} />;
+    })
+    .add('Display.FocusText', _ => {
+        const c = color('Color', '#198e67');
+        const text = color('Text', defaultBodyCopy);
+        return <FocustText color={c}>{text}</FocustText>;
     })
     .add('Display.Hero', _ => {
         const c = color('Color', '#198e67');

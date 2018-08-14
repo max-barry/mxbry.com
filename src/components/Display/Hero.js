@@ -15,8 +15,8 @@ const topSpacing = bsint(4);
 
 const Container = styled('div')({
     maxWidth: dimensions.narrowContainer,
-    marginTop: topSpacing * 2,
-    marginBottom: topSpacing * 2,
+    // marginTop: topSpacing * 2,
+    // marginBottom: topSpacing * 2,
     marginLeft: 'auto',
     marginRight: 'auto'
 });

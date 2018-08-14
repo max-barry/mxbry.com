@@ -36,7 +36,7 @@ const Headline = styled('h3')(shevy.h3, ({ color }) => ({ color }));
 const Deck = styled('p')({ maxWidth: 460, marginBottom: 0 });
 
 const Lede = ({ color, deck, title, ...props }) => (
-    <Container color={color}>
+    <Container color={color} {...props}>
         <Headline color={color}>{title}</Headline>
         <Deck>{deck}</Deck>
     </Container>

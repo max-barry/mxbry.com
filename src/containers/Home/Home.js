@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import styled from 'react-emotion';
 import { tint } from 'polished';
 import { shevy, dimensions, bs, transitionTimes, styles } from '../../settings';
+import { Velmer, velmerColor, Route1, route1Color } from './projects';
 
 const Container = styled('div')({
     maxWidth: dimensions.narrowContainer,
@@ -53,27 +54,33 @@ const NavLi = styled('li')(shevy.h4, ({ color }) => ({
 
 class Home extends Component {
     render = () => (
-        <Container>
-            <Headline>Max Barry</Headline>
-            <Deck>
-                Business founder and creative technologist. Available for work
-                in London &amp; remote
-            </Deck>
-            <Nav>
-                <NavLi color={'red'}>
-                    <strong>First line</strong> an item
-                </NavLi>
-                <NavLi color={'blue'}>
-                    <strong>First line</strong> an item
-                </NavLi>
-                <NavLi color={'green'}>
-                    <strong>First line</strong> an item
-                </NavLi>
-                <NavLi color={'yellow'}>
-                    <strong>First line</strong> an item
-                </NavLi>
-            </Nav>
-        </Container>
+        <Fragment>
+            <Container>
+                <Headline>Max Barry</Headline>
+                <Deck>
+                    Business founder and creative technologist. Available for
+                    work in London &amp; remote
+                </Deck>
+                <Nav>
+                    <NavLi color={velmerColor}>
+                        <strong>Velmer</strong> Founded a business reimagining
+                        daily contact lenses
+                    </NavLi>
+                    <NavLi color={route1Color}>
+                        <strong>Route1</strong> CTO for an award winning white
+                        collar recruitment startup
+                    </NavLi>
+                    <NavLi color={'green'}>
+                        <strong>First line</strong> an item
+                    </NavLi>
+                    <NavLi color={'yellow'}>
+                        <strong>First line</strong> an item
+                    </NavLi>
+                </Nav>
+            </Container>
+            <Velmer />
+            <Route1 />
+        </Fragment>
     );
 }
 

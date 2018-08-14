@@ -61,19 +61,6 @@ export const styles = {
 };
 
 // ------------------
-// STYLES - dimensions
-// ------------------
-export const dimensions = {
-    bevel: 3,
-    tap: 48,
-    icon: 32,
-    button: 36,
-    input: 320,
-    card: 270,
-    narrowContainer: 680
-};
-
-// ------------------
 // STYLES - animation
 // ------------------
 
@@ -175,4 +162,18 @@ export const mq = facepaint(
 export const bpProps = {
     mobile: { maxWidth: breakpoints.mobile },
     notMobile: { minWidth: breakpoints.mobile + 1 }
+};
+
+// ------------------
+// STYLES - dimensions
+// ------------------
+export const dimensions = {
+    bevel: 3,
+    tap: 48,
+    icon: 32,
+    button: 36,
+    input: 320,
+    card: 270,
+    narrowContainer: 680,
+    sectionSpaceDesktop: bsint(10)
 };
