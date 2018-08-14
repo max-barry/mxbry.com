@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { readableColor } from 'polished';
 import {
     dimensions,
     bs,
@@ -11,12 +10,11 @@ import {
     bsint,
     styles
 } from '../../settings';
-import { Img } from './Media';
 
 const topSpacing = bsint(4);
 
 const Container = styled('div')({
-    maxWidth: 680,
+    maxWidth: dimensions.narrowContainer,
     marginTop: topSpacing * 2,
     marginBottom: topSpacing * 2,
     marginLeft: 'auto',

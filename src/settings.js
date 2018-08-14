@@ -69,7 +69,8 @@ export const dimensions = {
     icon: 32,
     button: 36,
     input: 320,
-    card: 270
+    card: 270,
+    narrowContainer: 680
 };
 
 // ------------------
