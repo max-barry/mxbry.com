@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { css } from 'react-emotion';
+import PropTypes from 'prop-types';
+import { values } from 'ramda';
 import { bs, shevy, fontWeights, dimensions, styles } from '../../settings';
 
 export const galleryTypes = { deck: 'DECK', media: 'MEDIA' };
@@ -36,7 +38,11 @@ const Gallery = ({ items, ...props }) => (
             const Comp = isDeck ? Deck : item.component;
 
             return isDeck ? (
-                <Comp key={key} className={isLead ? leadItem : null}>
+                <Comp
+                    key={key}
+                    className={isLead ? leadItem : null}
+                    {...item.props}
+                >
                     {item.deckLede && <strong>{item.deckLede} </strong>}
                     {item.deck}
                 </Comp>
@@ -53,6 +59,16 @@ const Gallery = ({ items, ...props }) => (
 );
 
 Gallery.defaultProps = {};
-Gallery.propTypes = {};
+Gallery.propTypes = {
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            type: PropTypes.oneOf(values(galleryTypes)).isRequired,
+            component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+            deck: PropTypes.string,
+            deckLede: PropTypes.string,
+            props: PropTypes.object
+        })
+    ).isRequired
+};
 
 export default Gallery;

@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'react-emotion';
+import PropTypes from 'prop-types';
 import { readableColor, tint, shade } from 'polished';
 import posed, { PoseGroup } from 'react-pose';
 import { tween } from 'popmotion';
@@ -100,5 +101,18 @@ class List extends Component {
         );
     };
 }
+
+List.defaultProps = {};
+List.propTypes = {
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+                .isRequired,
+            deck: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+                .isRequired,
+            link: PropTypes.string
+        })
+    )
+};
 
 export default List;

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import lazySizes from 'lazysizes';
 import styled, { css, cx } from 'react-emotion';
@@ -14,7 +14,8 @@ const mediaPropTypes = {
     src: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
     x: PropTypes.number,
-    y: PropTypes.number
+    y: PropTypes.number,
+    
 };
 
 const mediaDefaultProps = {
@@ -50,10 +51,11 @@ const Caption = styled('span')(shevy.overline, {
     display: 'block',
     marginBottom: 0,
     paddingTop: bs(0.5),
-    paddingBottom: bs(0.5)
+    paddingBottom: bs(0.5),
+    maxWidth: '80%'
 });
 
-const Img = ({ src, alt, x, y, className, caption, ...props }) => (
+const Img = ({ src, alt, x, y, className, children, ...props }) => (
     <Fragment>
         <figure
             role="presentation"
@@ -67,7 +69,7 @@ const Img = ({ src, alt, x, y, className, caption, ...props }) => (
                 {...props}
             />
         </figure>
-        {caption && <Caption>{caption}</Caption>}
+        {children && <Caption>{children}</Caption>}
     </Fragment>
 );
 
@@ -79,21 +81,24 @@ const processSrc = url => {
     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
     var match = url.match(regExp);
     const videoId = match && match[7].length === 11 ? match[7] : null;
-    return `https://www.youtube.com/embed/${videoId}`;
+    return `https://www.youtube.com/embed/${videoId}?modestbranding&rel=0&showinfo=0&controls=0`;
 };
 
-const Video = ({ src, alt, x, y, ...props }) => (
+const Video = ({ src, alt, x, y, children, ...props }) => (
+    <Fragment>
     <div
         role="presentation"
         className={responsiveMediaContainer(x, y)}
         {...props}
-    >
+        >
         <iframe
             data-src={processSrc(src)}
             title={alt}
             className={`lazyload ${responsiveMediaElement}`}
-        />
+            />
     </div>
+        {children && <Caption>{children}</Caption>}
+            </Fragment>
 );
 
 Video.defaultProps = mediaDefaultProps;

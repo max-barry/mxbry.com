@@ -127,7 +127,7 @@ export const shevy = {
         ...shevyConf.h6,
         fontSize: 12,
         fontWeight: fontWeights.heavy,
-        lineHeight: 1,
+        lineHeight: 1.4,
         color: colors.greyDark,
         textTransform: 'uppercase'
     }
@@ -174,6 +174,8 @@ export const dimensions = {
     button: 36,
     input: 320,
     card: 270,
+    container: 1024,
     narrowContainer: 680,
+    loneMedia: 480,
     sectionSpaceDesktop: bsint(10)
 };

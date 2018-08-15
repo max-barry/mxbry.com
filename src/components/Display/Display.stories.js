@@ -62,10 +62,12 @@ storiesOf('Display', module)
             <Img
                 alt="Example image"
                 src="https://source.unsplash.com/random/800x600"
-                caption="This is my demo caption that I'm adding"
-            />
+            >
+                This is my demo caption that I'm adding
+            </Img>
         </div>
     ))
+
     .add('Display.List', _ => {
         const c = color('Color', '#198e67');
         return <List color={c} items={dummyListItems} />;
@@ -98,7 +100,9 @@ storiesOf('Display', module)
         const deck = text('Deck', defaultDeck);
         return (
             <div style={{ width: '100vw' }}>
-                <Lede color={c} title={title} deck={deck} />
+                <Lede color={c} title={title}>
+                    {deck}
+                </Lede>
             </div>
         );
     })
