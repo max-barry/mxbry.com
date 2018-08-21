@@ -86,9 +86,11 @@ Center.propTypes = {
 
 export { Center };
 
-const Section = styled(Center)({
-    marginTop: dimensions.sectionSpaceDesktop,
-    marginBottom: dimensions.sectionSpaceDesktop
-});
+const Section = styled(Center)(
+    mq({
+        marginTop: [dimensions.sectionSpaceDesktop, bs(2)],
+        marginBottom: [dimensions.sectionSpaceDesktop, bs(2)]
+    })
+);
 
 export { Section };

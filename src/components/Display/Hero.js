@@ -26,7 +26,9 @@ const Headline = styled('div')(
         display: 'flex',
         flexDirection: ['row', 'column'],
         justifyContent: 'space-between',
-        paddingBottom: [topSpacing, mobileTopSpacing]
+        paddingBottom: [topSpacing, mobileTopSpacing],
+        paddingLeft: [0, dimensions.mobilePadding],
+        paddingRight: [0, dimensions.mobilePadding]
     })
 );
 
@@ -106,13 +108,15 @@ const BgImage = styled('span')(({ img, color }) => ({
     }
 }));
 
-const FootNumber = styled('h6')({
-    fontSize: 124,
-    fontWeight: fontWeights.heavy,
-    marginBottom: 0,
-    color: colors.white,
-    lineHeight: 1
-});
+const FootNumber = styled('h6')(
+    mq({
+        fontSize: [124, '26vw'],
+        fontWeight: fontWeights.heavy,
+        marginBottom: 0,
+        color: colors.white,
+        lineHeight: 1
+    })
+);
 
 const RepeatHeadline = styled('h5')(shevy.h1, {
     color: colors.white,

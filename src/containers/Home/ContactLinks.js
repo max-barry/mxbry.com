@@ -10,7 +10,8 @@ import {
     fontFamily,
     shevy,
     fontWeights,
-    dimensions
+    dimensions,
+    mq
 } from '../../settings';
 
 const signupEndpoint =
@@ -23,11 +24,13 @@ const contactDetails = [
     { title: 'Medium', link: 'https://words.mxbry.com/' }
 ];
 
-const Form = styled('form')({
-    display: 'flex',
-    alignItems: 'center'
-    // justifyContent:
-});
+const Form = styled('form')(
+    mq({
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: ['row', 'column']
+    })
+);
 
 const sharedInputStyles = {
     ...shevy.h5,
@@ -36,57 +39,65 @@ const sharedInputStyles = {
     boxShadow: 'none',
     fontFamily,
     fontWeight: fontWeights.medium,
-    display: 'inline-block',
+    display: ['inline-block', 'block'],
     padding: styles.fn.pad(0.5, 1),
     lineHeight: 1,
+    width: ['auto', '100%'],
     borderRadius: dimensions.bevel
 };
 
-const Input = styled('input')(sharedInputStyles, {
-    border: `1px solid ${colors.greyDark}`,
-    '&:hover, &:active, &:focus': {
-        outline: 0
-    },
-    '&:focus': {
-        boxShadow: '0 0 5px rgba(0, 0, 0, 0.3)'
-    },
-    '&:invalid': {
-        borderColor: colors.error
-    }
-});
-
-const Submit = styled('button')(sharedInputStyles, ({ success, loading }) => ({
-    backgroundColor:
-        (success && colors.valid) ||
-        (loading && colors.loading) ||
-        colors.grey2,
-    color: ((success || loading) && 'transparent') || colors.black,
-    marginLeft: bs(1),
-    position: 'relative',
-    '&:not([disabled])': {
-        cursor: 'pointer',
-        '&:hover, &:focus, &:active': {
-            backgroundColor: styles.fn.focus(
-                (success && colors.valid) ||
-                    (loading && colors.loading) ||
-                    colors.grey2
-            ),
+const Input = styled('input')(
+    mq(sharedInputStyles),
+    mq({
+        border: `1px solid ${colors.greyDark}`,
+        marginBottom: [0, bs(0.5)],
+        '&:hover, &:active, &:focus': {
             outline: 0
+        },
+        '&:focus': {
+            boxShadow: '0 0 5px rgba(0, 0, 0, 0.3)'
+        },
+        '&:invalid': {
+            borderColor: colors.error
         }
-    },
-    '&::before': {
-        content:
-            (success && '"Success"') ||
-            (loading && '"Loading"') ||
+    })
+);
+
+const Submit = styled('button')(sharedInputStyles, ({ success, loading }) =>
+    mq({
+        backgroundColor:
+            (success && colors.valid) ||
+            (loading && colors.loading) ||
             colors.grey2,
-        position: 'absolute',
-        top: '50%',
-        left: 0,
-        right: 0,
-        color: colors.white,
-        transform: 'translateY(-50%)'
-    }
-}));
+        color: ((success || loading) && 'transparent') || colors.black,
+        marginLeft: [bs(1), 0],
+        position: 'relative',
+        lineHeight: [1, `${dimensions.button}px`],
+        '&:not([disabled])': {
+            cursor: 'pointer',
+            '&:hover, &:focus, &:active': {
+                backgroundColor: styles.fn.focus(
+                    (success && colors.valid) ||
+                        (loading && colors.loading) ||
+                        colors.grey2
+                ),
+                outline: 0
+            }
+        },
+        '&::before': {
+            content:
+                (success && '"Success"') ||
+                (loading && '"Loading"') ||
+                colors.grey2,
+            position: 'absolute',
+            top: '50%',
+            left: 0,
+            right: 0,
+            color: colors.white,
+            transform: 'translateY(-50%)'
+        }
+    })
+);
 
 class MailingListForm extends Component {
     inputRef = null;

@@ -178,5 +178,6 @@ export const dimensions = {
     container: 1024,
     narrowContainer: 680,
     loneMedia: 480,
-    sectionSpaceDesktop: bsint(10)
+    sectionSpaceDesktop: bsint(10),
+    mobilePadding: bsint()
 };

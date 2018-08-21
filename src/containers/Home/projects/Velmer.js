@@ -97,15 +97,18 @@ const Velmer = props => (
         </FocusText>
         <Section maxWidth="none">
             <FlexibleGrid
+                alignItems="stretch"
                 columnStyles={{ display: 'flex', justifyContent: 'center' }}
                 column1={
-                    <div style={{ maxWidth: dimensions.loneMedia }}>
-                        <Video
-                            src="https://youtu.be/FIy1z4DtHrw"
-                            x={1}
-                            y={1}
-                            style={{ marginBottom: bs(5) }}
-                        >
+                    <div
+                        style={{
+                            maxWidth: dimensions.loneMedia,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-evenly'
+                        }}
+                    >
+                        <Video src="https://youtu.be/FIy1z4DtHrw" x={1} y={1}>
                             Longform advert. Run on Facebook &amp; Instagram
                         </Video>
                         <Video src="https://youtu.be/HNrHmIer9GA" x={1} y={1}>

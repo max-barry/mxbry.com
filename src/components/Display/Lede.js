@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'react-emotion';
-import { shevy, bsint, styles, mq } from '../../settings';
+import { shevy, bsint, styles, mq, dimensions } from '../../settings';
 
 const tabWidth = 200;
 const decorationHeight = 15;
@@ -13,33 +13,26 @@ const Container = styled('div')(
             maxWidth: 640,
             margin: '0 auto',
             position: 'relative',
-            paddingLeft: [tabWidth + bsint(2), 0],
+            padding: [0, `0 ${dimensions.mobilePadding}px`],
+            paddingLeft: [tabWidth + bsint(2), dimensions.mobilePadding],
             '&::before, &::after': {
-                content: '""',
+                content: ['""', 'none'],
                 position: 'absolute',
-                top: ['auto', -1 * mobileLargeDecorationHeight],
+                top: 'auto',
                 left: 0,
-                bottom: [0, 'auto'],
-                width: [tabWidth, '100%'],
+                right: 'auto',
+                bottom: 0,
+                width: tabWidth,
                 backgroundColor: color
             },
             '&::before': {
-                top: -1 * mobileLargeDecorationHeight,
-                height: ['auto', mobileLargeDecorationHeight],
-                clipPath: [
-                    'polygon(75% 0, 100% 0, 100% 100%, 0 100%, 0 75%)',
-                    'none'
-                ],
-                transform: [`none`, `translateY(-100%)`]
+                top: -2 * mobileLargeDecorationHeight,
+                height: 'auto',
+                clipPath: 'polygon(75% 0, 100% 0, 100% 100%, 0 100%, 0 75%)'
             },
             '&::after': {
                 height: decorationHeight,
-                transform: [
-                    `translateY(calc(100% + ${decorationHeight}px))`,
-                    `translateY(calc(-100% + ${decorationHeight}px + ${(mobileLargeDecorationHeight *
-                        1) /
-                        3}px))`
-                ]
+                transform: `translateY(calc(100% + ${decorationHeight}px))`
             }
         })
 );

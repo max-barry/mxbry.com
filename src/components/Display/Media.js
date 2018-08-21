@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 import lazySizes from 'lazysizes';
 import styled, { css, cx } from 'react-emotion';
 import posed from 'react-pose';
-import { colors, transitionTimes, shevy, styles, bs } from '../../settings';
+import {
+    colors,
+    transitionTimes,
+    shevy,
+    styles,
+    bs,
+    mq,
+    dimensions
+} from '../../settings';
 
 if (!window.lazySizesConfig && !window.lazySizesConfig.init) {
     lazySizes.cfg = { ...lazySizes.cfg, ...{} };
@@ -29,22 +37,27 @@ const mediaDefaultProps = {
 };
 
 const responsiveMediaContainer = (x, y, transparent, shadow) =>
-    css({
-        position: 'relative',
-        height: 0,
-        width: '100%',
-        paddingBottom: `${(y / x) * 100}%`,
-        boxShadow: shadow ? '0px 0px 12px rgba(208, 208, 208, 0.3)' : 'none',
-        backgroundColor: transparent ? 'transparent' : colors.grey1,
-        'img, iframe, video': {
-            position: 'absolute',
-            top: 0,
-            left: 0,
+    css(
+        mq({
+            position: 'relative',
+            height: 0,
             width: '100%',
-            height: '100%',
-            display: 'block'
-        }
-    });
+            paddingBottom: `${(y / x) * 100}%`,
+            boxShadow: [
+                shadow ? '0px 0px 12px rgba(208, 208, 208, 0.3)' : 'none',
+                'none'
+            ],
+            backgroundColor: transparent ? 'transparent' : colors.grey1,
+            'img, iframe, video': {
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                display: 'block'
+            }
+        })
+    );
 
 const responsiveMediaElement = css({
     transition: `opacity ${transitionTimes.minimal}ms`,
@@ -53,13 +66,17 @@ const responsiveMediaElement = css({
     }
 });
 
-const Caption = styled('span')(shevy.overline, ({ captionWidth }) => ({
-    display: 'block',
-    marginBottom: 0,
-    paddingTop: bs(0.5),
-    paddingBottom: bs(0.5),
-    maxWidth: captionWidth
-}));
+const Caption = styled('span')(shevy.overline, ({ captionWidth }) =>
+    mq({
+        display: 'block',
+        marginBottom: 0,
+        paddingTop: bs(0.5),
+        paddingBottom: bs(0.5),
+        paddingLeft: [0, bs(0.5)],
+        paddingRight: [0, bs(0.5)],
+        maxWidth: [captionWidth, 'none']
+    })
+);
 
 const Img = ({
     src,

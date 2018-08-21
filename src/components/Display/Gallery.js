@@ -42,13 +42,13 @@ const Deck = styled('p')(
         padding: [bs(3), bs(1)],
         fontWeight: fontWeights.light,
         lineHeight: shevy.baseLineHeight,
-        gridColumn: ['span 3 !important', 'span 1']
+        gridColumn: ['span 3 !important', 'span 1 !important']
     })
 );
 
 const leadItem = css(
     mq({
-        gridColumn: ['span 3 !important', 'span 1']
+        gridColumn: ['span 3 !important', 'span 1 !important']
     })
 );
 

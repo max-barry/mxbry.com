@@ -9,7 +9,8 @@ import {
     styles,
     fontWeights,
     colors,
-    bsint
+    bsint,
+    mq
 } from '../../settings';
 import {
     Velmer,
@@ -33,12 +34,16 @@ import ContactLinks from './ContactLinks';
 const contactHeader = 'contactlinks';
 const initialSpace = bsint(3);
 
-const Container = styled('div')({
-    maxWidth: dimensions.narrowContainer,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    paddingTop: initialSpace
-});
+const Container = styled('div')(
+    mq({
+        maxWidth: dimensions.narrowContainer,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        paddingTop: [initialSpace, dimensions.mobilePadding * 2],
+        paddingLeft: [0, dimensions.mobilePadding],
+        paddingRight: [0, dimensions.mobilePadding]
+    })
+);
 
 const Headline = styled('h1')(shevy.h1, {});
 
