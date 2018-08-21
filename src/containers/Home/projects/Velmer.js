@@ -52,14 +52,16 @@ const timeline = [
     }
 ];
 
-export const projectColor = '#198e67';
 const projectName = 'Velmer Daily Contact Lenses';
 const projectDeck =
     'I co-founded Velmer to bring a new contact lens to the UK market. In early-2017 we took 2 rounds of seed investment, before building monthly revenue and customers across the UK.';
+export const projectColor = '#198e67';
+export const projectHeader = 'velmer';
 
 const Velmer = props => (
     <Fragment>
         <Hero
+            id={projectHeader}
             color={projectColor}
             title={projectName}
             img={cover}

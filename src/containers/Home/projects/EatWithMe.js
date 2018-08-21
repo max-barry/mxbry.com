@@ -5,14 +5,16 @@ import { dimensions, bs } from '../../../settings';
 
 import cover from '../../../images/projects/eatwithme/cover.jpg';
 
-export const projectColor = '#0325ff';
 const projectName = 'Eat With Me';
 const projectDeck =
     'Ongoing project looking to build a new way to recommend the best places to eat and drink in an area. Inspired by amazingly modern media sites like The Ringer, Vox and Genius.';
+export const projectColor = '#0325ff';
+export const projectHeader = 'eatwithme';
 
 const EatWithMe = props => (
     <Fragment>
         <Hero
+            id={projectHeader}
             color={projectColor}
             title={projectName}
             img={cover}

@@ -5,10 +5,11 @@ import { dimensions, bs } from '../../../settings';
 
 import cover from '../../../images/projects/googledrivecms/cover.jpg';
 
-export const projectColor = '#D81E5B';
 const projectName = 'Open source work';
 const projectDeck =
     "A collection of open source projects I've worked on over the years. Often the product of creative or performance driven research.";
+export const projectColor = '#D81E5B';
+export const projectHeader = 'opensource';
 
 const items = [
     {
@@ -50,7 +51,7 @@ const items = [
 
 const OpenSource = props => (
     <Fragment>
-        <Section maxWidth="none" style={{ marginBottom: 0 }}>
+        <Section id={projectHeader} maxWidth="none" style={{ marginBottom: 0 }}>
             <Hero
                 color={projectColor}
                 title={projectName}

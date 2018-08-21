@@ -7,10 +7,11 @@ import cover from '../../../images/projects/route1/cover.jpg';
 import appScreenshot from '../../../images/projects/route1/app.png';
 import appScreenshotTwo from '../../../images/projects/route1/app2.png';
 
-export const projectColor = '#fe6224';
 const projectName = 'Route1';
 const projectDeck =
     'Chief of Technology and responsible for big-picture product direction of a London white-collar recruitment technology startup.';
+export const projectColor = '#fe6224';
+export const projectHeader = 'route1';
 
 const listItems = [
     {
@@ -29,6 +30,7 @@ const listItems = [
 const Route1 = props => (
     <Fragment>
         <Hero
+            id={projectHeader}
             color={projectColor}
             title={projectName}
             img={cover}

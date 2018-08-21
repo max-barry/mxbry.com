@@ -5,10 +5,11 @@ import { dimensions, bs } from '../../../settings';
 
 import cover from '../../../images/projects/googledrivecms/cover.jpg';
 
-export const projectColor = '#009688';
 const projectName = 'drivecms.xyz';
 const projectDeck =
     'An old open source project born from working in advertising firms that constantly tried to teach new tools to clients. I wanted a CMS that worked in a language people already knew: a Google Doc.';
+export const projectColor = '#009688';
+export const projectHeader = 'googledrivecms';
 
 const items = [
     { title: 'drivecms.xyz', link: 'https://www.drivecms.xyz/' },
@@ -28,6 +29,7 @@ const items = [
 const GoogleDriveCMS = props => (
     <Fragment>
         <Hero
+            id={projectHeader}
             color={projectColor}
             title={projectName}
             img={cover}
