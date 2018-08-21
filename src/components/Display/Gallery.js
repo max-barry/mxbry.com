@@ -3,8 +3,16 @@ import styled, { css } from 'react-emotion';
 import PropTypes from 'prop-types';
 import { values } from 'ramda';
 import { bs, shevy, fontWeights, dimensions, styles } from '../../settings';
+import { Img } from './Media';
 
 export const galleryTypes = { deck: 'DECK', media: 'MEDIA' };
+
+export const makeGalleryItems = items =>
+    items.map(([src, x = 16, y = 9, extraProps]) => ({
+        type: galleryTypes.media,
+        component: Img,
+        props: { src, x, y, ...extraProps }
+    }));
 
 const Container = styled('div')({
     maxWidth: 1440,
@@ -52,7 +60,9 @@ const Gallery = ({ items, ...props }) => (
                     style={{ borderRadius: dimensions.bevel }}
                     key={key}
                     {...item.props}
-                />
+                >
+                    {item.props.caption}
+                </Comp>
             );
         })}
     </Container>

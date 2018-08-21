@@ -1,0 +1,8 @@
+- Create links from the header
+- Google Analytics
+- SEO
+- Sepearate project pages
+- Forward backlinks
+- Mobile styles
+- Add the site's storybook
+- Add the Eat With Me storybook

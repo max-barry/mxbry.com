@@ -15,6 +15,7 @@ export const colors = {
     secondaryDark: '#0000ca',
     valid: '#66bb6a',
     error: '#B00020',
+    loading: '#007FFF',
     grey1: '#f5f5f5',
     grey2: '#eeeeee',
     greyDark: '#9e9e9e',
@@ -94,7 +95,7 @@ export const fontWeights = {
     heavy: 600
 };
 const baseFontSize = 17;
-const baseLineHeight = 1.4;
+export const baseLineHeight = 1.4;
 const shevyConf = new Shevy({
     baseLineHeight,
     baseFontSize: `${baseFontSize}px`,

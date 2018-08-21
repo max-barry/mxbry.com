@@ -15,21 +15,27 @@ const mediaPropTypes = {
     alt: PropTypes.string.isRequired,
     x: PropTypes.number,
     y: PropTypes.number,
-    
+    transparent: PropTypes.bool,
+    shadow: PropTypes.bool,
+    captionWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 const mediaDefaultProps = {
     x: 16,
-    y: 9
+    y: 9,
+    captionWidth: '80%',
+    transparent: false,
+    shadow: true
 };
 
-const responsiveMediaContainer = (x, y) =>
+const responsiveMediaContainer = (x, y, transparent, shadow) =>
     css({
         position: 'relative',
         height: 0,
         width: '100%',
         paddingBottom: `${(y / x) * 100}%`,
-        backgroundColor: colors.grey1,
+        boxShadow: shadow ? '0px 0px 12px rgba(208, 208, 208, 0.3)' : 'none',
+        backgroundColor: transparent ? 'transparent' : colors.grey1,
         'img, iframe, video': {
             position: 'absolute',
             top: 0,
@@ -47,30 +53,38 @@ const responsiveMediaElement = css({
     }
 });
 
-const Caption = styled('span')(shevy.overline, {
+const Caption = styled('span')(shevy.overline, ({ captionWidth }) => ({
     display: 'block',
     marginBottom: 0,
     paddingTop: bs(0.5),
     paddingBottom: bs(0.5),
-    maxWidth: '80%'
-});
+    maxWidth: captionWidth
+}));
 
-const Img = ({ src, alt, x, y, className, children, ...props }) => (
-    <Fragment>
+const Img = ({
+    src,
+    alt,
+    x,
+    y,
+    captionWidth,
+    transparent,
+    shadow,
+    children,
+    ...props
+}) => (
+    <div {...props}>
         <figure
             role="presentation"
-            className={cx(responsiveMediaContainer(x, y), className)}
-            {...props}
+            className={responsiveMediaContainer(x, y, transparent, shadow)}
         >
             <img
                 alt={alt}
                 data-src={src}
                 className={`lazyload ${responsiveMediaElement}`}
-                {...props}
             />
         </figure>
-        {children && <Caption>{children}</Caption>}
-    </Fragment>
+        {children && <Caption captionWidth={captionWidth}>{children}</Caption>}
+    </div>
 );
 
 Img.defaultProps = mediaDefaultProps;
@@ -84,21 +98,30 @@ const processSrc = url => {
     return `https://www.youtube.com/embed/${videoId}?modestbranding&rel=0&showinfo=0&controls=0`;
 };
 
-const Video = ({ src, alt, x, y, children, ...props }) => (
-    <Fragment>
-    <div
-        role="presentation"
-        className={responsiveMediaContainer(x, y)}
-        {...props}
+const Video = ({
+    src,
+    alt,
+    x,
+    y,
+    captionWidth,
+    transparent,
+    shadow,
+    children,
+    ...props
+}) => (
+    <div {...props}>
+        <div
+            role="presentation"
+            className={responsiveMediaContainer(x, y, transparent, shadow)}
         >
-        <iframe
-            data-src={processSrc(src)}
-            title={alt}
-            className={`lazyload ${responsiveMediaElement}`}
+            <iframe
+                data-src={processSrc(src)}
+                title={alt}
+                className={`lazyload ${responsiveMediaElement}`}
             />
+        </div>
+        {children && <Caption captionWidth={captionWidth}>{children}</Caption>}
     </div>
-        {children && <Caption>{children}</Caption>}
-            </Fragment>
 );
 
 Video.defaultProps = mediaDefaultProps;

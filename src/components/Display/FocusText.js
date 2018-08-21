@@ -3,14 +3,12 @@ import styled from 'react-emotion';
 import { styles, colors, bs, dimensions } from '../../settings';
 
 const Container = styled('div')(({ color }) => styles.fn.dotMatrix(color, 3), {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingTop: bs(6),
+    paddingBottom: bs(6),
+    minHeight: '100vh'
 });
 
 const TextInner = styled('div')(({ backgroundColor }) => ({
@@ -18,18 +16,19 @@ const TextInner = styled('div')(({ backgroundColor }) => ({
     padding: bs(3),
     display: 'inline-block',
     borderRadius: dimensions.bevel,
-    maxWidth: '50%'
+    maxWidth: '50%',
+    '> *:last-child': { marginBottom: 0 }
 }));
 
-const FocustText = ({ color, backgroundColor, children, ...props }) => (
+const FocusText = ({ color, backgroundColor, children, ...props }) => (
     <Container color={color} {...props}>
         <TextInner backgroundColor={backgroundColor}>{children}</TextInner>
     </Container>
 );
 
-FocustText.defaultProps = {
+FocusText.defaultProps = {
     backgroundColor: colors.white
 };
-FocustText.propTypes = {};
+FocusText.propTypes = {};
 
-export default FocustText;
+export default FocusText;

@@ -74,10 +74,12 @@ const BgImage = styled('span')(({ img, color }) => ({
         right: 0
     },
     '&::after': {
-        backgroundImage: `url(${img})`,
         backgroundSize: 'cover',
         filter: 'grayscale(100%) contrast(1.2)',
         zIndex: -2
+    },
+    '&.lazyloaded::after': {
+        backgroundImage: `url(${img})`
     },
     '&::before': {
         backgroundColor: color,
@@ -113,7 +115,7 @@ const Hero = ({ color, img, title, deck, year, ...props }) => (
             <LedeContent>{deck}</LedeContent>
         </Lede>
         <Main>
-            <BgImage color={color} img={img} />
+            <BgImage color={color} img={img} className="lazyload" />
             <RepeatHeadline>{title}</RepeatHeadline>
             <FootNumber>{year}</FootNumber>
         </Main>

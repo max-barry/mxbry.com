@@ -30,6 +30,8 @@ const Li = styled('li')(({ color, hasLink }) => {
             padding: styles.fn.pad(1, 3, 1, 1),
             color: colors.white,
             textDecoration: 'none',
+            display: 'block',
+            width: '100%',
             em: { textDecoration: 'underline' }
         },
         em: {
@@ -65,10 +67,10 @@ const Li = styled('li')(({ color, hasLink }) => {
 
 class List extends Component {
     render = () => {
-        const { items, color } = this.props;
+        const { items, color, ...props } = this.props;
 
         return (
-            <Ul>
+            <Ul {...props}>
                 <PoseGroup>
                     {items.map(({ title, deck, link }, i) => {
                         const key = `List_item_${i}`;
@@ -102,14 +104,17 @@ class List extends Component {
     };
 }
 
-List.defaultProps = {};
+List.defaultProps = {
+    color: colors.black
+};
+
 List.propTypes = {
+    color: PropTypes.string,
     items: PropTypes.arrayOf(
         PropTypes.shape({
             title: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
                 .isRequired,
-            deck: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-                .isRequired,
+            deck: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
             link: PropTypes.string
         })
     )

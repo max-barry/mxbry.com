@@ -1,18 +1,37 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'react-emotion';
 import { tint } from 'polished';
-import { shevy, dimensions, bs, transitionTimes, styles } from '../../settings';
-import { Velmer, velmerColor, Route1, route1Color } from './projects';
+import {
+    shevy,
+    dimensions,
+    bs,
+    transitionTimes,
+    styles,
+    fontWeights,
+    colors,
+    bsint
+} from '../../settings';
+import {
+    Velmer,
+    velmerColor,
+    Route1,
+    route1Color,
+    EatWithMe,
+    eatWithMeColor,
+    GoogleDriveCMS,
+    googleDriveCMSColor,
+    OpenSource,
+    openSourceColor
+} from './projects';
+import ContactLinks from './ContactLinks';
+
+const initialSpace = bsint(3);
 
 const Container = styled('div')({
     maxWidth: dimensions.narrowContainer,
     marginLeft: 'auto',
     marginRight: 'auto',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-    minHeight: '100vh'
+    paddingTop: initialSpace
 });
 
 const Headline = styled('h1')(shevy.h1, {});
@@ -26,13 +45,24 @@ const Nav = styled('ul')({
     marginTop: bs(2)
 });
 
-const NavLi = styled('li')(shevy.h4, ({ color }) => ({
+const NavShared = styled('li')(shevy.h4, {
     padding: styles.fn.pad(0.5),
     paddingLeft: bs(2.5),
     position: 'relative',
-    lineHeight: 1,
     cursor: 'pointer',
-    margin: 0,
+    margin: 0
+});
+
+const NavHeading = styled(NavShared)({
+    fontWeight: fontWeights.heavy,
+    marginBottom: bs(1),
+    padding: 0,
+    '&:not(:first-child)': {
+        marginTop: bs(1.5)
+    }
+});
+
+const NavLi = styled(NavShared)(({ color }) => ({
     transition: `background-color ${transitionTimes.weak}ms`,
     '&::before': {
         color,
@@ -62,24 +92,46 @@ class Home extends Component {
                     work in London &amp; remote
                 </Deck>
                 <Nav>
+                    <NavHeading>Recent work</NavHeading>
                     <NavLi color={velmerColor}>
-                        <strong>Velmer</strong> Founded a business reimagining
-                        daily contact lenses
+                        <strong>Velmer 2018</strong> Founded a business
+                        reimagining daily contact lenses
+                    </NavLi>
+                    <NavLi color={eatWithMeColor}>
+                        <strong>Eat With Me 2018-19</strong> An ongoing project
+                        all about food
                     </NavLi>
                     <NavLi color={route1Color}>
-                        <strong>Route1</strong> CTO for an award winning white
-                        collar recruitment startup
+                        <strong>Route1 2017</strong> CTO for award winning
+                        white-collar recruitment startup
                     </NavLi>
-                    <NavLi color={'green'}>
-                        <strong>First line</strong> an item
+                    <NavLi color={googleDriveCMSColor}>
+                        <strong>drivecms.xyz 2015</strong> An open source
+                        headless CMS
                     </NavLi>
-                    <NavLi color={'yellow'}>
-                        <strong>First line</strong> an item
+                    <NavLi color={openSourceColor}>
+                        <strong>Open source work</strong> Creative and
+                        performance led mini-projects
+                    </NavLi>
+                    <NavHeading>Working with me</NavHeading>
+                    <NavLi color={colors.greyDark}>
+                        <strong>What I work on</strong> Advising new businesses.
+                        Creative and product development. React and other
+                        technical work.
+                    </NavLi>
+                    <NavLi color={colors.greyDark}>
+                        <strong>Where to find me</strong> Links to my work
+                        around the internet
                     </NavLi>
                 </Nav>
             </Container>
+            <ContactLinks />
             <Velmer />
+            <EatWithMe />
             <Route1 />
+            <GoogleDriveCMS />
+            <OpenSource />
+            <ContactLinks style={{ marginBottom: 0 }} />
         </Fragment>
     );
 }

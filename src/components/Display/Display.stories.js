@@ -8,9 +8,9 @@ import { Img, Video } from './Media';
 import Hero from './Hero';
 import Lede from './Lede';
 import List from './List';
+import FocusText from './FocusText';
 import Gallery, { galleryTypes } from './Gallery';
 import { dimensions } from '../../settings';
-import FocustText from './FocusText';
 
 const defaultTitle = faker.lorem.words(4);
 const defaultDeck = faker.lorem.lines(4);
@@ -75,7 +75,7 @@ storiesOf('Display', module)
     .add('Display.FocusText', _ => {
         const c = color('Color', '#198e67');
         const text = color('Text', defaultBodyCopy);
-        return <FocustText color={c}>{text}</FocustText>;
+        return <FocusText color={c}>{text}</FocusText>;
     })
     .add('Display.Hero', _ => {
         const c = color('Color', '#198e67');
