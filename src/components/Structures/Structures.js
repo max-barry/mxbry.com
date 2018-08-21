@@ -14,7 +14,7 @@ import {
     curry
 } from 'ramda';
 import { uniqueId } from 'lodash';
-import { bs, dimensions } from '../../settings';
+import { bs, dimensions, mq } from '../../settings';
 
 const filterWithKeys = curry((pred, obj) =>
     pipe(
@@ -27,22 +27,17 @@ const filterWithKeys = curry((pred, obj) =>
 const fetchColumnProps = filterWithKeys(contains('column'));
 
 const FlexibleGridContainer = styled('div')(
-    ({ count, gap, alignItems, justifyContent }) => ({
-        alignItems,
-        justifyContent,
-        display: 'grid',
-        gridTemplateColumns: '1fr '.repeat(count),
-        gridGap: gap
-    })
+    ({ count, gap, alignItems, justifyContent }) =>
+        mq({
+            alignItems,
+            justifyContent,
+            display: 'grid',
+            gridTemplateColumns: ['1fr '.repeat(count), '100%'],
+            gridGap: gap
+        })
 );
 
-const FlexibleGrid = ({
-    gap,
-    columnStyles,
-    alignItems,
-    // justifyContent,
-    ...props
-}) => {
+const FlexibleGrid = ({ gap, columnStyles, alignItems, ...props }) => {
     const columnProps = fetchColumnProps(props);
     const elements = values(columnProps);
     const count = elements.length;
@@ -53,7 +48,6 @@ const FlexibleGrid = ({
             count={count}
             gap={gap}
             alignItems={alignItems}
-            // justifyContent={justifyContent}
             {...remainingProps}
         >
             {elements.map((element, key) => (
@@ -67,7 +61,6 @@ const FlexibleGrid = ({
 
 FlexibleGrid.defaultProps = {
     alignItems: 'center',
-    // justifyContent: 'center',
     gap: bs(0.5),
     columnStyles: {}
 };
@@ -75,7 +68,6 @@ FlexibleGrid.propTypes = {
     gap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     columnStyles: PropTypes.object,
     alignItems: PropTypes.string
-    // justifyContent: PropTypes.string
 };
 
 export { FlexibleGrid };

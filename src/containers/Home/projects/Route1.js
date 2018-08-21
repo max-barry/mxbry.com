@@ -60,6 +60,7 @@ const Route1 = props => (
                         x={503}
                         y={1023}
                         transparent
+                        shadow={false}
                         src={appScreenshot}
                         style={{
                             maxWidth: 200,
@@ -73,6 +74,7 @@ const Route1 = props => (
                         x={503}
                         y={1023}
                         transparent
+                        shadow={false}
                         src={appScreenshotTwo}
                         style={{
                             maxWidth: 200,

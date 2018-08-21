@@ -1,10 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'react-emotion';
 import PropTypes from 'prop-types';
-import { readableColor, tint, shade } from 'polished';
-import posed, { PoseGroup } from 'react-pose';
-import { tween } from 'popmotion';
-import { colors, bs, fontWeights, dimensions, styles } from '../../settings';
+import { tint, shade } from 'polished';
+import { PoseGroup } from 'react-pose';
+import {
+    colors,
+    bs,
+    fontWeights,
+    dimensions,
+    styles,
+    mq
+} from '../../settings';
 import linkSvg from '../../images/icons/link.svg';
 
 const Ul = styled('ul')({});
@@ -19,8 +25,9 @@ const liColors = (color, darker, hasLink) => ({
 const Li = styled('li')(({ color, hasLink }) => {
     const colorOdd = color;
     const colorEven = tint(0.8, color);
-    return {
+    return mq({
         display: 'flex',
+        flexDirection: ['row', 'column'],
         color: colors.white,
         fontWeight: fontWeights.light,
         cursor: hasLink ? 'pointer' : 'auto',
@@ -31,12 +38,16 @@ const Li = styled('li')(({ color, hasLink }) => {
             color: colors.white,
             textDecoration: 'none',
             display: 'block',
-            width: '100%',
-            em: { textDecoration: 'underline' }
+            width: '100%'
         },
         em: {
             fontWeight: fontWeights.heavy,
-            marginRight: bs(0.5)
+            marginRight: [bs(0.5), 0],
+            marginBottom: [0, bs(0.25)],
+            display: ['inline-block', 'block']
+        },
+        'a em': {
+            textDecoration: 'underline'
         },
         '&:first-child': {
             borderTopLeftRadius: dimensions.bevel,
@@ -62,7 +73,7 @@ const Li = styled('li')(({ color, hasLink }) => {
             backgroundPosition: 'center',
             filter: 'invert(100%)'
         }
-    };
+    });
 });
 
 class List extends Component {

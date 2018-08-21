@@ -8,45 +8,63 @@ import {
     colors,
     fontWeights,
     bsint,
-    styles
+    styles,
+    mq
 } from '../../settings';
 
 const topSpacing = bsint(4);
+const mobileTopSpacing = bsint(2);
 
 const Container = styled('div')({
     maxWidth: dimensions.narrowContainer,
-    // marginTop: topSpacing * 2,
-    // marginBottom: topSpacing * 2,
     marginLeft: 'auto',
     marginRight: 'auto'
 });
 
-const Headline = styled('div')({
-    display: 'flex',
-    justifyContent: 'space-between',
-    paddingBottom: topSpacing
-});
+const Headline = styled('div')(
+    mq({
+        display: 'flex',
+        flexDirection: ['row', 'column'],
+        justifyContent: 'space-between',
+        paddingBottom: [topSpacing, mobileTopSpacing]
+    })
+);
 
 const headlineTitle = color =>
-    css(shevy.h1, {
-        color,
-        maxWidth: '50%'
-    });
+    css(
+        shevy.h1,
+        mq({
+            color,
+            marginBottom: [0, bs(0.5)],
+            maxWidth: ['50%', 'none'],
+            '&:first-child': {
+                marginBottom: 0
+            },
+            '&:last-child': {
+                order: [1, -1]
+            }
+        })
+    );
 
-const Lede = styled('div')(styles.fn.dotMatrix(), ({ color }) => ({
-    color: colors.white,
-    backgroundColor: color,
-    padding: bs(),
-    paddingTop: topSpacing,
-    borderTop: `7px solid ${colors.black}`
-}));
+const Lede = styled('div')(styles.fn.dotMatrix(), ({ color }) =>
+    mq({
+        color: colors.white,
+        backgroundColor: color,
+        padding: bs(),
+        paddingTop: [topSpacing, mobileTopSpacing],
+        borderTop: `7px solid ${colors.black}`
+    })
+);
 
-const LedeContent = styled('div')(shevy.h4, {
-    maxWidth: '70%',
-    marginBottom: 0,
-    fontWeight: fontWeights.regular,
-    lineHeight: shevy.baseLineHeight
-});
+const LedeContent = styled('div')(
+    shevy.h4,
+    mq({
+        maxWidth: ['70%', 'none'],
+        marginBottom: 0,
+        fontWeight: fontWeights.regular,
+        lineHeight: shevy.baseLineHeight
+    })
+);
 
 const Main = styled('div')({
     position: 'relative',

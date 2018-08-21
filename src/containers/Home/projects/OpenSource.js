@@ -3,7 +3,7 @@ import { Hero, FocusText, Img, List } from '../../../components/Display';
 import { Section, FlexibleGrid, Center } from '../../../components/Structures';
 import { dimensions, bs } from '../../../settings';
 
-import cover from '../../../images/projects/googledrivecms/cover.jpg';
+import cover from '../../../images/projects/opensource/cover.jpg';
 
 const projectName = 'Open source work';
 const projectDeck =

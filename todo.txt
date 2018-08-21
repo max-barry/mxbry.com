@@ -1,8 +1,12 @@
-- Create links from the header
+TODO
 - Google Analytics
 - SEO
 - Sepearate project pages
+- Add some product images for the open source stuff
 - Forward backlinks
 - Mobile styles
 - Add the site's storybook
 - Add the Eat With Me storybook
+
+DONE
+- Create links from the header

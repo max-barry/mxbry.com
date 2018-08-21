@@ -2,7 +2,15 @@ import React from 'react';
 import styled, { css } from 'react-emotion';
 import PropTypes from 'prop-types';
 import { values } from 'ramda';
-import { bs, shevy, fontWeights, dimensions, styles } from '../../settings';
+import {
+    bs,
+    shevy,
+    fontWeights,
+    dimensions,
+    styles,
+    mediaqueries,
+    mq
+} from '../../settings';
 import { Img } from './Media';
 
 export const galleryTypes = { deck: 'DECK', media: 'MEDIA' };
@@ -14,28 +22,35 @@ export const makeGalleryItems = items =>
         props: { src, x, y, ...extraProps }
     }));
 
-const Container = styled('div')({
-    maxWidth: 1440,
-    marginTop: bs(3),
-    marginBottom: bs(3),
-    display: 'grid',
-    gridTemplateColumns: 'repeat(6, 1fr)',
-    gridGap: styles.fn.pad(2, 1),
-    padding: bs(),
-    '> *': { alignSelf: 'center', gridColumn: 'span 2' }
-});
+const Container = styled('div')(
+    mq({
+        maxWidth: 1440,
+        marginTop: [bs(3), bs()],
+        marginBottom: [bs(3), bs()],
+        display: 'grid',
+        gridTemplateColumns: ['repeat(6, 1fr)', '100%'],
+        gridGap: styles.fn.pad(2, 1),
+        padding: [bs(), 0],
+        '> *': { alignSelf: 'center', gridColumn: ['span 2', 'span 1'] }
+    })
+);
 
-const Deck = styled('p')(shevy.h3, {
-    margin: 0,
-    padding: bs(3),
-    fontWeight: fontWeights.light,
-    lineHeight: shevy.baseLineHeight,
-    gridColumn: 'span 3 !important'
-});
+const Deck = styled('p')(
+    shevy.h3,
+    mq({
+        margin: 0,
+        padding: [bs(3), bs(1)],
+        fontWeight: fontWeights.light,
+        lineHeight: shevy.baseLineHeight,
+        gridColumn: ['span 3 !important', 'span 1']
+    })
+);
 
-const leadItem = css({
-    gridColumn: 'span 3 !important'
-});
+const leadItem = css(
+    mq({
+        gridColumn: ['span 3 !important', 'span 1']
+    })
+);
 
 const Gallery = ({ items, ...props }) => (
     <Container {...props}>
