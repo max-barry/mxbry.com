@@ -26,7 +26,7 @@ const Container = styled('div')(
                 backgroundColor: color
             },
             '&::before': {
-                top: -2 * mobileLargeDecorationHeight,
+                top: [0, -2 * mobileLargeDecorationHeight],
                 height: 'auto',
                 clipPath: 'polygon(75% 0, 100% 0, 100% 100%, 0 100%, 0 75%)'
             },
