@@ -86,7 +86,7 @@ const Submit = styled('button')(sharedInputStyles, ({ success, loading }) =>
         },
         '&::before': {
             content:
-                (success && '"Success"') || (loading && '"Loading"') || null,
+                (success && '"Success"') || (loading && '"Saving..."') || null,
             position: 'absolute',
             top: '50%',
             left: 0,

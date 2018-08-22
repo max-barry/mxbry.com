@@ -1,12 +1,12 @@
 TODO
 - 404
 - Add some product images for the open source stuff
-- Optimize all the images
 - Forward backlinks
 - Add the site's storybook
 - Add the Eat With Me storybook
 
 DONE
+- Optimize all the images
 - Font faces
 - SEO
 - Google Analytics
