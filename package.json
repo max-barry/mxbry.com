@@ -13,6 +13,7 @@
         "react": "^16.4.2",
         "react-dom": "^16.4.2",
         "react-emotion": "^9.2.6",
+        "react-google-tag-manager": "^2.2.1",
         "react-mailchimp-subscribe": "^2.0.2",
         "react-masonry-component": "^6.2.1",
         "react-pose": "^2.2.0",
