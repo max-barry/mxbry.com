@@ -88,8 +88,7 @@ export const shadows = {
 // STYLES - typography
 // ------------------
 export const fontFamilyCustom = 'HK Grotesk Pro';
-// export const fontFamily = `${fontFamilyCustom}, Helvetica Neue, sans-serif`;
-export const fontFamily = `${fontFamilyCustom}, serif`;
+export const fontFamily = `${fontFamilyCustom}, Helvetica, Arial, sans-serif`;
 export const fontWeights = {
     light: 300,
     regular: 400,
