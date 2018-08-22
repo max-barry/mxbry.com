@@ -14,6 +14,7 @@ class GoogleTagManager extends React.Component {
 
         if (!window[dataLayerName]) {
             const gtmScriptNode = document.getElementById(this.scriptId);
+            /* eslint no-eval: 0 */
             eval(gtmScriptNode.textContent);
         }
     }
