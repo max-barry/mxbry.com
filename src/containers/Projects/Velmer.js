@@ -147,5 +147,7 @@ export default Velmer;
 
 export const WrappedVelmer = withWrap({
     name: projectName,
-    color: projectColor
+    color: projectColor,
+    deck: projectDeck,
+    url: projectUrl
 })(Velmer);

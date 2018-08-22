@@ -97,5 +97,7 @@ export default Route1;
 
 export const WrappedRoute1 = withWrap({
     name: projectName,
-    color: projectColor
+    color: projectColor,
+    deck: projectDeck,
+    url: projectUrl
 })(Route1);

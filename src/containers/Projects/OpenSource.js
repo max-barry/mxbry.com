@@ -75,5 +75,7 @@ export default OpenSource;
 
 export const WrappedOpenSource = withWrap({
     name: projectName,
-    color: projectColor
+    color: projectColor,
+    deck: projectDeck,
+    url: projectUrl
 })(OpenSource);

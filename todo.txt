@@ -1,6 +1,6 @@
 TODO
-- Google Analytics
 - SEO
+- 404
 - Add some product images for the open source stuff
 - Optimize all the images
 - Forward backlinks
@@ -8,6 +8,7 @@ TODO
 - Add the Eat With Me storybook
 
 DONE
+- Google Analytics
 - Sepearate project pages
 - Mobile styles
 - Create links from the header

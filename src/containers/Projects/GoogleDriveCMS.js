@@ -51,5 +51,7 @@ export default GoogleDriveCMS;
 
 export const WrappedGoogleDriveCMS = withWrap({
     name: projectName,
-    color: projectColor
+    color: projectColor,
+    deck: projectDeck,
+    url: projectUrl
 })(GoogleDriveCMS);

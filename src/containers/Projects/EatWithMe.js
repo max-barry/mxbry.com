@@ -61,5 +61,7 @@ export default EatWithMe;
 
 export const WrappedEatWithMe = withWrap({
     name: projectName,
-    color: projectColor
+    color: projectColor,
+    deck: projectDeck,
+    url: projectUrl
 })(EatWithMe);

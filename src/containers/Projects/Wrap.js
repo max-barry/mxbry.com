@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import styled from 'react-emotion';
+import { Helmet } from 'react-helmet';
 import ContactLinks from '../Home/ContactLinks';
 import { colors, fontWeights, mq, bs, dimensions } from '../../settings';
 import { Center } from '../../components/Structures';
@@ -34,34 +35,46 @@ const Tag = styled('h3')({
     }
 });
 
-const withWrap = ({ name, color }) => WrappedComponent => {
+const withWrap = ({ name, color, deck, url }) => WrappedComponent => {
     class HOC extends React.Component {
-        render = () => (
-            <Fragment>
-                <Lede color={color}>
-                    <h1>
-                        <em>{name}</em> is a project by Max Barry
-                    </h1>
-                    <Tag>
-                        I work on this and <a href="/">other projects</a> in
-                        London and remote
-                    </Tag>
-                </Lede>
-                <WrappedComponent />
-                <ContactLinks style={{ marginTop: 0, marginBottom: 0 }} />
-                <Center
-                    style={{
-                        textAlign: 'center',
-                        padding: `${bs()} ${dimensions.mobilePadding}px`
-                    }}
-                >
-                    <Tag>
-                        I work on this and <a href="/">other projects</a> in
-                        London and remote
-                    </Tag>
-                </Center>
-            </Fragment>
-        );
+        render = () => {
+            const metaTitle = `${name} | Project by Max Barry`;
+            return (
+                <Fragment>
+                    <Helmet>
+                        <title>{metaTitle}</title>
+                        <meta name="description" content={deck} />
+                        <meta name="twitter:title" content={metaTitle} />
+                        <meta name="twitter:description" content={deck} />
+                        <meta property="og:title" content={metaTitle} />
+                        <meta property="og:description" content={deck} />
+                        <meta property="og:url" content={url} />
+                    </Helmet>
+                    <Lede color={color}>
+                        <h1>
+                            <em>{name}</em> is a project by Max Barry
+                        </h1>
+                        <Tag>
+                            I work on this and <a href="/">other projects</a> in
+                            London and remote
+                        </Tag>
+                    </Lede>
+                    <WrappedComponent />
+                    <ContactLinks style={{ marginTop: 0, marginBottom: 0 }} />
+                    <Center
+                        style={{
+                            textAlign: 'center',
+                            padding: `${bs()} ${dimensions.mobilePadding}px`
+                        }}
+                    >
+                        <Tag>
+                            I work on this and <a href="/">other projects</a> in
+                            London and remote
+                        </Tag>
+                    </Center>
+                </Fragment>
+            );
+        };
     }
 
     return HOC;

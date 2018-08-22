@@ -13,7 +13,7 @@ import {
     WrappedOpenSource,
     WrappedGoogleDriveCMS
 } from '../Projects';
-import GoogleTagManager from '../../components/Meta/GoogleTagManager';
+import { DefaultMeta, GoogleTagManager } from '../../components/Meta';
 
 const projects = [
     [velmerUrl, WrappedVelmer],
@@ -28,6 +28,7 @@ const GTM_ID = 'GTM-PT84K6';
 class App extends Component {
     render = () => (
         <Fragment>
+            <DefaultMeta />
             <GoogleTagManager gtmId={GTM_ID} />
             <BrowserRouter>
                 <main>
