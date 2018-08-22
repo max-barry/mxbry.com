@@ -16,19 +16,24 @@ import {
     Velmer,
     velmerColor,
     velmerHeader,
+    velmerUrl,
     Route1,
     route1Color,
     route1Header,
+    route1Url,
     EatWithMe,
     eatWithMeColor,
     eatWithMeHeader,
+    eatWithMeUrl,
     GoogleDriveCMS,
     googleDriveCMSColor,
     googleDriveCMSHeader,
+    googleDriveCMSUrl,
     OpenSource,
     openSourceColor,
-    openSourceHeader
-} from './projects';
+    openSourceHeader,
+    openSourceUrl
+} from '../Projects';
 import ContactLinks from './ContactLinks';
 
 const contactHeader = 'contactlinks';
@@ -113,31 +118,31 @@ class Home extends Component {
                 <Nav>
                     <NavHeading>Recent work</NavHeading>
                     <NavLi color={velmerColor}>
-                        <a href={`#${velmerHeader}`}>
+                        <a href={velmerUrl}>
                             <strong>Velmer 2018</strong> Founded a business
                             reimagining daily contact lenses
                         </a>
                     </NavLi>
                     <NavLi color={eatWithMeColor}>
-                        <a href={`#${eatWithMeHeader}`}>
+                        <a href={eatWithMeUrl}>
                             <strong>Eat With Me 2018-19</strong> An ongoing
                             project all about food
                         </a>
                     </NavLi>
                     <NavLi color={route1Color}>
-                        <a href={`#${route1Header}`}>
+                        <a href={route1Url}>
                             <strong>Route1 2017</strong> CTO for award winning
                             white-collar recruitment startup
                         </a>
                     </NavLi>
                     <NavLi color={googleDriveCMSColor}>
-                        <a href={`#${googleDriveCMSHeader}`}>
+                        <a href={googleDriveCMSUrl}>
                             <strong>drivecms.xyz 2015</strong> An open source
                             headless CMS
                         </a>
                     </NavLi>
                     <NavLi color={openSourceColor}>
-                        <a href={`#${openSourceHeader}`}>
+                        <a href={openSourceUrl}>
                             <strong>Open source work</strong> Creative and
                             performance led mini-projects
                         </a>

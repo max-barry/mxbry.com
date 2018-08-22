@@ -1,12 +1,13 @@
 TODO
 - Google Analytics
 - SEO
-- Sepearate project pages
 - Add some product images for the open source stuff
+- Optimize all the images
 - Forward backlinks
-- Mobile styles
 - Add the site's storybook
 - Add the Eat With Me storybook
 
 DONE
+- Sepearate project pages
+- Mobile styles
 - Create links from the header
