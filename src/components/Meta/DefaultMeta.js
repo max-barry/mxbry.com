@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { colors } from '../../settings';
 
 const metaTitle = 'Max Barry | Creative technology in London and remote';
 const metaDescription =
@@ -8,7 +7,7 @@ const metaDescription =
 const domain = 'https://mxbry.com';
 const twitterAccount = '@mxbrry';
 const twitterId = '276204106';
-const siteColor = colors.grey2;
+// const siteColor = colors.grey2;
 
 const DefaultMeta = props => (
     <Helmet>

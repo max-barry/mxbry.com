@@ -1,5 +1,5 @@
 import { injectGlobal } from 'react-emotion';
-import { shevy, fontFamily, fontWeights } from './settings';
+import { shevy, fontFamily, fontWeights, fontFamilyCustom } from './settings';
 
 const { content, ...headings } = shevy;
 
@@ -27,7 +27,6 @@ const typography = `
         line-height: ${content.lineHeight};
         font-family: ${fontFamily};
         font-weight: ${content.fontWeight};
-        // letter-spacing: 0.01em;
     }
 
     p {
@@ -43,6 +42,17 @@ const typography = `
     }
 
     em {font-style: normal;}
+`;
+
+const fontFace = (weight, suffix) => `
+    @font-face {
+        font-family: "${fontFamilyCustom}";
+        font-style: normal;
+        font-weight: ${weight};
+        src: url(/fonts/HKGroteskPro-${suffix}.woff2) format('woff2'),
+             url(/fonts/HKGroteskPro-${suffix}.woff) format('woff');
+        font-display: optional;
+    }
 `;
 
 injectGlobal`
@@ -85,5 +95,10 @@ injectGlobal`
         height: 100%;
     }
 
+    ${fontFace(300, 'Light')}
+    ${fontFace(400, 'Regular')}
+    ${fontFace(500, 'Medium')}
+    ${fontFace(600, 'SemiBold')}
+     
     ${typography}
 `;

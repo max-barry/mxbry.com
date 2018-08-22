@@ -1,17 +1,8 @@
-import React, { Fragment, Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import lazySizes from 'lazysizes';
-import styled, { css, cx } from 'react-emotion';
-import posed from 'react-pose';
-import {
-    colors,
-    transitionTimes,
-    shevy,
-    styles,
-    bs,
-    mq,
-    dimensions
-} from '../../settings';
+import styled, { css } from 'react-emotion';
+import { colors, transitionTimes, shevy, bs, mq } from '../../settings';
 
 if (!window.lazySizesConfig && !window.lazySizesConfig.init) {
     lazySizes.cfg = { ...lazySizes.cfg, ...{} };
@@ -109,7 +100,7 @@ Img.propTypes = mediaPropTypes;
 export { Img };
 
 const processSrc = url => {
-    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
     var match = url.match(regExp);
     const videoId = match && match[7].length === 11 ? match[7] : null;
     return `https://www.youtube.com/embed/${videoId}?modestbranding&rel=0&showinfo=0&controls=0`;

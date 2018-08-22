@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import { Hero, FocusText, Img, List } from '../../components/Display';
-import { Section, FlexibleGrid, Center } from '../../components/Structures';
+import { Hero, FocusText, Img } from '../../components/Display';
+import { Section, FlexibleGrid } from '../../components/Structures';
 import { dimensions, bs } from '../../settings';
 import withWrap from './Wrap';
 
@@ -49,9 +49,33 @@ const EatWithMe = props => (
         <Section>
             <FlexibleGrid
                 gap={bs(2)}
-                column1={<Img x={1} y={1} src={card} style={imgStyles} />}
-                column2={<Img x={1} y={1} src={nationals} style={imgStyles} />}
-                column3={<Img x={1} y={1} src={buttons} style={imgStyles} />}
+                column1={
+                    <Img
+                        x={1}
+                        y={1}
+                        src={card}
+                        alt="Eat with Me card UI element"
+                        style={imgStyles}
+                    />
+                }
+                column2={
+                    <Img
+                        x={1}
+                        y={1}
+                        src={nationals}
+                        alt="Eat with Me cuisines UI element"
+                        style={imgStyles}
+                    />
+                }
+                column3={
+                    <Img
+                        x={1}
+                        y={1}
+                        src={buttons}
+                        alt="Eat with Me buttons UI element"
+                        style={imgStyles}
+                    />
+                }
             />
         </Section>
     </Fragment>

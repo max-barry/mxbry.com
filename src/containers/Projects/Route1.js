@@ -64,6 +64,7 @@ const Route1 = props => (
                         transparent
                         shadow={false}
                         src={appScreenshot}
+                        alt="Screenshot of the Route1 app I"
                         style={{
                             maxWidth: 200,
                             marginLeft: 'auto',
@@ -78,6 +79,7 @@ const Route1 = props => (
                         transparent
                         shadow={false}
                         src={appScreenshotTwo}
+                        alt="Screenshot of the Route1 app II"
                         style={{
                             maxWidth: 200,
                             marginLeft: 'auto',

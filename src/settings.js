@@ -87,7 +87,9 @@ export const shadows = {
 // ------------------
 // STYLES - typography
 // ------------------
-export const fontFamily = `"HK Grotesk Pro", Helvetica Neue, sans-serif`;
+export const fontFamilyCustom = 'HK Grotesk Pro';
+// export const fontFamily = `${fontFamilyCustom}, Helvetica Neue, sans-serif`;
+export const fontFamily = `${fontFamilyCustom}, serif`;
 export const fontWeights = {
     light: 300,
     regular: 400,
@@ -117,6 +119,10 @@ const shevyConf = new Shevy({
 export const shevy = {
     ...shevyConf,
     content: { ...shevyConf.content, fontWeight: fontWeights.regular },
+    h3: {
+        ...shevyConf.h3,
+        fontWeight: fontWeights.regular
+    },
     h6: {
         ...shevyConf.h6,
         fontWeight: fontWeights.medium,

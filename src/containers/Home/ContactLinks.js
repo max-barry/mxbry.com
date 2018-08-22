@@ -1,13 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
-import styled, { css } from 'react-emotion';
+import styled from 'react-emotion';
 import { Section } from '../../components/Structures';
 import { FocusText, List } from '../../components/Display';
 import {
     colors,
     bs,
     styles,
-    fontFamily,
     shevy,
     fontWeights,
     dimensions,
@@ -87,9 +86,7 @@ const Submit = styled('button')(sharedInputStyles, ({ success, loading }) =>
         },
         '&::before': {
             content:
-                (success && '"Success"') ||
-                (loading && '"Loading"') ||
-                colors.grey2,
+                (success && '"Success"') || (loading && '"Loading"') || null,
             position: 'absolute',
             top: '50%',
             left: 0,
@@ -155,7 +152,7 @@ const ContactLinks = props => (
             <p>
                 Experience design and technical development. My long-background
                 is in experience design from idea to deployment. I really like
-                making fast, accessible, and performant UIs that just feel
+                making fast, accessible, and performant UIs that just feel&nbsp;
                 <i>nice</i>.<br />
                 <br />I work on React JS projects, can program in Python, do a
                 lot of work with the Google Cloud Platform, and have always made

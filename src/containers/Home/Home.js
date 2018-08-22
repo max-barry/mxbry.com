@@ -15,23 +15,18 @@ import {
 import {
     Velmer,
     velmerColor,
-    velmerHeader,
     velmerUrl,
     Route1,
     route1Color,
-    route1Header,
     route1Url,
     EatWithMe,
     eatWithMeColor,
-    eatWithMeHeader,
     eatWithMeUrl,
     GoogleDriveCMS,
     googleDriveCMSColor,
-    googleDriveCMSHeader,
     googleDriveCMSUrl,
     OpenSource,
     openSourceColor,
-    openSourceHeader,
     openSourceUrl
 } from '../Projects';
 import ContactLinks from './ContactLinks';

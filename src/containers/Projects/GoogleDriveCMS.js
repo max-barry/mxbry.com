@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import { Hero, FocusText, Img, List } from '../../components/Display';
-import { Section, FlexibleGrid, Center } from '../../components/Structures';
+import { Hero, List } from '../../components/Display';
+import { Section } from '../../components/Structures';
 import { dimensions, bs } from '../../settings';
 import withWrap from './Wrap';
 

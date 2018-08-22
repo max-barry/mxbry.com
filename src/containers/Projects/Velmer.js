@@ -3,7 +3,6 @@ import {
     Hero,
     Lede,
     Gallery,
-    galleryTypes,
     makeGalleryItems,
     Img,
     Video,
@@ -11,7 +10,7 @@ import {
     List
 } from '../../components/Display';
 import { FlexibleGrid, Section } from '../../components/Structures';
-import { dimensions, bs } from '../../settings';
+import { dimensions } from '../../settings';
 import withWrap from './Wrap';
 
 // Load in the image paths
@@ -26,12 +25,17 @@ import cover from '../../images/projects/velmer/cover.jpg';
 
 // Turn the images in to items for the gallery
 const projectImages = makeGalleryItems([
-    [cafe],
-    [pack1, 1, 1],
-    [pack2, 1, 1],
-    [pack3, 1, 1],
-    [sitting],
-    [yoga]
+    [cafe, 16, 9, { alt: 'Velmer Facebook advert of a lady in a cafe' }],
+    [pack1, 1, 1, { alt: 'Packshot of a green Velmer lenses box I' }],
+    [pack2, 1, 1, { alt: 'Packshot of a green Velmer lenses box II' }],
+    [pack3, 1, 1, { alt: 'Packshot of a blue Velmer lenses box' }],
+    [
+        sitting,
+        16,
+        9,
+        { alt: 'Velmer Facebook advert of a lady sitting on a bench' }
+    ],
+    [yoga, 16, 9, { alt: 'Velmer Facebook advert of a lady doing yoga' }]
 ]);
 
 const timeline = [
@@ -110,10 +114,20 @@ const Velmer = props => (
                             justifyContent: 'space-evenly'
                         }}
                     >
-                        <Video src="https://youtu.be/FIy1z4DtHrw" x={1} y={1}>
+                        <Video
+                            alt="Longform Velmer advert about how to spend money"
+                            src="https://youtu.be/FIy1z4DtHrw"
+                            x={1}
+                            y={1}
+                        >
                             Longform advert. Run on Facebook &amp; Instagram
                         </Video>
-                        <Video src="https://youtu.be/HNrHmIer9GA" x={1} y={1}>
+                        <Video
+                            alt="Longform Velmer advert targeting gym users"
+                            src="https://youtu.be/HNrHmIer9GA"
+                            x={1}
+                            y={1}
+                        >
                             Proof of concept ad targeting runners and gym users.
                             Run on Facebook &amp; Instagram
                         </Video>

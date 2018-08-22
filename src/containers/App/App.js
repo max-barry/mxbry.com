@@ -23,6 +23,15 @@ const projects = [
     [eatWithMeUrl, WrappedEatWithMe]
 ];
 
+// const redirects = [
+//     '/work',
+//     '/where-max-is-active',
+//     '/about',
+//     '/work/zebra-horse-twitter',
+//     '/work/mxbry',
+//     '/work/jumpstart-static'
+// ];
+
 const GTM_ID = 'GTM-PT84K6';
 
 class App extends Component {
@@ -31,17 +40,19 @@ class App extends Component {
             <DefaultMeta />
             <GoogleTagManager gtmId={GTM_ID} />
             <BrowserRouter>
-                <main>
-                    <Route exact path="/" component={Home} />
-                    {projects.map(([url, component], i) => (
-                        <Route
-                            exact
-                            key={`route_${i}`}
-                            path={url}
-                            component={component}
-                        />
-                    ))}
-                </main>
+                <Fragment>
+                    <main>
+                        <Route exact path="/" component={Home} />
+                        {projects.map(([url, component], i) => (
+                            <Route
+                                exact
+                                key={`route_${i}`}
+                                path={url}
+                                component={component}
+                            />
+                        ))}
+                    </main>
+                </Fragment>
             </BrowserRouter>
         </Fragment>
     );

@@ -1,6 +1,6 @@
 TODO
-- SEO
 - 404
+- Font faces
 - Add some product images for the open source stuff
 - Optimize all the images
 - Forward backlinks
@@ -8,6 +8,7 @@ TODO
 - Add the Eat With Me storybook
 
 DONE
+- SEO
 - Google Analytics
 - Sepearate project pages
 - Mobile styles

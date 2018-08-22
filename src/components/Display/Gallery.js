@@ -2,15 +2,7 @@ import React from 'react';
 import styled, { css } from 'react-emotion';
 import PropTypes from 'prop-types';
 import { values } from 'ramda';
-import {
-    bs,
-    shevy,
-    fontWeights,
-    dimensions,
-    styles,
-    mediaqueries,
-    mq
-} from '../../settings';
+import { bs, shevy, fontWeights, dimensions, styles, mq } from '../../settings';
 import { Img } from './Media';
 
 export const galleryTypes = { deck: 'DECK', media: 'MEDIA' };
