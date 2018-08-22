@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import styled from 'react-emotion';
 import ContactLinks from '../Home/ContactLinks';
 import { colors, fontWeights, mq, bs, dimensions } from '../../settings';
+import { Center } from '../../components/Structures';
 
 const Lede = styled('div')(({ color }) =>
     mq({
@@ -21,6 +22,7 @@ const Lede = styled('div')(({ color }) =>
 
 const Tag = styled('h3')({
     fontWeight: fontWeights.regular,
+    marginBottom: 0,
     a: {
         borderBottom: `3px solid ${colors.greyDark}`,
         textDecoration: 'none',
@@ -47,6 +49,17 @@ const withWrap = ({ name, color }) => WrappedComponent => {
                 </Lede>
                 <WrappedComponent />
                 <ContactLinks style={{ marginTop: 0, marginBottom: 0 }} />
+                <Center
+                    style={{
+                        textAlign: 'center',
+                        padding: `${bs()} ${dimensions.mobilePadding}px`
+                    }}
+                >
+                    <Tag>
+                        I work on this and <a href="/">other projects</a> in
+                        London and remote
+                    </Tag>
+                </Center>
             </Fragment>
         );
     }
