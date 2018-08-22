@@ -37,18 +37,17 @@ const sharedInputStyles = {
     margin: 0,
     border: 0,
     boxShadow: 'none',
-    fontFamily,
     fontWeight: fontWeights.medium,
-    display: ['inline-block', 'block'],
     padding: styles.fn.pad(0.5, 1),
     lineHeight: 1,
-    width: ['auto', '100%'],
     borderRadius: dimensions.bevel
 };
 
 const Input = styled('input')(
-    mq(sharedInputStyles),
+    sharedInputStyles,
     mq({
+        display: ['inline-block', 'block'],
+        width: ['auto', '100%'],
         border: `1px solid ${colors.greyDark}`,
         marginBottom: [0, bs(0.5)],
         '&:hover, &:active, &:focus': {
@@ -65,6 +64,8 @@ const Input = styled('input')(
 
 const Submit = styled('button')(sharedInputStyles, ({ success, loading }) =>
     mq({
+        display: ['inline-block', 'block'],
+        width: ['auto', '100%'],
         backgroundColor:
             (success && colors.valid) ||
             (loading && colors.loading) ||
