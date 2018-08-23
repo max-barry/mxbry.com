@@ -2,19 +2,14 @@ import React, { Fragment } from 'react';
 import { Hero, List } from '../../components/Display';
 import { Section } from '../../components/Structures';
 import { dimensions, bs } from '../../settings';
-import withWrap from './Wrap';
+import { googledrivecms } from './constants';
 
 import cover from '../../images/projects/googledrivecms/cover.jpg';
 
-const projectName = 'drivecms.xyz';
-const projectDeck =
-    'An old open source project born from working in advertising firms that constantly tried to teach new tools to clients. I wanted a CMS that worked in a language people already knew: a Google Doc.';
-export const projectColor = '#009688';
-export const projectHeader = 'googledrivecms';
-export const projectUrl = '/google-drive-cms';
+const { name, color, deck } = googledrivecms;
 
 const items = [
-    { title: 'drivecms.xyz', link: 'https://www.drivecms.xyz/' },
+    { title: name, link: 'https://www.drivecms.xyz/' },
     {
         title: 'Medium',
         deck: 'The original Medium post outlining the project',
@@ -31,27 +26,26 @@ const items = [
 const GoogleDriveCMS = props => (
     <Fragment>
         <Hero
-            id={projectHeader}
-            color={projectColor}
-            title={projectName}
+            color={color}
+            title={name}
             img={cover}
-            deck={projectDeck}
+            deck={deck}
             year={'2015'}
         />
         <Section
             maxWidth={dimensions.narrowContainer}
             style={{ marginTop: bs(2), marginBottom: bs(2) }}
         >
-            <List items={items} color={projectColor} />
+            <List items={items} color={color} />
         </Section>
     </Fragment>
 );
 
 export default GoogleDriveCMS;
 
-export const WrappedGoogleDriveCMS = withWrap({
-    name: projectName,
-    color: projectColor,
-    deck: projectDeck,
-    url: projectUrl
-})(GoogleDriveCMS);
+// export const WrappedGoogleDriveCMS = withWrap({
+//     name: projectName,
+//     color: projectColor,
+//     deck: projectDeck,
+//     url: projectUrl
+// })(GoogleDriveCMS);

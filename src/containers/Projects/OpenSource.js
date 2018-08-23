@@ -2,16 +2,11 @@ import React, { Fragment } from 'react';
 import { Hero, List } from '../../components/Display';
 import { Section } from '../../components/Structures';
 import { dimensions, bs } from '../../settings';
-import withWrap from './Wrap';
+import { opensource } from './constants';
 
 import cover from '../../images/projects/opensource/cover.jpg';
 
-const projectName = 'Open source work';
-const projectDeck =
-    "A collection of open source projects I've worked on over the years. Often the product of creative or performance driven research.";
-export const projectColor = '#D81E5B';
-export const projectHeader = 'opensource';
-export const projectUrl = '/open-source-projects';
+const { name, color, deck } = opensource;
 
 const items = [
     {
@@ -53,12 +48,12 @@ const items = [
 
 const OpenSource = props => (
     <Fragment>
-        <Section id={projectHeader} maxWidth="none" style={{ marginBottom: 0 }}>
+        <Section maxWidth="none" style={{ marginBottom: 0 }}>
             <Hero
-                color={projectColor}
-                title={projectName}
+                color={color}
+                title={name}
                 img={cover}
-                deck={projectDeck}
+                deck={deck}
                 year={'2014 - present'}
             />
         </Section>
@@ -66,16 +61,16 @@ const OpenSource = props => (
             maxWidth={dimensions.narrowContainer}
             style={{ marginTop: bs(2), marginBottom: bs(2) }}
         >
-            <List items={items} color={projectColor} />
+            <List items={items} color={color} />
         </Section>
     </Fragment>
 );
 
 export default OpenSource;
 
-export const WrappedOpenSource = withWrap({
-    name: projectName,
-    color: projectColor,
-    deck: projectDeck,
-    url: projectUrl
-})(OpenSource);
+// export const WrappedOpenSource = withWrap({
+//     name: projectName,
+//     color: projectColor,
+//     deck: projectDeck,
+//     url: projectUrl
+// })(OpenSource);

@@ -2,19 +2,14 @@ import React, { Fragment } from 'react';
 import { Hero, FocusText, Img } from '../../components/Display';
 import { Section, FlexibleGrid } from '../../components/Structures';
 import { dimensions, bs } from '../../settings';
-import withWrap from './Wrap';
+import { eatwithme } from './constants';
 
 import cover from '../../images/projects/eatwithme/cover.jpg';
 import buttons from '../../images/projects/eatwithme/buttons.jpg';
 import card from '../../images/projects/eatwithme/card.jpg';
 import nationals from '../../images/projects/eatwithme/nationals.jpg';
 
-const projectName = 'Eat With Me';
-const projectDeck =
-    'Ongoing project looking to build a new way to recommend the best places to eat and drink in an area. Inspired by amazingly modern media sites like The Ringer, Vox and Genius.';
-export const projectColor = '#0325ff';
-export const projectHeader = 'eatwithme';
-export const projectUrl = '/eat-with-me';
+const { name, color, deck } = eatwithme;
 
 const imgStyles = {
     maxWidth: dimensions.loneMedia,
@@ -25,15 +20,14 @@ const imgStyles = {
 const EatWithMe = props => (
     <Fragment>
         <Hero
-            id={projectHeader}
-            color={projectColor}
-            title={projectName}
+            color={color}
+            title={name}
             img={cover}
-            deck={projectDeck}
+            deck={deck}
             year={'2018 / 2019'}
         />
         <Section maxWidth="none">
-            <FocusText color={projectColor}>
+            <FocusText color={color}>
                 I want to make something to answer "where is good to eat around
                 here?" Community driven recommendation, in the lightest,
                 lightest way possible. Nobody needs more websites in their life,
@@ -83,9 +77,9 @@ const EatWithMe = props => (
 
 export default EatWithMe;
 
-export const WrappedEatWithMe = withWrap({
-    name: projectName,
-    color: projectColor,
-    deck: projectDeck,
-    url: projectUrl
-})(EatWithMe);
+// export const WrappedEatWithMe = withWrap({
+//     name,
+//     color,
+//     deck,
+//     url
+// })(EatWithMe);

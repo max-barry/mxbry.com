@@ -1,49 +1,46 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Home from '../Home';
-import {
-    velmerUrl,
-    route1Url,
-    openSourceUrl,
-    googleDriveCMSUrl,
-    eatWithMeUrl,
-    WrappedEatWithMe,
-    WrappedVelmer,
-    WrappedRoute1,
-    WrappedOpenSource,
-    WrappedGoogleDriveCMS
-} from '../Projects';
-import { DefaultMeta, GoogleTagManager } from '../../components/Meta';
+import Loadable from 'react-loadable';
+import * as projects from '../Projects/constants';
+import { loadable } from '../Projects/Loading';
 
-const projects = [
-    [velmerUrl, WrappedVelmer],
-    [openSourceUrl, WrappedOpenSource],
-    [googleDriveCMSUrl, WrappedGoogleDriveCMS],
-    [route1Url, WrappedRoute1],
-    [eatWithMeUrl, WrappedEatWithMe]
-];
+const Home = Loadable({
+    loader: () => import('../Home'),
+    loading: () => <p>Loading Home</p>
+});
 
-// const redirects = [
-//     '/work',
-//     '/where-max-is-active',
-//     '/about',
-//     '/work/zebra-horse-twitter',
-//     '/work/mxbry',
-//     '/work/jumpstart-static'
-// ];
+const Meta = Loadable({
+    loader: () => import('../../components/Meta'),
+    loading: () => null,
+    render: (loaded, props) => {
+        const { DefaultMeta, GoogleTagManager } = loaded;
+        return (
+            <Fragment>
+                <DefaultMeta />
+                <GoogleTagManager gtmId="GTM-PT84K6" />
+            </Fragment>
+        );
+    }
+});
 
-const GTM_ID = 'GTM-PT84K6';
+// const projectsUrlComponentMap = [
+// 'velmer',
+// 'opensource',
+// 'googledrivecms',
+// 'route1',
+// 'eatwithme'
+// ].map(project => [projects[project].url, loadable[project]]);
+const projectsUrlComponentMap = [];
 
 class App extends Component {
     render = () => (
         <Fragment>
-            <DefaultMeta />
-            <GoogleTagManager gtmId={GTM_ID} />
+            <Meta />
             <BrowserRouter>
                 <Fragment>
                     <main>
                         <Route exact path="/" component={Home} />
-                        {projects.map(([url, component], i) => (
+                        {projectsUrlComponentMap.map(([url, component], i) => (
                             <Route
                                 exact
                                 key={`route_${i}`}

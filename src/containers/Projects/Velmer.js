@@ -11,7 +11,7 @@ import {
 } from '../../components/Display';
 import { FlexibleGrid, Section } from '../../components/Structures';
 import { dimensions } from '../../settings';
-import withWrap from './Wrap';
+import { velmer } from './constants';
 
 // Load in the image paths
 import cafe from '../../images/projects/velmer/cafe.jpg';
@@ -22,6 +22,8 @@ import sitting from '../../images/projects/velmer/sitting.jpg';
 import yoga from '../../images/projects/velmer/yoga.jpg';
 import website from '../../images/projects/velmer/velmer.co.uk.jpg';
 import cover from '../../images/projects/velmer/cover.jpg';
+
+const { name, color, deck } = velmer;
 
 // Turn the images in to items for the gallery
 const projectImages = makeGalleryItems([
@@ -57,29 +59,15 @@ const timeline = [
     }
 ];
 
-const projectName = 'Velmer Daily Contact Lenses';
-const projectDeck =
-    'I co-founded Velmer to bring a new contact lens to the UK market. In early-2017 we took 2 rounds of seed investment, before building monthly revenue and customers across the UK.';
-export const projectColor = '#198e67';
-export const projectHeader = 'velmer';
-export const projectUrl = '/velmer';
-
 const Velmer = props => (
     <Fragment>
-        <Hero
-            id={projectHeader}
-            color={projectColor}
-            title={projectName}
-            img={cover}
-            deck={projectDeck}
-            year={2018}
-        />
+        <Hero color={color} title={name} img={cover} deck={deck} year={2018} />
         <Section>
             <Lede
                 title={
                     'Founding & financing a modern startup in physical product'
                 }
-                color={projectColor}
+                color={color}
             >
                 Velmer delivered a new type of daily contact lenses to UK doors.
                 A great chance to work with physical product, having previously
@@ -89,7 +77,7 @@ const Velmer = props => (
             </Lede>
         </Section>
         <Gallery items={projectImages} />
-        <FocusText color={projectColor}>
+        <FocusText color={color}>
             I co-founded Velmer and took it from idea to market. I deeply
             enjoyed building out early-business infrastructure, negotiating
             logistics &amp; product supply, securing capital investment, and
@@ -152,16 +140,9 @@ const Velmer = props => (
             />
         </Section>
         <Section maxWidth={dimensions.narrowContainer}>
-            <List items={timeline} color={projectColor} />
+            <List items={timeline} color={color} />
         </Section>
     </Fragment>
 );
 
 export default Velmer;
-
-export const WrappedVelmer = withWrap({
-    name: projectName,
-    color: projectColor,
-    deck: projectDeck,
-    url: projectUrl
-})(Velmer);

@@ -1,105 +1,26 @@
 import React, { Component, Fragment } from 'react';
-import styled from 'react-emotion';
-import { tint } from 'polished';
-import {
-    shevy,
-    dimensions,
-    bs,
-    transitionTimes,
-    styles,
-    fontWeights,
-    colors,
-    bsint,
-    mq
-} from '../../settings';
-import {
-    Velmer,
-    velmerColor,
-    velmerUrl,
-    Route1,
-    route1Color,
-    route1Url,
-    EatWithMe,
-    eatWithMeColor,
-    eatWithMeUrl,
-    GoogleDriveCMS,
-    googleDriveCMSColor,
-    googleDriveCMSUrl,
-    OpenSource,
-    openSourceColor,
-    openSourceUrl
-} from '../Projects';
+import { colors } from '../../settings';
+import * as constants from '../Projects/constants';
 import ContactLinks from './ContactLinks';
+import { loadableVisibility } from '../Projects/Loading';
+import {
+    Container,
+    Headline,
+    Deck,
+    Nav,
+    NavLi,
+    NavHeading
+} from './Home.styles';
 
 const contactHeader = 'contactlinks';
-const initialSpace = bsint(3);
 
-const Container = styled('div')(
-    mq({
-        maxWidth: dimensions.narrowContainer,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        paddingTop: [initialSpace, dimensions.mobilePadding * 2],
-        paddingLeft: [0, dimensions.mobilePadding],
-        paddingRight: [0, dimensions.mobilePadding]
-    })
-);
-
-const Headline = styled('h1')(shevy.h1, {});
-
-const Deck = styled('h2')(shevy.h3, {
-    display: 'block',
-    maxWidth: 480
-});
-
-const Nav = styled('ul')({
-    marginTop: bs(2)
-});
-
-const NavShared = styled('li')(shevy.h4, {
-    position: 'relative',
-    cursor: 'pointer',
-    margin: 0,
-    a: {
-        padding: styles.fn.pad(0.5),
-        paddingLeft: bs(2.5),
-        display: 'block',
-        color: colors.black,
-        textDecoration: 'none',
-        '&:visited': {
-            color: tint(0.3, colors.black)
-        }
-    }
-});
-
-const NavHeading = styled(NavShared)({
-    fontWeight: fontWeights.heavy,
-    marginBottom: bs(1),
-    padding: 0,
-    '&:not(:first-child)': {
-        marginTop: bs(1.5)
-    }
-});
-
-const NavLi = styled(NavShared)(({ color }) => ({
-    transition: `background-color ${transitionTimes.weak}ms`,
-    '&::before': {
-        color,
-        content: '"✖"',
-        lineHeight: 1,
-        position: 'absolute',
-        left: bs(0.5),
-        top: '50%',
-        transform: 'translateY(-50%)',
-        transition: `transform ${transitionTimes.minimal}ms ease-out`
-    },
-    '&:hover': {
-        backgroundColor: tint(0.3, color),
-        '&::before': {
-            transform: 'translateY(-50%) scale(1.3)'
-        }
-    }
-}));
+const {
+    velmer: Velmer,
+    route1: Route1,
+    eatwithme: EatWithMe,
+    opensource: OpenSource,
+    googledrivecms: GoogleDriveCMS
+} = loadableVisibility;
 
 class Home extends Component {
     render = () => (
@@ -112,32 +33,32 @@ class Home extends Component {
                 </Deck>
                 <Nav>
                     <NavHeading>Recent work</NavHeading>
-                    <NavLi color={velmerColor}>
-                        <a href={velmerUrl}>
+                    <NavLi color={constants.velmer.color}>
+                        <a href={constants.velmer.url}>
                             <strong>Velmer 2018</strong> Founded a business
                             reimagining daily contact lenses
                         </a>
                     </NavLi>
-                    <NavLi color={eatWithMeColor}>
-                        <a href={eatWithMeUrl}>
+                    <NavLi color={constants.eatwithme.color}>
+                        <a href={constants.eatwithme.url}>
                             <strong>Eat With Me 2018-19</strong> An ongoing
                             project all about food
                         </a>
                     </NavLi>
-                    <NavLi color={route1Color}>
-                        <a href={route1Url}>
+                    <NavLi color={constants.route1.color}>
+                        <a href={constants.route1.url}>
                             <strong>Route1 2017</strong> CTO for award winning
                             white-collar recruitment startup
                         </a>
                     </NavLi>
-                    <NavLi color={googleDriveCMSColor}>
-                        <a href={googleDriveCMSUrl}>
+                    <NavLi color={constants.googledrivecms.color}>
+                        <a href={constants.googledrivecms.url}>
                             <strong>drivecms.xyz 2015</strong> An open source
                             headless CMS
                         </a>
                     </NavLi>
-                    <NavLi color={openSourceColor}>
-                        <a href={openSourceUrl}>
+                    <NavLi color={constants.opensource.color}>
+                        <a href={constants.opensource.url}>
                             <strong>Open source work</strong> Creative and
                             performance led mini-projects
                         </a>

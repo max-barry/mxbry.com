@@ -2,18 +2,13 @@ import React, { Fragment } from 'react';
 import { Hero, FocusText, Img, List } from '../../components/Display';
 import { dimensions, bs } from '../../settings';
 import { Section, FlexibleGrid, Center } from '../../components/Structures';
-import withWrap from './Wrap';
+import { route1 } from './constants';
 
 import cover from '../../images/projects/route1/cover.jpg';
 import appScreenshot from '../../images/projects/route1/app.png';
 import appScreenshotTwo from '../../images/projects/route1/app2.png';
 
-const projectName = 'Route1';
-const projectDeck =
-    'Chief of Technology and responsible for big-picture product direction of a London white-collar recruitment technology startup.';
-export const projectColor = '#fe6224';
-export const projectHeader = 'route1';
-export const projectUrl = '/route-1';
+const { name, color, deck } = route1;
 
 const listItems = [
     {
@@ -31,16 +26,9 @@ const listItems = [
 
 const Route1 = props => (
     <Fragment>
-        <Hero
-            id={projectHeader}
-            color={projectColor}
-            title={projectName}
-            img={cover}
-            deck={projectDeck}
-            year={2017}
-        />
+        <Hero color={color} title={name} img={cover} deck={deck} year={2017} />
         <Section maxWidth="none">
-            <FocusText color={projectColor}>
+            <FocusText color={color}>
                 Route1 is a mid-stage, white-collar recruitment technology
                 startup, with a team of around 15. They supply B2B web based
                 data products to law and accountancy firms, as well as a B2C
@@ -90,16 +78,16 @@ const Route1 = props => (
             />
         </Center>
         <Section maxWidth={dimensions.narrowContainer}>
-            <List color={projectColor} items={listItems} />
+            <List color={color} items={listItems} />
         </Section>
     </Fragment>
 );
 
 export default Route1;
 
-export const WrappedRoute1 = withWrap({
-    name: projectName,
-    color: projectColor,
-    deck: projectDeck,
-    url: projectUrl
-})(Route1);
+// export const WrappedRoute1 = withWrap({
+//     name: projectName,
+//     color: projectColor,
+//     deck: projectDeck,
+//     url: projectUrl
+// })(Route1);
