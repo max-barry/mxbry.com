@@ -10,6 +10,7 @@ import card from '../../images/projects/eatwithme/card.jpg';
 import nationals from '../../images/projects/eatwithme/nationals.jpg';
 
 const { name, color, deck, url } = eatwithme;
+const storybookUrl = 'https://eatwithme-storybook.firebaseapp.com/';
 
 const imgStyles = {
     maxWidth: dimensions.loneMedia,
@@ -37,7 +38,9 @@ const EatWithMe = props => (
                 <br />
                 <br />
                 It's a background project that I work on passively. Targeting a
-                launch in 2019.
+                launch in 2019. A React Storybook of the project's
+                components&nbsp;
+                <a href={storybookUrl}>can be found here</a>
             </FocusText>
         </Section>
         <Section>

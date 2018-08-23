@@ -1,6 +1,7 @@
 import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import { checkA11y } from '@storybook/addon-a11y';
 
 // if (process.env.NODE_ENV !== 'production') {
 //     const { whyDidYouUpdate } = require('why-did-you-update');
@@ -15,6 +16,7 @@ const loadStories = () => {
     reqContainers.keys().forEach(filename => reqContainers(filename));
 };
 
+addDecorator(checkA11y);
 addDecorator(withKnobs);
 
 configure(loadStories, module);
