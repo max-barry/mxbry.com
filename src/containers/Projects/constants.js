@@ -11,7 +11,7 @@ export const googledrivecms = {
     deck:
         'An old open source project born from working in advertising firms that constantly tried to teach new tools to clients. I wanted a CMS that worked in a language people already knew: a Google Doc.',
     color: '#009688',
-    url: 'google-drive-cms'
+    url: '/google-drive-cms'
 };
 
 export const opensource = {
