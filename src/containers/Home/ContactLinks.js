@@ -20,7 +20,12 @@ const contactDetails = [
     { title: 'Email', deck: 'max (at) mxbry.com' },
     { title: 'LinkedIn', link: 'https://www.linkedin.com/in/maxbarry/' },
     { title: 'GitHub', link: 'https://github.com/max-barry' },
-    { title: 'Medium', link: 'https://words.mxbry.com/' }
+    { title: 'Medium', link: 'https://words.mxbry.com/' },
+    {
+        title: 'mxbry.com Storybook',
+        deck: 'React Storybook for mxbry.com with all components used',
+        link: 'https://mxbry-storybook.firebaseapp.com/'
+    }
 ];
 
 const Form = styled('form')(
@@ -166,7 +171,6 @@ const ContactLinks = props => (
                 url={signupEndpoint}
                 render={props => <MailingListForm {...props} />}
             />
-            {/* <MailchimpSubscribe url={signupEndpoint} /> */}
             <List style={{ marginTop: bs(2) }} items={contactDetails} />
         </FocusText>
     </Section>

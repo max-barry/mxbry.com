@@ -8,7 +8,8 @@
 
 # production
 /build
-.firebase/
+/.firebase
+/.storybook-build
 
 # misc
 .DS_Store

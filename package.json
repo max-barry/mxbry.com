@@ -30,10 +30,11 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "deploy": "firebase deploy",
+        "deploy": "yarn build && yarn build-storybook && firebase deploy",
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
         "storybook": "start-storybook -p 9009 -s public",
+        "build-storybook": "build-storybook -c .storybook -o .storybook-build",
         "analyze": "source-map-explorer build/static/js/main.*"
     },
     "devDependencies": {
@@ -46,7 +47,6 @@
         "@storybook/addon-viewport": "^3.4.10",
         "@storybook/addons": "^3.4.10",
         "@storybook/react": "^3.4.10",
-        "@storybook/storybook-deployer": "^2.3.0",
         "eslint-config-prettier": "^2.9.0",
         "eslint-plugin-prettier": "^2.6.2",
         "faker": "^4.1.0",
