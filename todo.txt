@@ -4,6 +4,7 @@ TODO
 - Forward backlinks
 - Add the site's storybook
 - Add the Eat With Me storybook
+- Do a loadable element for the homepage
 
 DONE
 - Optimize all the images
