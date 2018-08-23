@@ -21,24 +21,24 @@ const loadingElement = styled('span')(styles.loading, {
 const Headline = styled(loadingElement)({
     maxWidth: 160,
     height: shevy.h1.fontSize,
-    marginBottom: bs(0.5)
+    marginBottom: bs()
 });
 
 const Tag = styled(loadingElement)({
     maxWidth: 480,
-    height: 70,
-    marginBottom: bs(3)
+    height: 50,
+    marginBottom: bs(2)
 });
 
 const ListItem = styled(loadingElement)({
-    height: shevy.h3.fontSize,
+    height: shevy.h2.fontSize,
     maxWidth: 590,
-    marginBottom: bs(1)
+    marginBottom: bs()
 });
 
 const ListHeader = styled(ListItem)({
     maxWidth: 160,
-    marginBottom: bs(2)
+    marginBottom: bs(1.5)
 });
 
 const LoadingHome = props => (

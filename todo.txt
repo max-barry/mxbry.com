@@ -1,11 +1,14 @@
-TODO
-- 404
-- Add some product images for the open source stuff
+NOT DONE
 - Forward backlinks
+- Add some product images for the open source stuff
+
+TODO
 - Add the site's storybook
 - Add the Eat With Me storybook
+- Test Android & iOS
 
 DONE
+- 404
 - Do a loadable element for the homepage
 - Optimize all the images
 - Font faces

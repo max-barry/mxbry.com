@@ -4,11 +4,15 @@ import Loadable from 'react-loadable';
 import * as projects from '../Projects/constants';
 import { loadable } from '../Projects/Loading';
 import { LoadingHome } from '../../components/Loading';
-import MissingPage from '../../404';
 
 const Home = Loadable({
     loader: () => import('../Home'),
     loading: LoadingHome
+});
+
+const MissingPage = Loadable({
+    loader: () => import('../../404'),
+    loading: () => null
 });
 
 const Meta = Loadable({
