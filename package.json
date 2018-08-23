@@ -24,6 +24,7 @@
         "react-scripts": "1.1.4",
         "react-scroll-percentage": "^2.0.0",
         "react-stonecutter": "^0.3.9",
+        "recompose": "^0.28.2",
         "shevyjs": "^1.1.0"
     },
     "scripts": {

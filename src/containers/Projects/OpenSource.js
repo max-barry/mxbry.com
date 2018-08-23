@@ -6,7 +6,7 @@ import { opensource } from './constants';
 
 import cover from '../../images/projects/opensource/cover.jpg';
 
-const { name, color, deck } = opensource;
+const { name, color, deck, url } = opensource;
 
 const items = [
     {
@@ -66,11 +66,11 @@ const OpenSource = props => (
     </Fragment>
 );
 
-export default OpenSource;
+OpenSource.details = {
+    name,
+    color,
+    deck,
+    url
+};
 
-// export const WrappedOpenSource = withWrap({
-//     name: projectName,
-//     color: projectColor,
-//     deck: projectDeck,
-//     url: projectUrl
-// })(OpenSource);
+export default OpenSource;

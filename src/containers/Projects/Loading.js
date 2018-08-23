@@ -8,11 +8,15 @@ const Wrap = Loadable({
     loading: () => null
 });
 
-const wrapProject = (Loaded, props) => (
-    <Wrap>
-        <Loaded {...props} />
-    </Wrap>
-);
+const wrapProject = (loaded, props) => {
+    const Loaded = loaded.default;
+    const loadedDetails = Loaded.details;
+    return (
+        <Wrap {...loadedDetails}>
+            <Loaded {...props} />
+        </Wrap>
+    );
+};
 
 const loadableComponents = (Loader, extras = {}) => ({
     velmer: Loader({

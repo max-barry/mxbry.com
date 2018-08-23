@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import lazySizes from 'lazysizes';
 import styled, { css } from 'react-emotion';
-import { colors, transitionTimes, shevy, bs, mq } from '../../settings';
+import { transitionTimes, shevy, bs, mq, styles } from '../../settings';
+import { withStateHandlers } from 'recompose';
 
 if (!window.lazySizesConfig && !window.lazySizesConfig.init) {
     lazySizes.cfg = { ...lazySizes.cfg, ...{} };
@@ -27,18 +28,22 @@ const mediaDefaultProps = {
     shadow: true
 };
 
-const responsiveMediaContainer = (x, y, transparent, shadow) =>
+const responsiveMediaContainer = (x, y, transparent, shadow, loaded) =>
     css(
+        loaded ? null : styles.loading,
         mq({
             position: 'relative',
             height: 0,
             width: '100%',
             paddingBottom: `${(y / x) * 100}%`,
+            backgroundColor: transparent ? 'transparent' : null,
+            '&::before': {
+                display: transparent ? 'none' : 'block'
+            },
             boxShadow: [
                 shadow ? '0px 0px 12px rgba(208, 208, 208, 0.3)' : 'none',
                 'none'
             ],
-            backgroundColor: transparent ? 'transparent' : colors.grey1,
             'img, iframe, video': {
                 position: 'absolute',
                 top: 0,
@@ -69,30 +74,49 @@ const Caption = styled('span')(shevy.overline, ({ captionWidth }) =>
     })
 );
 
-const Img = ({
-    src,
-    alt,
-    x,
-    y,
-    captionWidth,
-    transparent,
-    shadow,
-    children,
-    ...props
-}) => (
-    <div {...props}>
-        <figure
-            role="presentation"
-            className={responsiveMediaContainer(x, y, transparent, shadow)}
-        >
-            <img
-                alt={alt}
-                data-src={src}
-                className={`lazyload ${responsiveMediaElement}`}
-            />
-        </figure>
-        {children && <Caption captionWidth={captionWidth}>{children}</Caption>}
-    </div>
+const enhance = withStateHandlers(({ loaded = false }) => ({ loaded }), {
+    setLoaded: state => _ => ({
+        loaded: true
+    })
+});
+
+const Img = enhance(
+    ({
+        src,
+        alt,
+        x,
+        y,
+        captionWidth,
+        transparent,
+        shadow,
+        children,
+        loaded,
+        setLoaded,
+        ...props
+    }) => (
+        <div {...props}>
+            <figure
+                role="presentation"
+                className={responsiveMediaContainer(
+                    x,
+                    y,
+                    transparent,
+                    shadow,
+                    loaded
+                )}
+            >
+                <img
+                    alt={alt}
+                    data-src={src}
+                    className={`lazyload ${responsiveMediaElement}`}
+                    onLoad={setLoaded}
+                />
+            </figure>
+            {children && (
+                <Caption captionWidth={captionWidth}>{children}</Caption>
+            )}
+        </div>
+    )
 );
 
 Img.defaultProps = mediaDefaultProps;
@@ -106,30 +130,43 @@ const processSrc = url => {
     return `https://www.youtube.com/embed/${videoId}?modestbranding&rel=0&showinfo=0&controls=0`;
 };
 
-const Video = ({
-    src,
-    alt,
-    x,
-    y,
-    captionWidth,
-    transparent,
-    shadow,
-    children,
-    ...props
-}) => (
-    <div {...props}>
-        <div
-            role="presentation"
-            className={responsiveMediaContainer(x, y, transparent, shadow)}
-        >
-            <iframe
-                data-src={processSrc(src)}
-                title={alt}
-                className={`lazyload ${responsiveMediaElement}`}
-            />
+const Video = enhance(
+    ({
+        src,
+        alt,
+        x,
+        y,
+        captionWidth,
+        transparent,
+        shadow,
+        children,
+        setLoaded,
+        loaded,
+        ...props
+    }) => (
+        <div {...props}>
+            <div
+                role="presentation"
+                className={responsiveMediaContainer(
+                    x,
+                    y,
+                    transparent,
+                    shadow,
+                    loaded
+                )}
+            >
+                <iframe
+                    data-src={processSrc(src)}
+                    title={alt}
+                    className={`lazyload ${responsiveMediaElement}`}
+                    onLoad={setLoaded}
+                />
+            </div>
+            {children && (
+                <Caption captionWidth={captionWidth}>{children}</Caption>
+            )}
         </div>
-        {children && <Caption captionWidth={captionWidth}>{children}</Caption>}
-    </div>
+    )
 );
 
 Video.defaultProps = mediaDefaultProps;

@@ -23,7 +23,7 @@ import yoga from '../../images/projects/velmer/yoga.jpg';
 import website from '../../images/projects/velmer/velmer.co.uk.jpg';
 import cover from '../../images/projects/velmer/cover.jpg';
 
-const { name, color, deck } = velmer;
+const { name, color, deck, url } = velmer;
 
 // Turn the images in to items for the gallery
 const projectImages = makeGalleryItems([
@@ -144,5 +144,12 @@ const Velmer = props => (
         </Section>
     </Fragment>
 );
+
+Velmer.details = {
+    name,
+    color,
+    deck,
+    url
+};
 
 export default Velmer;

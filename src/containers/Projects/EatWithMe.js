@@ -9,7 +9,7 @@ import buttons from '../../images/projects/eatwithme/buttons.jpg';
 import card from '../../images/projects/eatwithme/card.jpg';
 import nationals from '../../images/projects/eatwithme/nationals.jpg';
 
-const { name, color, deck } = eatwithme;
+const { name, color, deck, url } = eatwithme;
 
 const imgStyles = {
     maxWidth: dimensions.loneMedia,
@@ -75,11 +75,11 @@ const EatWithMe = props => (
     </Fragment>
 );
 
-export default EatWithMe;
+EatWithMe.details = {
+    name,
+    color,
+    deck,
+    url
+};
 
-// export const WrappedEatWithMe = withWrap({
-//     name,
-//     color,
-//     deck,
-//     url
-// })(EatWithMe);
+export default EatWithMe;

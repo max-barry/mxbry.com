@@ -6,7 +6,7 @@ import { googledrivecms } from './constants';
 
 import cover from '../../images/projects/googledrivecms/cover.jpg';
 
-const { name, color, deck } = googledrivecms;
+const { name, color, deck, url } = googledrivecms;
 
 const items = [
     { title: name, link: 'https://www.drivecms.xyz/' },
@@ -41,11 +41,11 @@ const GoogleDriveCMS = props => (
     </Fragment>
 );
 
-export default GoogleDriveCMS;
+GoogleDriveCMS.details = {
+    name,
+    color,
+    deck,
+    url
+};
 
-// export const WrappedGoogleDriveCMS = withWrap({
-//     name: projectName,
-//     color: projectColor,
-//     deck: projectDeck,
-//     url: projectUrl
-// })(GoogleDriveCMS);
+export default GoogleDriveCMS;

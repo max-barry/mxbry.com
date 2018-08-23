@@ -8,7 +8,7 @@ import cover from '../../images/projects/route1/cover.jpg';
 import appScreenshot from '../../images/projects/route1/app.png';
 import appScreenshotTwo from '../../images/projects/route1/app2.png';
 
-const { name, color, deck } = route1;
+const { name, color, deck, url } = route1;
 
 const listItems = [
     {
@@ -83,11 +83,11 @@ const Route1 = props => (
     </Fragment>
 );
 
-export default Route1;
+Route1.details = {
+    name,
+    color,
+    deck,
+    url
+};
 
-// export const WrappedRoute1 = withWrap({
-//     name: projectName,
-//     color: projectColor,
-//     deck: projectDeck,
-//     url: projectUrl
-// })(Route1);
+export default Route1;

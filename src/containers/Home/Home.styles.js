@@ -2,7 +2,6 @@ import styled from 'react-emotion';
 import { tint } from 'polished';
 import {
     bs,
-    bsint,
     mq,
     dimensions,
     shevy,
@@ -12,14 +11,12 @@ import {
     transitionTimes
 } from '../../settings';
 
-const initialSpace = bsint(3);
-
 export const Container = styled('div')(
     mq({
         maxWidth: dimensions.narrowContainer,
         marginLeft: 'auto',
         marginRight: 'auto',
-        paddingTop: [initialSpace, dimensions.mobilePadding * 2],
+        paddingTop: [bs(3), dimensions.mobilePadding * 2],
         paddingLeft: [0, dimensions.mobilePadding],
         paddingRight: [0, dimensions.mobilePadding]
     })

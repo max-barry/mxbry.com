@@ -3,10 +3,11 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import * as projects from '../Projects/constants';
 import { loadable } from '../Projects/Loading';
+import { LoadingHome } from '../../components/Loading';
 
 const Home = Loadable({
     loader: () => import('../Home'),
-    loading: () => <p>Loading Home</p>
+    loading: LoadingHome
 });
 
 const Meta = Loadable({
@@ -23,14 +24,13 @@ const Meta = Loadable({
     }
 });
 
-// const projectsUrlComponentMap = [
-// 'velmer',
-// 'opensource',
-// 'googledrivecms',
-// 'route1',
-// 'eatwithme'
-// ].map(project => [projects[project].url, loadable[project]]);
-const projectsUrlComponentMap = [];
+const projectsUrlComponentMap = [
+    'velmer',
+    'opensource',
+    'googledrivecms',
+    'route1',
+    'eatwithme'
+].map(project => [projects[project].url, loadable[project]]);
 
 class App extends Component {
     render = () => (

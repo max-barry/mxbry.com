@@ -147,6 +147,7 @@ export const styles = {
         background-color: ${colors.grey2};
         border-radius: ${dimensions.bevel}px;
         overflow: hidden;
+        position: relative;
 
         &::before {
             content: "";
