@@ -1,6 +1,14 @@
 import React from 'react';
 import styled from 'react-emotion';
-import { styles, colors, bs, dimensions, mq } from '../../settings';
+import { tint } from 'polished';
+import {
+    styles,
+    colors,
+    bs,
+    dimensions,
+    mq,
+    fontWeights
+} from '../../settings';
 
 const Container = styled('div')(
     ({ color }) => styles.fn.dotMatrix(color, 3),
@@ -14,20 +22,29 @@ const Container = styled('div')(
     })
 );
 
-const TextInner = styled('div')(({ backgroundColor }) =>
+const TextInner = styled('div')(({ backgroundColor, color }) =>
     mq({
         backgroundColor,
         padding: [bs(3), bs(1)],
         display: 'inline-block',
         borderRadius: dimensions.bevel,
         maxWidth: ['50%', 'none'],
-        '> *:last-child': { marginBottom: 0 }
+        '> *:last-child': { marginBottom: 0 },
+        '> a': {
+            color,
+            fontWeight: fontWeights.medium,
+            '&:visited': {
+                color: tint(0.5, color)
+            }
+        }
     })
 );
 
 const FocusText = ({ color, backgroundColor, children, ...props }) => (
     <Container color={color} {...props}>
-        <TextInner backgroundColor={backgroundColor}>{children}</TextInner>
+        <TextInner backgroundColor={backgroundColor} color={color}>
+            {children}
+        </TextInner>
     </Container>
 );
 
