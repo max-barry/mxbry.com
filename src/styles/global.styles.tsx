@@ -1,21 +1,9 @@
 import { Global, css } from "@emotion/react/macro";
 
-const FONT_DIRECTORY = `${process.env.PUBLIC_URL}/fonts`;
-
-const FONT_FAMILIES = {
-  serif: "wmdyjryhmm"
-};
-
-const fontStyles = css`
-  @font-face {
-    font-family: "${FONT_FAMILIES.serif}";
-    src: url("${FONT_DIRECTORY}/${FONT_FAMILIES.serif}.woff") format("woff2"),
-      url("${FONT_DIRECTORY}/${FONT_FAMILIES.serif}.woff2") format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-`;
+import {
+  globalTypographyStyles as typographyStyles,
+  fontFaces
+} from "./text.styles";
 
 const cssReset = css`
   /*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
@@ -58,4 +46,6 @@ const cssReset = css`
   }
 `;
 
-export const GlobalStyles = () => <Global styles={[cssReset, fontStyles]} />;
+export const GlobalStyles = () => (
+  <Global styles={[fontFaces, cssReset, typographyStyles]} />
+);
