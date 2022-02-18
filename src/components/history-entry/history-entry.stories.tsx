@@ -1,11 +1,19 @@
-import {Meta} from "@storybook/react"
+import { Meta, Story } from "@storybook/react";
 
-import { HistoryEntry } from "./history-entry.component"
+import { PropsOf } from "../../types/utils.types";
+import { HistoryEntry } from "./history-entry.component";
 
-// type Props = 
+type Props = PropsOf<typeof HistoryEntry>;
 
 export default {
-    title: "Components/History Entry"
-} as Meta
+  title: "Components/History Entry",
+  component: HistoryEntry,
+  parameters: { layout: "fullscreen" }
+} as Meta;
 
-export const Standard = 1
+const args: Props = {
+  name: ""
+};
+
+export const Standard: Story<Props> = args => <HistoryEntry {...args} />;
+Standard.args = args;

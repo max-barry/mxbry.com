@@ -1,7 +1,12 @@
+import { GlobalStyles } from "./styles/global.styles";
+
 const App: React.FC = () => {
   return (
-   <div>Hi</div>
+    <>
+      <GlobalStyles />
+      <div style={{ fontFamily: "wmdyjryhmm" }}>Hello</div>
+    </>
   );
-}
+};
 
 export default App;

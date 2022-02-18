@@ -1,5 +1,7 @@
-interface Props {}
+interface Props {
+  name: string;
+}
 
 export const HistoryEntry: React.FC<Props> = () => {
-    return <div>History Entry</div>
-}
+  return <div style={{ fontFamily: "wmdyjryhmm" }}>History Entry</div>;
+};
