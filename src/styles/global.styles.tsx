@@ -1,5 +1,6 @@
 import { Global, css } from "@emotion/react/macro";
 
+import { cssVariables } from "./css-vars.styles";
 import {
   globalTypographyStyles as typographyStyles,
   fontFaces
@@ -46,6 +47,22 @@ const cssReset = css`
   }
 `;
 
+const cssResetCustom = css`
+  img,
+  video {
+    margin: 0;
+    display: block;
+  }
+`;
+
 export const GlobalStyles = () => (
-  <Global styles={[fontFaces, cssReset, typographyStyles]} />
+  <Global
+    styles={[
+      fontFaces,
+      cssVariables,
+      cssReset,
+      typographyStyles,
+      cssResetCustom
+    ]}
+  />
 );

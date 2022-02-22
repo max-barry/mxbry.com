@@ -6,13 +6,20 @@ const FONT_DIRECTORY_SERIF = `${FONT_DIRECTORY}/serif`;
 const FONT_DIRECTORY_SANS = `${FONT_DIRECTORY}/sans`;
 
 const FONT_FAMILIES = { serif: "wmdyjryhmm", sans: "xxipmmvzcb" };
+const FONT_FAMILIES_SERIF = [FONT_FAMILIES.serif, "Garamond", "serif"];
+const FONT_FAMILIES_SANS = [FONT_FAMILIES.sans, "Helvetica Neue", "sans-serif"];
 
 const theme: TypographyOptions = {
   baseFontSize: "20",
   baseLineHeight: 1.75,
-  scaleRatio: 1.333333,
-  bodyFontFamily: [FONT_FAMILIES.sans, "Helvetica Neue", "sans-serif"],
-  includeNormalize: false
+  bodyFontFamily: FONT_FAMILIES_SANS,
+  includeNormalize: false,
+  scaleRatio: 4.209,
+  bodyColor: "var(--colors-text-primary)",
+  overrideStyles: () => ({
+    h1: { fontFamily: FONT_FAMILIES_SERIF.join(","), fontWeight: 400 },
+    "p:last-child": { marginBottom: 0 }
+  })
 };
 
 const typography = new Typography(theme);
