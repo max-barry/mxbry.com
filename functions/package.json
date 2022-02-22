@@ -1,0 +1,8 @@
+{
+  "name": "functions",
+  "main": "lib/index.js",
+  "private": true,
+  "engines": {
+    "node": "16"
+  }
+}
