@@ -1,11 +1,10 @@
 import * as path from "path";
 import * as zlib from "zlib";
 import { PassThrough } from "stream";
+import { createHash } from "crypto";
 
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
-import * as log from "firebase-functions/lib/logger";
-
 import * as sharp from "sharp";
 
 interface RequestParams {
@@ -13,188 +12,311 @@ interface RequestParams {
 }
 
 interface RequestQuery {
+  /** Target width */
   w?: string;
+  /** Target height */
   h?: string;
+  /** Target quality 0-100 */
   q?: string;
+  /** Target dpr e.g. 2 or 3 */
   dpr?: string;
+  /** Target format */
+  f?: "auto" | "webp" | "avif";
 }
 
-const SHARP_FORMATS = Object.values(sharp.format);
-const SHARP_SUPPORTED_FORMATS = SHARP_FORMATS.filter(
-  ({ input, output }) => input.buffer && output.buffer
-).map(({ id }) => `image/${id}`);
+/** Shortcut to the logger */
+const logger = functions.logger;
 
-const FORMAT_WEBP = "image/webp";
+/** Are we running inside of the emulator environment? */
+const GOOGLE_STORAGE_READ_STREAM_OPTS = {
+  validation: !process.env.FUNCTIONS_EMULATOR
+};
 
-const DEFAULT_MAX_AGE = "31536000";
-const DEFAULT_CACHE_CONTROL = `public, max-age=${DEFAULT_MAX_AGE}, s-maxage=${DEFAULT_MAX_AGE}`;
+/** The content type for WebP */
+const CONTENT_TYPE_WEBP = "image/webp";
+const CONTENT_TYPE_AVIF = "image/avif";
+
+/** Some setings for the cache */
+const DEFAULT_CACHE_CONTROL = `public, max-age=31536000, s-maxage=31536000`;
+
+/** Metadata keys we store on objects */
+const METADATA_TRANSFORMATION_TIMESTAMP = "transformation-timestamp";
+
+/** Useful regex */
+const REGEX_LEADING_SLASH = /^\/+/;
 
 export const dynamicImageResize = functions.https.onRequest(
   async (request, response) => {
+    /** Get a reference to the bucket */
     const bucket = admin.storage().bucket();
 
-    // From the URL we want to get some params
-    const { query, params }: { query: RequestQuery; params: RequestParams } =
-      request;
+    /** From the URL retrieve the params and query args */
+    const query: RequestQuery = request.query;
+    const params: RequestParams = request.params;
     const { 0: urlparam = "" } = params;
 
-    // Parse these params to integers
-    let width = query.w && parseInt(query.w);
-    let height = query.h && parseInt(query.h);
-    const quality = query.q && parseInt(query.q);
-    const dpr = query.dpr && parseInt(query.dpr);
-
-    if (dpr && !isNaN(dpr)) {
-      width = width && !isNaN(width) ? width * dpr : width;
-      height = height && !isNaN(height) ? height * dpr : width;
-    }
-
     // We need to strip the leading "/" in he URL
-    const filepath = urlparam.replace(/^\/+/, "");
+    const filepathFromUrl = urlparam.replace(REGEX_LEADING_SLASH, "");
 
     // If you don't have a filepath then return a 404
-    if (!filepath || !filepath.length) {
-      log.warn(
-        `No filepath passed in URL. Params:`,
-        request.params,
-        "Query:",
-        request.query && Object.keys(request.query).length
-          ? request.query
-          : "none provided"
-      );
+    if (!filepathFromUrl.length) {
+      logger.warn("Bad request arguments", request.params, request.query);
       response.sendStatus(400);
       return;
     }
 
-    // Check that the request params can be made into numbers
-    if (
-      (width && isNaN(width as any)) ||
-      (height && isNaN(height as any)) ||
-      (quality && isNaN(quality as any))
-    ) {
-      log.warn(
-        `Non NaN parameters in the query. Width: ${width} Height: ${height} Quality: ${quality}`
-      );
-      response.sendStatus(400);
-      return;
-    }
+    /** Get a ref to the source file */
+    const sourceRef = bucket.file(filepathFromUrl);
+    const [isExists] = await sourceRef.exists();
 
-    log.info(
-      `Resizing ${filepath} to width: ${width || "auto"} height: ${
-        height || "auto"
-      }`
-    );
-
-    // Get a ref to the file
-    const ref = bucket.file(filepath);
-    const [isExists] = await ref.exists();
-
-    // If the file doesn't exist then we 404
+    /** If the file doesn't exist then we 404 */
     if (!isExists) {
-      log.warn(`404 returned for ${filepath}`);
+      logger.warn("Bad source", filepathFromUrl);
       response.sendStatus(404);
       return;
     }
 
-    // Get the metadata we will need for this file
+    /** Get the metadata for the file */
     const {
       contentType: sourceContentType,
       cacheControl: sourceCacheControl,
-      name: sourcePath
-    } = ref.metadata;
+      name: sourcePath,
+      generate,
+      metageneration
+    } = sourceRef.metadata;
 
-    // Does sharp accept this contentType
-    const isSupportedBySharp =
-      SHARP_SUPPORTED_FORMATS.includes(sourceContentType);
-    // Will we be doing a transform
-    const isTransformed = Boolean(
-      isSupportedBySharp && (width || height || quality)
-    );
-    // What will our output format. Namely, can we send webp back.
-    const isWebpTransform = !!request.accepts(FORMAT_WEBP) && isTransformed;
+    /** Interrogate the source path a bit */
+    const sourceDir = path.dirname(sourcePath).replace(".", "");
+    const sourceExt = path.extname(sourcePath);
+    const sourceFilename = path.basename(sourcePath, sourceExt);
 
-    // Get the filename and amend with webp if needed
-    const contentType = isWebpTransform ? FORMAT_WEBP : sourceContentType;
-    const sourceext = path.extname(sourcePath);
-    const filename = path.basename(sourcePath, sourceext);
+    /** Turn the query into readable formatting args */
+    const transformationNumericalArgs =
+      queryToNumericalTransformationArguments(query);
 
-    // Create the content disposition
-    const dispositionfilename = isWebpTransform
-      ? filename + ".webp"
-      : filename + sourceext;
-
-    // Create some opts for Sharp
-    // Do this seperately because the typing on it is bad
-    const resizeOpts: any = { width, height, fit: "inside" };
-    const formatOpts: any = { quality };
-    const format = SHARP_FORMATS.find(
-      f => f.id === contentType.replace("image/", "")
+    /** Turn the query into a format */
+    const transformationFormat = queryToTransformationFormat(
+      query,
+      sourceContentType,
+      request
     );
 
-    log.debug(formatOpts);
-
-    // What sort of compression can we supply
-    let encoder: zlib.BrotliCompress | zlib.Gzip | zlib.Deflate | PassThrough;
-    let encodingAlogrithm: string | undefined;
-    const encodingPreference = request.acceptsEncodings();
-
-    // We start with brotli. Then we just pick your preference
-    if (encodingPreference.includes("br")) {
-      encoder = zlib.createBrotliCompress();
-      encodingAlogrithm = "br";
-    } else if (encodingPreference[0] === "gzip") {
-      encoder = zlib.createGzip();
-      encodingAlogrithm = "gzip";
-    } else if (encodingPreference[0] === "deflate") {
-      encoder = zlib.createDeflate();
-      encodingAlogrithm = "deflate";
-    } else encoder = new PassThrough();
-
-    log.log(
-      `Encoding with ${encodingAlogrithm} given encoding preference`,
-      encodingPreference
-    );
-
-    // Create each header
-    const cacheControl = sourceCacheControl || DEFAULT_CACHE_CONTROL;
-    const contentDisposition = `inline; filename=${dispositionfilename}`;
-    const contentEncoding = encodingAlogrithm;
-    const xIsTransformed = isTransformed.toString();
-    const xGeneration = new Date().toISOString();
-
-    // Write our response headers
-    response.setHeader("x-gfn-istransformed", xIsTransformed);
-    response.setHeader("x-gfn-generation", xGeneration);
-    response.setHeader("Cache-Control", cacheControl);
-    response.setHeader("Content-Disposition", contentDisposition);
-    contentEncoding && response.setHeader("Content-Encoding", contentEncoding);
-    response.contentType(contentType);
-
-    // If we want to do a transform then we pipe to Sharp.
-    // Otherwise pipe direct to the response
-    const pipeline = sharp();
-    const destination = isTransformed ? pipeline : encoder;
-    log.log(`Piping output to ${isTransformed ? "Sharp" : "response"}`);
-
-    // Pipe the sharp stream back to the browser
-    ref
-      .createReadStream({ validation: !process.env.FUNCTIONS_EMULATOR })
-      .pipe(destination);
-
-    // Pipe the sharp pipeline to the response
-    if (isTransformed) {
-      pipeline.resize(resizeOpts).toFormat(format, formatOpts).pipe(encoder);
-
-      /** Resave the image to Firebase storage */
-      /** @todo: from here you need to check if this file exists before you serve it */
-      const outref = bucket.file(filepath.replace("jpeg", "webp"));
-      pipeline
-        .resize(resizeOpts)
-        .toFormat(format, formatOpts)
-        .pipe(outref.createWriteStream());
+    /** Check we have numbers for everything we need for a transformation */
+    if (
+      (["width", "height", "quality"] as const).some(
+        key =>
+          typeof transformationNumericalArgs[key] !== "undefined" &&
+          isNaN(transformationNumericalArgs[key] as any)
+      )
+    ) {
+      logger.warn("Bad transformation arguments", transformationNumericalArgs);
+      response.sendStatus(400);
+      return;
     }
 
-    // Pipe the encoder out to the response
-    encoder.pipe(response);
+    /** Do we have everything we need for an image transformation? */
+    const willBeTransformed = Boolean(
+      /** Can sharp transform this type of image */
+      findSharpFormatByContentType(sourceContentType)?.input.buffer &&
+        findSharpFormatByContentType(sourceContentType)?.output.buffer &&
+        /** Do we have an argument to transform here */
+        Object.values(transformationNumericalArgs).some(Boolean)
+    );
+
+    /** Create a checksum for this request and this generation of image */
+    const checksumStr = JSON.stringify(
+      Object.entries({
+        ...query,
+        ...params,
+        contentType: transformationFormat.contentType,
+        generate,
+        metageneration
+      })
+        .flat()
+        .sort()
+        .join("")
+    );
+
+    const checksum = createHash("sha1").update(checksumStr).digest("base64url");
+
+    /** Append this checksum to the transformation checksum to give us the filepath */
+    const transformedFilepath =
+      `${sourceDir}/${sourceFilename}.${checksum}.${transformationFormat.ext}`.replace(
+        REGEX_LEADING_SLASH,
+        ""
+      );
+
+    /** See if we have transformed this file before */
+    const transformedRef = bucket.file(transformedFilepath);
+
+    /** Have we transformed this already? */
+    const [hasTransformedBefore] = await transformedRef.exists();
+
+    /** From the request work out what sort of compression we will return with */
+    const compression = determineCompressionAlgorithm(request);
+
+    /** Set up some defaults for our headers */
+    const headers = {
+      "x-gfn-istransformed": false,
+      "x-gfn-transformation-timestamp": undefined as number | undefined,
+      "Content-Disposition": `inline; filename=${sourceFilename}.${transformationFormat.ext}`,
+      "Content-Encoding": compression.algorithm,
+      "Cache-Control": sourceCacheControl || DEFAULT_CACHE_CONTROL
+    };
+
+    /** If a transformation is needed */
+    if (willBeTransformed && !hasTransformedBefore) {
+      logger.info("Image will be transformed and saved");
+
+      /** Get the timestamp of now */
+      const timestamp = new Date().valueOf();
+
+      /** Create a sharp factory with our formatting options */
+      const sharpFactory = sharp()
+        .resize({
+          width: transformationNumericalArgs.width,
+          height: transformationNumericalArgs.height,
+          fit: "inside"
+        })
+        .toFormat(transformationFormat.sharpFormat, {
+          quality: transformationNumericalArgs.quality
+        });
+
+      /** Pipe from Google Storage source to Sharp */
+      sourceRef
+        .createReadStream(GOOGLE_STORAGE_READ_STREAM_OPTS)
+        .pipe(sharpFactory);
+
+      /** Pipe the factory to the compression pipe */
+      sharpFactory.clone().pipe(compression.pipe);
+
+      /** Pipe the factory to the storage write stream */
+      sharpFactory.clone().pipe(
+        transformedRef.createWriteStream({
+          metadata: {
+            cacheControl: headers["Cache-Control"],
+            contentType: transformationFormat.contentType,
+            metadata: { [METADATA_TRANSFORMATION_TIMESTAMP]: timestamp }
+          }
+        })
+      );
+
+      /** Update the headers */
+      headers["x-gfn-transformation-timestamp"] = timestamp;
+      headers["x-gfn-istransformed"] = true;
+    } else if (hasTransformedBefore) {
+      logger.info("Image will be read from previous transformation");
+
+      /** If we have previously transformed this image, then read that to the compression pipe */
+      transformedRef
+        .createReadStream(GOOGLE_STORAGE_READ_STREAM_OPTS)
+        .pipe(compression.pipe);
+
+      /** Update the headers */
+      headers["x-gfn-transformation-timestamp"] =
+        transformedRef.metadata.metadata[METADATA_TRANSFORMATION_TIMESTAMP];
+    } else {
+      logger.info("Image will be read from source");
+
+      /** If there's no transformation then we pipe the source direct to compression */
+      sourceRef
+        .createReadStream(GOOGLE_STORAGE_READ_STREAM_OPTS)
+        .pipe(compression.pipe);
+    }
+
+    /** Write our response headers */
+    response.set(headers);
+
+    /** Set the content type */
+    response.type(transformationFormat.contentType);
+
+    /** Explain how we'll be compressing */
+    logger.info(
+      `Using "${compression.algorithm}" compression, given preference:`,
+      request.accepts().join(", ")
+    );
+
+    // Pipe the compression to the response
+    compression.pipe.pipe(response);
   }
 );
+
+/** Take the query arguments and clean them up, to turn them into formatting arguments  */
+function queryToNumericalTransformationArguments({
+  w,
+  h,
+  q,
+  dpr: d
+}: RequestQuery) {
+  /** Parse the query as integers */
+  let width = w ? parseInt(w) : undefined;
+  let height = h ? parseInt(h) : undefined;
+  const quality = q ? parseInt(q) : undefined;
+  const dpr = d ? parseInt(d) : undefined;
+
+  if (dpr && !isNaN(dpr)) {
+    width = width && !isNaN(width) ? width * dpr : width;
+    height = height && !isNaN(height) ? height * dpr : width;
+  }
+
+  return { width, height, quality, dpr };
+}
+
+/** Take the query argument and determine the format we'll server back */
+function queryToTransformationFormat(
+  { f: requestedFormat }: RequestQuery,
+  sourceContentType: string,
+  request: functions.Request
+) {
+  /** Default to the content type of source */
+  let contentType = sourceContentType;
+  let sharpFormat =
+    findSharpFormatByContentType(sourceContentType) || sharp.format.jpeg;
+
+  /** If the requested format is "auto" then really we're just checking if webp is supported */
+  if (
+    requestedFormat === "webp" ||
+    (requestedFormat === "auto" && request.accepts(CONTENT_TYPE_WEBP))
+  ) {
+    contentType = CONTENT_TYPE_WEBP;
+    sharpFormat = sharp.format.webp;
+  } else if (requestedFormat === "avif") {
+    contentType = CONTENT_TYPE_AVIF;
+    sharpFormat = sharp.format.heif;
+  }
+
+  return { sharpFormat, contentType, ext: sharpFormat.id };
+}
+
+/** Determine what compression algorithm we'll use */
+function determineCompressionAlgorithm(request: functions.Request) {
+  /** What format will we pipe the output back to? Default to simple passthrough. */
+  let pipe: zlib.BrotliCompress | zlib.Gzip | zlib.Deflate | PassThrough =
+    new PassThrough();
+
+  /** What encoding will the response be? */
+  let algorithm: string | undefined;
+
+  /** What encoding does the browser have a preference for? */
+  const preference = request.acceptsEncodings();
+
+  /** Switch over the encoding preferences and pick a response pipe and encoding algorithm */
+  if (preference.includes("br")) {
+    pipe = zlib.createBrotliCompress();
+    algorithm = "br";
+  } else if (preference[0] === "gzip") {
+    pipe = zlib.createGzip();
+    algorithm = "gzip";
+  } else if (preference[0] === "deflate") {
+    pipe = zlib.createDeflate();
+    algorithm = "deflate";
+  }
+
+  return { pipe, algorithm };
+}
+
+/** Take a content type and return the sharp format */
+function findSharpFormatByContentType(contentType: string) {
+  const formats: sharp.AvailableFormatInfo[] = Object.values(sharp.format);
+  return formats.find(format => `image/${format.id}` === contentType);
+}
