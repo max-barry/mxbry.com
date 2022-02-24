@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 
 import { MediaFrame } from "./media-frame.component";
 import { PropsOf } from "../../types/utils.types";
-import { rhythm } from "../../styles/text.styles";
+import { rhythm } from "../../styles/typography.styles";
 
 type Props = PropsOf<typeof MediaFrame>;
 

@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react";
 
-import { rhythm } from "../../styles/text.styles";
+import { rhythm } from "../../styles/typography.styles";
 import { PropsOf } from "../../types/utils.types";
 import { HistoryEntry } from "./history-entry.component";
 

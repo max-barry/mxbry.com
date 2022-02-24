@@ -33,3 +33,6 @@ ui-debug.log*
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Ignore the local emulation fixtures
+fixtures/emulators

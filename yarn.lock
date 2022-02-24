@@ -16287,6 +16287,7 @@ __metadata:
     react-dom: ^17.0.2
     react-scripts: 5.0.0
     sharp: ^0.30.1
+    styled-breakpoints: ^11.0.4
     typescript: ^4.4.2
     typography: ^0.16.21
     web-vitals: ^2.1.0
@@ -21365,6 +21366,24 @@ __metadata:
   dependencies:
     inline-style-parser: 0.1.1
   checksum: 4d7084015207f2a606dfc10c29cb5ba569f2fe8005551df7396110dd694d6ff650f2debafa95bd5d147dfb4ca50f57868e2a7f91bf5d11ef734fe7ccbd7abf59
+  languageName: node
+  linkType: hard
+
+"styled-breakpoints@npm:^11.0.4":
+  version: 11.0.4
+  resolution: "styled-breakpoints@npm:11.0.4"
+  peerDependencies:
+    "@emotion/react": ^11.0.0
+    react: ^17.x.x
+    styled-components: ^5.0.0
+  peerDependenciesMeta:
+    "@emotion/react":
+      optional: true
+    react:
+      optional: true
+    styled-components:
+      optional: true
+  checksum: 0b54d6bb0c66dc286841dc22ddf4639414228f1bf72791f1f7ace797c0c86e50123bfa2c145f4717c1feba68da29e5f3184292a802371d416730c0f095018d1b
   languageName: node
   linkType: hard
 

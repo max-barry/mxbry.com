@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import { rhythm } from "../../styles/text.styles";
+import { rhythm } from "../../styles/typography.styles";
 
 export const Frame = styled.div`
   --gap: ${rhythm(1)};

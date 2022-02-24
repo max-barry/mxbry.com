@@ -9,8 +9,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
+    "firebase:emulate": "firebase emulators:start --only functions,storage --import fixtures/emulators",
     "functions:build": "tsc --project functions/tsconfig.json",
-    "functions:serve": "yarn run functions:build && firebase emulators:start --only functions,storage",
     "functions:deploy": "firebase deploy --only functions",
     "functions:logs": "firebase functions:log"
   },
@@ -39,6 +39,7 @@
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
     "sharp": "^0.30.1",
+    "styled-breakpoints": "^11.0.4",
     "typescript": "^4.4.2",
     "typography": "^0.16.21",
     "web-vitals": "^2.1.0"
