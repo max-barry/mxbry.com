@@ -1,7 +1,7 @@
 import { Meta, Story } from "@storybook/react";
+import { PropsOf } from "@emotion/react";
 
 import { MediaFrame } from "./media-frame.component";
-import { PropsOf } from "../../types/utils.types";
 import { rhythm } from "../../styles/typography.styles";
 
 type Props = PropsOf<typeof MediaFrame>;

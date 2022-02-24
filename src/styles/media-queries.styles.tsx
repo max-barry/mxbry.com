@@ -13,6 +13,10 @@ const MEDIA_QUERY_BREAK_POINTS = {
 export type MEDIA_QUERY_BREAK_POINT_KEYS =
   keyof typeof MEDIA_QUERY_BREAK_POINTS;
 
+export type MEDIA_QUERY_BREAK_POINTS_MAP = {
+  [K in MEDIA_QUERY_BREAK_POINT_KEYS]: string;
+};
+
 /** Create a theme for this */
 const mediaQueryTheme: ThemeProviderProps["theme"] = theme => ({
   ...theme,

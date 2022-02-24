@@ -297,20 +297,22 @@ function determineCompressionAlgorithm(request: functions.Request) {
   /** What encoding will the response be? */
   let algorithm: string | undefined;
 
+  /** @note temporarily removed compression as it's potentially unneeded. */
+
   /** What encoding does the browser have a preference for? */
-  const preference = request.acceptsEncodings();
+  // const preference = request.acceptsEncodings();
 
   /** Switch over the encoding preferences and pick a response pipe and encoding algorithm */
-  if (preference.includes("br")) {
-    pipe = zlib.createBrotliCompress();
-    algorithm = "br";
-  } else if (preference[0] === "gzip") {
-    pipe = zlib.createGzip();
-    algorithm = "gzip";
-  } else if (preference[0] === "deflate") {
-    pipe = zlib.createDeflate();
-    algorithm = "deflate";
-  }
+  // if (preference.includes("br")) {
+  //   pipe = zlib.createBrotliCompress();
+  //   algorithm = "br";
+  // } else if (preference[0] === "gzip") {
+  //   pipe = zlib.createGzip();
+  //   algorithm = "gzip";
+  // } else if (preference[0] === "deflate") {
+  //   pipe = zlib.createDeflate();
+  //   algorithm = "deflate";
+  // }
 
   return { pipe, algorithm };
 }
