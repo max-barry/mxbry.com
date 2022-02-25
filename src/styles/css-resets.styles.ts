@@ -47,4 +47,8 @@ export const cssResetCustom = css`
     margin: 0;
     display: block;
   }
+
+  html {
+    overscroll-behavior-y: none;
+  }
 `;

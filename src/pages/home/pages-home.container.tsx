@@ -2,13 +2,16 @@ import React from "react";
 
 import { marked } from "marked";
 
+import { Headline } from "../../components/headline";
 import { HistoryEntry } from "../../components/history-entry";
 import { MediaFrame } from "../../components/media-frame";
 import { content } from "./pages-home.constants";
+import { Wrap } from "./pages-home.styles";
 
 export const Home: React.FC = () => {
   return (
-    <>
+    <Wrap>
+      <Headline />
       {content.map((element, i) => {
         let result: React.ReactNode = null;
 
@@ -32,6 +35,6 @@ export const Home: React.FC = () => {
 
         return <React.Fragment key={key}>{result}</React.Fragment>;
       })}
-    </>
+    </Wrap>
   );
 };

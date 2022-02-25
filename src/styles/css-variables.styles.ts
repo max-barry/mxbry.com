@@ -43,8 +43,16 @@ const DIMENSIONS = {
 
 /** Colors used across the application */
 const COLORS = {
+  white: "white",
   text: {
     primary: "hsl(0,0%,0%,0.8)"
+  },
+  primary: {
+    "05": "#fff9ee",
+    "10": "#fffee6",
+    "90": "#ffe79c",
+    "100": "#fbda7d", // base
+    "110": "#d8bb63"
   }
 };
 
