@@ -4977,6 +4977,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/marked@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "@types/marked@npm:4.0.2"
+  checksum: 61d7f47b2b9924a63600f975ae0417894d0b5e009d8d75d165ace563ec3b0e56205e66df08bc68017a530315289b491f2626e3e0b8e33ac08aec474b1944f0e8
+  languageName: node
+  linkType: hard
+
 "@types/mdast@npm:^3.0.0":
   version: 3.0.10
   resolution: "@types/mdast@npm:3.0.10"
@@ -15658,7 +15665,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:^4.0.10":
+"marked@npm:^4.0.10, marked@npm:^4.0.12":
   version: 4.0.12
   resolution: "marked@npm:4.0.12"
   bin:
@@ -16270,6 +16277,7 @@ __metadata:
     "@testing-library/react": ^12.0.0
     "@testing-library/user-event": ^13.2.1
     "@types/jest": ^27.0.1
+    "@types/marked": ^4.0.2
     "@types/node": ^16.7.13
     "@types/react": ^17.0.20
     "@types/react-dom": ^17.0.9
@@ -16282,7 +16290,9 @@ __metadata:
     firebase-functions: ^3.18.1
     firebase-functions-test: ^0.3.3
     firebase-tools: ^10.2.1
+    marked: ^4.0.12
     prettier: ^2.5.1
+    raw.macro: ^0.4.2
     react: ^17.0.2
     react-dom: ^17.0.2
     react-scripts: 5.0.0
@@ -19008,6 +19018,15 @@ __metadata:
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
   checksum: 51cc1b0d0e8c37c4336b5318f3b2c9c51d6998ad6f56ea09612afcfefc9c1f596341309e934a744ae907177f28efc9f1654eacd62151e82853fcc6d37450e795
+  languageName: node
+  linkType: hard
+
+"raw.macro@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "raw.macro@npm:0.4.2"
+  dependencies:
+    babel-plugin-macros: ^2.8.0
+  checksum: fb47241f2853e937f5aee7fc07be0abf75031fc46f7c724e75885e8a47930cf65c17471df5946ac91898cad9a5f4c5f1d479fa3085c897a127de6f71dd4a4292
   languageName: node
   linkType: hard
 

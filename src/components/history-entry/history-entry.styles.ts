@@ -1,16 +1,20 @@
 import styled from "@emotion/styled";
 
+import { container } from "../../helpers/components.helpers";
 import { rhythm } from "../../styles/typography.styles";
 
 export const Frame = styled.section`
   display: grid;
-  grid-template-columns: 35% 1fr;
-  grid-gap: 0 ${rhythm(2)};
+  grid-template-columns: 30% 1fr;
+  grid-gap: ${rhythm(1 / 4)} ${rhythm(2)};
+
+  ${container};
 `;
 
 export const Heading = styled.h1<{ headingGradient: string[] }>`
   margin-bottom: ${rhythm(0)};
   position: sticky;
+  z-index: 1;
 
   // For the benefit of intersection observer
   top: -1px;

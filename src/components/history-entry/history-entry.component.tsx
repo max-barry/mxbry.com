@@ -17,6 +17,8 @@ interface Props {
   based: string[];
   /** The linear-gradient of the heading on stick. e.g. [red, blue] or [red, blue, green, 45deg] */
   headingGradient: string[];
+  /** Inner HTML to set as children */
+  dangerouslySetInnerHTML?: React.DOMAttributes<Element>["dangerouslySetInnerHTML"];
 }
 
 export const HistoryEntry: React.FC<Props> = ({
@@ -24,7 +26,8 @@ export const HistoryEntry: React.FC<Props> = ({
   name,
   based,
   timeframe,
-  children
+  children,
+  dangerouslySetInnerHTML: innerHTML
 }) => {
   /** Ref for the frame */
   const $heading = useRef<HTMLHeadingElement>(null);
@@ -54,7 +57,8 @@ export const HistoryEntry: React.FC<Props> = ({
           <Subheading key={where}>{where}</Subheading>
         ))}
       </Subheadings>
-      <div>{children}</div>
+      {innerHTML && <div dangerouslySetInnerHTML={innerHTML} />}
+      {!innerHTML && children && <div>{children}</div>}
     </Frame>
   );
 };

@@ -16,8 +16,12 @@ const theme: TypographyOptions = {
   includeNormalize: false,
   scaleRatio: 4.209,
   bodyColor: "var(--colors-text-primary)",
+  blockMarginBottom: 1 / 2,
   overrideStyles: () => ({
     h1: { fontFamily: FONT_FAMILIES_SERIF.join(","), fontWeight: 400 },
+    "h1,h2,h3,h4,h5": {
+      letterSpacing: "0.015em"
+    },
     "p:last-child": { marginBottom: 0 }
   })
 };

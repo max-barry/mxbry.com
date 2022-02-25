@@ -1,5 +1,7 @@
 import { css } from "@emotion/react";
 
+import { rhythm } from "./typography.styles";
+
 type StyleTokenValues = string | number | string[];
 type StyleTokenLibrary = Record<
   string,
@@ -34,6 +36,12 @@ function libraryToVariables(
   return Object.entries(obj).map(s).join("\n");
 }
 
+/** Dimensions used across the application */
+const DIMENSIONS = {
+  container: rhythm(33)
+};
+
+/** Colors used across the application */
 const COLORS = {
   text: {
     primary: "hsl(0,0%,0%,0.8)"
@@ -42,6 +50,8 @@ const COLORS = {
 
 export const cssVariables = css`
   :root {
+    // Dimensions
+    ${libraryToVariables("dimensions", "", DIMENSIONS)}
     // CSS colors
     ${libraryToVariables("colors", "", COLORS)}
   }
