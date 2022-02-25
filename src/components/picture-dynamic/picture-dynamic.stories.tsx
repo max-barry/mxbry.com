@@ -12,7 +12,11 @@ export default {
 
 const Template: Story<Props> = args => <PictureDynamic {...args} />;
 
-const args: Props = { src: "imagery/hh/2377601275.png", sizes: [100, 200] };
+const args: Props = {
+  src: "imagery/hh/2377601275.png",
+  alt: "",
+  sizes: [100, 200]
+};
 
 export const Standard = Template.bind({});
 Standard.args = args;
