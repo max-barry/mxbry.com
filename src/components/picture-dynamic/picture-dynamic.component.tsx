@@ -1,5 +1,7 @@
-import { useTheme } from "@emotion/react";
+/** @jsxImportSource @emotion/react */
 import React from "react";
+
+import { css, SerializedStyles, useTheme } from "@emotion/react";
 
 import { MEDIA_QUERY_BREAK_POINTS_MAP } from "../../styles/media-queries.styles";
 
@@ -12,11 +14,15 @@ type SizesBreakpointMap = [
   large: [size: SizesRange[2], breakpoint: BreakpointsRange[2]]
 ];
 
+type SupportedFormats = ["avif", "webp"];
+
 interface Props {
   /** Path to the image src on Cloud Storage */
   src: string;
   /** alt tag */
   alt: string;
+  /** Styles tag to add to the <img /> tag */
+  css?: SerializedStyles | SerializedStyles[];
   /**
    * Array of sizes the image will be set to on mobile, tablet, desktop.
    * If there is no larger size then it will be the size for all images up.
@@ -27,9 +33,16 @@ interface Props {
 /** What is the endpoint of the dynamic picture resizer? */
 const PICTURE_DYNAMIC_ENDPOINT = process.env.REACT_APP_STATIC_IMAGERY_ENDPOINT;
 
+/** Default styles we will attach to the image tag */
+const defaultCss = css`
+  width: 100%;
+  user-select: none;
+`;
+
 export const PictureDynamic: React.FC<Props> = ({
   src,
   alt,
+  css: extraCss = [],
   sizes: _sizes
 }) => {
   /** Let's clone sizes to be have undefined or value for all 3 elements */
@@ -64,6 +77,11 @@ export const PictureDynamic: React.FC<Props> = ({
   /** If we don't have any sizes then what's the point */
   if (!imgSize) return null;
 
+  /** Create some simple props for our <img /> */
+  const styles = [defaultCss, ...([] as SerializedStyles[]).concat(extraCss)];
+  const role = alt === "" ? "presentation" : undefined;
+  const srcSet = createSrcSet(appendParam(src, "w", imgSize));
+
   return (
     <picture>
       {forSources.filter(isSizeDefined).map(([size, breakpoint], i) => {
@@ -72,19 +90,19 @@ export const PictureDynamic: React.FC<Props> = ({
 
         return (
           <React.Fragment key={breakpoint + size + i}>
-            <Source {..._props} type="image/avif" />
-            <Source {..._props} type="image/webp" />
+            <Source {..._props} type={["avif", "webp"]} />
             <Source {..._props} />
           </React.Fragment>
         );
       })}
-      <Source src={src} size={imgSize} type="image/avif" />
-      <Source src={src} size={imgSize} type="image/webp" />
+      <Source src={src} size={imgSize} type={["avif", "webp"]} />
       <img
         loading="lazy"
         alt={alt}
-        role={alt === "" ? "presentation" : undefined}
-        srcSet={createSrcSet(appendParam(src, "w", imgSize))}
+        role={role}
+        css={styles}
+        srcSet={srcSet}
+        draggable={false}
       />
     </picture>
   );
@@ -95,27 +113,41 @@ const Source: React.FC<{
   src: string;
   size: number;
   breakpoint?: BreakpointsRange[number];
-  type?: "image/webp" | "image/avif";
-}> = ({ src: _src, size, breakpoint, type }) => {
+  type?: SupportedFormats;
+}> = ({ src: _src, size, breakpoint, type: types = [undefined] }) => {
   /** Remap the src with params */
   let src = _src;
 
   /** Add the size parameter */
   src = appendParam(src, "w", size);
 
-  /** Add the Webp format */
-  if (type === "image/webp") src = appendParam(src, "f", "webp");
-
-  /** Add the Avif format */
-  if (type === "image/avif") src = appendParam(src, "f", "avif");
-
-  /** Create the srcSet */
-  const srcSet = createSrcSet(src);
-
   /** Create the media */
   const media = breakpoint && `(max-width: ${breakpoint})`;
 
-  return <source type={type} media={media} srcSet={srcSet} />;
+  /** Map over the types and render a <source /> for each */
+  return (
+    <>
+      {types.map((type: SupportedFormats[number] | undefined) => {
+        /** Add the Webp format */
+        if (type === "webp") src = appendParam(src, "f", "webp");
+
+        /** Add the Avif format */
+        if (type === "avif") src = appendParam(src, "f", "avif");
+
+        /** Create the srcSet */
+        const srcSet = createSrcSet(src);
+
+        return (
+          <source
+            key={src}
+            media={media}
+            srcSet={srcSet}
+            type={type && `image/${type}`}
+          />
+        );
+      })}
+    </>
+  );
 };
 
 /** Create a 1.0 and 2.0 DPR query parameters */

@@ -15,7 +15,7 @@ export default {
 const args: Props = {
   name: "Hims, Inc.",
   timeframe: "Summer 2021 - Present",
-  based: "🇳🇱 Amsterdam, Netherlands",
+  based: ["🇳🇱 Amsterdam, Netherlands"],
   headingGradient: ["red", "blue"]
 };
 

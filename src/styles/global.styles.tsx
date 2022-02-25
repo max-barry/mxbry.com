@@ -1,4 +1,4 @@
-import { Global } from "@emotion/react/macro";
+import { Global } from "@emotion/react";
 
 import { cssResetCustom, cssResetStandard } from "./css-resets.styles";
 import { cssVariables } from "./css-variables.styles";

@@ -232,7 +232,7 @@ export const dynamicImageResize = functions.https.onRequest(
 
     /** Explain how we'll be compressing */
     logger.info(
-      `Using "${compression.algorithm}" compression, given preference:`,
+      `Using "${compression.algorithm || "no"}" compression, given preference:`,
       request.accepts().join(", ")
     );
 

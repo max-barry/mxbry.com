@@ -14,7 +14,7 @@ interface Props {
   /** When did this job take place */
   timeframe: string;
   /** Where were you based for the job */
-  based: string;
+  based: string[];
   /** The linear-gradient of the heading on stick. e.g. [red, blue] or [red, blue, green, 45deg] */
   headingGradient: string[];
 }
@@ -50,7 +50,9 @@ export const HistoryEntry: React.FC<Props> = ({
         <Subheading>
           <strong>{timeframe}</strong>
         </Subheading>
-        <Subheading>{based}</Subheading>
+        {based.map(where => (
+          <Subheading key={where}>{where}</Subheading>
+        ))}
       </Subheadings>
       <div>{children}</div>
     </Frame>

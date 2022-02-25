@@ -1,12 +1,18 @@
 import { GlobalStyles } from "./styles/global.styles";
+import { MediaQueryTheme } from "./styles/media-queries.styles";
 
-const App: React.FC = () => {
+// @todo: lazy load
+import { Home } from "./pages/pages-home.container";
+
+export const Application: React.FC = () => {
   return (
     <>
       <GlobalStyles />
-      <div style={{ fontFamily: "wmdyjryhmm" }}>Hello</div>
+      <MediaQueryTheme>
+        <main>
+          <Home />
+        </main>
+      </MediaQueryTheme>
     </>
   );
 };
-
-export default App;

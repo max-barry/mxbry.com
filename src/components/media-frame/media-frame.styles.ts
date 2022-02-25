@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 import { rhythm } from "../../styles/typography.styles";
@@ -32,8 +33,17 @@ export const Frame = styled.div`
 
 export const MediaElement = styled.div`
   max-width: ${rhythm(12)};
+  max-height: ${rhythm(12)};
+  width: 100%;
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.14),
     0 12px 4px -8px rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.12);
+`;
+
+/** Styles to set our picture to cover */
+export const imgStyles = css`
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
 `;
