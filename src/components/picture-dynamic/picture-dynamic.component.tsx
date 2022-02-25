@@ -15,6 +15,8 @@ type SizesBreakpointMap = [
 interface Props {
   /** Path to the image src on Cloud Storage */
   src: string;
+  /** alt tag */
+  alt: string;
   /**
    * Array of sizes the image will be set to on mobile, tablet, desktop.
    * If there is no larger size then it will be the size for all images up.
@@ -25,7 +27,11 @@ interface Props {
 /** What is the endpoint of the dynamic picture resizer? */
 const PICTURE_DYNAMIC_ENDPOINT = process.env.REACT_APP_STATIC_IMAGERY_ENDPOINT;
 
-export const PictureDynamic: React.FC<Props> = ({ src, sizes: _sizes }) => {
+export const PictureDynamic: React.FC<Props> = ({
+  src,
+  alt,
+  sizes: _sizes
+}) => {
   /** Let's clone sizes to be have undefined or value for all 3 elements */
   const sizes: Required<SizesRange> = Array.from({
     ..._sizes,
@@ -75,8 +81,9 @@ export const PictureDynamic: React.FC<Props> = ({ src, sizes: _sizes }) => {
       <Source src={src} size={imgSize} type="image/avif" />
       <Source src={src} size={imgSize} type="image/webp" />
       <img
-        alt=""
         loading="lazy"
+        alt={alt}
+        role={alt === "" ? "presentation" : undefined}
         srcSet={createSrcSet(appendParam(src, "w", imgSize))}
       />
     </picture>
