@@ -1,21 +1,18 @@
 import styled from "@emotion/styled";
+import { animated } from "react-spring";
 
 import { rhythm } from "../../styles/typography.styles";
 
-export const Wrap = styled.div`
-  z-index: 0;
-  position: relative;
-
+export const Frame = styled(animated.div)`
   &::before {
     content: "";
-    z-index: -1;
-    pointer-events: none;
     position: fixed;
     left: 0;
     right: 0;
-    top: 0;
     bottom: 0;
-    border: ${rhythm(3 / 4)} solid var(--colors-primary-100);
+    top: 0;
+    border: ${rhythm(3 / 4)} solid;
+    border-color: inherit;
     border-top: 0;
     border-bottom: 0;
   }

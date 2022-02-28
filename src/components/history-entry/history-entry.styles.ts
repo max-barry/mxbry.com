@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 
-import { container } from "../../helpers/components.helpers";
+import { container } from "../../helpers/style-shortcuts.helpers";
 import { rhythm } from "../../styles/typography.styles";
 
-export const Frame = styled.section`
+export const Frame = styled.div`
   display: grid;
   grid-template-columns: 30% 1fr;
   grid-gap: ${rhythm(1 / 4)} ${rhythm(2)};

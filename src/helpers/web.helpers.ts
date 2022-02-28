@@ -16,7 +16,7 @@ import React, { useEffect, useState } from "react";
  * @author Max
  */
 export function useIntersectionObserver<E extends HTMLElement>(
-  _$target: E | React.RefObject<E>,
+  _$target: E | E[] | React.RefObject<E> | null,
   intersectionObserverCallback?: IntersectionObserverCallback,
   options: IntersectionObserverInit = {}
 ) {
@@ -40,11 +40,15 @@ export function useIntersectionObserver<E extends HTMLElement>(
 
   /** onMount attach the observer */
   useEffect(() => {
+    if (!_$target || !io) return;
+
     /** Normalize the $target to a DOM element */
-    const $target = "current" in _$target ? _$target.current : _$target;
+    const $target = [
+      "current" in _$target ? _$target.current : _$target
+    ].flat();
 
     /** Attach the observer */
-    $target && io && io.observe($target);
+    $target.forEach($el => $el && io.observe($el));
 
     /** onUnmount disconnect the observer */
     return () => {

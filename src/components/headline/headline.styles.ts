@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 
+import { container } from "../../helpers/style-shortcuts.helpers";
+
 export const Frame = styled.div`
   overflow: hidden;
   position: relative;
@@ -19,17 +21,15 @@ export const H1 = styled.h1`
   transform: translateY(-10%) translateX(-5%);
 `;
 
-export const Logline = styled.div`
-  text-align: center;
+export const Logline = styled.h4`
+  text-align: right;
   transform: translateY(-100%);
-`;
+  font-weight: 300;
+  margin-bottom: 0;
+  line-height: 1.75;
+  ${container};
 
-export const H3 = styled.h3`
-  &:first-of-type {
-    font-weight: 300;
-  }
-
-  &:last-of-type {
+  > strong {
     font-weight: 500;
   }
 `;

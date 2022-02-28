@@ -42,7 +42,7 @@ const DIMENSIONS = {
 };
 
 /** Colors used across the application */
-const COLORS = {
+export const COLORS = {
   white: "white",
   text: {
     primary: "hsl(0,0%,0%,0.8)"
