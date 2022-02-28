@@ -5,15 +5,18 @@ import { rhythm } from "../../styles/typography.styles";
 
 export const Frame = styled.div`
   display: grid;
-  grid-template-columns: 30% 1fr;
-  grid-gap: ${rhythm(1 / 4)} ${rhythm(2)};
+  grid-template-columns: 37.5% 1fr;
+  grid-gap: ${rhythm(1 / 4)} ${rhythm(1)};
 
   ${container};
 `;
 
-export const Heading = styled.h1<{ headingGradient: string[] }>`
+export const Heading = styled.h1<{
+  headingGradient: string[];
+  stickable: boolean;
+}>`
   margin-bottom: ${rhythm(0)};
-  position: sticky;
+  position: ${({ stickable }) => (stickable ? "sticky" : "static")};
   z-index: 1;
 
   // For the benefit of intersection observer

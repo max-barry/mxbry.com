@@ -20,28 +20,30 @@ export const ZestyBorder: React.FC<Props> = ({
   const [observed, setObserved] = useState<HTMLElement[] | null>(null);
 
   /** Store in state our target color */
-  const [borderColor, setBorderColor] = useState(defaultBorderColor);
+  const [borderColor, setBorderColor] = useState<string | undefined>(
+    defaultBorderColor
+  );
 
   /** Create a spring on the border color */
-  const spring = useSpring({ to: { borderColor }, config: config.gentle });
+  const spring = useSpring({
+    to: { borderColor: borderColor || defaultBorderColor },
+    config: config.gentle
+  });
 
   /** Callback to run when we observe a new entry */
-  const onObservation: IntersectionObserverCallback = useCallback(
-    entries => {
-      /** Find all of the intersecting entries and sort by their y */
-      const [lastIntersectingEntry] = entries
-        .filter(({ isIntersecting }) => isIntersecting)
-        .sort((a, b) => b.boundingClientRect.y - a.boundingClientRect.y);
+  const onObservation: IntersectionObserverCallback = useCallback(entries => {
+    /** Find all of the intersecting entries and sort by their y */
+    const [lastIntersectingEntry] = entries
+      .filter(({ isIntersecting }) => isIntersecting)
+      .sort((a, b) => b.boundingClientRect.y - a.boundingClientRect.y);
 
-      /** Find the zest attribute of this */
-      const nextColor =
-        lastIntersectingEntry?.target.getAttribute(DATA_ZESTY_KEY);
+    /** Find the zest attribute of this */
+    const nextColor =
+      lastIntersectingEntry?.target.getAttribute(DATA_ZESTY_KEY) || undefined;
 
-      /** Set this on state */
-      setBorderColor(nextColor || defaultBorderColor);
-    },
-    [defaultBorderColor]
-  );
+    /** Set this on state */
+    !!lastIntersectingEntry && setBorderColor(nextColor);
+  }, []);
 
   /** Callback for when you have a new DOM mutation */
   const onMutation: MutationCallback = useCallback(mutations => {
@@ -57,7 +59,7 @@ export const ZestyBorder: React.FC<Props> = ({
   }, []);
 
   /** Attach an intersection observer */
-  useIntersectionObserver(observed, onObservation, { threshold: 0.5 });
+  useIntersectionObserver(observed, onObservation, { threshold: 0.6 });
 
   /** Ref to prevent double setup */
   const hasMutationObserver = useRef(false);

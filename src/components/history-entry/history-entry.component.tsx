@@ -19,6 +19,8 @@ interface Props {
   headingGradient: string[];
   /** Inner HTML to set as children */
   dangerouslySetInnerHTML?: React.DOMAttributes<Element>["dangerouslySetInnerHTML"];
+  /** Should this have the sticky effect? default true */
+  stickable?: boolean;
 }
 
 export const HistoryEntry: React.FC<Props> = ({
@@ -27,6 +29,7 @@ export const HistoryEntry: React.FC<Props> = ({
   based,
   timeframe,
   children,
+  stickable = true,
   dangerouslySetInnerHTML: innerHTML
 }) => {
   /** Ref for the frame */
@@ -37,16 +40,18 @@ export const HistoryEntry: React.FC<Props> = ({
 
   /** Attach an intersection observer to the heading */
   useIntersectionObserver(
-    $heading,
+    stickable ? $heading : null,
     ([{ intersectionRatio }]) => setIsStuck(intersectionRatio < 1),
-    {
-      threshold: 1
-    }
+    { threshold: 1 }
   );
 
   return (
     <Frame data-stuck={isStuck}>
-      <Heading ref={$heading} headingGradient={headingGradient}>
+      <Heading
+        ref={$heading}
+        headingGradient={headingGradient}
+        stickable={stickable}
+      >
         {name}
       </Heading>
       <Subheadings>
