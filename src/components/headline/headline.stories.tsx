@@ -13,7 +13,12 @@ export default {
 
 const Template: Story<Props> = args => <Headline {...args} />;
 
-const args: Props = {};
+const args: Props = {
+  children: ""
+};
 
-export const Standard = Template.bind({});
-Standard.args = args;
+export const Work = Template.bind({});
+Work.args = { ...args, children: "Work" };
+
+export const Contact = Template.bind({});
+Contact.args = { ...args, children: "Contact" };

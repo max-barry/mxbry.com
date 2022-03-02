@@ -53,6 +53,13 @@ export const COLORS = {
     "90": "#ffe79c",
     "100": "#fbda7d", // base
     "110": "#d8bb63"
+  },
+  neutral: {
+    "05": "#fafaff",
+    "10": "#f1f1f7",
+    "90": "#e0e0e7",
+    "100": "#d8d7de",
+    "110": "#c7c6ce"
   }
 };
 

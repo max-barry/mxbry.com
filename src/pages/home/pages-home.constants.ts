@@ -120,7 +120,7 @@ export const content: ContentSection[] = [
     ]
   },
   {
-    zest: "#fe6124",
+    zest: "#2dafbf",
     elements: [
       {
         component: "history",
@@ -136,8 +136,9 @@ export const content: ContentSection[] = [
         component: "media-frame",
         props: {
           mediaElements: [
-            { src: "imagery/r/5394285394.png", alt: "" },
-            { src: "imagery/r/6107123711.png", alt: "" }
+            { src: "imagery/r/2946853944.png", alt: "" },
+            { src: "imagery/r/4389953439.png", alt: "" },
+            { src: "imagery/r/5838343794.png", alt: "" }
           ]
         }
       }

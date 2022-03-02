@@ -17,8 +17,13 @@ const theme: TypographyOptions = {
   scaleRatio: 4.209,
   bodyColor: "var(--colors-text-primary)",
   blockMarginBottom: 1 / 2,
+  headerLineHeight: 1.4,
   overrideStyles: () => ({
-    h1: { fontFamily: FONT_FAMILIES_SERIF.join(","), fontWeight: 400 },
+    h1: {
+      fontFamily: FONT_FAMILIES_SERIF.join(","),
+      fontWeight: 400,
+      lineHeight: 1.1
+    },
     "h1,h2,h3,h4,h5": {
       letterSpacing: "0.015em"
     },
@@ -28,7 +33,8 @@ const theme: TypographyOptions = {
 
 const typography = new Typography(theme);
 
-export const { scale, rhythm } = typography;
+export const scale = typography.scale;
+export const rhythm = typography.rhythm;
 
 export const globalTypographyStyles = css`
   ${typography.toString()}
@@ -43,6 +49,26 @@ export const fontFaces = css`
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+  }
+
+  @font-face {
+    font-family: "${FONT_FAMILIES.sans}";
+    src: url("${FONT_DIRECTORY_SANS}/${FONT_FAMILIES.sans}-lightitalic.woff2")
+        format("woff2"),
+      url("${FONT_DIRECTORY_SANS}/${FONT_FAMILIES.sans}-lightitalic.woff")
+        format("woff");
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: "${FONT_FAMILIES.sans}";
+    src: url("${FONT_DIRECTORY_SANS}/${FONT_FAMILIES.sans}-light.woff2")
+        format("woff2"),
+      url("${FONT_DIRECTORY_SANS}/${FONT_FAMILIES.sans}-light.woff")
+        format("woff");
+    font-weight: 300;
+    font-style: normal;
   }
 
   @font-face {

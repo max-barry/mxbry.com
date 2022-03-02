@@ -11,7 +11,7 @@ import { Section } from "./pages-home.styles";
 
 export const Home: React.FC = () => (
   <ZestyBorder>
-    <Headline {...withZestyProp("")} />
+    <Headline {...withZestyProp("")}>Work</Headline>
     {content.map(({ zest, elements }, i) => {
       /** Key to set on the fragment. Could be better. */
       const key = zest + i;
@@ -44,5 +44,6 @@ export const Home: React.FC = () => (
         </Section>
       );
     })}
+    <Headline {...withZestyProp("")}>Contact</Headline>
   </ZestyBorder>
 );

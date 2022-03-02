@@ -1,16 +1,13 @@
 import { HTMLAttributes } from "react";
 
-import { Frame, H1, Logline } from "./headline.styles";
+import { Frame, H1 } from "./headline.styles";
 
-interface Props extends HTMLAttributes<HTMLDivElement> {}
+interface Props extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
+  children: string;
+}
 
-export const Headline: React.FC<Props> = props => (
+export const Headline: React.FC<Props> = ({ children, ...props }) => (
   <Frame {...props}>
-    <H1>mxbry</H1>
-    <Logline>
-      Product development &amp; engineering
-      <br />
-      <strong>Experienced in company building</strong>
-    </Logline>
+    <H1 leng={children.length}>{children}</H1>
   </Frame>
 );
