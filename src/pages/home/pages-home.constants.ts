@@ -37,11 +37,11 @@ export const content: ContentSection[] = [
         component: "media-frame",
         props: {
           mediaElements: [
-            { src: "imagery/hh/2377601275.png", alt: "" },
-            { src: "imagery/hh/3762754392.png", alt: "" },
             { src: "imagery/hh/6380691359.jpeg", alt: "" },
-            { src: "imagery/hh/5588621125.png", alt: "" },
-            { src: "imagery/hh/8554291298.png", alt: "" }
+            { src: "imagery/hh/3762754392.png", alt: "" },
+            { src: "imagery/hh/8554291298.png", alt: "" },
+            { src: "imagery/hh/2377601275.png", alt: "" },
+            { src: "imagery/hh/5588621125.png", alt: "" }
           ]
         }
       }
@@ -81,12 +81,9 @@ export const content: ContentSection[] = [
         component: "media-frame",
         props: {
           mediaElements: [
-            { src: "imagery/hh/2377601275.png", alt: "" },
-            { src: "imagery/hh/3762754392.png", alt: "" },
-            { src: "imagery/hh/6380691359.jpeg", alt: "" },
-            { src: "imagery/hh/5588621125.png", alt: "" },
-            { src: "imagery/hh/6828698345.jpg", alt: "" },
-            { src: "imagery/hh/8554291298.png", alt: "" }
+            { src: "imagery/n/6829145781.jpeg", alt: "" },
+            { src: "imagery/n/0911706493.png", alt: "" },
+            { src: "imagery/n/5075446718.png", alt: "" }
           ]
         }
       }

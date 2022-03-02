@@ -47,5 +47,6 @@ export const Home: React.FC = () => (
         </Section>
       );
     })}
+    <Headline {...withZestyProp("")}>Thanks</Headline>
   </ZestyBorder>
 );

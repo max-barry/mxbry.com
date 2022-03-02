@@ -5,7 +5,14 @@ import { rhythm } from "../../styles/typography.styles";
 export const Frame = styled.div`
   overflow: hidden;
   position: relative;
-  margin-bottom: ${rhythm(3)};
+
+  &:last-child {
+    margin-top: ${rhythm(3)};
+  }
+
+  &:not(:last-child) {
+    margin-bottom: ${rhythm(3)};
+  }
 `;
 
 const DYNAMIC_FONT_SIZE_BASE_VW = 44;
