@@ -15,13 +15,8 @@ export const parameters = {
 export const decorators = [
   Story => (
     <MediaQueryTheme>
-      <Story />
-    </MediaQueryTheme>
-  ),
-  Story => (
-    <>
       <GlobalStyles />
       <Story />
-    </>
+    </MediaQueryTheme>
   )
 ];

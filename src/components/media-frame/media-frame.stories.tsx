@@ -22,11 +22,11 @@ const Template: Story<Props> = args => (
 
 const args: Props = {
   mediaElements: [
-    { src: "https://unsplash.it/640/640", alt: "" },
-    { src: "https://unsplash.it/640/640", alt: "" },
-    { src: "https://unsplash.it/640/640", alt: "" },
-    { src: "https://unsplash.it/640/640", alt: "" },
-    { src: "https://unsplash.it/640/640", alt: "" }
+    { src: "imagery/hh/6380691359.jpeg", alt: "" },
+    { src: "imagery/hh/6380691359.jpeg", alt: "" },
+    { src: "imagery/hh/6380691359.jpeg", alt: "" },
+    { src: "imagery/hh/6380691359.jpeg", alt: "" },
+    { src: "imagery/hh/6380691359.jpeg", alt: "" }
   ]
 };
 

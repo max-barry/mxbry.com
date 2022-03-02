@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import { down } from "styled-breakpoints";
 import Typography, { TypographyOptions } from "typography";
 
 const FONT_DIRECTORY = `${process.env.PUBLIC_URL}/fonts`;
@@ -18,8 +19,9 @@ const theme: TypographyOptions = {
   bodyColor: "var(--colors-text-primary)",
   blockMarginBottom: 1 / 2,
   headerLineHeight: 1.4,
-  overrideStyles: () => ({
-    h1: {
+  overrideStyles: ({ adjustFontSizeTo }) => ({
+    "h1,h2": {
+      ...adjustFontSizeTo("84px"),
       fontFamily: FONT_FAMILIES_SERIF.join(","),
       fontWeight: 400,
       lineHeight: 1.1
@@ -35,9 +37,16 @@ const typography = new Typography(theme);
 
 export const scale = typography.scale;
 export const rhythm = typography.rhythm;
+export const typographyRules = typography.toString();
 
-export const globalTypographyStyles = css`
-  ${typography.toString()}
+export const globalTypographyStyles = props => css`
+  ${typography.toString()};
+
+  html {
+    ${down("sm")(props)} {
+      font-size: 15px;
+    }
+  }
 `;
 
 export const fontFaces = css`

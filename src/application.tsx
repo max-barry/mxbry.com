@@ -4,15 +4,11 @@ import { MediaQueryTheme } from "./styles/media-queries.styles";
 // @todo: lazy load
 import { Home } from "./pages/home/pages-home.container";
 
-export const Application: React.FC = () => {
-  return (
-    <>
-      <GlobalStyles />
-      <MediaQueryTheme>
-        <main>
-          <Home />
-        </main>
-      </MediaQueryTheme>
-    </>
-  );
-};
+export const Application: React.FC = () => (
+  <MediaQueryTheme>
+    <GlobalStyles />
+    <main>
+      <Home />
+    </main>
+  </MediaQueryTheme>
+);

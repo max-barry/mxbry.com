@@ -1,15 +1,20 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { up } from "styled-breakpoints";
 
 import { rhythm } from "../../styles/typography.styles";
 
 export const Frame = styled.div`
-  --gap: ${rhythm(1)};
+  --gap: ${rhythm(1 / 2)};
 
   display: flex;
   gap: var(--gap);
   overflow: auto;
   padding: calc(var(--gap) * 2) 0;
+
+  ${up("medium")} {
+    --gap: ${rhythm(1)};
+  }
 
   > * {
     flex-shrink: 0;

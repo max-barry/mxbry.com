@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { up } from "styled-breakpoints";
 
 import { container } from "../../helpers/style-shortcuts.helpers";
 import { rhythm } from "../../styles/typography.styles";
@@ -8,9 +9,37 @@ export const Major = styled.h1`
 `;
 
 export const Minor = styled.h3`
-  margin-bottom: 0;
   font-weight: 300;
-  padding-top: ${rhythm(1 / 4)};
+  position: relative;
+  padding-left: ${rhythm(1)};
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    background-color: var(--colors-primary-110);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: ${rhythm(3 / 2)};
+  }
+
+  ${up("medium")} {
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-top: ${rhythm(1 / 4)};
+
+    &::before {
+      display: none;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
 
   a {
     --pad: ${rhythm(1 / 4)};
@@ -76,26 +105,32 @@ export const Minor = styled.h3`
     }
   }
 
-  a:hover,
-  a:focus {
-    svg {
-      transform: translateX(100%);
-      opacity: 0;
-    }
+  ${up("medium")} {
+    a:hover,
+    a:focus {
+      svg {
+        transform: translateX(100%);
+        opacity: 0;
+      }
 
-    &::before,
-    &::after {
-      transform: translate3d(0%, -50%, 0);
-      opacity: 1;
+      &::before,
+      &::after {
+        transform: translate3d(0%, -50%, 0);
+        opacity: 1;
+      }
     }
   }
 `;
 
 export const Frame = styled.div`
   display: grid;
-  padding-bottom: ${rhythm(5)};
-  grid-template-columns: min-content 1fr;
-  grid-gap: ${rhythm(3 / 2)} ${rhythm(2)};
+  grid-template-columns: 100%;
   align-items: start;
+
   ${container}
+
+  ${up("medium")} {
+    grid-gap: ${rhythm(3 / 2)} ${rhythm(2)};
+    grid-template-columns: min-content 1fr;
+  }
 `;

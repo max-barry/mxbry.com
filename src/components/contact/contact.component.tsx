@@ -11,16 +11,16 @@ export const Contact: React.FC<Props> = () => (
     <Minor>
       This the portfolio of Max Barry, experience and prouct engineer.
     </Minor>
-    <Major>What</Major>
+    <Major as="h2">What</Major>
     <Minor>
       I often work with new or early-stage businesses; talking about product
       direction and creative development; early-stage growth ideas; growing a
       business through new hires; and technical advice and engineering
       implementation.
     </Minor>
-    <Major>Email</Major>
+    <Major as="h2">Email</Major>
     <Minor>max (at) mxbry.com</Minor>
-    <Major>Further Contact</Major>
+    <Major as="h2">Further Contact</Major>
     <Minor>
       Get in touch by email, or connect on{" "}
       <a
