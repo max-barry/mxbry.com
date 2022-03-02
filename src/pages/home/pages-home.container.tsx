@@ -8,9 +8,12 @@ import { MediaFrame } from "../../components/media-frame";
 import { withZestyProp, ZestyBorder } from "../../components/zesty-border";
 import { content } from "./pages-home.constants";
 import { Section } from "./pages-home.styles";
+import { Contact } from "../../components/contact";
 
 export const Home: React.FC = () => (
   <ZestyBorder>
+    <Headline {...withZestyProp("")}>Contact</Headline>
+    <Contact />
     <Headline {...withZestyProp("")}>Work</Headline>
     {content.map(({ zest, elements }, i) => {
       /** Key to set on the fragment. Could be better. */
@@ -44,6 +47,5 @@ export const Home: React.FC = () => (
         </Section>
       );
     })}
-    <Headline {...withZestyProp("")}>Contact</Headline>
   </ZestyBorder>
 );

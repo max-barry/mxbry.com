@@ -93,7 +93,7 @@ export const Minor = styled.h3`
 
 export const Frame = styled.div`
   display: grid;
-  padding-bottom: ${rhythm(2)};
+  padding-bottom: ${rhythm(5)};
   grid-template-columns: min-content 1fr;
   grid-gap: ${rhythm(3 / 2)} ${rhythm(2)};
   align-items: start;
