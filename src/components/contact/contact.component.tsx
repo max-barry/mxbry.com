@@ -9,7 +9,7 @@ export const Contact: React.FC<Props> = () => (
   <Frame>
     <Major>Who</Major>
     <Minor>
-      This the portfolio of Max Barry, experience and prouct engineer.
+      This the portfolio of Max Barry, experience and product engineer.
     </Minor>
     <Major as="h2">What</Major>
     <Minor>
