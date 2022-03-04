@@ -1,20 +1,17 @@
 import { Global } from "@emotion/react";
 
-import { cssResetCustom, cssResetStandard } from "./css-resets.styles";
-import { cssVariables } from "./css-variables.styles";
-import {
-  globalTypographyStyles as typographyStyles,
-  fontFaces
-} from "./typography.styles";
+import { cssResetCustom, cssResetStandard } from "./resets.styles";
+import { tokensAsVariables } from "./tokens.styles";
+import { globalTypeStyles, fontFaces } from "./typography.styles";
 
 export const GlobalStyles = () => (
   <Global
     styles={[
       fontFaces,
-      cssVariables,
+      tokensAsVariables,
       cssResetStandard,
-      typographyStyles,
-      cssResetCustom
+      cssResetCustom,
+      globalTypeStyles
     ]}
   />
 );

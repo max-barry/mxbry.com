@@ -2,7 +2,7 @@ import { GlobalStyles } from "./styles/global.styles";
 import { MediaQueryTheme } from "./styles/media-queries.styles";
 
 // @todo: lazy load
-import { Home } from "./pages/home/pages-home.container";
+import { Home } from "./pages/home";
 
 export const Application: React.FC = () => (
   <MediaQueryTheme>
