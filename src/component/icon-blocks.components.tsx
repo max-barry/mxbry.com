@@ -1,9 +1,10 @@
+/** @jsxImportSource @emotion/react */
 import React, { Suspense } from "react";
 
 import { css } from "@emotion/react";
 
 import { lazyNamed } from "../helpers/performance.helpers";
-import { A, FONT_BASE_LINE_HEIGHT } from "../styles/typography.styles";
+import { A } from "../styles/typography.styles";
 
 type NationAvailable = "nl" | "gb" | "us" | "pt";
 
@@ -36,27 +37,41 @@ const { ReactComponent: FlagUs } = lazyNamed(
   () => import("../statics/icons/flag-united-states.svg")
 );
 
-/** Fallback for the icons that are lazy loaded */
-const FallbackIcon = (
-  <span
-    data-fallback-icon
-    style={{ width: `calc(1em * ${FONT_BASE_LINE_HEIGHT})` }}
-  />
+export const { ReactComponent: IdeaIcon } = lazyNamed(
+  () => import("../statics/icons/general-idea.svg")
 );
 
-const LinkBase: React.FC<{
+/** Styles share for icons */
+const iconBlockSharedStyles = css`
+  display: grid;
+  grid-template-columns: max-content 1fr;
+`;
+
+/** Fallback for the icons that are lazy loaded */
+export const FallbackInlineIcon = <span data-fallback-icon />;
+
+export const IconBody: React.FC<{
+  icon: React.FunctionComponent<any>;
+  color?: string;
+}> = ({ icon: Icon, color = "var(--colors-primary-100)", children }) => (
+  <p css={iconBlockSharedStyles}>
+    <Suspense fallback={FallbackInlineIcon}>
+      <Icon role="presentation" style={{ color }} />
+    </Suspense>
+    {children}
+  </p>
+);
+
+export const LinkBase: React.FC<{
   color: string;
   path: string;
   base: string;
   icon: React.FunctionComponent<any>;
 }> = ({ children, icon: Icon, color, base, path = "/" }) => (
   <p>
-    <A
-      href={`${base}${path}`}
-      style={{ display: "grid", gridTemplateColumns: "max-content 1fr" }}
-    >
-      <Suspense fallback={FallbackIcon}>
-        <Icon style={{ color }} />
+    <A href={`${base}${path}`} css={iconBlockSharedStyles}>
+      <Suspense fallback={FallbackInlineIcon}>
+        <Icon role="presentation" style={{ color }} />
       </Suspense>
       {children}
     </A>
@@ -99,7 +114,7 @@ export const MediumLink: React.FC<{ path?: string }> = ({
   <LinkBase
     color="currentColor"
     icon={Medium}
-    base="https://www.linkedin.com/in/maxbarry"
+    base="http://medium.com/@maxbarry"
     path={path}
   >
     {children}
@@ -134,11 +149,11 @@ export const Flag: React.FC<{ country: NationAvailable; where?: string }> = ({
     )[country];
 
   return (
-    <>
-      <Suspense fallback={FallbackIcon}>
+    <React.Fragment>
+      <Suspense fallback={FallbackInlineIcon}>
         <Icon style={{ transform: "translateY(-0.125em)" }} />
       </Suspense>
       {label}
-    </>
+    </React.Fragment>
   );
 };

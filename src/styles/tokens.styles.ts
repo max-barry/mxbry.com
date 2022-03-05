@@ -23,8 +23,15 @@ export const COLORS = {
   white: "white",
   text: { primary: "hsl(0,0%,0%,0.8)" },
   headings: {
-    primary: "#3654A0",
-    hims: "#E0B188"
+    primary: "var(--colors-primary-100)",
+    hims: "#E0B188",
+    narative: "#2a2597",
+    velmer: "#39df88",
+    route1: "#e59d19",
+    havas: "#ce3118"
+  },
+  primary: {
+    "100": "#30a395"
   },
   neutral: {
     "05": "#fafaff",

@@ -43,9 +43,17 @@ export const globalTypeStyles = css`
   a {
     cursor: pointer;
     transition: opacity 120ms;
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.1em;
+
+    &:visited {
+      text-decoration-style: line-through;
+    }
 
     &:hover,
-    &:focus {
+    &:focus,
+    &:visited {
       opacity: 0.6;
     }
   }
@@ -56,6 +64,10 @@ export const globalTypeStyles = css`
     &:not(:last-child) {
       margin-bottom: ${PARAGRAPH_BASE_MARGIN};
     }
+  }
+
+  strong {
+    text-transform: uppercase;
   }
 
   // SVGs interior to text
@@ -70,6 +82,7 @@ export const globalTypeStyles = css`
     svg,
     [data-fallback-icon] {
       height: calc(1em * ${FONT_BASE_LINE_HEIGHT});
+      min-width: calc(1em * ${FONT_BASE_LINE_HEIGHT});
       vertical-align: middle;
       margin-right: 1ch;
       display: inline-block;
@@ -110,7 +123,6 @@ export function rhythm(scaler: number) {
 }
 
 /** Type components */
-
 export const HeadingOne = styled.h2<{ color: HEADING_COLORS }>`
   text-transform: uppercase;
   color: var(--colors-headings-${({ color }) => color});
