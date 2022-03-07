@@ -70,6 +70,17 @@ export const globalTypeStyles = css`
     text-transform: uppercase;
   }
 
+  --text-selection-color: var(--colors-neutral-90);
+
+  /* Code for Firefox */
+  ::-moz-selection {
+    background-color: var(--text-selection-color);
+  }
+
+  ::selection {
+    background-color: var(--text-selection-color);
+  }
+
   // SVGs interior to text
   p,
   a,
