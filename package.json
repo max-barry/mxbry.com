@@ -2,13 +2,13 @@
   "name": "mxbry.com",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "start:prod": "yarn dlx serve -s build"
   },
   "packageManager": "yarn@3.1.1",
   "engines": {
