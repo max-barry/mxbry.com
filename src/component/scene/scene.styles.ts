@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { COUNTER_RESET_NAME_SCENES } from "../../styles/tokens.styles";
 import {
   HeadingOne,
+  HeadingTwo,
   PARAGRAPH_BASE_MARGIN,
   rhythm
 } from "../../styles/typography.styles";
@@ -38,5 +39,15 @@ export const Title = styled(HeadingOne)`
 
   & + p + * {
     margin-top: ${PARAGRAPH_BASE_MARGIN};
+  }
+`;
+
+export const ExtHeading = styled(HeadingTwo)`
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 0 1ch;
+
+  > span:not(:first-child) {
+    grid-column: 2;
   }
 `;

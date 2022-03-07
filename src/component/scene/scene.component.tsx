@@ -1,7 +1,7 @@
 import { PropsOf } from "@emotion/react";
 
 import { HeadingTwo, Transition } from "../../styles/typography.styles";
-import { Title, Frame, Interior } from "./scene.styles";
+import { Title, Frame, ExtHeading, Interior } from "./scene.styles";
 
 type TitleProps = PropsOf<typeof Title>;
 
@@ -35,7 +35,10 @@ export const Scene: React.FC<Props> = ({
     <Interior>
       <div>
         <HeadingTwo>Super: “{sup}”</HeadingTwo>
-        <HeadingTwo>Ext. {ext}</HeadingTwo>
+        <ExtHeading>
+          <span>Ext.</span>
+          {ext}
+        </ExtHeading>
       </div>
       <div>
         <Title {...title}>{titleText}</Title>

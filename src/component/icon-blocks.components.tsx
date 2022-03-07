@@ -149,11 +149,11 @@ export const Flag: React.FC<{ country: NationAvailable; where?: string }> = ({
     )[country];
 
   return (
-    <React.Fragment>
+    <span>
       <Suspense fallback={FallbackInlineIcon}>
         <Icon style={{ transform: "translateY(-0.125em)" }} />
       </Suspense>
       {label}
-    </React.Fragment>
+    </span>
   );
 };
